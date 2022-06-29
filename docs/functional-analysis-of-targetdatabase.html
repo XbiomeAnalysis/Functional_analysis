@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Functional Analysis of TargetDatabase | Functional analysis</title>
+  <meta name="description" content="Tutorial for MGS functional analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Functional Analysis of TargetDatabase | Functional analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial for MGS functional analysis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Functional Analysis of TargetDatabase | Functional analysis" />
+  
+  <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
+  
+
+<meta name="author" content="Bangzhuo Tong" />
+
+
+<meta name="date" content="2022-06-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="preprocess-of-functional-analysis-of-targetdatabase.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Function standard analysis workflow</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html"><i class="fa fa-check"></i><b>2</b> Functional Analysis of Metacyc database</a><ul>
+<li class="chapter" data-level="2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#environment-setup"><i class="fa fa-check"></i><b>2.1</b> Environment setup</a></li>
+<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#load-data"><i class="fa fa-check"></i><b>2.2</b> load data</a></li>
+<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#remove-unppaed-pathways"><i class="fa fa-check"></i><b>2.3</b> Remove unppaed pathways</a></li>
+<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.4</b> Plot Beta diversity</a></li>
+<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.5</b> Permanova test</a></li>
+<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.6</b> Differential analysis(DA)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#preprocess-before-da"><i class="fa fa-check"></i><b>2.6.1</b> Preprocess before DA</a></li>
+<li class="chapter" data-level="2.6.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#lefse"><i class="fa fa-check"></i><b>2.6.2</b> LefSE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contributing-to-differential-pathways"><i class="fa fa-check"></i><b>2.7</b> Bacteria contributing to differential pathways</a></li>
+<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8</b> Plot Bacteria Contribution</a></li>
+<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#gene-and-ensyme-involed-in-differential-pathways"><i class="fa fa-check"></i><b>2.9</b> Gene and Ensyme involed in differential pathways</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#load-tables-to-mapping-pathway-to-gene-and-enzyme"><i class="fa fa-check"></i><b>2.9.1</b> load tables to mapping pathway to gene and enzyme</a></li>
+<li class="chapter" data-level="2.9.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#mapping-pathway-to-related-gene-and-reaction"><i class="fa fa-check"></i><b>2.9.2</b> Mapping pathway to related gene and reaction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.10</b> Session Info</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Preprocess of Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="3.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="3.2" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#process-pipeline-output"><i class="fa fa-check"></i><b>3.2</b> Process pipeline output</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#merge-data-from-humann2-pipeline-kegg-database"><i class="fa fa-check"></i><b>3.2.1</b> Merge data from humann2 pipeline (Kegg database)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#session-info-1"><i class="fa fa-check"></i><b>3.3</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="4.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#environment-setup-2"><i class="fa fa-check"></i><b>4.1</b> Environment setup</a></li>
+<li class="chapter" data-level="4.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#read-in-processed-profile-table-from-script-functional_analysis_kegg_pathway_preprocess.rmd"><i class="fa fa-check"></i><b>4.2</b> Read in processed profile table from script Functional_Analysis_Kegg_Pathway_preprocess.Rmd</a></li>
+<li class="chapter" data-level="4.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#pre-process-pathway-data"><i class="fa fa-check"></i><b>4.3</b> Pre-process pathway data</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-the-pathways-whose-abundance-are-0-across-all-samples"><i class="fa fa-check"></i><b>4.3.1</b> Remove the pathways whose abundance are 0 across all samples</a></li>
+<li class="chapter" data-level="4.3.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#rescale-data"><i class="fa fa-check"></i><b>4.3.2</b> Rescale data</a></li>
+<li class="chapter" data-level="4.3.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-unammped-entry"><i class="fa fa-check"></i><b>4.3.3</b> Remove UNAMMPED entry</a></li>
+<li class="chapter" data-level="4.3.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#filter-low-abundance-pathway"><i class="fa fa-check"></i><b>4.3.4</b> Filter low abundance pathway</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#standard-analysis"><i class="fa fa-check"></i><b>4.4</b> Standard Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysis"><i class="fa fa-check"></i><b>4.5</b> Differential analysis</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#filter-low-prevalence-pathway"><i class="fa fa-check"></i><b>4.5.1</b> Filter low prevalence pathway</a></li>
+<li class="chapter" data-level="4.5.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#da"><i class="fa fa-check"></i><b>4.5.2</b> DA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information"><i class="fa fa-check"></i><b>4.6</b> Session information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>5</b> Preprocess of Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="5.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#preprocess---merge-sample-data"><i class="fa fa-check"></i><b>5.1</b> Preprocess - Merge sample data</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#use-script-merge_metaphlan_tables.py-from-humann2-to-merge-all-gene_family-profile-files.-1"><i class="fa fa-check"></i><b>5.1.1</b> Use Script merge_metaphlan_tables.py from humann2 to merge all gene_family profile files.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>6</b> Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-3"><i class="fa fa-check"></i><b>6.1</b> Environment setup</a></li>
+<li class="chapter" data-level="6.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#use-card-data-as-example"><i class="fa fa-check"></i><b>6.2</b> Use card data as example</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#read-in-card-data"><i class="fa fa-check"></i><b>6.2.1</b> Read in card data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#split-strain-info"><i class="fa fa-check"></i><b>6.2.2</b> Split strain info</a></li>
+<li class="chapter" data-level="6.2.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#rescale-card-data"><i class="fa fa-check"></i><b>6.2.3</b> Rescale card data</a></li>
+<li class="chapter" data-level="6.2.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#remove-unmapped-row"><i class="fa fa-check"></i><b>6.2.4</b> Remove UNMAPPED row</a></li>
+<li class="chapter" data-level="6.2.5" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-abundance-data"><i class="fa fa-check"></i><b>6.2.5</b> Filter low abundance data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#basic-analysis"><i class="fa fa-check"></i><b>6.2.6</b> Basic analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysis-1"><i class="fa fa-check"></i><b>6.3</b> Differential analysis</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-prevalence-pathway-1"><i class="fa fa-check"></i><b>6.3.1</b> Filter low prevalence pathway</a></li>
+<li class="chapter" data-level="6.3.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#da-1"><i class="fa fa-check"></i><b>6.3.2</b> DA</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#session-info-2"><i class="fa fa-check"></i><b>6.4</b> Session info</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="functional-analysis-of-targetdatabase" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Functional Analysis of TargetDatabase</h1>
+<div id="environment-setup-3" class="section level2">
+<h2><span class="header-section-number">6.1</span> Environment setup</h2>
+</div>
+<div id="use-card-data-as-example" class="section level2">
+<h2><span class="header-section-number">6.2</span> Use card data as example</h2>
+<p>Same as kegg pathway data, we normalize data at the begining of analysis to reduce the differences of sequencing depth across all samples.</p>
+<div id="read-in-card-data" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Read in card data</h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="functional-analysis-of-targetdatabase.html#cb62-1"></a><span class="co">## Read in merged card profile data</span></span>
+<span id="cb62-2"><a href="functional-analysis-of-targetdatabase.html#cb62-2"></a></span>
+<span id="cb62-3"><a href="functional-analysis-of-targetdatabase.html#cb62-3"></a>merged_card_profile &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/Demo_data/merged_card_profile.tsv&#39;</span>,</span>
+<span id="cb62-4"><a href="functional-analysis-of-targetdatabase.html#cb62-4"></a>                                  <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>, <span class="dt">na.strings =</span> <span class="st">&#39;?&#39;</span>,<span class="dt">comment.char =</span> <span class="st">&#39;?&#39;</span>)</span>
+<span id="cb62-5"><a href="functional-analysis-of-targetdatabase.html#cb62-5"></a></span>
+<span id="cb62-6"><a href="functional-analysis-of-targetdatabase.html#cb62-6"></a><span class="kw">head</span>(merged_card_profile, <span class="dt">n =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                                                            ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies
+## 1                                                    UNMAPPED           74770310           78620271       9.108383e+07           59917196       7.522313e+07
+## 2 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                  0                  0       5.717561e+01                  0       5.297855e+02
+##   14291_genefamilies 14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
+## 1           83467959       7.715543e+07           33464854           36544800              10196
+## 2                  0       7.087747e+01                  0                  0                  0</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="functional-analysis-of-targetdatabase.html#cb64-1"></a><span class="co">## Read in metadata (Group information)</span></span>
+<span id="cb64-2"><a href="functional-analysis-of-targetdatabase.html#cb64-2"></a></span>
+<span id="cb64-3"><a href="functional-analysis-of-targetdatabase.html#cb64-3"></a>metadata &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/Demo_data/Demo_metadata.xls&#39;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="split-strain-info" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Split strain info</h3>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="functional-analysis-of-targetdatabase.html#cb65-1"></a><span class="co">## Split strain info. Profile generated from humann2 has species information, thus we need to extract them.</span></span>
+<span id="cb65-2"><a href="functional-analysis-of-targetdatabase.html#cb65-2"></a><span class="co">## Straintified profile</span></span>
+<span id="cb65-3"><a href="functional-analysis-of-targetdatabase.html#cb65-3"></a></span>
+<span id="cb65-4"><a href="functional-analysis-of-targetdatabase.html#cb65-4"></a>straintified_merged_card_profile &lt;-<span class="st"> </span>merged_card_profile[<span class="kw">grep</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">|s_&#39;</span>, merged_card_profile<span class="op">$</span>ID),]</span>
+<span id="cb65-5"><a href="functional-analysis-of-targetdatabase.html#cb65-5"></a></span>
+<span id="cb65-6"><a href="functional-analysis-of-targetdatabase.html#cb65-6"></a><span class="kw">head</span>(straintified_merged_card_profile, <span class="dt">n =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                                                                                      ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies
+## 3 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]|s_Clostridium_perfringens            0.00000            0.00000           57.17561                  0
+## 5 gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]|s_Clostridium_perfringens           39.23001           24.44716            0.00000                  0
+##   14290_genefamilies 14291_genefamilies 14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
+## 3           529.7855                  0           70.87747                  0                  0                  0
+## 5          1075.7261                  0           86.77132                  0                  0                  0</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="functional-analysis-of-targetdatabase.html#cb67-1"></a><span class="co">## Exclude Strain info</span></span>
+<span id="cb67-2"><a href="functional-analysis-of-targetdatabase.html#cb67-2"></a></span>
+<span id="cb67-3"><a href="functional-analysis-of-targetdatabase.html#cb67-3"></a>merged_card_profile &lt;-<span class="st"> </span>merged_card_profile[<span class="kw">grep</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">|s_&#39;</span>, merged_card_profile<span class="op">$</span>ID, <span class="dt">invert =</span> <span class="ot">TRUE</span>),]</span>
+<span id="cb67-4"><a href="functional-analysis-of-targetdatabase.html#cb67-4"></a></span>
+<span id="cb67-5"><a href="functional-analysis-of-targetdatabase.html#cb67-5"></a><span class="kw">head</span>(merged_card_profile, <span class="dt">n =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                                                            ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies
+## 1                                                    UNMAPPED           74770310           78620271       9.108383e+07           59917196       7.522313e+07
+## 2 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                  0                  0       5.717561e+01                  0       5.297855e+02
+##   14291_genefamilies 14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
+## 1           83467959       7.715543e+07           33464854           36544800              10196
+## 2                  0       7.087747e+01                  0                  0                  0</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="functional-analysis-of-targetdatabase.html#cb69-1"></a><span class="kw">rownames</span>(straintified_merged_card_profile) &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb69-2"><a href="functional-analysis-of-targetdatabase.html#cb69-2"></a><span class="kw">rownames</span>(merged_card_profile) &lt;-<span class="st"> </span><span class="ot">NULL</span></span></code></pre></div>
+</div>
+<div id="rescale-card-data" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Rescale card data</h3>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="functional-analysis-of-targetdatabase.html#cb70-1"></a>rescaled_merged_card_profile &lt;-<span class="st"> </span>merged_card_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;ID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(., <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="op">/</span><span class="kw">sum</span>(x)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb70-2"><a href="functional-analysis-of-targetdatabase.html#cb70-2"></a></span>
+<span id="cb70-3"><a href="functional-analysis-of-targetdatabase.html#cb70-3"></a><span class="kw">head</span>(rescaled_merged_card_profile, <span class="dt">n =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                                                             14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies
+## UNMAPPED                                                             0.9965919          0.9986121       9.977503e-01          0.9971895       9.975481e-01
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]          0.0000000          0.0000000       6.263129e-07          0.0000000       7.025585e-06
+##                                                             14291_genefamilies 14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
+## UNMAPPED                                                             0.9987778        9.98160e-01          0.9985668           0.996236                  1
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]          0.0000000        9.16942e-07          0.0000000           0.000000                  0</code></pre>
+</div>
+<div id="remove-unmapped-row" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Remove UNMAPPED row</h3>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="functional-analysis-of-targetdatabase.html#cb72-1"></a><span class="co">## In this chunk, we remove the umapped row in rescaled profile table because we are not able to intepret UNMAPPED entry.</span></span>
+<span id="cb72-2"><a href="functional-analysis-of-targetdatabase.html#cb72-2"></a></span>
+<span id="cb72-3"><a href="functional-analysis-of-targetdatabase.html#cb72-3"></a>card_profile &lt;-<span class="st"> </span>rescaled_merged_card_profile[<span class="kw">grep</span>(<span class="st">&quot;UNMAPPED&quot;</span>, <span class="kw">rownames</span>(rescaled_merged_card_profile), <span class="dt">invert =</span> <span class="ot">TRUE</span>), ]</span></code></pre></div>
+</div>
+<div id="filter-low-abundance-data" class="section level3">
+<h3><span class="header-section-number">6.2.5</span> Filter low abundance data</h3>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="functional-analysis-of-targetdatabase.html#cb73-1"></a><span class="co">## In this chunck, we can aggregate low abundance features to one row.</span></span>
+<span id="cb73-2"><a href="functional-analysis-of-targetdatabase.html#cb73-2"></a><span class="co">## Import functions for filtering into enviroment.</span></span>
+<span id="cb73-3"><a href="functional-analysis-of-targetdatabase.html#cb73-3"></a></span>
+<span id="cb73-4"><a href="functional-analysis-of-targetdatabase.html#cb73-4"></a><span class="co">## 1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition] https://doi.org/10.1016/j.chom.2019.07.004, pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.</span></span>
+<span id="cb73-5"><a href="functional-analysis-of-targetdatabase.html#cb73-5"></a></span>
+<span id="cb73-6"><a href="functional-analysis-of-targetdatabase.html#cb73-6"></a><span class="kw">source</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Scripts/R/ultility.R&#39;</span>)</span>
+<span id="cb73-7"><a href="functional-analysis-of-targetdatabase.html#cb73-7"></a></span>
+<span id="cb73-8"><a href="functional-analysis-of-targetdatabase.html#cb73-8"></a>Filtered_card_profile &lt;-<span class="st"> </span><span class="kw">aggregate_low_abundance</span>(<span class="dt">input_data =</span> card_profile,</span>
+<span id="cb73-9"><a href="functional-analysis-of-targetdatabase.html#cb73-9"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>) <span class="co">## threshold should be modified based on your on study</span></span>
+<span id="cb73-10"><a href="functional-analysis-of-targetdatabase.html#cb73-10"></a></span>
+<span id="cb73-11"><a href="functional-analysis-of-targetdatabase.html#cb73-11"></a><span class="kw">head</span>(Filtered_card_profile)</span></code></pre></div>
+<pre><code>##                                                                                                     14286_genefamilies 14287_genefamilies 14288_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                               0.000000e+00       0.000000e+00       6.263129e-07
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                               5.228855e-07       3.105208e-07       0.000000e+00
+## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                      0.000000e+00       0.000000e+00       4.097285e-07
+## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                         0.000000e+00       0.000000e+00       3.862229e-06
+## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]       5.029702e-07       0.000000e+00       3.202401e-06
+## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                     7.318239e-05       5.256998e-05       6.987475e-05
+##                                                                                                     14289_genefamilies 14290_genefamilies 14291_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                               0.000000e+00       7.025585e-06       0.000000e+00
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                               0.000000e+00       1.426541e-05       0.000000e+00
+## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                      2.170252e-06       1.450946e-06       4.197908e-06
+## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                         0.000000e+00       3.221460e-06       0.000000e+00
+## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]       0.000000e+00       0.000000e+00       0.000000e+00
+## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                     1.643611e-04       7.846210e-05       3.909896e-05
+##                                                                                                     14292_genefamilies 14293_genefamilies 14294_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                               9.169420e-07       0.000000e+00       0.000000e+00
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                               1.122561e-06       0.000000e+00       0.000000e+00
+## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                      7.825537e-07       8.941966e-07       3.664871e-05
+## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                         0.000000e+00       0.000000e+00       4.363010e-05
+## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]       7.595413e-07       6.190414e-07       0.000000e+00
+## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                     8.713070e-05       1.479822e-04       2.776405e-05
+##                                                                                                     14295_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                                          0
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                                          0
+## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                                 0
+## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                                    0
+## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]                  0
+## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                                0</code></pre>
+</div>
+<div id="basic-analysis" class="section level3">
+<h3><span class="header-section-number">6.2.6</span> Basic analysis</h3>
+<ul>
+<li>Compositional barplot</li>
+</ul>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="functional-analysis-of-targetdatabase.html#cb75-1"></a><span class="co">## In this chunk, we construct stacked pathway barplot to depict the pathway composition of samples, we use function plot_stacked_bar from xviz to plot.</span></span>
+<span id="cb75-2"><a href="functional-analysis-of-targetdatabase.html#cb75-2"></a><span class="co">## In case there are too much entries, we use parameter &quot;collapse&quot; in plot_stacked_bar function to integrate entries whose abundance are below given threshold into &quot;Others&quot;.</span></span>
+<span id="cb75-3"><a href="functional-analysis-of-targetdatabase.html#cb75-3"></a><span class="co">## Note: Adjust your graph size to show complete graph.</span></span>
+<span id="cb75-4"><a href="functional-analysis-of-targetdatabase.html#cb75-4"></a></span>
+<span id="cb75-5"><a href="functional-analysis-of-targetdatabase.html#cb75-5"></a>compositional_plt &lt;-<span class="st"> </span>xviz<span class="op">::</span><span class="kw">plot_stacked_bar</span>(<span class="dt">otu_table =</span> Filtered_card_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>(),</span>
+<span id="cb75-6"><a href="functional-analysis-of-targetdatabase.html#cb75-6"></a>                 <span class="dt">metadata =</span> metadata, <span class="dt">collapse =</span> <span class="fl">0.01</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">vjust =</span> <span class="dv">1</span>))</span>
+<span id="cb75-7"><a href="functional-analysis-of-targetdatabase.html#cb75-7"></a></span>
+<span id="cb75-8"><a href="functional-analysis-of-targetdatabase.html#cb75-8"></a>compositional_plt</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/Compositional%20barplot-1.png" width="100%" /></p>
+<ul>
+<li>Beta diversity</li>
+</ul>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="functional-analysis-of-targetdatabase.html#cb76-1"></a><span class="co">## In this chunk, we inherit the concept of Beta diversity of microbial taxa data and apply it to pathway data to explore the similarity between samples.</span></span>
+<span id="cb76-2"><a href="functional-analysis-of-targetdatabase.html#cb76-2"></a></span>
+<span id="cb76-3"><a href="functional-analysis-of-targetdatabase.html#cb76-3"></a><span class="co">## construct phyloseq for beta diversity analysis</span></span>
+<span id="cb76-4"><a href="functional-analysis-of-targetdatabase.html#cb76-4"></a></span>
+<span id="cb76-5"><a href="functional-analysis-of-targetdatabase.html#cb76-5"></a>tmp_phyloseq &lt;-<span class="st"> </span><span class="kw">phyloseq</span>(<span class="kw">otu_table</span>(Filtered_card_profile, <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb76-6"><a href="functional-analysis-of-targetdatabase.html#cb76-6"></a>                         <span class="kw">sample_data</span>(metadata))</span>
+<span id="cb76-7"><a href="functional-analysis-of-targetdatabase.html#cb76-7"></a></span>
+<span id="cb76-8"><a href="functional-analysis-of-targetdatabase.html#cb76-8"></a></span>
+<span id="cb76-9"><a href="functional-analysis-of-targetdatabase.html#cb76-9"></a><span class="co">## PCoA plot</span></span>
+<span id="cb76-10"><a href="functional-analysis-of-targetdatabase.html#cb76-10"></a>PCOA_plot &lt;-<span class="st"> </span>xviz<span class="op">::</span><span class="kw">plot_beta_diversity</span>(<span class="dt">phyloseq =</span> tmp_phyloseq,</span>
+<span id="cb76-11"><a href="functional-analysis-of-targetdatabase.html#cb76-11"></a>                                       <span class="dt">feature =</span> <span class="st">&#39;group&#39;</span>,</span>
+<span id="cb76-12"><a href="functional-analysis-of-targetdatabase.html#cb76-12"></a>                                       <span class="dt">method =</span> <span class="st">&#39;bray&#39;</span>,</span>
+<span id="cb76-13"><a href="functional-analysis-of-targetdatabase.html#cb76-13"></a>                                       <span class="dt">label =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb76-14"><a href="functional-analysis-of-targetdatabase.html#cb76-14"></a><span class="kw">print</span>(PCOA_plot)</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/Beta%20diversity-1.png" width="100%" /></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="functional-analysis-of-targetdatabase.html#cb77-1"></a><span class="co">## PERMANOVA test &amp; beta dispersion test</span></span>
+<span id="cb77-2"><a href="functional-analysis-of-targetdatabase.html#cb77-2"></a><span class="co">## We use PERMANOVA test to check the differences of function composition among different groups. Additionally, we also take homogeneity of group variance into consideration.</span></span>
+<span id="cb77-3"><a href="functional-analysis-of-targetdatabase.html#cb77-3"></a></span>
+<span id="cb77-4"><a href="functional-analysis-of-targetdatabase.html#cb77-4"></a>dispersion_permanova_res &lt;-<span class="st"> </span><span class="kw">run_permanova_betadisp</span>(<span class="dt">physeq =</span> tmp_phyloseq,</span>
+<span id="cb77-5"><a href="functional-analysis-of-targetdatabase.html#cb77-5"></a>                                                   <span class="dt">vars =</span> <span class="st">&#39;group&#39;</span></span>
+<span id="cb77-6"><a href="functional-analysis-of-targetdatabase.html#cb77-6"></a>                                                   )</span>
+<span id="cb77-7"><a href="functional-analysis-of-targetdatabase.html#cb77-7"></a></span>
+<span id="cb77-8"><a href="functional-analysis-of-targetdatabase.html#cb77-8"></a>dispersion_permanova_res</span></code></pre></div>
+<pre><code>## $betadisp_res
+##   variable p_value                       analysis
+## 1    group   0.607 beta_dispersion_permutation999
+## 
+## $permanova_res
+##   variable p_value        R2                 analysis
+## 1    group   0.543 0.1016834 permanova_permutation999</code></pre>
+</div>
+</div>
+<div id="differential-analysis-1" class="section level2">
+<h2><span class="header-section-number">6.3</span> Differential analysis</h2>
+<div id="filter-low-prevalence-pathway-1" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Filter low prevalence pathway</h3>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="functional-analysis-of-targetdatabase.html#cb79-1"></a><span class="co">## Low prevalence pathways are pathways only occur in minor samples.</span></span>
+<span id="cb79-2"><a href="functional-analysis-of-targetdatabase.html#cb79-2"></a><span class="co">## In this chunk we filter low prevalence data with threshold of 0.02, 0.02 is an arbitrary value, users should change this value according to their own study.</span></span>
+<span id="cb79-3"><a href="functional-analysis-of-targetdatabase.html#cb79-3"></a></span>
+<span id="cb79-4"><a href="functional-analysis-of-targetdatabase.html#cb79-4"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="kw">nrow</span>(Filtered_card_profile), <span class="st">&#39; entries before filtering low prevalence data&#39;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;790 entries before filtering low prevalence data&quot;</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="functional-analysis-of-targetdatabase.html#cb81-1"></a>Filtered_card_profile &lt;-<span class="st"> </span><span class="kw">filter_prevalence</span>(<span class="dt">otu_table =</span> Filtered_card_profile,</span>
+<span id="cb81-2"><a href="functional-analysis-of-targetdatabase.html#cb81-2"></a>                  <span class="dt">threshold =</span> <span class="fl">0.02</span>,</span>
+<span id="cb81-3"><a href="functional-analysis-of-targetdatabase.html#cb81-3"></a>                  <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span></span>
+<span id="cb81-4"><a href="functional-analysis-of-targetdatabase.html#cb81-4"></a>                  )</span>
+<span id="cb81-5"><a href="functional-analysis-of-targetdatabase.html#cb81-5"></a></span>
+<span id="cb81-6"><a href="functional-analysis-of-targetdatabase.html#cb81-6"></a><span class="kw">head</span>(Filtered_card_profile, <span class="dt">n =</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                                                             14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]       0.000000e+00       0.000000e+00       6.263129e-07                  0       7.025585e-06
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]       5.228855e-07       3.105208e-07       0.000000e+00                  0       1.426541e-05
+##                                                             14291_genefamilies 14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                  0       9.169420e-07                  0                  0                  0
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                  0       1.122561e-06                  0                  0                  0</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="functional-analysis-of-targetdatabase.html#cb83-1"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="kw">nrow</span>(Filtered_card_profile), <span class="st">&#39; entries After filtering low prevalence data&#39;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;486 entries After filtering low prevalence data&quot;</code></pre>
+</div>
+<div id="da-1" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> DA</h3>
+<ul>
+<li>DA with LM</li>
+</ul>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="functional-analysis-of-targetdatabase.html#cb85-1"></a><span class="co">## In this chunk, you would be using logistic regression model to find pathways that are significantly enriched in certain group.</span></span>
+<span id="cb85-2"><a href="functional-analysis-of-targetdatabase.html#cb85-2"></a></span>
+<span id="cb85-3"><a href="functional-analysis-of-targetdatabase.html#cb85-3"></a><span class="co">## Due to the nature of compositional data, we cannot apply linear models to compositional data directly. </span></span>
+<span id="cb85-4"><a href="functional-analysis-of-targetdatabase.html#cb85-4"></a><span class="co">## Transformation of relative abundance data should be carried out before feeding the data to LM.</span></span>
+<span id="cb85-5"><a href="functional-analysis-of-targetdatabase.html#cb85-5"></a><span class="co">## Here, we add a very small value (1e-12) to the pathway profile table to avoid genrating NA during transformation, then use logit transformation to transform data. And eventually we apply LM to the transformed data</span></span>
+<span id="cb85-6"><a href="functional-analysis-of-targetdatabase.html#cb85-6"></a></span>
+<span id="cb85-7"><a href="functional-analysis-of-targetdatabase.html#cb85-7"></a><span class="co">## Adding small value to the profile table (The value is arbitrary).</span></span>
+<span id="cb85-8"><a href="functional-analysis-of-targetdatabase.html#cb85-8"></a></span>
+<span id="cb85-9"><a href="functional-analysis-of-targetdatabase.html#cb85-9"></a>DA_card_profile &lt;-<span class="st"> </span>Filtered_card_profile <span class="op">+</span><span class="st"> </span><span class="fl">1e-12</span></span>
+<span id="cb85-10"><a href="functional-analysis-of-targetdatabase.html#cb85-10"></a></span>
+<span id="cb85-11"><a href="functional-analysis-of-targetdatabase.html#cb85-11"></a><span class="co">## Reshape profile data table and use logit transformation.</span></span>
+<span id="cb85-12"><a href="functional-analysis-of-targetdatabase.html#cb85-12"></a></span>
+<span id="cb85-13"><a href="functional-analysis-of-targetdatabase.html#cb85-13"></a>DA_card_profile &lt;-<span class="st"> </span>DA_card_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb85-14"><a href="functional-analysis-of-targetdatabase.html#cb85-14"></a>DA_metadata &lt;-<span class="st"> </span>metadata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb85-15"><a href="functional-analysis-of-targetdatabase.html#cb85-15"></a></span>
+<span id="cb85-16"><a href="functional-analysis-of-targetdatabase.html#cb85-16"></a><span class="co">## Reshape dataframe into long table</span></span>
+<span id="cb85-17"><a href="functional-analysis-of-targetdatabase.html#cb85-17"></a>DA_input &lt;-<span class="st"> </span><span class="kw">merge</span>(DA_card_profile, DA_metadata, <span class="dt">by=</span><span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>reshape2<span class="op">::</span><span class="kw">melt</span>(<span class="dt">value.name =</span> <span class="st">&#39;RA&#39;</span>,</span>
+<span id="cb85-18"><a href="functional-analysis-of-targetdatabase.html#cb85-18"></a>                                                                                         <span class="dt">variable.name =</span> <span class="st">&#39;PathwayIDs&#39;</span>)</span>
+<span id="cb85-19"><a href="functional-analysis-of-targetdatabase.html#cb85-19"></a></span>
+<span id="cb85-20"><a href="functional-analysis-of-targetdatabase.html#cb85-20"></a><span class="co">## Logit transformation</span></span>
+<span id="cb85-21"><a href="functional-analysis-of-targetdatabase.html#cb85-21"></a>DA_input <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RA_logit =</span> <span class="kw">log</span>(RA<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>RA)))</span>
+<span id="cb85-22"><a href="functional-analysis-of-targetdatabase.html#cb85-22"></a></span>
+<span id="cb85-23"><a href="functional-analysis-of-targetdatabase.html#cb85-23"></a><span class="co">## Fit data to LM</span></span>
+<span id="cb85-24"><a href="functional-analysis-of-targetdatabase.html#cb85-24"></a><span class="co">## Loop over each pathway in two groups</span></span>
+<span id="cb85-25"><a href="functional-analysis-of-targetdatabase.html#cb85-25"></a>LM_res &lt;-<span class="st"> </span>DA_input <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">split</span>(.<span class="op">$</span>PathwayIDs) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">lapply</span>(., <span class="cf">function</span>(x){</span>
+<span id="cb85-26"><a href="functional-analysis-of-targetdatabase.html#cb85-26"></a>  gml_res_summary &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> x, <span class="dt">formula =</span> RA_logit <span class="op">~</span><span class="st"> </span>group) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>coefficients <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="dt">var =</span> <span class="st">&quot;Factors&quot;</span>)</span>
+<span id="cb85-27"><a href="functional-analysis-of-targetdatabase.html#cb85-27"></a>  }</span>
+<span id="cb85-28"><a href="functional-analysis-of-targetdatabase.html#cb85-28"></a>)</span>
+<span id="cb85-29"><a href="functional-analysis-of-targetdatabase.html#cb85-29"></a></span>
+<span id="cb85-30"><a href="functional-analysis-of-targetdatabase.html#cb85-30"></a><span class="co">## Merge all result in one table</span></span>
+<span id="cb85-31"><a href="functional-analysis-of-targetdatabase.html#cb85-31"></a>LM_res &lt;-<span class="st"> </span>LM_res <span class="op">%&gt;%</span><span class="st"> </span>data.table<span class="op">::</span><span class="kw">rbindlist</span>(<span class="dt">idcol =</span> <span class="st">&quot;PathwayID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Factors <span class="op">!=</span><span class="st"> &quot;(Intercept)&quot;</span>)</span>
+<span id="cb85-32"><a href="functional-analysis-of-targetdatabase.html#cb85-32"></a></span>
+<span id="cb85-33"><a href="functional-analysis-of-targetdatabase.html#cb85-33"></a><span class="co">## Adjust p value using p.adjust function from stats package, you could choose different adjust method.</span></span>
+<span id="cb85-34"><a href="functional-analysis-of-targetdatabase.html#cb85-34"></a>LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">adjust.p  =</span> stats<span class="op">::</span><span class="kw">p.adjust</span>(.<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span>,</span>
+<span id="cb85-35"><a href="functional-analysis-of-targetdatabase.html#cb85-35"></a>                                               <span class="dt">method =</span> <span class="st">&#39;BH&#39;</span>))</span>
+<span id="cb85-36"><a href="functional-analysis-of-targetdatabase.html#cb85-36"></a></span>
+<span id="cb85-37"><a href="functional-analysis-of-targetdatabase.html#cb85-37"></a><span class="co">## Calculate effect size (Odds ratio) of each feature</span></span>
+<span id="cb85-38"><a href="functional-analysis-of-targetdatabase.html#cb85-38"></a>LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">OR =</span> <span class="kw">exp</span>(Estimate)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb85-39"><a href="functional-analysis-of-targetdatabase.html#cb85-39"></a></span>
+<span id="cb85-40"><a href="functional-analysis-of-targetdatabase.html#cb85-40"></a><span class="kw">head</span>(LM_res)</span></code></pre></div>
+<pre><code>##                                                                                             PathwayID Factors   Estimate Std. Error     t value  Pr(&gt;|t|) adjust.p
+## 1                                         gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]  groupB -3.0767765   4.516473 -0.68123433 0.5149549 0.999663
+## 2                                         gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]  groupB -5.6710734   4.484963 -1.26446392 0.2416563 0.999663
+## 3                                gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]  groupB  3.6479383   4.597033  0.79354186 0.4503555 0.999663
+## 4                                   gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]  groupB -2.5121613   5.100610 -0.49252174 0.6355821 0.999663
+## 5 gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]  groupB -0.2462604   4.772051 -0.05160472 0.9601089 0.999663
+## 6                                               gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]  groupB -3.8655588   3.602882 -1.07290747 0.3146072 0.999663
+##             OR
+## 1  0.046107646
+## 2  0.003444166
+## 3 38.395423365
+## 4  0.081092784
+## 5  0.781718662
+## 6  0.020951211</code></pre>
+<ul>
+<li>Show DA result with volcano plot</li>
+</ul>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="functional-analysis-of-targetdatabase.html#cb87-1"></a><span class="co">## Plot volcano plot to show effect size (x-axis) and p value (y-axis) of pathways.</span></span>
+<span id="cb87-2"><a href="functional-analysis-of-targetdatabase.html#cb87-2"></a><span class="co">## Here we only tend to hightlight pathways that satisfy adjust.p &lt; 0.7 and OR &gt; 0.01 at the same time.</span></span>
+<span id="cb87-3"><a href="functional-analysis-of-targetdatabase.html#cb87-3"></a><span class="co">## You can nevertheless choose different threshold accroding to your own data.</span></span>
+<span id="cb87-4"><a href="functional-analysis-of-targetdatabase.html#cb87-4"></a></span>
+<span id="cb87-5"><a href="functional-analysis-of-targetdatabase.html#cb87-5"></a>volcano_plot &lt;-<span class="st"> </span>LM_res <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">p.log =</span> <span class="op">-</span><span class="kw">log10</span>(<span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span>), <span class="dt">log10OR =</span> <span class="kw">log10</span>(OR)) <span class="op">%&gt;%</span></span>
+<span id="cb87-6"><a href="functional-analysis-of-targetdatabase.html#cb87-6"></a><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> log10OR, <span class="dt">y =</span> p.log)) <span class="op">+</span></span>
+<span id="cb87-7"><a href="functional-analysis-of-targetdatabase.html#cb87-7"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb87-8"><a href="functional-analysis-of-targetdatabase.html#cb87-8"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> . <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span> <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span> <span class="op">&amp;</span><span class="st"> </span>OR <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.2</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb87-9"><a href="functional-analysis-of-targetdatabase.html#cb87-9"></a><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb87-10"><a href="functional-analysis-of-targetdatabase.html#cb87-10"></a><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>)), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></span>
+<span id="cb87-11"><a href="functional-analysis-of-targetdatabase.html#cb87-11"></a><span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="op">-</span><span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.7</span>)), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></span>
+<span id="cb87-12"><a href="functional-analysis-of-targetdatabase.html#cb87-12"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">aspect.ratio =</span> <span class="dv">1</span>,</span>
+<span id="cb87-13"><a href="functional-analysis-of-targetdatabase.html#cb87-13"></a>          <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb87-14"><a href="functional-analysis-of-targetdatabase.html#cb87-14"></a>          <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb87-15"><a href="functional-analysis-of-targetdatabase.html#cb87-15"></a>          ) <span class="op">+</span></span>
+<span id="cb87-16"><a href="functional-analysis-of-targetdatabase.html#cb87-16"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Estimated Odds Ratio&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;FDR p-values(-log10)&quot;</span>)</span>
+<span id="cb87-17"><a href="functional-analysis-of-targetdatabase.html#cb87-17"></a></span>
+<span id="cb87-18"><a href="functional-analysis-of-targetdatabase.html#cb87-18"></a><span class="kw">print</span>(volcano_plot)</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/visualize%20DA%20result%20by%20volcano%20plot-1.png" width="100%" /></p>
+</div>
+</div>
+<div id="session-info-2" class="section level2">
+<h2><span class="header-section-number">6.4</span> Session info</h2>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="functional-analysis-of-targetdatabase.html#cb88-1"></a>devtools<span class="op">::</span><span class="kw">session_info</span>()</span></code></pre></div>
+<pre><code>## ─ Session info ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  setting  value
+##  version  R version 3.6.3 (2020-02-29)
+##  os       Ubuntu 16.04.7 LTS
+##  system   x86_64, linux-gnu
+##  ui       RStudio
+##  language (EN)
+##  collate  en_IN.UTF-8
+##  ctype    en_IN.UTF-8
+##  tz       Asia/Hong_Kong
+##  date     2022-06-29
+##  rstudio  1.1.419 (server)
+##  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)
+## 
+## ─ Packages ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  !  package              * version    date (UTC) lib source
+##     abind                  1.4-5      2016-07-21 [1] CRAN (R 3.6.3)
+##     ade4                   1.7-17     2021-06-17 [1] CRAN (R 3.6.3)
+##     ALDEx2                 1.18.0     2019-10-29 [1] Bioconductor
+##     annotate               1.64.0     2019-10-29 [1] Bioconductor
+##     AnnotationDbi        * 1.48.0     2019-10-29 [1] Bioconductor
+##     ape                    5.5        2021-04-25 [1] CRAN (R 3.6.3)
+##     assertthat             0.2.1      2019-03-21 [2] CRAN (R 3.6.3)
+##     backports              1.4.1      2021-12-13 [1] CRAN (R 3.6.3)
+##     base64enc              0.1-3      2015-07-28 [2] CRAN (R 3.6.3)
+##     bayesm                 3.1-4      2019-10-15 [1] CRAN (R 3.6.3)
+##     biglm                  0.9-2.1    2020-11-27 [1] CRAN (R 3.6.3)
+##     Biobase              * 2.46.0     2019-10-29 [2] Bioconductor
+##     BiocGenerics         * 0.32.0     2019-10-29 [2] Bioconductor
+##     BiocManager            1.30.16    2021-06-15 [1] CRAN (R 3.6.3)
+##     BiocParallel         * 1.20.1     2019-12-21 [2] Bioconductor
+##     biomformat             1.14.0     2019-10-29 [1] Bioconductor
+##     Biostrings             2.54.0     2019-10-29 [1] Bioconductor
+##     bit                    4.0.4      2020-08-04 [1] CRAN (R 3.6.3)
+##     bit64                  4.0.5      2020-08-30 [1] CRAN (R 3.6.3)
+##     bitops                 1.0-7      2021-04-24 [1] CRAN (R 3.6.3)
+##     blob                   1.2.2      2021-07-23 [1] CRAN (R 3.6.3)
+##     bookdown               0.24       2021-09-02 [1] CRAN (R 3.6.3)
+##     brio                   1.1.3      2021-11-30 [2] CRAN (R 3.6.3)
+##     broom                  0.7.12     2022-01-28 [1] CRAN (R 3.6.3)
+##     bslib                  0.3.1      2021-10-06 [1] CRAN (R 3.6.3)
+##     cachem                 1.0.5      2021-05-15 [1] CRAN (R 3.6.3)
+##     callr                  3.7.0      2021-04-20 [2] CRAN (R 3.6.3)
+##     car                    3.0-12     2021-11-06 [1] CRAN (R 3.6.3)
+##     carData                3.0-4      2020-05-22 [1] CRAN (R 3.6.3)
+##     caTools                1.18.2     2021-03-28 [1] CRAN (R 3.6.3)
+##     cellranger             1.1.0      2016-07-27 [1] CRAN (R 3.6.3)
+##     checkmate              2.0.0      2020-02-06 [1] CRAN (R 3.6.3)
+##     circlize             * 0.4.13     2021-06-09 [1] CRAN (R 3.6.3)
+##     cli                    3.1.0      2021-10-27 [1] CRAN (R 3.6.3)
+##     clue                   0.3-59     2021-04-16 [1] CRAN (R 3.6.3)
+##     cluster                2.1.0      2019-06-19 [2] CRAN (R 3.6.3)
+##     codetools              0.2-16     2018-12-24 [2] CRAN (R 3.6.3)
+##     colorspace             2.0-2      2021-06-24 [1] CRAN (R 3.6.3)
+##     ComplexHeatmap       * 2.2.0      2019-10-29 [1] Bioconductor
+##     compositions           2.0-2      2021-07-14 [1] CRAN (R 3.6.3)
+##     cowplot              * 1.1.1      2020-12-30 [1] CRAN (R 3.6.3)
+##     crayon                 1.5.0      2022-02-14 [1] CRAN (R 3.6.3)
+##     dada2                * 1.14.1     2020-02-22 [1] Bioconductor
+##     data.table           * 1.14.0     2021-02-21 [1] CRAN (R 3.6.3)
+##     DBI                    1.1.1      2021-01-15 [1] CRAN (R 3.6.3)
+##     dbplyr                 2.1.1      2021-04-06 [1] CRAN (R 3.6.3)
+##     DelayedArray         * 0.12.3     2020-04-09 [2] Bioconductor
+##     DelayedMatrixStats     1.8.0      2019-10-29 [1] Bioconductor
+##     DEoptimR               1.0-9      2021-05-24 [1] CRAN (R 3.6.3)
+##     desc                   1.4.1      2022-03-06 [2] CRAN (R 3.6.3)
+##     DESeq2               * 1.26.0     2019-10-29 [1] Bioconductor
+##     devtools               2.4.3      2021-11-30 [1] CRAN (R 3.6.3)
+##     digest                 0.6.29     2021-12-01 [1] CRAN (R 3.6.3)
+##     dplyr                * 1.0.6      2021-05-05 [1] CRAN (R 3.6.3)
+##     edgeR                  3.28.1     2020-02-26 [1] Bioconductor
+##     ellipsis               0.3.2      2021-04-29 [1] CRAN (R 3.6.3)
+##     EnhancedVolcano      * 1.4.0      2019-10-29 [1] Bioconductor
+##     evaluate               0.15       2022-02-18 [2] CRAN (R 3.6.3)
+##     fansi                  1.0.2      2022-01-14 [1] CRAN (R 3.6.3)
+##     farver                 2.1.0      2021-02-28 [2] CRAN (R 3.6.3)
+##     fastmap                1.1.0      2021-01-25 [1] CRAN (R 3.6.3)
+##     fdrtool                1.2.17     2021-11-13 [1] CRAN (R 3.6.3)
+##     forcats              * 0.5.1      2021-01-27 [1] CRAN (R 3.6.3)
+##     foreach                1.5.2      2022-02-02 [2] CRAN (R 3.6.3)
+##     foreign                0.8-75     2020-01-20 [2] CRAN (R 3.6.3)
+##     formatR                1.12       2022-03-31 [2] CRAN (R 3.6.3)
+##     Formula                1.2-4      2020-10-16 [1] CRAN (R 3.6.3)
+##     fs                     1.5.2      2021-12-08 [1] CRAN (R 3.6.3)
+##     futile.logger        * 1.4.3      2016-07-10 [2] CRAN (R 3.6.3)
+##     futile.options         1.0.1      2018-04-20 [2] CRAN (R 3.6.3)
+##     genefilter             1.68.0     2019-10-29 [1] Bioconductor
+##     geneplotter            1.64.0     2019-10-29 [1] Bioconductor
+##     generics               0.1.2      2022-01-31 [1] CRAN (R 3.6.3)
+##     GenomeInfoDb         * 1.22.1     2020-03-27 [2] Bioconductor
+##     GenomeInfoDbData       1.2.2      2020-08-24 [2] Bioconductor
+##     GenomicAlignments      1.22.1     2019-11-12 [1] Bioconductor
+##     GenomicRanges        * 1.38.0     2019-10-29 [2] Bioconductor
+##     getopt                 1.20.3     2019-03-22 [1] CRAN (R 3.6.3)
+##     GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 3.6.3)
+##     ggExtra              * 0.9        2019-08-27 [1] CRAN (R 3.6.3)
+##     ggplot2              * 3.3.5      2021-06-25 [1] CRAN (R 3.6.3)
+##     ggpubr               * 0.4.0      2020-06-27 [1] CRAN (R 3.6.3)
+##     ggrepel              * 0.9.1      2021-01-15 [2] CRAN (R 3.6.3)
+##     ggsci                * 2.9        2018-05-14 [1] CRAN (R 3.6.3)
+##     ggsignif               0.6.3      2021-09-09 [1] CRAN (R 3.6.3)
+##     glmnet                 4.1-2      2021-06-24 [1] CRAN (R 3.6.3)
+##     GlobalOptions          0.1.2      2020-06-10 [1] CRAN (R 3.6.3)
+##     glue                   1.6.1      2022-01-22 [1] CRAN (R 3.6.3)
+##     GMPR                   0.1.3      2021-05-17 [1] local
+##     gplots                 3.1.1      2020-11-28 [1] CRAN (R 3.6.3)
+##     graph                  1.64.0     2019-10-29 [1] Bioconductor
+##     gridExtra              2.3        2017-09-09 [2] CRAN (R 3.6.3)
+##     gtable                 0.3.0      2019-03-25 [2] CRAN (R 3.6.3)
+##     gtools                 3.9.2      2021-06-06 [1] CRAN (R 3.6.3)
+##     haven                  2.4.1      2021-04-23 [1] CRAN (R 3.6.3)
+##     highr                  0.9        2021-04-16 [1] CRAN (R 3.6.3)
+##     Hmisc                  4.5-0      2021-02-28 [1] CRAN (R 3.6.3)
+##     hms                    1.1.1      2021-09-26 [1] CRAN (R 3.6.3)
+##     htmlTable              2.3.0      2021-10-12 [1] CRAN (R 3.6.3)
+##     htmltools              0.5.2      2021-08-25 [1] CRAN (R 3.6.3)
+##     htmlwidgets            1.5.4      2021-09-08 [2] CRAN (R 3.6.3)
+##     httpuv                 1.6.1      2021-05-07 [1] CRAN (R 3.6.3)
+##     httr                   1.4.3      2022-05-04 [2] CRAN (R 3.6.3)
+##     hwriter                1.3.2      2014-09-10 [1] CRAN (R 3.6.3)
+##     igraph                 1.3.1      2022-04-20 [2] CRAN (R 3.6.3)
+##     IHW                    1.14.0     2019-10-29 [1] Bioconductor
+##     IRanges              * 2.20.2     2020-01-13 [2] Bioconductor
+##     iterators              1.0.14     2022-02-05 [2] CRAN (R 3.6.3)
+##     jpeg                   0.1-9      2021-07-24 [1] CRAN (R 3.6.3)
+##     jquerylib              0.1.4      2021-04-26 [1] CRAN (R 3.6.3)
+##     jsonlite               1.8.0      2022-02-22 [2] CRAN (R 3.6.3)
+##     KEGGgraph              1.46.0     2019-10-29 [1] Bioconductor
+##     KEGGREST               1.26.1     2019-11-06 [1] Bioconductor
+##     KernSmooth             2.23-16    2019-10-15 [2] CRAN (R 3.6.3)
+##     knitr                  1.36       2021-09-29 [1] CRAN (R 3.6.3)
+##     labeling               0.4.2      2020-10-20 [2] CRAN (R 3.6.3)
+##     lambda.r               1.2.4      2019-09-18 [2] CRAN (R 3.6.3)
+##     later                  1.3.0      2021-08-18 [2] CRAN (R 3.6.3)
+##     lattice              * 0.20-38    2018-11-04 [2] CRAN (R 3.6.3)
+##     latticeExtra           0.6-29     2019-12-19 [1] CRAN (R 3.6.3)
+##     lazyeval               0.2.2      2019-03-15 [2] CRAN (R 3.6.3)
+##     lifecycle              1.0.1      2021-09-24 [1] CRAN (R 3.6.3)
+##     limma                  3.42.2     2020-02-03 [2] Bioconductor
+##     locfit                 1.5-9.4    2020-03-25 [1] CRAN (R 3.6.3)
+##     lpsymphony             1.14.0     2019-10-29 [1] Bioconductor (R 3.6.3)
+##     lubridate              1.7.10     2021-02-26 [1] CRAN (R 3.6.3)
+##     Maaslin2               1.7.3      2022-03-23 [1] Github (biobakery/maaslin2@8d090e4)
+##     magrittr             * 2.0.2      2022-01-26 [1] CRAN (R 3.6.3)
+##     MASS                   7.3-54     2021-05-03 [1] CRAN (R 3.6.3)
+##     Matrix                 1.3-4      2021-06-01 [1] CRAN (R 3.6.3)
+##     matrixStats          * 0.60.0     2021-07-26 [1] CRAN (R 3.6.3)
+##     mbzinb                 0.2        2021-06-23 [1] local
+##     memoise                2.0.1      2021-11-26 [2] CRAN (R 3.6.3)
+##     metagenomeSeq          1.28.2     2020-02-03 [1] Bioconductor
+##     metamicrobiomeR        1.1        2021-02-03 [1] local
+##     mgcv                   1.8-31     2019-11-09 [2] CRAN (R 3.6.3)
+##     microbiome             1.8.0      2019-10-29 [1] Bioconductor
+##     mime                   0.12       2021-09-28 [2] CRAN (R 3.6.3)
+##     miniUI                 0.1.1.1    2018-05-18 [1] CRAN (R 3.6.3)
+##     modelr                 0.1.8      2020-05-19 [1] CRAN (R 3.6.3)
+##     multtest               2.42.0     2019-10-29 [2] Bioconductor
+##     munsell                0.5.0      2018-06-12 [2] CRAN (R 3.6.3)
+##     mvtnorm                1.1-3      2021-10-08 [1] CRAN (R 3.6.3)
+##     nlme                   3.1-144    2020-02-06 [2] CRAN (R 3.6.3)
+##     nnet                   7.3-12     2016-02-02 [2] CRAN (R 3.6.3)
+##     optparse               1.7.1      2021-10-08 [1] CRAN (R 3.6.3)
+##     org.Hs.eg.db         * 3.10.0     2021-12-08 [1] Bioconductor
+##     pathview             * 1.26.0     2019-10-29 [1] Bioconductor
+##     pcaPP                  1.9-74     2021-04-23 [1] CRAN (R 3.6.3)
+##     permute              * 0.9-5      2019-03-12 [1] CRAN (R 3.6.3)
+##     phyloseq             * 1.30.0     2019-10-29 [1] Bioconductor
+##     pillar                 1.7.0      2022-02-01 [1] CRAN (R 3.6.3)
+##     pkgbuild               1.3.1      2021-12-20 [2] CRAN (R 3.6.3)
+##     pkgconfig              2.0.3      2019-09-22 [2] CRAN (R 3.6.3)
+##     pkgload                1.2.4      2021-11-30 [2] CRAN (R 3.6.3)
+##     plotly               * 4.10.0     2021-10-09 [1] CRAN (R 3.6.3)
+##     plyr                   1.8.7      2022-03-24 [2] CRAN (R 3.6.3)
+##     png                    0.1-7      2013-12-03 [1] CRAN (R 3.6.3)
+##     prettyunits            1.1.1      2020-01-24 [2] CRAN (R 3.6.3)
+##     processx               3.5.3      2022-03-25 [2] CRAN (R 3.6.3)
+##     promises               1.2.0.1    2021-02-11 [2] CRAN (R 3.6.3)
+##     protoclust             1.6.3      2019-01-31 [1] CRAN (R 3.6.3)
+##     ps                     1.7.0      2022-04-23 [2] CRAN (R 3.6.3)
+##     pscl                   1.5.5      2020-03-07 [1] CRAN (R 3.6.3)
+##     purrr                * 0.3.4      2020-04-17 [2] CRAN (R 3.6.3)
+##     qvalue                 2.18.0     2019-10-29 [1] Bioconductor
+##     R6                     2.5.1      2021-08-19 [1] CRAN (R 3.6.3)
+##     RAIDA                  1.0        2021-06-23 [1] local
+##     ranacapa               0.1.0      2021-06-18 [1] Github (gauravsk/ranacapa@58c0cab)
+##     RColorBrewer         * 1.1-3      2022-04-03 [2] CRAN (R 3.6.3)
+##     Rcpp                 * 1.0.7      2021-07-07 [1] CRAN (R 3.6.3)
+##     RcppParallel           5.1.4      2021-05-04 [1] CRAN (R 3.6.3)
+##     RCurl                  1.98-1.6   2022-02-08 [2] CRAN (R 3.6.3)
+##     readr                * 2.0.0      2021-07-20 [1] CRAN (R 3.6.3)
+##     readxl               * 1.3.1      2019-03-13 [1] CRAN (R 3.6.3)
+##     remotes                2.4.2      2021-11-30 [1] CRAN (R 3.6.3)
+##     reprex                 2.0.1      2021-08-05 [1] CRAN (R 3.6.3)
+##     reshape                0.8.9      2022-04-12 [1] CRAN (R 3.6.3)
+##     reshape2             * 1.4.4      2020-04-09 [2] CRAN (R 3.6.3)
+##     Rgraphviz              2.30.0     2019-10-29 [1] Bioconductor
+##     rhdf5                  2.30.1     2019-11-26 [1] Bioconductor
+##     Rhdf5lib               1.8.0      2019-10-29 [1] Bioconductor
+##     rJava                  1.0-5      2021-09-24 [1] CRAN (R 3.6.3)
+##     rjson                  0.2.20     2018-06-08 [1] CRAN (R 3.6.3)
+##  R  rlang                  1.0.2      &lt;NA&gt;       [2] &lt;NA&gt;
+##     rmarkdown              2.11       2021-09-14 [1] CRAN (R 3.6.3)
+##     robustbase             0.93-9     2021-09-27 [1] CRAN (R 3.6.3)
+##     rpart                  4.1-15     2019-04-12 [2] CRAN (R 3.6.3)
+##     rprojroot              2.0.2      2020-11-15 [1] CRAN (R 3.6.3)
+##     Rsamtools              2.2.3      2020-02-23 [1] Bioconductor
+##     RSQLite                2.2.7      2021-04-22 [1] CRAN (R 3.6.3)
+##     rstatix                0.7.0      2021-02-13 [1] CRAN (R 3.6.3)
+##     rstudioapi             0.13       2020-11-12 [2] CRAN (R 3.6.3)
+##     Rtsne                  0.15       2018-11-10 [1] CRAN (R 3.6.3)
+##     rvest                  1.0.2      2021-10-16 [1] CRAN (R 3.6.3)
+##     S4Vectors            * 0.24.4     2020-04-09 [2] Bioconductor
+##     sass                   0.4.0      2021-05-12 [1] CRAN (R 3.6.3)
+##     scales                 1.2.0      2022-04-13 [2] CRAN (R 3.6.3)
+##     seqinr               * 4.2-8      2021-06-09 [1] CRAN (R 3.6.3)
+##     sessioninfo            1.2.2      2021-12-06 [2] CRAN (R 3.6.3)
+##     shape                  1.4.6      2021-05-19 [1] CRAN (R 3.6.3)
+##     shiny                  1.7.1      2021-10-02 [1] CRAN (R 3.6.3)
+##     ShortRead              1.44.3     2020-02-03 [1] Bioconductor
+##     slam                   0.1-49     2021-11-17 [1] CRAN (R 3.6.3)
+##  VP stringi                1.7.6      2021-08-25 [2] CRAN (R 3.6.3) (on disk 1.7.4)
+##     stringr              * 1.4.0      2019-02-10 [2] CRAN (R 3.6.3)
+##     SummarizedExperiment * 1.16.1     2019-12-19 [2] Bioconductor
+##     survival               3.1-8      2019-12-03 [2] CRAN (R 3.6.3)
+##     tensorA                0.36.2     2020-11-19 [1] CRAN (R 3.6.3)
+##     testthat               3.1.4      2022-04-26 [2] CRAN (R 3.6.3)
+##     textshape              1.7.3      2021-05-28 [1] CRAN (R 3.6.3)
+##     tibble               * 3.1.6      2021-11-07 [1] CRAN (R 3.6.3)
+##     tidyr                * 1.2.0      2022-02-01 [1] CRAN (R 3.6.3)
+##     tidyselect             1.1.1      2021-04-30 [1] CRAN (R 3.6.3)
+##     tidyverse            * 1.3.1      2021-04-15 [1] CRAN (R 3.6.3)
+##     tzdb                   0.2.0      2021-10-27 [1] CRAN (R 3.6.3)
+##     UpSetR                 1.4.0      2019-05-22 [1] CRAN (R 3.6.3)
+##     usethis                2.1.6      2022-05-25 [2] CRAN (R 3.6.3)
+##     utf8                   1.2.2      2021-07-24 [1] CRAN (R 3.6.3)
+##     vctrs                  0.3.8      2021-04-29 [1] CRAN (R 3.6.3)
+##     vegan                * 2.5-7      2020-11-28 [1] CRAN (R 3.6.3)
+##     VennDiagram          * 1.7.1      2021-12-02 [1] CRAN (R 3.6.3)
+##     viridisLite            0.4.0      2021-04-13 [2] CRAN (R 3.6.3)
+##     vroom                  1.5.7      2021-11-30 [1] CRAN (R 3.6.3)
+##     withr                  2.4.3      2021-11-30 [1] CRAN (R 3.6.3)
+##     Wrench                 1.4.0      2019-10-29 [1] Bioconductor
+##     xfun                   0.23       2021-05-15 [1] CRAN (R 3.6.3)
+##     xlsx                 * 0.6.5      2020-11-10 [1] CRAN (R 3.6.3)
+##     xlsxjars               0.6.1      2014-08-22 [1] CRAN (R 3.6.3)
+##     XMAS                 * 0.0.0.9000 2022-03-23 [1] local
+##     XML                    3.99-0.3   2020-01-20 [1] CRAN (R 3.6.3)
+##     xml2                   1.3.3      2021-11-30 [2] CRAN (R 3.6.3)
+##     xtable                 1.8-4      2019-04-21 [1] CRAN (R 3.6.3)
+##     XVector                0.26.0     2019-10-29 [2] Bioconductor
+##     xviz                 * 1.1.0      2021-01-14 [1] local
+##     yaml                   2.2.2      2022-01-25 [1] CRAN (R 3.6.3)
+##     zlibbioc               1.32.0     2019-10-29 [2] Bioconductor
+## 
+##  [1] /share/home/tongbangzhuo/R/x86_64-pc-linux-gnu-library/3.6
+##  [2] /opt/R-3.6.3/lib/R/library
+## 
+##  V ── Loaded and on-disk version mismatch.
+##  P ── Loaded and on-disk path mismatch.
+##  R ── Package was removed from disk.
+## 
+## ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="preprocess-of-functional-analysis-of-targetdatabase.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/05-Functional_Analysis_Target_database_analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Function standard analysis workflow.pdf", "Function standard analysis workflow.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

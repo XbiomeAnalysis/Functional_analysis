@@ -1,0 +1,70 @@
+# Preprocess of Functional Analysis of TargetDatabase
+
+## Preprocess - Merge sample data
+
+### Use Script merge_metaphlan_tables.py from humann2 to merge all gene_family profile files.
+
+In this chunk, we merge *genefamilies.tsv files of all samples into one file for each 
+
+- input: *genefamilies.tsv, path of all *genefamilies.tsv files
+
+- output: file name of merged profile table.
+
+Current target database inclues 7 types of databases: 
+
+1. acetate
+
+2. butyrate
+
+3. formate
+
+4. propionate
+
+5. card
+
+6. card
+
+7. vfdb
+
+But the format of profile tables of the databases above are nevertheless the same. Next, we merge 7 types of target database profile files one by one.
+
+```{bash merge profile files of samples}
+## Remove previously merged profile
+# docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "rm /in/Demo_data/merged_*_profile.tsv"
+
+
+## 1. Start merging acetate profile files
+
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_acetate/*genefamilies.tsv > /in/Demo_data/merged_acetate_profile.tsv"
+
+
+## 2. Start merging butyrate profile files
+
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_butyrate/*genefamilies.tsv > /in/Demo_data/merged_butyrate_profile.tsv"
+
+
+## 3. Start merging formate profile files
+
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_formate/*genefamilies.tsv > /in/Demo_data/merged_formate_profile.tsv"
+
+
+## 4. Start merging propionate profile files
+
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_propionate/*genefamilies.tsv > /in/Demo_data/merged_propionate_profile.tsv"
+
+
+## 5. Start merging card profile files
+
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_card/*genefamilies.tsv > /in/Demo_data/merged_card_profile.tsv"
+
+
+## 6. Start merging card profile files
+
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_card/*genefamilies.tsv > /in/Demo_data/merged_card_profile.tsv"
+
+
+## 7. Start merging vfdb profile files
+
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_vfdb/*genefamilies.tsv > /in/Demo_data/merged_vfdb_profile.tsv"
+
+```

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Preprocess of Functional Analysis of TargetDatabase | Functional analysis</title>
+  <meta name="description" content="Tutorial for MGS functional analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Preprocess of Functional Analysis of TargetDatabase | Functional analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial for MGS functional analysis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Preprocess of Functional Analysis of TargetDatabase | Functional analysis" />
+  
+  <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
+  
+
+<meta name="author" content="Bangzhuo Tong" />
+
+
+<meta name="date" content="2022-06-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="functional-analysis-of-kegg.html"/>
+<link rel="next" href="functional-analysis-of-targetdatabase.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Function standard analysis workflow</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html"><i class="fa fa-check"></i><b>2</b> Functional Analysis of Metacyc database</a><ul>
+<li class="chapter" data-level="2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#environment-setup"><i class="fa fa-check"></i><b>2.1</b> Environment setup</a></li>
+<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#load-data"><i class="fa fa-check"></i><b>2.2</b> load data</a></li>
+<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#remove-unppaed-pathways"><i class="fa fa-check"></i><b>2.3</b> Remove unppaed pathways</a></li>
+<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.4</b> Plot Beta diversity</a></li>
+<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.5</b> Permanova test</a></li>
+<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.6</b> Differential analysis(DA)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#preprocess-before-da"><i class="fa fa-check"></i><b>2.6.1</b> Preprocess before DA</a></li>
+<li class="chapter" data-level="2.6.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#lefse"><i class="fa fa-check"></i><b>2.6.2</b> LefSE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contributing-to-differential-pathways"><i class="fa fa-check"></i><b>2.7</b> Bacteria contributing to differential pathways</a></li>
+<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8</b> Plot Bacteria Contribution</a></li>
+<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#gene-and-ensyme-involed-in-differential-pathways"><i class="fa fa-check"></i><b>2.9</b> Gene and Ensyme involed in differential pathways</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#load-tables-to-mapping-pathway-to-gene-and-enzyme"><i class="fa fa-check"></i><b>2.9.1</b> load tables to mapping pathway to gene and enzyme</a></li>
+<li class="chapter" data-level="2.9.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#mapping-pathway-to-related-gene-and-reaction"><i class="fa fa-check"></i><b>2.9.2</b> Mapping pathway to related gene and reaction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.10</b> Session Info</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Preprocess of Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="3.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="3.2" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#process-pipeline-output"><i class="fa fa-check"></i><b>3.2</b> Process pipeline output</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#merge-data-from-humann2-pipeline-kegg-database"><i class="fa fa-check"></i><b>3.2.1</b> Merge data from humann2 pipeline (Kegg database)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#session-info-1"><i class="fa fa-check"></i><b>3.3</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="4.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#environment-setup-2"><i class="fa fa-check"></i><b>4.1</b> Environment setup</a></li>
+<li class="chapter" data-level="4.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#read-in-processed-profile-table-from-script-functional_analysis_kegg_pathway_preprocess.rmd"><i class="fa fa-check"></i><b>4.2</b> Read in processed profile table from script Functional_Analysis_Kegg_Pathway_preprocess.Rmd</a></li>
+<li class="chapter" data-level="4.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#pre-process-pathway-data"><i class="fa fa-check"></i><b>4.3</b> Pre-process pathway data</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-the-pathways-whose-abundance-are-0-across-all-samples"><i class="fa fa-check"></i><b>4.3.1</b> Remove the pathways whose abundance are 0 across all samples</a></li>
+<li class="chapter" data-level="4.3.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#rescale-data"><i class="fa fa-check"></i><b>4.3.2</b> Rescale data</a></li>
+<li class="chapter" data-level="4.3.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-unammped-entry"><i class="fa fa-check"></i><b>4.3.3</b> Remove UNAMMPED entry</a></li>
+<li class="chapter" data-level="4.3.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#filter-low-abundance-pathway"><i class="fa fa-check"></i><b>4.3.4</b> Filter low abundance pathway</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#standard-analysis"><i class="fa fa-check"></i><b>4.4</b> Standard Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysis"><i class="fa fa-check"></i><b>4.5</b> Differential analysis</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#filter-low-prevalence-pathway"><i class="fa fa-check"></i><b>4.5.1</b> Filter low prevalence pathway</a></li>
+<li class="chapter" data-level="4.5.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#da"><i class="fa fa-check"></i><b>4.5.2</b> DA</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information"><i class="fa fa-check"></i><b>4.6</b> Session information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>5</b> Preprocess of Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="5.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#preprocess---merge-sample-data"><i class="fa fa-check"></i><b>5.1</b> Preprocess - Merge sample data</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#use-script-merge_metaphlan_tables.py-from-humann2-to-merge-all-gene_family-profile-files.-1"><i class="fa fa-check"></i><b>5.1.1</b> Use Script merge_metaphlan_tables.py from humann2 to merge all gene_family profile files.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>6</b> Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-3"><i class="fa fa-check"></i><b>6.1</b> Environment setup</a></li>
+<li class="chapter" data-level="6.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#use-card-data-as-example"><i class="fa fa-check"></i><b>6.2</b> Use card data as example</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#read-in-card-data"><i class="fa fa-check"></i><b>6.2.1</b> Read in card data</a></li>
+<li class="chapter" data-level="6.2.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#split-strain-info"><i class="fa fa-check"></i><b>6.2.2</b> Split strain info</a></li>
+<li class="chapter" data-level="6.2.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#rescale-card-data"><i class="fa fa-check"></i><b>6.2.3</b> Rescale card data</a></li>
+<li class="chapter" data-level="6.2.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#remove-unmapped-row"><i class="fa fa-check"></i><b>6.2.4</b> Remove UNMAPPED row</a></li>
+<li class="chapter" data-level="6.2.5" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-abundance-data"><i class="fa fa-check"></i><b>6.2.5</b> Filter low abundance data</a></li>
+<li class="chapter" data-level="6.2.6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#basic-analysis"><i class="fa fa-check"></i><b>6.2.6</b> Basic analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysis-1"><i class="fa fa-check"></i><b>6.3</b> Differential analysis</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-prevalence-pathway-1"><i class="fa fa-check"></i><b>6.3.1</b> Filter low prevalence pathway</a></li>
+<li class="chapter" data-level="6.3.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#da-1"><i class="fa fa-check"></i><b>6.3.2</b> DA</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#session-info-2"><i class="fa fa-check"></i><b>6.4</b> Session info</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="preprocess-of-functional-analysis-of-targetdatabase" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Preprocess of Functional Analysis of TargetDatabase</h1>
+<div id="preprocess---merge-sample-data" class="section level2">
+<h2><span class="header-section-number">5.1</span> Preprocess - Merge sample data</h2>
+<div id="use-script-merge_metaphlan_tables.py-from-humann2-to-merge-all-gene_family-profile-files.-1" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Use Script merge_metaphlan_tables.py from humann2 to merge all gene_family profile files.</h3>
+<p>In this chunk, we merge *genefamilies.tsv files of all samples into one file for each</p>
+<ul>
+<li><p>input: <em>genefamilies.tsv, path of all </em>genefamilies.tsv files</p></li>
+<li><p>output: file name of merged profile table.</p></li>
+</ul>
+<p>Current target database inclues 7 types of databases:</p>
+<ol style="list-style-type: decimal">
+<li><p>acetate</p></li>
+<li><p>butyrate</p></li>
+<li><p>formate</p></li>
+<li><p>propionate</p></li>
+<li><p>card</p></li>
+<li><p>card</p></li>
+<li><p>vfdb</p></li>
+</ol>
+<p>But the format of profile tables of the databases above are nevertheless the same. Next, we merge 7 types of target database profile files one by one.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb61-1"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-1"></a><span class="co">## Remove previously merged profile</span></span>
+<span id="cb61-2"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-2"></a><span class="co"># docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;rm /in/Demo_data/merged_*_profile.tsv&quot;</span></span>
+<span id="cb61-3"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-3"></a></span>
+<span id="cb61-4"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-4"></a></span>
+<span id="cb61-5"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-5"></a><span class="co">## 1. Start merging acetate profile files</span></span>
+<span id="cb61-6"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-6"></a></span>
+<span id="cb61-7"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-7"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c <span class="st">&quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_acetate/*genefamilies.tsv &gt; /in/Demo_data/merged_acetate_profile.tsv&quot;</span></span>
+<span id="cb61-8"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-8"></a></span>
+<span id="cb61-9"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-9"></a></span>
+<span id="cb61-10"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-10"></a><span class="co">## 2. Start merging butyrate profile files</span></span>
+<span id="cb61-11"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-11"></a></span>
+<span id="cb61-12"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-12"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c <span class="st">&quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_butyrate/*genefamilies.tsv &gt; /in/Demo_data/merged_butyrate_profile.tsv&quot;</span></span>
+<span id="cb61-13"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-13"></a></span>
+<span id="cb61-14"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-14"></a></span>
+<span id="cb61-15"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-15"></a><span class="co">## 3. Start merging formate profile files</span></span>
+<span id="cb61-16"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-16"></a></span>
+<span id="cb61-17"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-17"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c <span class="st">&quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_formate/*genefamilies.tsv &gt; /in/Demo_data/merged_formate_profile.tsv&quot;</span></span>
+<span id="cb61-18"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-18"></a></span>
+<span id="cb61-19"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-19"></a></span>
+<span id="cb61-20"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-20"></a><span class="co">## 4. Start merging propionate profile files</span></span>
+<span id="cb61-21"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-21"></a></span>
+<span id="cb61-22"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-22"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c <span class="st">&quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_propionate/*genefamilies.tsv &gt; /in/Demo_data/merged_propionate_profile.tsv&quot;</span></span>
+<span id="cb61-23"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-23"></a></span>
+<span id="cb61-24"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-24"></a></span>
+<span id="cb61-25"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-25"></a><span class="co">## 5. Start merging card profile files</span></span>
+<span id="cb61-26"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-26"></a></span>
+<span id="cb61-27"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-27"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c <span class="st">&quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_card/*genefamilies.tsv &gt; /in/Demo_data/merged_card_profile.tsv&quot;</span></span>
+<span id="cb61-28"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-28"></a></span>
+<span id="cb61-29"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-29"></a></span>
+<span id="cb61-30"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-30"></a><span class="co">## 6. Start merging card profile files</span></span>
+<span id="cb61-31"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-31"></a></span>
+<span id="cb61-32"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-32"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c <span class="st">&quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_card/*genefamilies.tsv &gt; /in/Demo_data/merged_card_profile.tsv&quot;</span></span>
+<span id="cb61-33"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-33"></a></span>
+<span id="cb61-34"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-34"></a></span>
+<span id="cb61-35"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-35"></a><span class="co">## 7. Start merging vfdb profile files</span></span>
+<span id="cb61-36"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-36"></a></span>
+<span id="cb61-37"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-37"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c <span class="st">&quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_vfdb/*genefamilies.tsv &gt; /in/Demo_data/merged_vfdb_profile.tsv&quot;</span></span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functional-analysis-of-kegg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functional-analysis-of-targetdatabase.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/04-Functional_Analysis_Target_database_preprocess.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Function standard analysis workflow.pdf", "Function standard analysis workflow.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
