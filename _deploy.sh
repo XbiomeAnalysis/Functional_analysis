@@ -12,7 +12,7 @@ set -e
 #cd book-output
 #cp -r ../_book/* ./
 git add --all *
-git commit -m "Update the book" || true
+git commit -m "Update the source codes" || true
 #git push -q origin gh-pages
 git push origin main
 
