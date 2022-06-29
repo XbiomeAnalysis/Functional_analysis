@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 3. Pre-process pathway data | Functional analysis</title>
+  <meta name="description" content="Tutorial for MGS functional analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 3. Pre-process pathway data | Functional analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial for MGS functional analysis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 3. Pre-process pathway data | Functional analysis" />
+  
+  <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
+  
+
+<meta name="author" content="Bangzhuo Tong" />
+
+
+<meta name="date" content="2022-06-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="read-in-processed-profile-table-from-script-functional_analysis_kegg_pathway_preprocess.html"/>
+<link rel="next" href="standard-analysis.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Function standard analysis workflow</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Functional Analysis Template</a></li>
+<li class="chapter" data-level="2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html"><i class="fa fa-check"></i><b>2</b> Functional Analysis of Metacyc database</a><ul>
+<li class="chapter" data-level="2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#environment-setup"><i class="fa fa-check"></i><b>2.1</b> Environment setup</a></li>
+<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#load-data"><i class="fa fa-check"></i><b>2.2</b> load data</a></li>
+<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#remove-unppaed-pathways"><i class="fa fa-check"></i><b>2.3</b> Remove unppaed pathways</a></li>
+<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.4</b> Plot Beta diversity</a></li>
+<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.5</b> Permanova test</a></li>
+<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.6</b> Differential analysis(DA)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#preprocess-before-da"><i class="fa fa-check"></i><b>2.6.1</b> Preprocess before DA</a></li>
+<li class="chapter" data-level="2.6.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#lefse"><i class="fa fa-check"></i><b>2.6.2</b> LefSE</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contributing-to-differential-pathways"><i class="fa fa-check"></i><b>2.7</b> Bacteria contributing to differential pathways</a></li>
+<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8</b> Plot Bacteria Contribution</a></li>
+<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#gene-and-ensyme-involed-in-differential-pathways"><i class="fa fa-check"></i><b>2.9</b> Gene and Ensyme involed in differential pathways</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#load-tables-to-mapping-pathway-to-gene-and-enzyme"><i class="fa fa-check"></i><b>2.9.1</b> load tables to mapping pathway to gene and enzyme</a></li>
+<li class="chapter" data-level="2.9.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#mapping-pathway-to-related-gene-and-reaction"><i class="fa fa-check"></i><b>2.9.2</b> Mapping pathway to related gene and reaction</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.10</b> Session Info</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Preprocess of Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="3.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="3.2" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#process-pipeline-output"><i class="fa fa-check"></i><b>3.2</b> Process pipeline output</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#merge-data-from-humann2-pipeline-kegg-database"><i class="fa fa-check"></i><b>3.2.1</b> Merge data from humann2 pipeline (Kegg database)</a></li>
+<li class="chapter" data-level="3.2.2" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#remove-unmapped-row-in-merged-profile-file"><i class="fa fa-check"></i><b>3.2.2</b> Remove unmapped row in merged profile file</a></li>
+<li class="chapter" data-level="3.2.3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#re-scale-total-sum-scale-map-kegg-gene-entries-to-ko-entries"><i class="fa fa-check"></i><b>3.2.3</b> Re-scale (Total Sum Scale) &amp; map kegg gene entries to KO entries</a></li>
+<li class="chapter" data-level="3.2.4" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#use-minpath-to-extract-the-mapping-information-between-knumers-and-kegg-pathways"><i class="fa fa-check"></i><b>3.2.4</b> Use minpath to extract the mapping information between Knumers and KEGG pathways</a></li>
+<li class="chapter" data-level="3.2.5" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#calculate-the-abundance-of-kegg-pathways"><i class="fa fa-check"></i><b>3.2.5</b> Calculate the abundance of Kegg pathways</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="session-info-1.html"><a href="session-info-1.html"><i class="fa fa-check"></i><b>4</b> 3. Session info</a></li>
+<li class="chapter" data-level="5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>5</b> Functional Analysis of KEGG</a></li>
+<li class="chapter" data-level="6" data-path="environment-setup-2.html"><a href="environment-setup-2.html"><i class="fa fa-check"></i><b>6</b> 1. Environment setup</a></li>
+<li class="chapter" data-level="7" data-path="read-in-processed-profile-table-from-script-functional_analysis_kegg_pathway_preprocess.html"><a href="read-in-processed-profile-table-from-script-functional_analysis_kegg_pathway_preprocess.html"><i class="fa fa-check"></i><b>7</b> 2. Read in processed profile table from script Functional_Analysis_Kegg_Pathway_preprocess.Rmd</a></li>
+<li class="chapter" data-level="8" data-path="pre-process-pathway-data.html"><a href="pre-process-pathway-data.html"><i class="fa fa-check"></i><b>8</b> 3. Pre-process pathway data</a><ul>
+<li class="chapter" data-level="8.1" data-path="pre-process-pathway-data.html"><a href="pre-process-pathway-data.html#remove-the-pathways-whose-abundance-are-0-across-all-samples"><i class="fa fa-check"></i><b>8.1</b> 3.1 Remove the pathways whose abundance are 0 across all samples</a></li>
+<li class="chapter" data-level="8.2" data-path="pre-process-pathway-data.html"><a href="pre-process-pathway-data.html#rescale-data"><i class="fa fa-check"></i><b>8.2</b> 3.2 Rescale data</a></li>
+<li class="chapter" data-level="8.3" data-path="pre-process-pathway-data.html"><a href="pre-process-pathway-data.html#remove-unammped-entry"><i class="fa fa-check"></i><b>8.3</b> 3.3 Remove UNAMMPED entry</a></li>
+<li class="chapter" data-level="8.4" data-path="pre-process-pathway-data.html"><a href="pre-process-pathway-data.html#filter-low-abundance-pathway"><i class="fa fa-check"></i><b>8.4</b> 3.4 Filter low abundance pathway</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="standard-analysis.html"><a href="standard-analysis.html"><i class="fa fa-check"></i><b>9</b> 4. Standard Analysis</a></li>
+<li class="chapter" data-level="10" data-path="differential-analysis.html"><a href="differential-analysis.html"><i class="fa fa-check"></i><b>10</b> 5. Differential analysis</a><ul>
+<li class="chapter" data-level="10.1" data-path="differential-analysis.html"><a href="differential-analysis.html#filter-low-prevalence-pathway"><i class="fa fa-check"></i><b>10.1</b> 5.1 Filter low prevalence pathway</a></li>
+<li class="chapter" data-level="10.2" data-path="differential-analysis.html"><a href="differential-analysis.html#da"><i class="fa fa-check"></i><b>10.2</b> 5.2 DA</a></li>
+<li class="chapter" data-level="10.3" data-path="differential-analysis.html"><a href="differential-analysis.html#session-information"><i class="fa fa-check"></i><b>10.3</b> 6. Session information</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>11</b> Preprocess of Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="11.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#preprocess---merge-sample-data"><i class="fa fa-check"></i><b>11.1</b> Preprocess - Merge sample data</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#use-script-merge_metaphlan_tables.py-from-humann2-to-merge-all-gene_family-profile-files.-1"><i class="fa fa-check"></i><b>11.1.1</b> Use Script merge_metaphlan_tables.py from humann2 to merge all gene_family profile files.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>12</b> Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="12.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-3"><i class="fa fa-check"></i><b>12.1</b> 1. Environment setup</a></li>
+<li class="chapter" data-level="12.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#card-data"><i class="fa fa-check"></i><b>12.2</b> 2. card data</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#same-as-kegg-pathway-data-we-normalize-data-at-the-begining-of-analysis-to-reduce-the-differences-of-sequencing-depth-across-all-samples."><i class="fa fa-check"></i><b>12.2.1</b> Same as kegg pathway data, we normalize data at the begining of analysis to reduce the differences of sequencing depth across all samples.</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#use-card-data-as-example"><i class="fa fa-check"></i><b>12.3</b> Use card data as example:</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#read-in-card-data"><i class="fa fa-check"></i><b>12.3.1</b> 2.1 Read in card data</a></li>
+<li class="chapter" data-level="12.3.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#split-strain-info"><i class="fa fa-check"></i><b>12.3.2</b> 2.2 Split strain info</a></li>
+<li class="chapter" data-level="12.3.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#rescale-card-data"><i class="fa fa-check"></i><b>12.3.3</b> 2.3 Rescale card data</a></li>
+<li class="chapter" data-level="12.3.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#remove-unmapped-row"><i class="fa fa-check"></i><b>12.3.4</b> 2.4 Remove UNMAPPED row</a></li>
+<li class="chapter" data-level="12.3.5" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-abundance-data"><i class="fa fa-check"></i><b>12.3.5</b> 2.5 Filter low abundance data</a></li>
+<li class="chapter" data-level="12.3.6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#basic-analysis"><i class="fa fa-check"></i><b>12.3.6</b> 2.6 Basic analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysis-1"><i class="fa fa-check"></i><b>12.4</b> 2.7 Differential analysis</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-prevalence-pathway-1"><i class="fa fa-check"></i><b>12.4.1</b> Filter low prevalence pathway</a></li>
+<li class="chapter" data-level="12.4.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#da-1"><i class="fa fa-check"></i><b>12.4.2</b> 2.8 DA</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#session-info-2"><i class="fa fa-check"></i><b>12.5</b> 3. Session info</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pre-process-pathway-data" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> 3. Pre-process pathway data</h1>
+<div id="remove-the-pathways-whose-abundance-are-0-across-all-samples" class="section level2">
+<h2><span class="header-section-number">8.1</span> 3.1 Remove the pathways whose abundance are 0 across all samples</h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="pre-process-pathway-data.html#cb37-1"></a><span class="co">## If we use harmonic mean or median to calcualte pathway abundance from KOs, the pathway abundance may be 0, we therefore need to remove those pathways having 0 abundance across all samples.</span></span>
+<span id="cb37-2"><a href="pre-process-pathway-data.html#cb37-2"></a><span class="co">## Sample 14295 is water, don&#39;t panick when you see loads of 0s in your data, check the sample source when you see weird numbers in profile table.</span></span>
+<span id="cb37-3"><a href="pre-process-pathway-data.html#cb37-3"></a></span>
+<span id="cb37-4"><a href="pre-process-pathway-data.html#cb37-4"></a>pathway_profile_tbl <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;# Gene Family&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="kw">rowSums</span>(.) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
+</div>
+<div id="rescale-data" class="section level2">
+<h2><span class="header-section-number">8.2</span> 3.2 Rescale data</h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="pre-process-pathway-data.html#cb38-1"></a><span class="co">## In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples. After re-scaling, we can apply DA to samples.</span></span>
+<span id="cb38-2"><a href="pre-process-pathway-data.html#cb38-2"></a></span>
+<span id="cb38-3"><a href="pre-process-pathway-data.html#cb38-3"></a>rescaled_pathway_profile_tbl &lt;-<span class="st"> </span>pathway_profile_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(., <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="op">/</span><span class="kw">sum</span>(x)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb38-4"><a href="pre-process-pathway-data.html#cb38-4"></a></span>
+<span id="cb38-5"><a href="pre-process-pathway-data.html#cb38-5"></a><span class="kw">head</span>(rescaled_pathway_profile_tbl)</span></code></pre></div>
+<pre><code>##              14286        14287        14288        14289        14290        14291        14292        14293        14294 14295
+## 00010 1.283440e-04 3.357828e-06 1.128246e-05 9.462703e-05 3.238698e-06 2.927676e-06 2.364773e-05 8.041385e-06 7.623641e-05     0
+## 00020 6.879852e-05 9.505726e-06 1.616029e-05 1.167247e-04 1.025686e-05 1.061323e-05 2.828187e-05 2.880967e-05 7.161811e-05     0
+## 00030 4.098493e-06 0.000000e+00 9.312244e-07 4.416249e-05 3.468932e-07 3.713000e-07 3.258050e-06 2.532759e-06 6.328223e-06     0
+## 00040 1.150498e-06 5.421290e-07 8.982930e-07 7.318994e-06 3.960937e-07 0.000000e+00 7.673043e-07 9.071024e-07 0.000000e+00     0
+## 00051 2.058384e-05 2.036986e-06 1.252159e-06 5.090830e-05 5.512341e-07 1.205087e-06 4.321008e-06 8.141639e-07 5.743959e-05     0
+## 00052 1.143786e-05 4.884568e-06 2.666522e-06 6.195852e-05 2.631011e-06 8.223274e-07 6.765689e-06 3.606556e-06 1.175916e-04     0</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="pre-process-pathway-data.html#cb40-1"></a><span class="kw">nrow</span>(rescaled_pathway_profile_tbl)</span></code></pre></div>
+<pre><code>## [1] 68</code></pre>
+</div>
+<div id="remove-unammped-entry" class="section level2">
+<h2><span class="header-section-number">8.3</span> 3.3 Remove UNAMMPED entry</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="pre-process-pathway-data.html#cb42-1"></a><span class="co">## In this chunk, we remove the umapped row in rescaled profile table because we are not able to intepret UNMAPPED entry.</span></span>
+<span id="cb42-2"><a href="pre-process-pathway-data.html#cb42-2"></a></span>
+<span id="cb42-3"><a href="pre-process-pathway-data.html#cb42-3"></a>rescaled_pathway_profile_tbl <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">!</span>UNMAPPED) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span></code></pre></div>
+</div>
+<div id="filter-low-abundance-pathway" class="section level2">
+<h2><span class="header-section-number">8.4</span> 3.4 Filter low abundance pathway</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="pre-process-pathway-data.html#cb43-1"></a><span class="co">## In this chunck, we aggregate low abundance features to one row.</span></span>
+<span id="cb43-2"><a href="pre-process-pathway-data.html#cb43-2"></a><span class="co">## Import functions for filtering into enviroment.</span></span>
+<span id="cb43-3"><a href="pre-process-pathway-data.html#cb43-3"></a></span>
+<span id="cb43-4"><a href="pre-process-pathway-data.html#cb43-4"></a><span class="co">## 1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition] https://doi.org/10.1016/j.chom.2019.07.004, pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.</span></span>
+<span id="cb43-5"><a href="pre-process-pathway-data.html#cb43-5"></a></span>
+<span id="cb43-6"><a href="pre-process-pathway-data.html#cb43-6"></a></span>
+<span id="cb43-7"><a href="pre-process-pathway-data.html#cb43-7"></a><span class="kw">source</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Scripts/R/ultility.R&#39;</span>)</span>
+<span id="cb43-8"><a href="pre-process-pathway-data.html#cb43-8"></a></span>
+<span id="cb43-9"><a href="pre-process-pathway-data.html#cb43-9"></a>filtered_pathway_RA_profile_tbl &lt;-<span class="st"> </span><span class="kw">aggregate_low_abundance</span>(<span class="dt">input_data =</span> rescaled_pathway_profile_tbl,</span>
+<span id="cb43-10"><a href="pre-process-pathway-data.html#cb43-10"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>) <span class="co">## threshold should be modified based on your on study</span></span>
+<span id="cb43-11"><a href="pre-process-pathway-data.html#cb43-11"></a></span>
+<span id="cb43-12"><a href="pre-process-pathway-data.html#cb43-12"></a><span class="kw">head</span>(filtered_pathway_RA_profile_tbl)</span></code></pre></div>
+<pre><code>##              14286        14287        14288        14289        14290        14291        14292        14293        14294 14295
+## 00010 1.283440e-04 3.357828e-06 1.128246e-05 9.462703e-05 3.238698e-06 2.927676e-06 2.364773e-05 8.041385e-06 7.623641e-05     0
+## 00020 6.879852e-05 9.505726e-06 1.616029e-05 1.167247e-04 1.025686e-05 1.061323e-05 2.828187e-05 2.880967e-05 7.161811e-05     0
+## 00030 4.098493e-06 0.000000e+00 9.312244e-07 4.416249e-05 3.468932e-07 3.713000e-07 3.258050e-06 2.532759e-06 6.328223e-06     0
+## 00040 1.150498e-06 5.421290e-07 8.982930e-07 7.318994e-06 3.960937e-07 0.000000e+00 7.673043e-07 9.071024e-07 0.000000e+00     0
+## 00051 2.058384e-05 2.036986e-06 1.252159e-06 5.090830e-05 5.512341e-07 1.205087e-06 4.321008e-06 8.141639e-07 5.743959e-05     0
+## 00052 1.143786e-05 4.884568e-06 2.666522e-06 6.195852e-05 2.631011e-06 8.223274e-07 6.765689e-06 3.606556e-06 1.175916e-04     0</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="pre-process-pathway-data.html#cb45-1"></a><span class="kw">nrow</span>(filtered_pathway_RA_profile_tbl)</span></code></pre></div>
+<pre><code>## [1] 67</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="read-in-processed-profile-table-from-script-functional_analysis_kegg_pathway_preprocess.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="standard-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/03-Functional_Analysis_Kegg_Pathway_analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Function standard analysis workflow.pdf", "Function standard analysis workflow.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

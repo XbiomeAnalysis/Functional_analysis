@@ -1,0 +1,23 @@
+--- 
+title: "Functional analysis"
+author: "Bangzhuo Tong"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [assets/book.bib, assets/packages.bib]
+biblio-style: apalike
+link-citations: yes
+always_allow_html: true
+description: "Tutorial for MGS functional analysis"
+---
+
+# Functional Analysis Template
+
+This book includes 3 templates of funcitonal analysis: 
+
+* Analysis of Metacyc data
+
+* Analysis of KEGG data
+
+* Analysis of target database data
