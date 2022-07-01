@@ -184,9 +184,9 @@ read_delim("/home/xuxiaomin/project/standardized_analytics_workflow_R_function/d
     write.table(.,"/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/merged_relab_pathabundance_stratified.pcl", row.names = FALSE, quote = FALSE, sep = "\t")
 
 for (i in pathway_list) {
-    commond_text <- "python3.5 /Xbiome1/tongbangzhuo/Script/humann2_barplot.py --input /home/xuxiaomin/project/standardized_analytics_workflow_R_function/demo_data/Funtional/merged_relab_pathabundance_stratified.pcl --focal-feature ${pathwayID} --focal-metadatum Group --last-metadatum Group -d 8 4 --output /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/pathway_bacteria/${pathwayID}.png -e 0.8"
+    commond_text <- "python3.5 ~/tongbangzhuo_Xbiome1/Script/humann2_barplot.py --input /home/xuxiaomin/project/standardized_analytics_workflow_R_function/demo_data/Funtional/merged_relab_pathabundance_stratified.pcl --focal-feature ${pathwayID} --focal-metadatum Group --last-metadatum Group -d 8 4 --output /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/pathway_bacteria/${pathwayID}.png -e 0.8"
     commond_text <- stringr::str_interp(commond_text, list(pathwayID = i))
-    #system(commond_text)
+    system(commond_text)
 }
 
 
@@ -197,11 +197,14 @@ for (i in pathway_list) {
 ```{r plot_bacteria_contribution}
 
 image_path <- NULL
-for (image in list.files("/home/xuxiaomin/project/standardized_analytics_workflow_R_function/demo_data/Funtional/pathway_bacteria/")){
-    if (str_detect(image,".png$")){
-        image_path <- c(image_path, paste0("/home/xuxiaomin/project/standardized_analytics_workflow_R_function/demo_data/Funtional/pathway_bacteria/",image))
-    }
-}
+# for (image in list.files("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/pathway_bacteria/")){
+#     if (str_detect(image,".png$")){
+#         image_path <- c(image_path, paste0("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/pathway_bacteria/",image))
+#     }
+# }
+image_path <- system('ls /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/pathway_bacteria/*.png', intern = TRUE)
+
+## In the graph(s) below, green KO are those KOs enriched in GroupB, red KO are those KOs enriched in GroupA
 knitr::include_graphics(image_path)
 
 ```
