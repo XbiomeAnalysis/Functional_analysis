@@ -13,11 +13,27 @@ description: "Tutorial for MGS functional analysis"
 ---
 
 # Introduction
+This is a tutorial introducing the analysis of microbiome functional data (Including the analysis of data annotated from MetaCyc, KEGG, VFDB, SCFA, CARD, CAZY databases).
 
-This book includes 3 templates of funcitonal analysis:
+Two cohorts' MGS data were used as demo data throughout this tutorial: One cohort contains 68 samples across 43 people (Including 15 donor, 1 BRS sample and 27 GvHD patients) in GvHD project. The other cohort consist of 10 samples from 8 patients, 1 water tube and 1 BRS in Newtech project. The first cohort was used as the input data for MetaCyc database analysis and the other one was used as the input for the analysis of KEGG, VFDB, SCFA, CARD, CAZY databases.
+
+This book includes 5 Chapters for the following 3 templates of funcitonal analysis:
 
 * Analysis of Metacyc data
 
 * Analysis of KEGG data
 
 * Analysis of target database data
+
+Chapter1 introduces the analysis of Metacyc data.
+
+Chapter2 introduces the preprocesssing (How to merge data of multiple samples and convert kegg genes to kegg pathways, etc,.) of KEGG data.
+
+Chapter3 introduces the analysis of processed KEGG data.
+
+Chapter4 introduces the preprocesssing (How to merge data of multiple samples) of VFDB, SCFA, CARD, CAZY data.
+
+Chapter5 introduces the analysis of processed CARD data.
+
+
+
