@@ -15,7 +15,10 @@ There are five 7 steps in standard MGS data anlaysis process:
 ## Environment setup
 
 ```{r load_package,message=FALSE,warning=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE,out.width="100%")
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+## remove all libraries and variables in current environment
+
+rm(list = ls())
 
 library(XMAS)
 library(xviz)
@@ -202,7 +205,10 @@ image_path <- NULL
 #         image_path <- c(image_path, paste0("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/pathway_bacteria/",image))
 #     }
 # }
-image_path <- system('ls /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/pathway_bacteria/*.png', intern = TRUE)
+
+system('cp /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/Demodata/pathway_bacteria/*.png ./')
+
+image_path <- system('ls ./*PWY*png', intern = TRUE) %>% unlist() %>% as.character() %>% as.vector()
 
 ## In the graph(s) below, green KO are those KOs enriched in GroupB, red KO are those KOs enriched in GroupA
 knitr::include_graphics(image_path)

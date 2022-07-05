@@ -4,6 +4,11 @@
 
 ```{r environment setup for kegg analysis, echo=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+## remove all libraries and variables in current environment
+
+rm(list = ls())
+
 ## Load requeired packages
 library(tibble)
 library(phyloseq)
@@ -16,9 +21,6 @@ library(pathview)
 
 setwd('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/')
 
-## remove all libraries and variables in current environment
-
-rm(list = ls())
 options(stringsAsFactors = FALSE)
 ```
 

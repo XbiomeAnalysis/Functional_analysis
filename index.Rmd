@@ -25,15 +25,17 @@ This book includes 5 Chapters for the following 3 templates of funcitonal analys
 
 * Analysis of target database data
 
-Chapter1 introduces the analysis of Metacyc data.
+Chapter1 introduces basic information of this tutorial.
 
-Chapter2 introduces the preprocesssing (How to merge data of multiple samples and convert kegg genes to kegg pathways, etc,.) of KEGG data.
+Chapter2 introduces the analysis of Metacyc data.
 
-Chapter3 introduces the analysis of processed KEGG data.
+Chapter3 introduces the preprocesssing (How to merge data of multiple samples and convert kegg genes to kegg pathways, etc,.) of KEGG data.
 
-Chapter4 introduces the preprocesssing (How to merge data of multiple samples) of VFDB, SCFA, CARD, CAZY data.
+Chapter4 introduces the analysis of processed KEGG data.
 
-Chapter5 introduces the analysis of processed CARD data.
+Chapter5 introduces the preprocesssing (How to merge data of multiple samples) of VFDB, SCFA, CARD, CAZY data.
+
+Chapter6 introduces the analysis of processed CARD data.
 
 
 

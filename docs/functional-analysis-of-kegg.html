@@ -318,7 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb47-6"><a href="functional-analysis-of-kegg.html#cb47-6"></a>                 <span class="dt">metadata =</span> metadata, <span class="dt">collapse =</span> <span class="fl">1e-3</span>, <span class="dt">feature =</span> <span class="st">&#39;group&#39;</span>)</span>
 <span id="cb47-7"><a href="functional-analysis-of-kegg.html#cb47-7"></a></span>
 <span id="cb47-8"><a href="functional-analysis-of-kegg.html#cb47-8"></a><span class="kw">print</span>(pathway_stacked_barplot)</span></code></pre></div>
-<p><img src="Function-standard-analysis-workflow_files/figure-html/Compositional%20barplot%20of%20kegg%20pathway-1.png" width="100%" /></p>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/Compositional%20barplot%20of%20kegg%20pathway-1.png" width="576" /></p>
 <ul>
 <li>Beta diversity</li>
 </ul>
@@ -334,7 +334,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb48-10"><a href="functional-analysis-of-kegg.html#cb48-10"></a>                                       <span class="dt">method =</span> <span class="st">&#39;bray&#39;</span>,</span>
 <span id="cb48-11"><a href="functional-analysis-of-kegg.html#cb48-11"></a>                                       <span class="dt">label =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb48-12"><a href="functional-analysis-of-kegg.html#cb48-12"></a><span class="kw">print</span>(PCOA_plot)</span></code></pre></div>
-<p><img src="Function-standard-analysis-workflow_files/figure-html/Beta%20diversity%20of%20kegg%20pathway-1.png" width="100%" /></p>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/Beta%20diversity%20of%20kegg%20pathway-1.png" width="672" /></p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="functional-analysis-of-kegg.html#cb49-1"></a><span class="co">## PERMANOVA test &amp; beta dispersion test</span></span>
 <span id="cb49-2"><a href="functional-analysis-of-kegg.html#cb49-2"></a><span class="co">## We use PERMANOVA test to check the differences of function composition among different groups. Additionally, we also take homogeneity of group variance into consideration.</span></span>
 <span id="cb49-3"><a href="functional-analysis-of-kegg.html#cb49-3"></a></span>
@@ -442,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb56-16"><a href="functional-analysis-of-kegg.html#cb56-16"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Estimated Odds Ratio&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;FDR adjusted p-values(-log10)&quot;</span>)</span>
 <span id="cb56-17"><a href="functional-analysis-of-kegg.html#cb56-17"></a></span>
 <span id="cb56-18"><a href="functional-analysis-of-kegg.html#cb56-18"></a><span class="kw">print</span>(volcano_plot)</span></code></pre></div>
-<p><img src="Function-standard-analysis-workflow_files/figure-html/visualize%20DA%20result%20by%20volcano%20plot%20of%20KEGG%20pathway%20data-1.png" width="100%" /></p>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/visualize%20DA%20result%20by%20volcano%20plot%20of%20KEGG%20pathway%20data-1.png" width="672" /></p>
 <ul>
 <li>Show DA result with pathview</li>
 </ul>
@@ -556,13 +556,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb57-108"><a href="functional-analysis-of-kegg.html#cb57-108"></a></span>
 <span id="cb57-109"><a href="functional-analysis-of-kegg.html#cb57-109"></a><span class="co">## In the graph(s) below, green KO are those KOs enriched in GroupB, red KO are those KOs enriched in GroupA</span></span>
 <span id="cb57-110"><a href="functional-analysis-of-kegg.html#cb57-110"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(graph_list)</span></code></pre></div>
-<p><img src="ko00040.PathView.png" width="100%" /><img src="ko02020.PathView.png" width="100%" /></p>
+<p><img src="ko00040.PathView.png" width="549" /><img src="ko02020.PathView.png" width="720" /></p>
 </div>
 </div>
 <div id="session-information" class="section level2">
 <h2><span class="header-section-number">4.6</span> Session information</h2>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="functional-analysis-of-kegg.html#cb58-1"></a>devtools<span class="op">::</span><span class="kw">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 3.6.3 (2020-02-29)
 ##  os       Ubuntu 16.04.7 LTS
@@ -576,7 +576,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  rstudio  1.1.419 (server)
 ##  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)
 ## 
-## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  ! package              * version    date (UTC) lib source
 ##    abind                  1.4-5      2016-07-21 [1] CRAN (R 3.6.3)
 ##    ade4                   1.7-17     2021-06-17 [1] CRAN (R 3.6.3)
@@ -819,7 +819,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##  R ── Package was removed from disk.
 ## 
-## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>
