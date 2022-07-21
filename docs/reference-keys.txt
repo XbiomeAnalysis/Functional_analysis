@@ -55,3 +55,8 @@ differential-analysis-1
 filter-low-prevalence-pathway-1
 da-1
 session-info-2
+msea
+execute-msea-with-python-script-on-server
+read-in-msea-result
+filter-and-visualize-msea-result
+draw-bipartit-graph-to-show-the-relation-between-human-genes-and-microbial-genus-with-ggnet.

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Functional analysis</title>
+  <title>Chapter 7 MSEA | Functional analysis</title>
   <meta name="description" content="Tutorial for MGS functional analysis" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Functional analysis" />
+  <meta property="og:title" content="Chapter 7 MSEA | Functional analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Functional analysis" />
+  <meta name="twitter:title" content="Chapter 7 MSEA | Functional analysis" />
   
   <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="functional-analysis-of-targetdatabase.html"/>
 
-<link rel="next" href="functional-analysis-of-metacyc-database.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -226,38 +226,160 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Functional analysis</h1>
-<p class="author"><em>Bangzhuo Tong</em></p>
-<p class="date"><em>2022-07-21</em></p>
+<div id="msea" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> MSEA</h1>
+<p>This is a markdown tutorial for MSEA. To run MSEA, you need to Install MSEA to your default python before running this template. Installation instruction: <a href="https://msea.readthedocs.io/en/latest/quickstart.html#installation" class="uri">https://msea.readthedocs.io/en/latest/quickstart.html#installation</a>.</p>
+<p>You can run MSEA when you got genus that you’re interested in (e.g., DA genus), write all genus into one txt file, one genus per line and feed the file to MSEA as input.</p>
+<div id="execute-msea-with-python-script-on-server" class="section level2">
+<h2><span class="header-section-number">7.1</span> Execute MSEA with python script on server</h2>
+<p>You can run MSEA analysis with MSEA_Run.py on server, one required parameters and two optional parameters need to be provided for the script:</p>
+<ol style="list-style-type: decimal">
+<li>–input (Required), input genus list file for MSEA, one genus per line.<br />
+</li>
+<li>–output (Optional), output csv file of MSEA result. Default testout.csv<br />
+</li>
+<li>–PerturbationTimes (Optional), number of perturbation. Fisher’s excat test has bias on group with large number of samples, MSEA uses random sampling to remove the bias. Larger number of perturbation would cause longer runtime. Default 50.<br />
+Citation: <a href="https://www.nature.com/articles/s41598-020-78511-y" class="uri">https://www.nature.com/articles/s41598-020-78511-y</a></li>
+</ol>
+<div class="sourceCode" id="cb89"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb89-1"><a href="msea.html#cb89-1"></a></span>
+<span id="cb89-2"><a href="msea.html#cb89-2"></a><span class="ex">/home/tongbangzhuo/Software/miniconda3/bin/python</span> /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/MSEA_Run.py --input /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/test_input --output testout.csv --PerturbationTimes 10</span></code></pre></div>
+<pre><code>## 
+## Reading database file
+## 
+## Calculating empirical ranks for each set...
+## Number of unique microbes: 566
+## 
+  0%|          | 0/10 [00:00&lt;?, ?it/s]
+ 10%|█         | 1/10 [00:00&lt;00:05,  1.58it/s]
+ 20%|██        | 2/10 [00:01&lt;00:05,  1.49it/s]
+ 30%|███       | 3/10 [00:01&lt;00:04,  1.52it/s]
+ 40%|████      | 4/10 [00:02&lt;00:03,  1.52it/s]
+ 50%|█████     | 5/10 [00:03&lt;00:03,  1.39it/s]
+ 60%|██████    | 6/10 [00:04&lt;00:03,  1.26it/s]
+ 70%|███████   | 7/10 [00:05&lt;00:02,  1.31it/s]
+ 80%|████████  | 8/10 [00:05&lt;00:01,  1.37it/s]
+ 90%|█████████ | 9/10 [00:06&lt;00:00,  1.42it/s]
+100%|██████████| 10/10 [00:07&lt;00:00,  1.44it/s]
+100%|██████████| 10/10 [00:07&lt;00:00,  1.41it/s]
+## 
+## Performing MSEA with adjustment
+## 
+## Showing the head of result table:
+##       oddsratio  ...  n_shared
+## term             ...          
+## ULK1  66.666667  ...         4
+## XIAP  43.478261  ...         5
+## IRF7  55.555556  ...         5
+## HP    27.586207  ...         4
+## GNAS  85.714286  ...         3
+## 
+## [5 rows x 7 columns]
+## 
+## Finished !!</code></pre>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>This is a tutorial introducing the analysis of microbiome functional data (Including the analysis of data annotated from MetaCyc, KEGG, VFDB, SCFA, CARD, CAZY databases).</p>
-<p>Two cohorts’ MGS data were used as demo data throughout this tutorial: One cohort contains 68 samples across 43 people (Including 15 donor, 1 BRS sample and 27 GvHD patients) in GvHD project. The other cohort consist of 10 samples from 8 patients, 1 water tube and 1 BRS in Newtech project. The first cohort was used as the input data for MetaCyc database analysis and the other one was used as the input for the analysis of KEGG, VFDB, SCFA, CARD, CAZY databases.</p>
-<p>This book includes 7 Chapters for the following 4 templates of funcitonal analysis:</p>
-<ul>
-<li><p>Analysis of Metacyc data</p></li>
-<li><p>Analysis of KEGG data</p></li>
-<li><p>Analysis of target database data</p></li>
-<li><p>MSEA</p></li>
-</ul>
-<p>Chapter1 introduces basic information of this tutorial.</p>
-<p>Chapter2 introduces the analysis of Metacyc data.</p>
-<p>Chapter3 introduces the preprocesssing (How to merge data of multiple samples and convert kegg genes to kegg pathways, etc,.) of KEGG data.</p>
-<p>Chapter4 introduces the analysis of processed KEGG data.</p>
-<p>Chapter5 introduces the preprocesssing (How to merge data of multiple samples) of VFDB, SCFA, CARD, CAZY data.</p>
-<p>Chapter6 introduces the analysis of processed CARD data.</p>
-<p>Chapter7 introduces MSEA.</p>
+<div id="read-in-msea-result" class="section level2">
+<h2><span class="header-section-number">7.2</span> Read in MSEA result</h2>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="msea.html#cb91-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb91-2"><a href="msea.html#cb91-2"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb91-3"><a href="msea.html#cb91-3"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb91-4"><a href="msea.html#cb91-4"></a><span class="kw">library</span>(ggbipart)</span>
+<span id="cb91-5"><a href="msea.html#cb91-5"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb91-6"><a href="msea.html#cb91-6"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb91-7"><a href="msea.html#cb91-7"></a><span class="kw">library</span>(wesanderson)</span>
+<span id="cb91-8"><a href="msea.html#cb91-8"></a></span>
+<span id="cb91-9"><a href="msea.html#cb91-9"></a>MSEA_res =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/testout.csv&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
+<span id="cb91-10"><a href="msea.html#cb91-10"></a><span class="kw">head</span>(MSEA_res, <span class="dt">n=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##       term oddsratio       pvalue       qvalue    zscore combined_score                                                           shared n_shared
+## 1    FOLH1 160.00000 3.554225e-07 6.262868e-05 -5.371776       79.77066             [&#39;Sodalis&#39;, &#39;Pseudomonas&#39;, &#39;Salmonella&#39;, &#39;Azomonas&#39;]        4
+## 2 SERPING1  90.90909 1.148926e-07 6.262868e-05 -3.721529       59.46731 [&#39;Borrelia&#39;, &#39;Sodalis&#39;, &#39;Azomonas&#39;, &#39;Pseudomonas&#39;, &#39;Salmonella&#39;]        5
+## 3  CYP24A1  80.00000 2.714435e-06 7.609163e-05 -3.749628       48.05871             [&#39;Sodalis&#39;, &#39;Pseudomonas&#39;, &#39;Salmonella&#39;, &#39;Azomonas&#39;]        4</code></pre>
+<p>As the table shown above, MSEA result has 8 columns:</p>
+<ol style="list-style-type: decimal">
+<li>term, human gene names.<br />
+</li>
+<li>oddsratio. Odds ratio (Effect size) of the association between human gene and microbial Genus.<br />
+</li>
+<li>pvalue. p value of Fisher’s exact test.<br />
+</li>
+<li>qvalue. q value of Fisher’s exact test. FDR Benjamini-Hochberg correction applied.<br />
+</li>
+<li>zscore. z-score measuring the deviation in expected ranks.<br />
+</li>
+<li>combined_score. <span class="math inline">\(c = log_{10}(p)*z\)</span>.<br />
+</li>
+<li>shared. Genus associated with the human gene.<br />
+</li>
+<li>n_shared. Number of genus associated with the human gene.</li>
+</ol>
+</div>
+<div id="filter-and-visualize-msea-result" class="section level2">
+<h2><span class="header-section-number">7.3</span> Filter and Visualize MSEA result</h2>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="msea.html#cb93-1"></a><span class="co">## Filter MSEA result with qvalue</span></span>
+<span id="cb93-2"><a href="msea.html#cb93-2"></a>MSEA_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">filter</span>(qvalue <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>)</span>
+<span id="cb93-3"><a href="msea.html#cb93-3"></a></span>
+<span id="cb93-4"><a href="msea.html#cb93-4"></a></span>
+<span id="cb93-5"><a href="msea.html#cb93-5"></a><span class="co">## Draw bipartite with top 10 combined_score human genes</span></span>
+<span id="cb93-6"><a href="msea.html#cb93-6"></a></span>
+<span id="cb93-7"><a href="msea.html#cb93-7"></a><span class="co">## Define data transforming function</span></span>
+<span id="cb93-8"><a href="msea.html#cb93-8"></a>Transform_data &lt;-<span class="st"> </span><span class="cf">function</span>(df){</span>
+<span id="cb93-9"><a href="msea.html#cb93-9"></a>  All_Genus_in_res &lt;-<span class="st"> </span>df<span class="op">$</span>shared <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unique</span>()</span>
+<span id="cb93-10"><a href="msea.html#cb93-10"></a>  lst &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb93-11"><a href="msea.html#cb93-11"></a>  <span class="cf">for</span> (i <span class="cf">in</span> All_Genus_in_res){</span>
+<span id="cb93-12"><a href="msea.html#cb93-12"></a>    count_vec &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb93-13"><a href="msea.html#cb93-13"></a>    <span class="cf">for</span> (j <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(df))){</span>
+<span id="cb93-14"><a href="msea.html#cb93-14"></a>      target_string =<span class="st"> </span>df[j,<span class="st">&#39;shared&#39;</span>]  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span>
+<span id="cb93-15"><a href="msea.html#cb93-15"></a>      count =<span class="st"> </span><span class="kw">sum</span>(i <span class="op">==</span><span class="st"> </span>target_string)</span>
+<span id="cb93-16"><a href="msea.html#cb93-16"></a>      count_vec &lt;-<span class="st"> </span><span class="kw">c</span>(count_vec, count)</span>
+<span id="cb93-17"><a href="msea.html#cb93-17"></a>    }</span>
+<span id="cb93-18"><a href="msea.html#cb93-18"></a>    lst[[i]] &lt;-<span class="st"> </span>count_vec</span>
+<span id="cb93-19"><a href="msea.html#cb93-19"></a>  }</span>
+<span id="cb93-20"><a href="msea.html#cb93-20"></a>  bipartite_tbl &lt;-<span class="st"> </span><span class="kw">cbind</span>(Top_MSEA_res, <span class="kw">as.data.frame</span>(lst)) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(term, <span class="kw">all_of</span>(All_Genus_in_res)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;term&#39;</span>)</span>
+<span id="cb93-21"><a href="msea.html#cb93-21"></a>  <span class="kw">return</span>(bipartite_tbl)</span>
+<span id="cb93-22"><a href="msea.html#cb93-22"></a>}</span>
+<span id="cb93-23"><a href="msea.html#cb93-23"></a></span>
+<span id="cb93-24"><a href="msea.html#cb93-24"></a><span class="co">## Select top 10 human genes</span></span>
+<span id="cb93-25"><a href="msea.html#cb93-25"></a>Top_MSEA_res &lt;-<span class="st"> </span>MSEA_res[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,]</span></code></pre></div>
+</div>
+<div id="draw-bipartit-graph-to-show-the-relation-between-human-genes-and-microbial-genus-with-ggnet." class="section level2">
+<h2><span class="header-section-number">7.4</span> Draw bipartit graph to show the relation between human genes and microbial Genus with ggnet.</h2>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="msea.html#cb94-1"></a><span class="co">## Generate data for bipartit graph</span></span>
+<span id="cb94-2"><a href="msea.html#cb94-2"></a>bipartite_tbl &lt;-<span class="st"> </span><span class="kw">Transform_data</span>(Top_MSEA_res)</span>
+<span id="cb94-3"><a href="msea.html#cb94-3"></a></span>
+<span id="cb94-4"><a href="msea.html#cb94-4"></a><span class="co">## Define network layout</span></span>
+<span id="cb94-5"><a href="msea.html#cb94-5"></a>mymat &lt;-<span class="st"> </span>bipartite_tbl</span>
+<span id="cb94-6"><a href="msea.html#cb94-6"></a>coordP &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">2</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb94-7"><a href="msea.html#cb94-7"></a><span class="st">        </span><span class="dv">2</span>)</span>
+<span id="cb94-8"><a href="msea.html#cb94-8"></a>coordA &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">4</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb94-9"><a href="msea.html#cb94-9"></a><span class="st">        </span><span class="dv">2</span>)</span>
+<span id="cb94-10"><a href="msea.html#cb94-10"></a></span>
+<span id="cb94-11"><a href="msea.html#cb94-11"></a>mylayout &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">rbind</span>(coordP, coordA))</span>
+<span id="cb94-12"><a href="msea.html#cb94-12"></a></span>
+<span id="cb94-13"><a href="msea.html#cb94-13"></a><span class="co">## Construct network content</span></span>
+<span id="cb94-14"><a href="msea.html#cb94-14"></a>test.net &lt;-<span class="st"> </span><span class="kw">bip_init_network</span>(mymat, <span class="dt">mode1 =</span> <span class="st">&#39;HumanGenes&#39;</span>,<span class="dt">mode2 =</span> <span class="st">&#39;MicrobialGenus&#39;</span>)</span>
+<span id="cb94-15"><a href="msea.html#cb94-15"></a></span>
+<span id="cb94-16"><a href="msea.html#cb94-16"></a><span class="co"># Define groups of network nodes</span></span>
+<span id="cb94-17"><a href="msea.html#cb94-17"></a>test.net <span class="op">%v%</span><span class="st"> &quot;Group&quot;</span> =<span class="st"> </span><span class="kw">get.vertex.attribute</span>(test.net, <span class="dt">attrname=</span><span class="st">&quot;mode&quot;</span>)</span>
+<span id="cb94-18"><a href="msea.html#cb94-18"></a></span>
+<span id="cb94-19"><a href="msea.html#cb94-19"></a><span class="co"># Draw network</span></span>
+<span id="cb94-20"><a href="msea.html#cb94-20"></a>p &lt;-<span class="st"> </span>GGally<span class="op">::</span><span class="kw">ggnet2</span>(test.net, <span class="dt">mode =</span> mylayout,</span>
+<span id="cb94-21"><a href="msea.html#cb94-21"></a>               <span class="dt">label =</span> T, <span class="dt">size =</span> <span class="st">&quot;degree&quot;</span>,</span>
+<span id="cb94-22"><a href="msea.html#cb94-22"></a>               <span class="dt">color =</span> <span class="st">&#39;Group&#39;</span>, <span class="dt">shape =</span> <span class="st">&#39;Group&#39;</span>,</span>
+<span id="cb94-23"><a href="msea.html#cb94-23"></a>               <span class="dt">label.size =</span> <span class="dv">5</span>, <span class="dt">layout.exp =</span> <span class="fl">1.5</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></span>
+<span id="cb94-24"><a href="msea.html#cb94-24"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;FantasticFox1&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb94-25"><a href="msea.html#cb94-25"></a><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color=</span><span class="kw">guide_legend</span>(<span class="st">&quot;Group&quot;</span>))</span>
+<span id="cb94-26"><a href="msea.html#cb94-26"></a></span>
+<span id="cb94-27"><a href="msea.html#cb94-27"></a>p</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="functional-analysis-of-targetdatabase.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="functional-analysis-of-metacyc-database.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -288,7 +410,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/index.Rmd",
+"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/06-Functional_Analysis_MSEA.Rmd",
 "text": "Edit"
 },
 "history": {

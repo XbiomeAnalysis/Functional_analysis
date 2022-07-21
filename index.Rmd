@@ -17,13 +17,15 @@ This is a tutorial introducing the analysis of microbiome functional data (Inclu
 
 Two cohorts' MGS data were used as demo data throughout this tutorial: One cohort contains 68 samples across 43 people (Including 15 donor, 1 BRS sample and 27 GvHD patients) in GvHD project. The other cohort consist of 10 samples from 8 patients, 1 water tube and 1 BRS in Newtech project. The first cohort was used as the input data for MetaCyc database analysis and the other one was used as the input for the analysis of KEGG, VFDB, SCFA, CARD, CAZY databases.
 
-This book includes 5 Chapters for the following 3 templates of funcitonal analysis:
+This book includes 7 Chapters for the following 4 templates of funcitonal analysis:
 
 * Analysis of Metacyc data
 
 * Analysis of KEGG data
 
 * Analysis of target database data
+
+* MSEA
 
 Chapter1 introduces basic information of this tutorial.
 
@@ -37,5 +39,5 @@ Chapter5 introduces the preprocesssing (How to merge data of multiple samples) o
 
 Chapter6 introduces the analysis of processed CARD data.
 
-
+Chapter7 introduces MSEA.
 
