@@ -198,7 +198,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-prevalence-pathway-1"><i class="fa fa-check"></i><b>6.3.1</b> Filter low prevalence pathway</a></li>
 <li class="chapter" data-level="6.3.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#da-1"><i class="fa fa-check"></i><b>6.3.2</b> DA</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#session-info-2"><i class="fa fa-check"></i><b>6.4</b> Session info</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="msea.html"><a href="msea.html"><i class="fa fa-check"></i><b>7</b> MSEA</a><ul>
 <li class="chapter" data-level="7.1" data-path="msea.html"><a href="msea.html#execute-msea-with-python-script-on-server"><i class="fa fa-check"></i><b>7.1</b> Execute MSEA with python script on server</a></li>
@@ -241,8 +240,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>–PerturbationTimes (Optional), number of perturbation. Fisher’s excat test has bias on group with large number of samples, MSEA uses random sampling to remove the bias. Larger number of perturbation would cause longer runtime. Default 50.<br />
 Citation: <a href="https://www.nature.com/articles/s41598-020-78511-y" class="uri">https://www.nature.com/articles/s41598-020-78511-y</a></li>
 </ol>
-<div class="sourceCode" id="cb89"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb89-1"><a href="msea.html#cb89-1"></a></span>
-<span id="cb89-2"><a href="msea.html#cb89-2"></a><span class="ex">/home/tongbangzhuo/Software/miniconda3/bin/python</span> /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/MSEA_Run.py --input /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/test_input --output testout.csv --PerturbationTimes 10</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb87-1"><a href="msea.html#cb87-1"></a></span>
+<span id="cb87-2"><a href="msea.html#cb87-2"></a><span class="ex">/home/tongbangzhuo/Software/miniconda3/bin/python</span> /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/MSEA_Run.py --input /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/test_input --output testout.csv --PerturbationTimes 10</span></code></pre></div>
 <pre><code>## 
 ## Reading database file
 ## 
@@ -250,28 +249,28 @@ Citation: <a href="https://www.nature.com/articles/s41598-020-78511-y" class="ur
 ## Number of unique microbes: 566
 ## 
   0%|          | 0/10 [00:00&lt;?, ?it/s]
- 10%|█         | 1/10 [00:00&lt;00:05,  1.58it/s]
- 20%|██        | 2/10 [00:01&lt;00:05,  1.49it/s]
- 30%|███       | 3/10 [00:01&lt;00:04,  1.52it/s]
- 40%|████      | 4/10 [00:02&lt;00:03,  1.52it/s]
- 50%|█████     | 5/10 [00:03&lt;00:03,  1.39it/s]
- 60%|██████    | 6/10 [00:04&lt;00:03,  1.26it/s]
- 70%|███████   | 7/10 [00:05&lt;00:02,  1.31it/s]
- 80%|████████  | 8/10 [00:05&lt;00:01,  1.37it/s]
- 90%|█████████ | 9/10 [00:06&lt;00:00,  1.42it/s]
-100%|██████████| 10/10 [00:07&lt;00:00,  1.44it/s]
-100%|██████████| 10/10 [00:07&lt;00:00,  1.41it/s]
+ 10%|█         | 1/10 [00:01&lt;00:10,  1.15s/it]
+ 20%|██        | 2/10 [00:01&lt;00:07,  1.13it/s]
+ 30%|███       | 3/10 [00:02&lt;00:05,  1.29it/s]
+ 40%|████      | 4/10 [00:03&lt;00:04,  1.40it/s]
+ 50%|█████     | 5/10 [00:03&lt;00:03,  1.46it/s]
+ 60%|██████    | 6/10 [00:04&lt;00:02,  1.47it/s]
+ 70%|███████   | 7/10 [00:05&lt;00:02,  1.35it/s]
+ 80%|████████  | 8/10 [00:05&lt;00:01,  1.43it/s]
+ 90%|█████████ | 9/10 [00:06&lt;00:00,  1.39it/s]
+100%|██████████| 10/10 [00:07&lt;00:00,  1.36it/s]
+100%|██████████| 10/10 [00:07&lt;00:00,  1.34it/s]
 ## 
 ## Performing MSEA with adjustment
 ## 
 ## Showing the head of result table:
-##       oddsratio  ...  n_shared
-## term             ...          
-## ULK1  66.666667  ...         4
-## XIAP  43.478261  ...         5
-## IRF7  55.555556  ...         5
-## HP    27.586207  ...         4
-## GNAS  85.714286  ...         3
+##           oddsratio  ...  n_shared
+## term                 ...          
+## SERPING1  90.909091  ...         5
+## IFNAR1    53.333333  ...         4
+## SP7       27.586207  ...         4
+## XIAP      43.478261  ...         5
+## IL11      40.000000  ...         3
 ## 
 ## [5 rows x 7 columns]
 ## 
@@ -279,16 +278,16 @@ Citation: <a href="https://www.nature.com/articles/s41598-020-78511-y" class="ur
 </div>
 <div id="read-in-msea-result" class="section level2">
 <h2><span class="header-section-number">7.2</span> Read in MSEA result</h2>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="msea.html#cb91-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb91-2"><a href="msea.html#cb91-2"></a><span class="kw">library</span>(magrittr)</span>
-<span id="cb91-3"><a href="msea.html#cb91-3"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb91-4"><a href="msea.html#cb91-4"></a><span class="kw">library</span>(ggbipart)</span>
-<span id="cb91-5"><a href="msea.html#cb91-5"></a><span class="kw">library</span>(stringr)</span>
-<span id="cb91-6"><a href="msea.html#cb91-6"></a><span class="kw">library</span>(tibble)</span>
-<span id="cb91-7"><a href="msea.html#cb91-7"></a><span class="kw">library</span>(wesanderson)</span>
-<span id="cb91-8"><a href="msea.html#cb91-8"></a></span>
-<span id="cb91-9"><a href="msea.html#cb91-9"></a>MSEA_res =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/testout.csv&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
-<span id="cb91-10"><a href="msea.html#cb91-10"></a><span class="kw">head</span>(MSEA_res, <span class="dt">n=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="msea.html#cb89-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb89-2"><a href="msea.html#cb89-2"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb89-3"><a href="msea.html#cb89-3"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb89-4"><a href="msea.html#cb89-4"></a><span class="kw">library</span>(ggbipart)</span>
+<span id="cb89-5"><a href="msea.html#cb89-5"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb89-6"><a href="msea.html#cb89-6"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb89-7"><a href="msea.html#cb89-7"></a><span class="kw">library</span>(wesanderson)</span>
+<span id="cb89-8"><a href="msea.html#cb89-8"></a></span>
+<span id="cb89-9"><a href="msea.html#cb89-9"></a>MSEA_res =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/testout.csv&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
+<span id="cb89-10"><a href="msea.html#cb89-10"></a><span class="kw">head</span>(MSEA_res, <span class="dt">n=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       term oddsratio       pvalue       qvalue    zscore combined_score                                                           shared n_shared
 ## 1    FOLH1 160.00000 3.554225e-07 6.262868e-05 -5.371776       79.77066             [&#39;Sodalis&#39;, &#39;Pseudomonas&#39;, &#39;Salmonella&#39;, &#39;Azomonas&#39;]        4
 ## 2 SERPING1  90.90909 1.148926e-07 6.262868e-05 -3.721529       59.46731 [&#39;Borrelia&#39;, &#39;Sodalis&#39;, &#39;Azomonas&#39;, &#39;Pseudomonas&#39;, &#39;Salmonella&#39;]        5
@@ -314,62 +313,62 @@ Citation: <a href="https://www.nature.com/articles/s41598-020-78511-y" class="ur
 </div>
 <div id="filter-and-visualize-msea-result" class="section level2">
 <h2><span class="header-section-number">7.3</span> Filter and Visualize MSEA result</h2>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="msea.html#cb93-1"></a><span class="co">## Filter MSEA result with qvalue</span></span>
-<span id="cb93-2"><a href="msea.html#cb93-2"></a>MSEA_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">filter</span>(qvalue <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>)</span>
-<span id="cb93-3"><a href="msea.html#cb93-3"></a></span>
-<span id="cb93-4"><a href="msea.html#cb93-4"></a></span>
-<span id="cb93-5"><a href="msea.html#cb93-5"></a><span class="co">## Draw bipartite with top 10 combined_score human genes</span></span>
-<span id="cb93-6"><a href="msea.html#cb93-6"></a></span>
-<span id="cb93-7"><a href="msea.html#cb93-7"></a><span class="co">## Define data transforming function</span></span>
-<span id="cb93-8"><a href="msea.html#cb93-8"></a>Transform_data &lt;-<span class="st"> </span><span class="cf">function</span>(df){</span>
-<span id="cb93-9"><a href="msea.html#cb93-9"></a>  All_Genus_in_res &lt;-<span class="st"> </span>df<span class="op">$</span>shared <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unique</span>()</span>
-<span id="cb93-10"><a href="msea.html#cb93-10"></a>  lst &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
-<span id="cb93-11"><a href="msea.html#cb93-11"></a>  <span class="cf">for</span> (i <span class="cf">in</span> All_Genus_in_res){</span>
-<span id="cb93-12"><a href="msea.html#cb93-12"></a>    count_vec &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb93-13"><a href="msea.html#cb93-13"></a>    <span class="cf">for</span> (j <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(df))){</span>
-<span id="cb93-14"><a href="msea.html#cb93-14"></a>      target_string =<span class="st"> </span>df[j,<span class="st">&#39;shared&#39;</span>]  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span>
-<span id="cb93-15"><a href="msea.html#cb93-15"></a>      count =<span class="st"> </span><span class="kw">sum</span>(i <span class="op">==</span><span class="st"> </span>target_string)</span>
-<span id="cb93-16"><a href="msea.html#cb93-16"></a>      count_vec &lt;-<span class="st"> </span><span class="kw">c</span>(count_vec, count)</span>
-<span id="cb93-17"><a href="msea.html#cb93-17"></a>    }</span>
-<span id="cb93-18"><a href="msea.html#cb93-18"></a>    lst[[i]] &lt;-<span class="st"> </span>count_vec</span>
-<span id="cb93-19"><a href="msea.html#cb93-19"></a>  }</span>
-<span id="cb93-20"><a href="msea.html#cb93-20"></a>  bipartite_tbl &lt;-<span class="st"> </span><span class="kw">cbind</span>(Top_MSEA_res, <span class="kw">as.data.frame</span>(lst)) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(term, <span class="kw">all_of</span>(All_Genus_in_res)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;term&#39;</span>)</span>
-<span id="cb93-21"><a href="msea.html#cb93-21"></a>  <span class="kw">return</span>(bipartite_tbl)</span>
-<span id="cb93-22"><a href="msea.html#cb93-22"></a>}</span>
-<span id="cb93-23"><a href="msea.html#cb93-23"></a></span>
-<span id="cb93-24"><a href="msea.html#cb93-24"></a><span class="co">## Select top 10 human genes</span></span>
-<span id="cb93-25"><a href="msea.html#cb93-25"></a>Top_MSEA_res &lt;-<span class="st"> </span>MSEA_res[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="msea.html#cb91-1"></a><span class="co">## Filter MSEA result with qvalue</span></span>
+<span id="cb91-2"><a href="msea.html#cb91-2"></a>MSEA_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">filter</span>(qvalue <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>)</span>
+<span id="cb91-3"><a href="msea.html#cb91-3"></a></span>
+<span id="cb91-4"><a href="msea.html#cb91-4"></a></span>
+<span id="cb91-5"><a href="msea.html#cb91-5"></a><span class="co">## Draw bipartite with top 10 combined_score human genes</span></span>
+<span id="cb91-6"><a href="msea.html#cb91-6"></a></span>
+<span id="cb91-7"><a href="msea.html#cb91-7"></a><span class="co">## Define data transforming function</span></span>
+<span id="cb91-8"><a href="msea.html#cb91-8"></a>Transform_data &lt;-<span class="st"> </span><span class="cf">function</span>(df){</span>
+<span id="cb91-9"><a href="msea.html#cb91-9"></a>  All_Genus_in_res &lt;-<span class="st"> </span>df<span class="op">$</span>shared <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unique</span>()</span>
+<span id="cb91-10"><a href="msea.html#cb91-10"></a>  lst &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb91-11"><a href="msea.html#cb91-11"></a>  <span class="cf">for</span> (i <span class="cf">in</span> All_Genus_in_res){</span>
+<span id="cb91-12"><a href="msea.html#cb91-12"></a>    count_vec &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb91-13"><a href="msea.html#cb91-13"></a>    <span class="cf">for</span> (j <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(df))){</span>
+<span id="cb91-14"><a href="msea.html#cb91-14"></a>      target_string =<span class="st"> </span>df[j,<span class="st">&#39;shared&#39;</span>]  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span>
+<span id="cb91-15"><a href="msea.html#cb91-15"></a>      count =<span class="st"> </span><span class="kw">sum</span>(i <span class="op">==</span><span class="st"> </span>target_string)</span>
+<span id="cb91-16"><a href="msea.html#cb91-16"></a>      count_vec &lt;-<span class="st"> </span><span class="kw">c</span>(count_vec, count)</span>
+<span id="cb91-17"><a href="msea.html#cb91-17"></a>    }</span>
+<span id="cb91-18"><a href="msea.html#cb91-18"></a>    lst[[i]] &lt;-<span class="st"> </span>count_vec</span>
+<span id="cb91-19"><a href="msea.html#cb91-19"></a>  }</span>
+<span id="cb91-20"><a href="msea.html#cb91-20"></a>  bipartite_tbl &lt;-<span class="st"> </span><span class="kw">cbind</span>(Top_MSEA_res, <span class="kw">as.data.frame</span>(lst)) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(term, <span class="kw">all_of</span>(All_Genus_in_res)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;term&#39;</span>)</span>
+<span id="cb91-21"><a href="msea.html#cb91-21"></a>  <span class="kw">return</span>(bipartite_tbl)</span>
+<span id="cb91-22"><a href="msea.html#cb91-22"></a>}</span>
+<span id="cb91-23"><a href="msea.html#cb91-23"></a></span>
+<span id="cb91-24"><a href="msea.html#cb91-24"></a><span class="co">## Select top 10 human genes</span></span>
+<span id="cb91-25"><a href="msea.html#cb91-25"></a>Top_MSEA_res &lt;-<span class="st"> </span>MSEA_res[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,]</span></code></pre></div>
 </div>
 <div id="draw-bipartit-graph-to-show-the-relation-between-human-genes-and-microbial-genus-with-ggnet." class="section level2">
 <h2><span class="header-section-number">7.4</span> Draw bipartit graph to show the relation between human genes and microbial Genus with ggnet.</h2>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="msea.html#cb94-1"></a><span class="co">## Generate data for bipartit graph</span></span>
-<span id="cb94-2"><a href="msea.html#cb94-2"></a>bipartite_tbl &lt;-<span class="st"> </span><span class="kw">Transform_data</span>(Top_MSEA_res)</span>
-<span id="cb94-3"><a href="msea.html#cb94-3"></a></span>
-<span id="cb94-4"><a href="msea.html#cb94-4"></a><span class="co">## Define network layout</span></span>
-<span id="cb94-5"><a href="msea.html#cb94-5"></a>mymat &lt;-<span class="st"> </span>bipartite_tbl</span>
-<span id="cb94-6"><a href="msea.html#cb94-6"></a>coordP &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">2</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb94-7"><a href="msea.html#cb94-7"></a><span class="st">        </span><span class="dv">2</span>)</span>
-<span id="cb94-8"><a href="msea.html#cb94-8"></a>coordA &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">4</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb94-9"><a href="msea.html#cb94-9"></a><span class="st">        </span><span class="dv">2</span>)</span>
-<span id="cb94-10"><a href="msea.html#cb94-10"></a></span>
-<span id="cb94-11"><a href="msea.html#cb94-11"></a>mylayout &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">rbind</span>(coordP, coordA))</span>
-<span id="cb94-12"><a href="msea.html#cb94-12"></a></span>
-<span id="cb94-13"><a href="msea.html#cb94-13"></a><span class="co">## Construct network content</span></span>
-<span id="cb94-14"><a href="msea.html#cb94-14"></a>test.net &lt;-<span class="st"> </span><span class="kw">bip_init_network</span>(mymat, <span class="dt">mode1 =</span> <span class="st">&#39;HumanGenes&#39;</span>,<span class="dt">mode2 =</span> <span class="st">&#39;MicrobialGenus&#39;</span>)</span>
-<span id="cb94-15"><a href="msea.html#cb94-15"></a></span>
-<span id="cb94-16"><a href="msea.html#cb94-16"></a><span class="co"># Define groups of network nodes</span></span>
-<span id="cb94-17"><a href="msea.html#cb94-17"></a>test.net <span class="op">%v%</span><span class="st"> &quot;Group&quot;</span> =<span class="st"> </span><span class="kw">get.vertex.attribute</span>(test.net, <span class="dt">attrname=</span><span class="st">&quot;mode&quot;</span>)</span>
-<span id="cb94-18"><a href="msea.html#cb94-18"></a></span>
-<span id="cb94-19"><a href="msea.html#cb94-19"></a><span class="co"># Draw network</span></span>
-<span id="cb94-20"><a href="msea.html#cb94-20"></a>p &lt;-<span class="st"> </span>GGally<span class="op">::</span><span class="kw">ggnet2</span>(test.net, <span class="dt">mode =</span> mylayout,</span>
-<span id="cb94-21"><a href="msea.html#cb94-21"></a>               <span class="dt">label =</span> T, <span class="dt">size =</span> <span class="st">&quot;degree&quot;</span>,</span>
-<span id="cb94-22"><a href="msea.html#cb94-22"></a>               <span class="dt">color =</span> <span class="st">&#39;Group&#39;</span>, <span class="dt">shape =</span> <span class="st">&#39;Group&#39;</span>,</span>
-<span id="cb94-23"><a href="msea.html#cb94-23"></a>               <span class="dt">label.size =</span> <span class="dv">5</span>, <span class="dt">layout.exp =</span> <span class="fl">1.5</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></span>
-<span id="cb94-24"><a href="msea.html#cb94-24"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;FantasticFox1&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb94-25"><a href="msea.html#cb94-25"></a><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color=</span><span class="kw">guide_legend</span>(<span class="st">&quot;Group&quot;</span>))</span>
-<span id="cb94-26"><a href="msea.html#cb94-26"></a></span>
-<span id="cb94-27"><a href="msea.html#cb94-27"></a>p</span></code></pre></div>
-<p><img src="Function-standard-analysis-workflow_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="msea.html#cb92-1"></a><span class="co">## Generate data for bipartit graph</span></span>
+<span id="cb92-2"><a href="msea.html#cb92-2"></a>bipartite_tbl &lt;-<span class="st"> </span><span class="kw">Transform_data</span>(Top_MSEA_res)</span>
+<span id="cb92-3"><a href="msea.html#cb92-3"></a></span>
+<span id="cb92-4"><a href="msea.html#cb92-4"></a><span class="co">## Define network layout</span></span>
+<span id="cb92-5"><a href="msea.html#cb92-5"></a>mymat &lt;-<span class="st"> </span>bipartite_tbl</span>
+<span id="cb92-6"><a href="msea.html#cb92-6"></a>coordP &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">2</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb92-7"><a href="msea.html#cb92-7"></a><span class="st">        </span><span class="dv">2</span>)</span>
+<span id="cb92-8"><a href="msea.html#cb92-8"></a>coordA &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">4</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb92-9"><a href="msea.html#cb92-9"></a><span class="st">        </span><span class="dv">2</span>)</span>
+<span id="cb92-10"><a href="msea.html#cb92-10"></a></span>
+<span id="cb92-11"><a href="msea.html#cb92-11"></a>mylayout &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">rbind</span>(coordP, coordA))</span>
+<span id="cb92-12"><a href="msea.html#cb92-12"></a></span>
+<span id="cb92-13"><a href="msea.html#cb92-13"></a><span class="co">## Construct network content</span></span>
+<span id="cb92-14"><a href="msea.html#cb92-14"></a>test.net &lt;-<span class="st"> </span><span class="kw">bip_init_network</span>(mymat, <span class="dt">mode1 =</span> <span class="st">&#39;HumanGenes&#39;</span>,<span class="dt">mode2 =</span> <span class="st">&#39;MicrobialGenus&#39;</span>)</span>
+<span id="cb92-15"><a href="msea.html#cb92-15"></a></span>
+<span id="cb92-16"><a href="msea.html#cb92-16"></a><span class="co"># Define groups of network nodes</span></span>
+<span id="cb92-17"><a href="msea.html#cb92-17"></a>test.net <span class="op">%v%</span><span class="st"> &quot;Group&quot;</span> =<span class="st"> </span><span class="kw">get.vertex.attribute</span>(test.net, <span class="dt">attrname=</span><span class="st">&quot;mode&quot;</span>)</span>
+<span id="cb92-18"><a href="msea.html#cb92-18"></a></span>
+<span id="cb92-19"><a href="msea.html#cb92-19"></a><span class="co"># Draw network</span></span>
+<span id="cb92-20"><a href="msea.html#cb92-20"></a>p &lt;-<span class="st"> </span>GGally<span class="op">::</span><span class="kw">ggnet2</span>(test.net, <span class="dt">mode =</span> mylayout,</span>
+<span id="cb92-21"><a href="msea.html#cb92-21"></a>               <span class="dt">label =</span> T, <span class="dt">size =</span> <span class="st">&quot;degree&quot;</span>, <span class="dt">weight =</span> <span class="st">&#39;degree&#39;</span>,</span>
+<span id="cb92-22"><a href="msea.html#cb92-22"></a>               <span class="dt">color =</span> <span class="st">&#39;Group&#39;</span>, <span class="dt">shape =</span> <span class="st">&#39;Group&#39;</span>,</span>
+<span id="cb92-23"><a href="msea.html#cb92-23"></a>               <span class="dt">label.size =</span> <span class="dv">5</span>, <span class="dt">layout.exp =</span> <span class="fl">1.5</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></span>
+<span id="cb92-24"><a href="msea.html#cb92-24"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;FantasticFox1&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb92-25"><a href="msea.html#cb92-25"></a><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color=</span><span class="kw">guide_legend</span>(<span class="st">&quot;Group&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">guides</span>(<span class="dt">size =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb92-26"><a href="msea.html#cb92-26"></a></span>
+<span id="cb92-27"><a href="msea.html#cb92-27"></a>p</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 
 </div>
 </div>

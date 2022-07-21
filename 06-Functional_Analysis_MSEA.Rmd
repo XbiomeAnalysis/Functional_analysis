@@ -106,11 +106,11 @@ test.net %v% "Group" = get.vertex.attribute(test.net, attrname="mode")
 
 # Draw network
 p <- GGally::ggnet2(test.net, mode = mylayout,
-               label = T, size = "degree",
+               label = T, size = "degree", weight = 'degree',
                color = 'Group', shape = 'Group',
                label.size = 5, layout.exp = 1.5, alpha = 0.75) +
   scale_colour_manual(values = wes_palette("FantasticFox1")) + 
-  guides(color=guide_legend("Group"))
+  guides(color=guide_legend("Group")) + guides(size = "none")
 
 p
 ```

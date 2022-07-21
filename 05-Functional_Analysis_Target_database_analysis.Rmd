@@ -226,8 +226,3 @@ volcano_plot <- LM_res %>% mutate(p.log = -log10(`Pr(>|t|)`), log10OR = log10(OR
 print(volcano_plot)
 
 ```
-
-## Session info
-```{r}
-devtools::session_info()
-```

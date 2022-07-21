@@ -54,7 +54,6 @@ basic-analysis
 differential-analysis-1
 filter-low-prevalence-pathway-1
 da-1
-session-info-2
 msea
 execute-msea-with-python-script-on-server
 read-in-msea-result
