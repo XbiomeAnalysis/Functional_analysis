@@ -18,17 +18,17 @@ You can run MSEA analysis with MSEA_Run.py on server, one required parameters an
 1. --input (Required), input genus list file for MSEA, one genus per line.  
 2. --output (Optional), output csv file of MSEA result. Default testout.csv  
 3. --PerturbationTimes (Optional), number of perturbation. Fisher's excat test has bias on group with large number of samples, MSEA uses random sampling to remove the bias. Larger number of perturbation would cause longer runtime. Default 50.  
-Citation: https://www.nature.com/articles/s41598-020-78511-y
+For more drtail, see *[citation](https://www.nature.com/articles/s41598-020-78511-y)*
 
 ```{bash}
 
-/home/tongbangzhuo/Software/miniconda3/bin/python /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/MSEA_Run.py --input /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/test_input --output testout.csv --PerturbationTimes 10
+/home/tongbangzhuo/Software/miniconda3/bin/python /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/MSEA_Run.py --input /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/test_input --output /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/testout.csv --PerturbationTimes 10
 
 ```
 
 ## Read in MSEA result
 
-```{r }
+```{r environment setup}
 library(dplyr)
 library(magrittr)
 library(ggplot2)
@@ -55,7 +55,7 @@ As the table shown above, MSEA result has 8 columns:
 
 ## Filter and Visualize MSEA result
 
-```{r }
+```{r Filter MSEA}
 ## Filter MSEA result with qvalue
 MSEA_res %<>% filter(qvalue < 0.05)
 
@@ -85,7 +85,7 @@ Top_MSEA_res <- MSEA_res[1:10,]
 
 ## Draw bipartit graph to show the relation between human genes and microbial Genus with ggnet.
 
-```{r }
+```{r bipartit graph}
 ## Generate data for bipartit graph
 bipartite_tbl <- Transform_data(Top_MSEA_res)
 
@@ -106,11 +106,55 @@ test.net %v% "Group" = get.vertex.attribute(test.net, attrname="mode")
 
 # Draw network
 p <- GGally::ggnet2(test.net, mode = mylayout,
-               label = T, size = "degree", weight = 'degree',
+               label = T, size = "degree",
                color = 'Group', shape = 'Group',
                label.size = 5, layout.exp = 1.5, alpha = 0.75) +
   scale_colour_manual(values = wes_palette("FantasticFox1")) + 
-  guides(color=guide_legend("Group")) + guides(size = "none")
+  guides(color=guide_legend("Group"))
 
 p
 ```
+
+
+## Run enrichR analysis 
+
+After acquiring genus-associated human genes, you can run enrich your genes on different databases by enrichR.  
+The next chunk shows you how to run enrichR on R studio, you can either run enrichR on their interactive *[website](https://maayanlab.cloud/Enrichr/)*.
+
+```{r enrichR}
+library(enrichR)
+
+## List available types of databases
+listEnrichrSites()
+
+## Choose database of Human genes
+setEnrichrSite("Enrichr")
+
+## List available database
+websiteLive <- TRUE
+dbs <- listEnrichrDbs()
+if (is.null(dbs)) websiteLive <- FALSE
+if (websiteLive) head(dbs)
+
+## Choose the databases you want to enrich your genes with and Run enrichR of genus-associated human genes on chosen databases
+dbs <- c("GO_Molecular_Function_2021","KEGG_2019_Human")
+if (websiteLive) {
+    enriched <- enrichr(MSEA_res$term %>% as.vector(), dbs)
+}
+
+## Show first few rows of enrichment result
+Kegg_res <- enriched[['KEGG_2019_Human']]
+head(Kegg_res)
+
+GO_res <- enriched[['GO_Molecular_Function_2021']]
+head(GO_res)
+
+## Plot Enrichment result
+plotEnrich(enriched[['KEGG_2019_Human']] %>% filter(Adjusted.P.value < 0.05),
+           showTerms = 20, numChar = 40, y = "Count", orderBy = "P.value") + 
+  scale_fill_gradientn(colours = rev(wes_palette("Zissou1", 10, type = "continuous")))
+
+```
+
+As shown above, Y axis shows the enriched terms of your input genes. X axis shows the number of input genes in the enriched terms.
+

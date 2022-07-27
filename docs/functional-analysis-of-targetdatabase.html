@@ -24,7 +24,7 @@
 <meta name="author" content="Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-07-21" />
+<meta name="date" content="2022-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -204,6 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="msea.html"><a href="msea.html#read-in-msea-result"><i class="fa fa-check"></i><b>7.2</b> Read in MSEA result</a></li>
 <li class="chapter" data-level="7.3" data-path="msea.html"><a href="msea.html#filter-and-visualize-msea-result"><i class="fa fa-check"></i><b>7.3</b> Filter and Visualize MSEA result</a></li>
 <li class="chapter" data-level="7.4" data-path="msea.html"><a href="msea.html#draw-bipartit-graph-to-show-the-relation-between-human-genes-and-microbial-genus-with-ggnet."><i class="fa fa-check"></i><b>7.4</b> Draw bipartit graph to show the relation between human genes and microbial Genus with ggnet.</a></li>
+<li class="chapter" data-level="7.5" data-path="msea.html"><a href="msea.html#run-enrichr-analysis"><i class="fa fa-check"></i><b>7.5</b> Run enrichR analysis</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -241,12 +242,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb61-4"><a href="functional-analysis-of-targetdatabase.html#cb61-4"></a>                                  <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>, <span class="dt">na.strings =</span> <span class="st">&#39;?&#39;</span>,<span class="dt">comment.char =</span> <span class="st">&#39;?&#39;</span>)</span>
 <span id="cb61-5"><a href="functional-analysis-of-targetdatabase.html#cb61-5"></a></span>
 <span id="cb61-6"><a href="functional-analysis-of-targetdatabase.html#cb61-6"></a><span class="kw">head</span>(merged_card_profile, <span class="dt">n =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>##                                                            ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies 14291_genefamilies
-## 1                                                    UNMAPPED           74770310           78620271       9.108383e+07           59917196       7.522313e+07           83467959
-## 2 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                  0                  0       5.717561e+01                  0       5.297855e+02                  0
-##   14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
-## 1       7.715543e+07           33464854           36544800              10196
-## 2       7.087747e+01                  0                  0                  0</code></pre>
+<pre><code>##                                                            ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies 14291_genefamilies 14292_genefamilies
+## 1                                                    UNMAPPED           74770310           78620271       9.108383e+07           59917196       7.522313e+07           83467959       7.715543e+07
+## 2 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                  0                  0       5.717561e+01                  0       5.297855e+02                  0       7.087747e+01
+##   14293_genefamilies 14294_genefamilies 14295_genefamilies
+## 1           33464854           36544800              10196
+## 2                  0                  0                  0</code></pre>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="functional-analysis-of-targetdatabase.html#cb63-1"></a><span class="co">## Read in metadata (Group information)</span></span>
 <span id="cb63-2"><a href="functional-analysis-of-targetdatabase.html#cb63-2"></a></span>
 <span id="cb63-3"><a href="functional-analysis-of-targetdatabase.html#cb63-3"></a>metadata &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/Demo_data/Demo_metadata.xls&#39;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
@@ -259,23 +260,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb64-4"><a href="functional-analysis-of-targetdatabase.html#cb64-4"></a>straintified_merged_card_profile &lt;-<span class="st"> </span>merged_card_profile[<span class="kw">grep</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">|s_&#39;</span>, merged_card_profile<span class="op">$</span>ID),]</span>
 <span id="cb64-5"><a href="functional-analysis-of-targetdatabase.html#cb64-5"></a></span>
 <span id="cb64-6"><a href="functional-analysis-of-targetdatabase.html#cb64-6"></a><span class="kw">head</span>(straintified_merged_card_profile, <span class="dt">n =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>##                                                                                      ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies
-## 3 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]|s_Clostridium_perfringens            0.00000            0.00000           57.17561                  0
-## 5 gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]|s_Clostridium_perfringens           39.23001           24.44716            0.00000                  0
-##   14290_genefamilies 14291_genefamilies 14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
-## 3           529.7855                  0           70.87747                  0                  0                  0
-## 5          1075.7261                  0           86.77132                  0                  0                  0</code></pre>
+<pre><code>##                                                                                      ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies
+## 3 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]|s_Clostridium_perfringens            0.00000            0.00000           57.17561                  0           529.7855
+## 5 gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]|s_Clostridium_perfringens           39.23001           24.44716            0.00000                  0          1075.7261
+##   14291_genefamilies 14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
+## 3                  0           70.87747                  0                  0                  0
+## 5                  0           86.77132                  0                  0                  0</code></pre>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="functional-analysis-of-targetdatabase.html#cb66-1"></a><span class="co">## Exclude Strain info</span></span>
 <span id="cb66-2"><a href="functional-analysis-of-targetdatabase.html#cb66-2"></a></span>
 <span id="cb66-3"><a href="functional-analysis-of-targetdatabase.html#cb66-3"></a>merged_card_profile &lt;-<span class="st"> </span>merged_card_profile[<span class="kw">grep</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">|s_&#39;</span>, merged_card_profile<span class="op">$</span>ID, <span class="dt">invert =</span> <span class="ot">TRUE</span>),]</span>
 <span id="cb66-4"><a href="functional-analysis-of-targetdatabase.html#cb66-4"></a></span>
 <span id="cb66-5"><a href="functional-analysis-of-targetdatabase.html#cb66-5"></a><span class="kw">head</span>(merged_card_profile, <span class="dt">n =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>##                                                            ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies 14291_genefamilies
-## 1                                                    UNMAPPED           74770310           78620271       9.108383e+07           59917196       7.522313e+07           83467959
-## 2 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                  0                  0       5.717561e+01                  0       5.297855e+02                  0
-##   14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
-## 1       7.715543e+07           33464854           36544800              10196
-## 2       7.087747e+01                  0                  0                  0</code></pre>
+<pre><code>##                                                            ID 14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies 14291_genefamilies 14292_genefamilies
+## 1                                                    UNMAPPED           74770310           78620271       9.108383e+07           59917196       7.522313e+07           83467959       7.715543e+07
+## 2 gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                  0                  0       5.717561e+01                  0       5.297855e+02                  0       7.087747e+01
+##   14293_genefamilies 14294_genefamilies 14295_genefamilies
+## 1           33464854           36544800              10196
+## 2                  0                  0                  0</code></pre>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="functional-analysis-of-targetdatabase.html#cb68-1"></a><span class="kw">rownames</span>(straintified_merged_card_profile) &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
 <span id="cb68-2"><a href="functional-analysis-of-targetdatabase.html#cb68-2"></a><span class="kw">rownames</span>(merged_card_profile) &lt;-<span class="st"> </span><span class="ot">NULL</span></span></code></pre></div>
 </div>
@@ -284,12 +285,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="functional-analysis-of-targetdatabase.html#cb69-1"></a>rescaled_merged_card_profile &lt;-<span class="st"> </span>merged_card_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;ID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(., <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="op">/</span><span class="kw">sum</span>(x)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
 <span id="cb69-2"><a href="functional-analysis-of-targetdatabase.html#cb69-2"></a></span>
 <span id="cb69-3"><a href="functional-analysis-of-targetdatabase.html#cb69-3"></a><span class="kw">head</span>(rescaled_merged_card_profile, <span class="dt">n =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>##                                                             14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies 14291_genefamilies
-## UNMAPPED                                                             0.9965919          0.9986121       9.977503e-01          0.9971895       9.975481e-01          0.9987778
-## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]          0.0000000          0.0000000       6.263129e-07          0.0000000       7.025585e-06          0.0000000
-##                                                             14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
-## UNMAPPED                                                           9.98160e-01          0.9985668           0.996236                  1
-## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]        9.16942e-07          0.0000000           0.000000                  0</code></pre>
+<pre><code>##                                                             14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies 14291_genefamilies 14292_genefamilies
+## UNMAPPED                                                             0.9965919          0.9986121       9.977503e-01          0.9971895       9.975481e-01          0.9987778        9.98160e-01
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]          0.0000000          0.0000000       6.263129e-07          0.0000000       7.025585e-06          0.0000000        9.16942e-07
+##                                                             14293_genefamilies 14294_genefamilies 14295_genefamilies
+## UNMAPPED                                                             0.9985668           0.996236                  1
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]          0.0000000           0.000000                  0</code></pre>
 </div>
 <div id="remove-unmapped-row" class="section level3">
 <h3><span class="header-section-number">6.2.4</span> Remove UNMAPPED row</h3>
@@ -310,27 +311,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb72-9"><a href="functional-analysis-of-targetdatabase.html#cb72-9"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>) <span class="co">## threshold should be modified based on your on study</span></span>
 <span id="cb72-10"><a href="functional-analysis-of-targetdatabase.html#cb72-10"></a></span>
 <span id="cb72-11"><a href="functional-analysis-of-targetdatabase.html#cb72-11"></a><span class="kw">head</span>(Filtered_card_profile)</span></code></pre></div>
-<pre><code>##                                                                                                     14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies
-## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                               0.000000e+00       0.000000e+00       6.263129e-07       0.000000e+00
-## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                               5.228855e-07       3.105208e-07       0.000000e+00       0.000000e+00
-## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                      0.000000e+00       0.000000e+00       4.097285e-07       2.170252e-06
-## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                         0.000000e+00       0.000000e+00       3.862229e-06       0.000000e+00
-## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]       5.029702e-07       0.000000e+00       3.202401e-06       0.000000e+00
-## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                     7.318239e-05       5.256998e-05       6.987475e-05       1.643611e-04
-##                                                                                                     14290_genefamilies 14291_genefamilies 14292_genefamilies 14293_genefamilies
-## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                               7.025585e-06       0.000000e+00       9.169420e-07       0.000000e+00
-## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                               1.426541e-05       0.000000e+00       1.122561e-06       0.000000e+00
-## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                      1.450946e-06       4.197908e-06       7.825537e-07       8.941966e-07
-## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                         3.221460e-06       0.000000e+00       0.000000e+00       0.000000e+00
-## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]       0.000000e+00       0.000000e+00       7.595413e-07       6.190414e-07
-## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                     7.846210e-05       3.909896e-05       8.713070e-05       1.479822e-04
-##                                                                                                     14294_genefamilies 14295_genefamilies
-## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                               0.000000e+00                  0
-## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                               0.000000e+00                  0
-## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                      3.664871e-05                  0
-## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                         4.363010e-05                  0
-## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]       0.000000e+00                  0
-## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                     2.776405e-05                  0</code></pre>
+<pre><code>##                                                                                                     14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                               0.000000e+00       0.000000e+00       6.263129e-07       0.000000e+00       7.025585e-06
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                               5.228855e-07       3.105208e-07       0.000000e+00       0.000000e+00       1.426541e-05
+## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                      0.000000e+00       0.000000e+00       4.097285e-07       2.170252e-06       1.450946e-06
+## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                         0.000000e+00       0.000000e+00       3.862229e-06       0.000000e+00       3.221460e-06
+## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]       5.029702e-07       0.000000e+00       3.202401e-06       0.000000e+00       0.000000e+00
+## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                     7.318239e-05       5.256998e-05       6.987475e-05       1.643611e-04       7.846210e-05
+##                                                                                                     14291_genefamilies 14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                                               0.000000e+00       9.169420e-07       0.000000e+00       0.000000e+00                  0
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                                               0.000000e+00       1.122561e-06       0.000000e+00       0.000000e+00                  0
+## gb|AAA21532.1|ARO:3003559|cepA_beta-lactamase_[Bacteroides_fragilis]                                      4.197908e-06       7.825537e-07       8.941966e-07       3.664871e-05                  0
+## gb|AAA22851.1|ARO:3000179|tet(L)_[Geobacillus_stearothermophilus]                                         0.000000e+00       0.000000e+00       0.000000e+00       4.363010e-05                  0
+## gb|AAA23018.1|ARO:3004454|Campylobacter_coli_chloramphenicol_acetyltransferase_[Campylobacter_coli]       0.000000e+00       7.595413e-07       6.190414e-07       0.000000e+00                  0
+## gb|AAA23033.2|ARO:3000190|tetO_[Campylobacter_jejuni]                                                     3.909896e-05       8.713070e-05       1.479822e-04       2.776405e-05                  0</code></pre>
 </div>
 <div id="basic-analysis" class="section level3">
 <h3><span class="header-section-number">6.2.6</span> Basic analysis</h3>
@@ -396,12 +390,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb80-4"><a href="functional-analysis-of-targetdatabase.html#cb80-4"></a>                  )</span>
 <span id="cb80-5"><a href="functional-analysis-of-targetdatabase.html#cb80-5"></a></span>
 <span id="cb80-6"><a href="functional-analysis-of-targetdatabase.html#cb80-6"></a><span class="kw">head</span>(Filtered_card_profile, <span class="dt">n =</span><span class="dv">2</span>)</span></code></pre></div>
-<pre><code>##                                                             14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies 14291_genefamilies
-## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]       0.000000e+00       0.000000e+00       6.263129e-07                  0       7.025585e-06                  0
-## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]       5.228855e-07       3.105208e-07       0.000000e+00                  0       1.426541e-05                  0
-##                                                             14292_genefamilies 14293_genefamilies 14294_genefamilies 14295_genefamilies
-## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]       9.169420e-07                  0                  0                  0
-## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]       1.122561e-06                  0                  0                  0</code></pre>
+<pre><code>##                                                             14286_genefamilies 14287_genefamilies 14288_genefamilies 14289_genefamilies 14290_genefamilies 14291_genefamilies 14292_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]       0.000000e+00       0.000000e+00       6.263129e-07                  0       7.025585e-06                  0       9.169420e-07
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]       5.228855e-07       3.105208e-07       0.000000e+00                  0       1.426541e-05                  0       1.122561e-06
+##                                                             14293_genefamilies 14294_genefamilies 14295_genefamilies
+## gb|AAA20116.1|ARO:3000180|tetA(P)_[Clostridium_perfringens]                  0                  0                  0
+## gb|AAA20117.1|ARO:3000195|tetB(P)_[Clostridium_perfringens]                  0                  0                  0</code></pre>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="functional-analysis-of-targetdatabase.html#cb82-1"></a><span class="kw">print</span>(<span class="kw">paste0</span>(<span class="kw">nrow</span>(Filtered_card_profile), <span class="st">&#39; entries After filtering low prevalence data&#39;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;486 entries After filtering low prevalence data&quot;</code></pre>
 </div>
