@@ -1,4 +1,4 @@
-# Preprocess of Functional Analysis of TargetDatabase
+# Preprocess of Functional Analysis of Target Database
 
 _**In this tutorial, we aim to teach you how to merge *genefamilies.tsv files of all samples into one file.**_  
 

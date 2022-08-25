@@ -21,7 +21,7 @@ data-preprocessing
 standard-analysis
 differential-analysisda-1
 session-information
-preprocess-of-functional-analysis-of-targetdatabase
+preprocess-of-functional-analysis-of-target-database
 merge-sample-data
 functional-analysis-of-targetdatabase
 environment-setup-3

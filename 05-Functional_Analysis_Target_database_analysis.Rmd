@@ -1,6 +1,6 @@
 # Functional Analysis of TargetDatabase
 
-_**This demo guides you how to analyze the pathway profile annotated from humman2 against 7target databases.**_  
+_**This demo guides you how to analyze the pathway profile annotated from humman2 against 7 target databases.**_  
 
 ![FlowChart_KEGG](./flowcharts/FlowChart_TargetDB.jpg)
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Preprocess of Functional Analysis of TargetDatabase | Functional analysis</title>
+  <title>Chapter 5 Preprocess of Functional Analysis of Target Database | Functional analysis</title>
   <meta name="description" content="Tutorial for MGS functional analysis" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Preprocess of Functional Analysis of TargetDatabase | Functional analysis" />
+  <meta property="og:title" content="Chapter 5 Preprocess of Functional Analysis of Target Database | Functional analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Preprocess of Functional Analysis of TargetDatabase | Functional analysis" />
+  <meta name="twitter:title" content="Chapter 5 Preprocess of Functional Analysis of Target Database | Functional analysis" />
   
   <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-08-25" />
+<meta name="date" content="2022-08-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,8 +163,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysisda-1"><i class="fa fa-check"></i><b>4.5</b> Differential analysis(DA)</a></li>
 <li class="chapter" data-level="4.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information"><i class="fa fa-check"></i><b>4.6</b> Session information</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>5</b> Preprocess of Functional Analysis of TargetDatabase</a><ul>
-<li class="chapter" data-level="5.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#merge-sample-data"><i class="fa fa-check"></i><b>5.1</b> Merge sample data</a></li>
+<li class="chapter" data-level="5" data-path="preprocess-of-functional-analysis-of-target-database.html"><a href="preprocess-of-functional-analysis-of-target-database.html"><i class="fa fa-check"></i><b>5</b> Preprocess of Functional Analysis of Target Database</a><ul>
+<li class="chapter" data-level="5.1" data-path="preprocess-of-functional-analysis-of-target-database.html"><a href="preprocess-of-functional-analysis-of-target-database.html#merge-sample-data"><i class="fa fa-check"></i><b>5.1</b> Merge sample data</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>6</b> Functional Analysis of TargetDatabase</a><ul>
 <li class="chapter" data-level="6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-3"><i class="fa fa-check"></i><b>6.1</b> Environment setup</a></li>
@@ -210,8 +210,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preprocess-of-functional-analysis-of-targetdatabase" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Preprocess of Functional Analysis of TargetDatabase</h1>
+<div id="preprocess-of-functional-analysis-of-target-database" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Preprocess of Functional Analysis of Target Database</h1>
 <p>_**In this tutorial, we aim to teach you how to merge *genefamilies.tsv files of all samples into one file.**_</p>
 <p>Target database inclues 7 types:</p>
 <ol style="list-style-type: decimal">
@@ -231,40 +231,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>input: <em>genefamilies.tsv, path of all </em>genefamilies.tsv files</p></li>
 <li><p>output: file name of merged profile table.</p></li>
 </ul>
-<div class="sourceCode" id="cb61"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb61-1"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-1"></a></span>
-<span id="cb61-2"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-2"></a><span class="fu">## 1. Start merging acetate profile files  </span></span>
-<span id="cb61-3"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-3"></a></span>
-<span id="cb61-4"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-4"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_acetate/*genefamilies.tsv &gt; /in/Demo_data/merged_acetate_profile.tsv&quot;</span>
-<span id="cb61-5"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-5"></a></span>
-<span id="cb61-6"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-6"></a></span>
-<span id="cb61-7"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-7"></a><span class="fu">## 2. Start merging butyrate profile files</span></span>
-<span id="cb61-8"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-8"></a></span>
-<span id="cb61-9"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-9"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_butyrate/*genefamilies.tsv &gt; /in/Demo_data/merged_butyrate_profile.tsv&quot;</span>
-<span id="cb61-10"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-10"></a></span>
-<span id="cb61-11"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-11"></a></span>
-<span id="cb61-12"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-12"></a><span class="fu">## 3. Start merging formate profile files</span></span>
-<span id="cb61-13"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-13"></a></span>
-<span id="cb61-14"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-14"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_formate/*genefamilies.tsv &gt; /in/Demo_data/merged_formate_profile.tsv&quot;</span>
-<span id="cb61-15"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-15"></a></span>
-<span id="cb61-16"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-16"></a></span>
-<span id="cb61-17"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-17"></a><span class="fu">## 4. Start merging propionate profile files</span></span>
-<span id="cb61-18"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-18"></a></span>
-<span id="cb61-19"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-19"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_propionate/*genefamilies.tsv &gt; /in/Demo_data/merged_propionate_profile.tsv&quot;</span>
-<span id="cb61-20"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-20"></a></span>
-<span id="cb61-21"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-21"></a></span>
-<span id="cb61-22"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-22"></a><span class="fu">## 5. Start merging card profile files</span></span>
-<span id="cb61-23"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-23"></a></span>
-<span id="cb61-24"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-24"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_card/*genefamilies.tsv &gt; /in/Demo_data/merged_card_profile.tsv&quot;</span>
-<span id="cb61-25"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-25"></a></span>
-<span id="cb61-26"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-26"></a></span>
-<span id="cb61-27"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-27"></a><span class="fu">## 6. Start merging cazy profile files</span></span>
-<span id="cb61-28"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-28"></a></span>
-<span id="cb61-29"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-29"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_cazy/*genefamilies.tsv &gt; /in/Demo_data/merged_cazy_profile.tsv&quot;</span>
-<span id="cb61-30"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-30"></a></span>
-<span id="cb61-31"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-31"></a></span>
-<span id="cb61-32"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-32"></a><span class="fu">## 7. Start merging vfdb profile files</span></span>
-<span id="cb61-33"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-33"></a></span>
-<span id="cb61-34"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#cb61-34"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_vfdb/*genefamilies.tsv &gt; /in/Demo_data/merged_vfdb_profile.tsv&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb61-1"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-1"></a></span>
+<span id="cb61-2"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-2"></a><span class="fu">## 1. Start merging acetate profile files  </span></span>
+<span id="cb61-3"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-3"></a></span>
+<span id="cb61-4"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-4"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_acetate/*genefamilies.tsv &gt; /in/Demo_data/merged_acetate_profile.tsv&quot;</span>
+<span id="cb61-5"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-5"></a></span>
+<span id="cb61-6"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-6"></a></span>
+<span id="cb61-7"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-7"></a><span class="fu">## 2. Start merging butyrate profile files</span></span>
+<span id="cb61-8"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-8"></a></span>
+<span id="cb61-9"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-9"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_butyrate/*genefamilies.tsv &gt; /in/Demo_data/merged_butyrate_profile.tsv&quot;</span>
+<span id="cb61-10"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-10"></a></span>
+<span id="cb61-11"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-11"></a></span>
+<span id="cb61-12"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-12"></a><span class="fu">## 3. Start merging formate profile files</span></span>
+<span id="cb61-13"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-13"></a></span>
+<span id="cb61-14"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-14"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_formate/*genefamilies.tsv &gt; /in/Demo_data/merged_formate_profile.tsv&quot;</span>
+<span id="cb61-15"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-15"></a></span>
+<span id="cb61-16"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-16"></a></span>
+<span id="cb61-17"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-17"></a><span class="fu">## 4. Start merging propionate profile files</span></span>
+<span id="cb61-18"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-18"></a></span>
+<span id="cb61-19"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-19"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_propionate/*genefamilies.tsv &gt; /in/Demo_data/merged_propionate_profile.tsv&quot;</span>
+<span id="cb61-20"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-20"></a></span>
+<span id="cb61-21"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-21"></a></span>
+<span id="cb61-22"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-22"></a><span class="fu">## 5. Start merging card profile files</span></span>
+<span id="cb61-23"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-23"></a></span>
+<span id="cb61-24"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-24"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_card/*genefamilies.tsv &gt; /in/Demo_data/merged_card_profile.tsv&quot;</span>
+<span id="cb61-25"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-25"></a></span>
+<span id="cb61-26"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-26"></a></span>
+<span id="cb61-27"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-27"></a><span class="fu">## 6. Start merging cazy profile files</span></span>
+<span id="cb61-28"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-28"></a></span>
+<span id="cb61-29"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-29"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_cazy/*genefamilies.tsv &gt; /in/Demo_data/merged_cazy_profile.tsv&quot;</span>
+<span id="cb61-30"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-30"></a></span>
+<span id="cb61-31"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-31"></a></span>
+<span id="cb61-32"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-32"></a><span class="fu">## 7. Start merging vfdb profile files</span></span>
+<span id="cb61-33"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-33"></a></span>
+<span id="cb61-34"><a href="preprocess-of-functional-analysis-of-target-database.html#cb61-34"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/pipeline_output/*/humann2_vfdb/*genefamilies.tsv &gt; /in/Demo_data/merged_vfdb_profile.tsv&quot;</span></code></pre></div>
 
 </div>
 </div>
