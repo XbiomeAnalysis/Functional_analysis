@@ -1,0 +1,318 @@
+path 00010 kegg n/a  naive 1  minpath 1  fam0  105  fam-found  74  name  Glycolysis / Gluconeogenesis
+path 00020 kegg n/a  naive 1  minpath 1  fam0  62  fam-found  47  name  Citrate cycle (TCA cycle)
+path 00030 kegg n/a  naive 1  minpath 1  fam0  84  fam-found  55  name  Pentose phosphate pathway
+path 00040 kegg n/a  naive 1  minpath 1  fam0  85  fam-found  54  name  Pentose and glucuronate interconversions
+path 00051 kegg n/a  naive 1  minpath 1  fam0  111  fam-found  79  name  Fructose and mannose metabolism
+path 00052 kegg n/a  naive 1  minpath 1  fam0  77  fam-found  49  name  Galactose metabolism
+path 00053 kegg n/a  naive 1  minpath 1  fam0  61  fam-found  26  name  Ascorbate and aldarate metabolism
+path 00061 kegg n/a  naive 1  minpath 1  fam0  39  fam-found  21  name  Fatty acid biosynthesis
+path 00062 kegg n/a  naive 1  minpath 0  fam0  24  fam-found  2  name  Fatty acid elongation
+path 00071 kegg n/a  naive 1  minpath 1  fam0  58  fam-found  22  name  Fatty acid degradation
+path 00072 kegg n/a  naive 1  minpath 1  fam0  8  fam-found  7  name  Synthesis and degradation of ketone bodies
+path 00100 kegg n/a  naive 1  minpath 0  fam0  34  fam-found  1  name  Steroid biosynthesis
+path 00120 kegg n/a  naive 1  minpath 0  fam0  18  fam-found  2  name  Primary bile acid biosynthesis
+path 00121 kegg n/a  naive 1  minpath 1  fam0  15  fam-found  14  name  Secondary bile acid biosynthesis
+path 00130 kegg n/a  naive 1  minpath 1  fam0  59  fam-found  33  name  Ubiquinone and other terpenoid-quinone biosynthesis
+path 00140 kegg n/a  naive 1  minpath 1  fam0  46  fam-found  1  name  Steroid hormone biosynthesis
+path 00190 kegg n/a  naive 1  minpath 1  fam0  218  fam-found  72  name  Oxidative phosphorylation
+path 00195 kegg n/a  naive 1  minpath 1  fam0  63  fam-found  11  name  Photosynthesis
+path 00220 kegg n/a  naive 1  minpath 1  fam0  59  fam-found  38  name  Arginine biosynthesis
+path 00230 kegg n/a  naive 1  minpath 1  fam0  213  fam-found  115  name  Purine metabolism
+path 00240 kegg n/a  naive 1  minpath 1  fam0  102  fam-found  68  name  Pyrimidine metabolism
+path 00250 kegg n/a  naive 1  minpath 1  fam0  70  fam-found  45  name  Alanine, aspartate and glutamate metabolism
+path 00253 kegg n/a  naive 1  minpath 1  fam0  17  fam-found  1  name  Tetracycline biosynthesis
+path 00260 kegg n/a  naive 1  minpath 1  fam0  99  fam-found  59  name  Glycine, serine and threonine metabolism
+path 00261 kegg n/a  naive 1  minpath 1  fam0  28  fam-found  11  name  Monobactam biosynthesis
+path 00270 kegg n/a  naive 1  minpath 1  fam0  117  fam-found  69  name  Cysteine and methionine metabolism
+path 00280 kegg n/a  naive 1  minpath 1  fam0  70  fam-found  37  name  Valine, leucine and isoleucine degradation
+path 00281 kegg n/a  naive 1  minpath 1  fam0  16  fam-found  8  name  Geraniol degradation
+path 00290 kegg n/a  naive 1  minpath 1  fam0  19  fam-found  15  name  Valine, leucine and isoleucine biosynthesis
+path 00300 kegg n/a  naive 1  minpath 1  fam0  47  fam-found  33  name  Lysine biosynthesis
+path 00310 kegg n/a  naive 1  minpath 1  fam0  89  fam-found  29  name  Lysine degradation
+path 00311 kegg n/a  naive 1  minpath 1  fam0  16  fam-found  5  name  Penicillin and cephalosporin biosynthesis
+path 00330 kegg n/a  naive 1  minpath 1  fam0  112  fam-found  55  name  Arginine and proline metabolism
+path 00332 kegg n/a  naive 1  minpath 0  fam0  19  fam-found  2  name  Carbapenem biosynthesis
+path 00333 kegg n/a  naive 1  minpath 0  fam0  20  fam-found  3  name  Prodigiosin biosynthesis
+path 00340 kegg n/a  naive 1  minpath 1  fam0  47  fam-found  29  name  Histidine metabolism
+path 00350 kegg n/a  naive 1  minpath 1  fam0  81  fam-found  34  name  Tyrosine metabolism
+path 00360 kegg n/a  naive 1  minpath 1  fam0  77  fam-found  42  name  Phenylalanine metabolism
+path 00361 kegg n/a  naive 1  minpath 1  fam0  41  fam-found  7  name  Chlorocyclohexane and chlorobenzene degradation
+path 00362 kegg n/a  naive 1  minpath 1  fam0  106  fam-found  41  name  Benzoate degradation
+path 00364 kegg n/a  naive 1  minpath 0  fam0  18  fam-found  8  name  Fluorobenzoate degradation
+path 00365 kegg n/a  naive 1  minpath 1  fam0  8  fam-found  1  name  Furfural degradation
+path 00380 kegg n/a  naive 1  minpath 1  fam0  80  fam-found  21  name  Tryptophan metabolism
+path 00400 kegg n/a  naive 1  minpath 1  fam0  71  fam-found  43  name  Phenylalanine, tyrosine and tryptophan biosynthesis
+path 00401 kegg n/a  naive 1  minpath 0  fam0  30  fam-found  8  name  Novobiocin biosynthesis
+path 00405 kegg n/a  naive 1  minpath 0  fam0  16  fam-found  3  name  Phenazine biosynthesis
+path 00410 kegg n/a  naive 1  minpath 0  fam0  44  fam-found  20  name  beta-Alanine metabolism
+path 00430 kegg n/a  naive 1  minpath 1  fam0  24  fam-found  15  name  Taurine and hypotaurine metabolism
+path 00440 kegg n/a  naive 1  minpath 1  fam0  43  fam-found  15  name  Phosphonate and phosphinate metabolism
+path 00450 kegg n/a  naive 1  minpath 1  fam0  33  fam-found  22  name  Selenocompound metabolism
+path 00460 kegg n/a  naive 1  minpath 0  fam0  36  fam-found  9  name  Cyanoamino acid metabolism
+path 00471 kegg n/a  naive 1  minpath 1  fam0  10  fam-found  10  name  D-Glutamine and D-glutamate metabolism
+path 00472 kegg n/a  naive 1  minpath 1  fam0  9  fam-found  5  name  D-Arginine and D-ornithine metabolism
+path 00473 kegg n/a  naive 1  minpath 1  fam0  6  fam-found  6  name  D-Alanine metabolism
+path 00480 kegg n/a  naive 1  minpath 1  fam0  56  fam-found  23  name  Glutathione metabolism
+path 00500 kegg n/a  naive 1  minpath 1  fam0  105  fam-found  69  name  Starch and sucrose metabolism
+path 00510 kegg n/a  naive 1  minpath 1  fam0  45  fam-found  5  name  N-Glycan biosynthesis
+path 00511 kegg n/a  naive 1  minpath 1  fam0  22  fam-found  14  name  Other glycan degradation
+path 00513 kegg n/a  naive 1  minpath 0  fam0  52  fam-found  4  name  Various types of N-glycan biosynthesis
+path 00514 kegg n/a  naive 1  minpath 1  fam0  31  fam-found  1  name  Other types of O-glycan biosynthesis
+path 00515 kegg n/a  naive 1  minpath 0  fam0  21  fam-found  1  name  Mannose type O-glycan biosynthesis
+path 00520 kegg n/a  naive 1  minpath 1  fam0  147  fam-found  102  name  Amino sugar and nucleotide sugar metabolism
+path 00521 kegg n/a  naive 1  minpath 1  fam0  20  fam-found  13  name  Streptomycin biosynthesis
+path 00523 kegg n/a  naive 1  minpath 1  fam0  59  fam-found  10  name  Polyketide sugar unit biosynthesis
+path 00524 kegg n/a  naive 1  minpath 0  fam0  57  fam-found  2  name  Neomycin, kanamycin and gentamicin biosynthesis
+path 00525 kegg n/a  naive 1  minpath 0  fam0  27  fam-found  3  name  Acarbose and validamycin biosynthesis
+path 00531 kegg n/a  naive 1  minpath 1  fam0  15  fam-found  10  name  Glycosaminoglycan degradation
+path 00540 kegg n/a  naive 1  minpath 1  fam0  62  fam-found  53  name  Lipopolysaccharide biosynthesis
+path 00541 kegg n/a  naive 1  minpath 1  fam0  96  fam-found  51  name  O-Antigen nucleotide sugar biosynthesis
+path 00542 kegg n/a  naive 1  minpath 1  fam0  35  fam-found  10  name  O-Antigen repeat unit biosynthesis
+path 00550 kegg n/a  naive 1  minpath 1  fam0  51  fam-found  46  name  Peptidoglycan biosynthesis
+path 00561 kegg n/a  naive 1  minpath 1  fam0  90  fam-found  32  name  Glycerolipid metabolism
+path 00562 kegg n/a  naive 1  minpath 1  fam0  76  fam-found  18  name  Inositol phosphate metabolism
+path 00563 kegg n/a  naive 1  minpath 1  fam0  27  fam-found  1  name  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
+path 00564 kegg n/a  naive 1  minpath 1  fam0  113  fam-found  43  name  Glycerophospholipid metabolism
+path 00565 kegg n/a  naive 1  minpath 1  fam0  31  fam-found  6  name  Ether lipid metabolism
+path 00571 kegg n/a  naive 1  minpath 1  fam0  14  fam-found  8  name  Lipoarabinomannan (LAM) biosynthesis
+path 00572 kegg n/a  naive 1  minpath 1  fam0  12  fam-found  4  name  Arabinogalactan biosynthesis - Mycobacterium
+path 00590 kegg n/a  naive 1  minpath 0  fam0  45  fam-found  2  name  Arachidonic acid metabolism
+path 00591 kegg n/a  naive 1  minpath 1  fam0  25  fam-found  2  name  Linoleic acid metabolism
+path 00592 kegg n/a  naive 1  minpath 0  fam0  25  fam-found  2  name  alpha-Linolenic acid metabolism
+path 00600 kegg n/a  naive 1  minpath 1  fam0  47  fam-found  11  name  Sphingolipid metabolism
+path 00601 kegg n/a  naive 1  minpath 1  fam0  27  fam-found  1  name  Glycosphingolipid biosynthesis - lacto and neolacto series
+path 00603 kegg n/a  naive 1  minpath 0  fam0  15  fam-found  3  name  Glycosphingolipid biosynthesis - globo and isoglobo series
+path 00604 kegg n/a  naive 1  minpath 0  fam0  14  fam-found  1  name  Glycosphingolipid biosynthesis - ganglio series
+path 00620 kegg n/a  naive 1  minpath 1  fam0  126  fam-found  96  name  Pyruvate metabolism
+path 00621 kegg n/a  naive 1  minpath 0  fam0  31  fam-found  6  name  Dioxin degradation
+path 00622 kegg n/a  naive 1  minpath 0  fam0  34  fam-found  13  name  Xylene degradation
+path 00623 kegg n/a  naive 1  minpath 0  fam0  46  fam-found  6  name  Toluene degradation
+path 00624 kegg n/a  naive 1  minpath 0  fam0  43  fam-found  2  name  Polycyclic aromatic hydrocarbon degradation
+path 00625 kegg n/a  naive 1  minpath 0  fam0  43  fam-found  12  name  Chloroalkane and chloroalkene degradation
+path 00626 kegg n/a  naive 1  minpath 0  fam0  29  fam-found  5  name  Naphthalene degradation
+path 00627 kegg n/a  naive 1  minpath 1  fam0  81  fam-found  21  name  Aminobenzoate degradation
+path 00630 kegg n/a  naive 1  minpath 1  fam0  100  fam-found  63  name  Glyoxylate and dicarboxylate metabolism
+path 00633 kegg n/a  naive 1  minpath 1  fam0  22  fam-found  13  name  Nitrotoluene degradation
+path 00640 kegg n/a  naive 1  minpath 1  fam0  110  fam-found  76  name  Propanoate metabolism
+path 00642 kegg n/a  naive 1  minpath 0  fam0  16  fam-found  1  name  Ethylbenzene degradation
+path 00643 kegg n/a  naive 1  minpath 0  fam0  25  fam-found  11  name  Styrene degradation
+path 00650 kegg n/a  naive 1  minpath 1  fam0  99  fam-found  67  name  Butanoate metabolism
+path 00660 kegg n/a  naive 1  minpath 1  fam0  29  fam-found  15  name  C5-Branched dibasic acid metabolism
+path 00670 kegg n/a  naive 1  minpath 1  fam0  37  fam-found  25  name  One carbon pool by folate
+path 00680 kegg n/a  naive 1  minpath 1  fam0  190  fam-found  132  name  Methane metabolism
+path 00710 kegg n/a  naive 1  minpath 1  fam0  36  fam-found  23  name  Carbon fixation in photosynthetic organisms
+path 00720 kegg n/a  naive 1  minpath 1  fam0  106  fam-found  64  name  Carbon fixation pathways in prokaryotes
+path 00730 kegg n/a  naive 1  minpath 1  fam0  36  fam-found  22  name  Thiamine metabolism
+path 00740 kegg n/a  naive 1  minpath 1  fam0  49  fam-found  30  name  Riboflavin metabolism
+path 00750 kegg n/a  naive 1  minpath 1  fam0  24  fam-found  11  name  Vitamin B6 metabolism
+path 00760 kegg n/a  naive 1  minpath 1  fam0  97  fam-found  40  name  Nicotinate and nicotinamide metabolism
+path 00770 kegg n/a  naive 1  minpath 1  fam0  44  fam-found  32  name  Pantothenate and CoA biosynthesis
+path 00780 kegg n/a  naive 1  minpath 1  fam0  23  fam-found  15  name  Biotin metabolism
+path 00785 kegg n/a  naive 1  minpath 1  fam0  13  fam-found  5  name  Lipoic acid metabolism
+path 00790 kegg n/a  naive 1  minpath 1  fam0  82  fam-found  48  name  Folate biosynthesis
+path 00791 kegg n/a  naive 1  minpath 1  fam0  16  fam-found  8  name  Atrazine degradation
+path 00830 kegg n/a  naive 1  minpath 1  fam0  50  fam-found  5  name  Retinol metabolism
+path 00860 kegg n/a  naive 1  minpath 1  fam0  131  fam-found  70  name  Porphyrin and chlorophyll metabolism
+path 00900 kegg n/a  naive 1  minpath 1  fam0  59  fam-found  28  name  Terpenoid backbone biosynthesis
+path 00901 kegg n/a  naive 1  minpath 0  fam0  30  fam-found  1  name  Indole alkaloid biosynthesis
+path 00903 kegg n/a  naive 1  minpath 0  fam0  12  fam-found  5  name  Limonene and pinene degradation
+path 00906 kegg n/a  naive 1  minpath 1  fam0  52  fam-found  2  name  Carotenoid biosynthesis
+path 00908 kegg n/a  naive 1  minpath 1  fam0  10  fam-found  1  name  Zeatin biosynthesis
+path 00909 kegg n/a  naive 1  minpath 1  fam0  73  fam-found  2  name  Sesquiterpenoid and triterpenoid biosynthesis
+path 00910 kegg n/a  naive 1  minpath 1  fam0  65  fam-found  37  name  Nitrogen metabolism
+path 00920 kegg n/a  naive 1  minpath 1  fam0  109  fam-found  67  name  Sulfur metabolism
+path 00930 kegg n/a  naive 1  minpath 1  fam0  22  fam-found  10  name  Caprolactam degradation
+path 00940 kegg n/a  naive 1  minpath 1  fam0  38  fam-found  5  name  Phenylpropanoid biosynthesis
+path 00941 kegg n/a  naive 1  minpath 0  fam0  27  fam-found  1  name  Flavonoid biosynthesis
+path 00944 kegg n/a  naive 1  minpath 0  fam0  15  fam-found  1  name  Flavone and flavonol biosynthesis
+path 00945 kegg n/a  naive 1  minpath 0  fam0  12  fam-found  1  name  Stilbenoid, diarylheptanoid and gingerol biosynthesis
+path 00950 kegg n/a  naive 1  minpath 0  fam0  62  fam-found  7  name  Isoquinoline alkaloid biosynthesis
+path 00960 kegg n/a  naive 1  minpath 1  fam0  26  fam-found  10  name  Tropane, piperidine and pyridine alkaloid biosynthesis
+path 00965 kegg n/a  naive 1  minpath 1  fam0  7  fam-found  2  name  Betalain biosynthesis
+path 00966 kegg n/a  naive 1  minpath 0  fam0  21  fam-found  2  name  Glucosinolate biosynthesis
+path 00970 kegg n/a  naive 1  minpath 1  fam0  66  fam-found  33  name  Aminoacyl-tRNA biosynthesis
+path 00980 kegg n/a  naive 1  minpath 1  fam0  34  fam-found  5  name  Metabolism of xenobiotics by cytochrome P450
+path 00981 kegg n/a  naive 1  minpath 0  fam0  18  fam-found  1  name  Insect hormone biosynthesis
+path 00982 kegg n/a  naive 1  minpath 0  fam0  25  fam-found  5  name  Drug metabolism - cytochrome P450
+path 00983 kegg n/a  naive 1  minpath 0  fam0  32  fam-found  15  name  Drug metabolism - other enzymes
+path 00984 kegg n/a  naive 1  minpath 1  fam0  15  fam-found  3  name  Steroid degradation
+path 00997 kegg n/a  naive 1  minpath 1  fam0  33  fam-found  8  name  Biosynthesis of various secondary metabolites - part 3
+path 00998 kegg n/a  naive 1  minpath 1  fam0  55  fam-found  4  name  Biosynthesis of various secondary metabolites - part 2
+path 01040 kegg n/a  naive 1  minpath 1  fam0  32  fam-found  6  name  Biosynthesis of unsaturated fatty acids
+path 01051 kegg n/a  naive 1  minpath 1  fam0  32  fam-found  2  name  Biosynthesis of ansamycins
+path 01052 kegg n/a  naive 1  minpath 0  fam0  126  fam-found  1  name  Type I polyketide structures
+path 01053 kegg n/a  naive 1  minpath 1  fam0  37  fam-found  20  name  Biosynthesis of siderophore group nonribosomal peptides
+path 01054 kegg n/a  naive 1  minpath 1  fam0  54  fam-found  4  name  Nonribosomal peptide structures
+path 01055 kegg n/a  naive 1  minpath 0  fam0  29  fam-found  3  name  Biosynthesis of vancomycin group antibiotics
+path 01501 kegg n/a  naive 1  minpath 1  fam0  112  fam-found  47  name  beta-Lactam resistance
+path 01502 kegg n/a  naive 1  minpath 1  fam0  22  fam-found  18  name  Vancomycin resistance
+path 01503 kegg n/a  naive 1  minpath 1  fam0  54  fam-found  41  name  Cationic antimicrobial peptide (CAMP) resistance
+path 01521 kegg n/a  naive 1  minpath 0  fam0  67  fam-found  1  name  EGFR tyrosine kinase inhibitor resistance
+path 01523 kegg n/a  naive 1  minpath 0  fam0  26  fam-found  5  name  Antifolate resistance
+path 01524 kegg n/a  naive 1  minpath 0  fam0  46  fam-found  3  name  Platinum drug resistance
+path 02010 kegg n/a  naive 1  minpath 1  fam0  512  fam-found  363  name  ABC transporters
+path 02020 kegg n/a  naive 1  minpath 1  fam0  495  fam-found  335  name  Two-component system
+path 02024 kegg n/a  naive 1  minpath 1  fam0  282  fam-found  139  name  Quorum sensing
+path 02025 kegg n/a  naive 1  minpath 1  fam0  90  fam-found  47  name  Biofilm formation - Pseudomonas aeruginosa
+path 02026 kegg n/a  naive 1  minpath 1  fam0  61  fam-found  50  name  Biofilm formation - Escherichia coli
+path 02030 kegg n/a  naive 1  minpath 1  fam0  26  fam-found  26  name  Bacterial chemotaxis
+path 02040 kegg n/a  naive 1  minpath 1  fam0  55  fam-found  48  name  Flagellar assembly
+path 02060 kegg n/a  naive 1  minpath 1  fam0  71  fam-found  69  name  Phosphotransferase system (PTS)
+path 03008 kegg n/a  naive 1  minpath 1  fam0  82  fam-found  15  name  Ribosome biogenesis in eukaryotes
+path 03010 kegg n/a  naive 1  minpath 1  fam0  143  fam-found  85  name  Ribosome
+path 03013 kegg n/a  naive 1  minpath 1  fam0  142  fam-found  14  name  RNA transport
+path 03015 kegg n/a  naive 1  minpath 1  fam0  63  fam-found  3  name  mRNA surveillance pathway
+path 03018 kegg n/a  naive 1  minpath 1  fam0  79  fam-found  23  name  RNA degradation
+path 03020 kegg n/a  naive 1  minpath 1  fam0  51  fam-found  19  name  RNA polymerase
+path 03022 kegg n/a  naive 1  minpath 1  fam0  36  fam-found  5  name  Basal transcription factors
+path 03030 kegg n/a  naive 1  minpath 1  fam0  60  fam-found  33  name  DNA replication
+path 03040 kegg n/a  naive 1  minpath 1  fam0  123  fam-found  1  name  Spliceosome
+path 03050 kegg n/a  naive 1  minpath 1  fam0  49  fam-found  4  name  Proteasome
+path 03060 kegg n/a  naive 1  minpath 1  fam0  39  fam-found  22  name  Protein export
+path 03070 kegg n/a  naive 1  minpath 1  fam0  74  fam-found  61  name  Bacterial secretion system
+path 03320 kegg n/a  naive 1  minpath 0  fam0  63  fam-found  8  name  PPAR signaling pathway
+path 03410 kegg n/a  naive 1  minpath 1  fam0  43  fam-found  21  name  Base excision repair
+path 03420 kegg n/a  naive 1  minpath 1  fam0  47  fam-found  12  name  Nucleotide excision repair
+path 03430 kegg n/a  naive 1  minpath 1  fam0  44  fam-found  27  name  Mismatch repair
+path 03440 kegg n/a  naive 1  minpath 1  fam0  72  fam-found  30  name  Homologous recombination
+path 03450 kegg n/a  naive 1  minpath 1  fam0  19  fam-found  3  name  Non-homologous end-joining
+path 03460 kegg n/a  naive 1  minpath 0  fam0  54  fam-found  1  name  Fanconi anemia pathway
+path 04011 kegg n/a  naive 1  minpath 0  fam0  91  fam-found  1  name  MAPK signaling pathway - yeast
+path 04013 kegg n/a  naive 1  minpath 0  fam0  84  fam-found  1  name  MAPK signaling pathway - fly
+path 04016 kegg n/a  naive 1  minpath 0  fam0  54  fam-found  3  name  MAPK signaling pathway - plant
+path 04066 kegg n/a  naive 1  minpath 0  fam0  76  fam-found  10  name  HIF-1 signaling pathway
+path 04068 kegg n/a  naive 1  minpath 0  fam0  102  fam-found  3  name  FoxO signaling pathway
+path 04070 kegg n/a  naive 1  minpath 0  fam0  55  fam-found  3  name  Phosphatidylinositol signaling system
+path 04071 kegg n/a  naive 1  minpath 0  fam0  82  fam-found  1  name  Sphingolipid signaling pathway
+path 04072 kegg n/a  naive 1  minpath 0  fam0  108  fam-found  1  name  Phospholipase D signaling pathway
+path 04080 kegg n/a  naive 1  minpath 0  fam0  310  fam-found  1  name  Neuroactive ligand-receptor interaction
+path 04110 kegg n/a  naive 1  minpath 0  fam0  110  fam-found  1  name  Cell cycle
+path 04112 kegg n/a  naive 1  minpath 1  fam0  31  fam-found  18  name  Cell cycle - Caulobacter
+path 04113 kegg n/a  naive 1  minpath 1  fam0  103  fam-found  2  name  Meiosis - yeast
+path 04115 kegg n/a  naive 1  minpath 1  fam0  67  fam-found  2  name  p53 signaling pathway
+path 04120 kegg n/a  naive 1  minpath 0  fam0  131  fam-found  2  name  Ubiquitin mediated proteolysis
+path 04122 kegg n/a  naive 1  minpath 1  fam0  29  fam-found  21  name  Sulfur relay system
+path 04137 kegg n/a  naive 1  minpath 0  fam0  60  fam-found  2  name  Mitophagy - animal
+path 04138 kegg n/a  naive 1  minpath 1  fam0  82  fam-found  2  name  Autophagy - yeast
+path 04140 kegg n/a  naive 1  minpath 0  fam0  109  fam-found  1  name  Autophagy - animal
+path 04141 kegg n/a  naive 1  minpath 1  fam0  144  fam-found  6  name  Protein processing in endoplasmic reticulum
+path 04142 kegg n/a  naive 1  minpath 1  fam0  105  fam-found  16  name  Lysosome
+path 04144 kegg n/a  naive 1  minpath 1  fam0  169  fam-found  1  name  Endocytosis
+path 04145 kegg n/a  naive 1  minpath 0  fam0  95  fam-found  1  name  Phagosome
+path 04146 kegg n/a  naive 1  minpath 1  fam0  73  fam-found  12  name  Peroxisome
+path 04150 kegg n/a  naive 1  minpath 0  fam0  117  fam-found  1  name  mTOR signaling pathway
+path 04151 kegg n/a  naive 1  minpath 0  fam0  263  fam-found  4  name  PI3K-Akt signaling pathway
+path 04152 kegg n/a  naive 1  minpath 1  fam0  84  fam-found  6  name  AMPK signaling pathway
+path 04210 kegg n/a  naive 1  minpath 1  fam0  110  fam-found  3  name  Apoptosis
+path 04211 kegg n/a  naive 1  minpath 0  fam0  68  fam-found  2  name  Longevity regulating pathway
+path 04212 kegg n/a  naive 1  minpath 0  fam0  57  fam-found  7  name  Longevity regulating pathway - worm
+path 04213 kegg n/a  naive 1  minpath 1  fam0  58  fam-found  5  name  Longevity regulating pathway - multiple species
+path 04214 kegg n/a  naive 1  minpath 1  fam0  56  fam-found  3  name  Apoptosis - fly
+path 04215 kegg n/a  naive 1  minpath 0  fam0  40  fam-found  1  name  Apoptosis - multiple species
+path 04216 kegg n/a  naive 1  minpath 0  fam0  33  fam-found  2  name  Ferroptosis
+path 04217 kegg n/a  naive 1  minpath 0  fam0  97  fam-found  5  name  Necroptosis
+path 04260 kegg n/a  naive 1  minpath 0  fam0  67  fam-found  2  name  Cardiac muscle contraction
+path 04361 kegg n/a  naive 1  minpath 0  fam0  59  fam-found  2  name  Axon regeneration
+path 04371 kegg n/a  naive 1  minpath 0  fam0  104  fam-found  1  name  Apelin signaling pathway
+path 04510 kegg n/a  naive 1  minpath 0  fam0  149  fam-found  1  name  Focal adhesion
+path 04512 kegg n/a  naive 1  minpath 0  fam0  65  fam-found  1  name  ECM-receptor interaction
+path 04530 kegg n/a  naive 1  minpath 0  fam0  106  fam-found  1  name  Tight junction
+path 04611 kegg n/a  naive 1  minpath 0  fam0  90  fam-found  1  name  Platelet activation
+path 04612 kegg n/a  naive 1  minpath 0  fam0  46  fam-found  1  name  Antigen processing and presentation
+path 04614 kegg n/a  naive 1  minpath 1  fam0  22  fam-found  2  name  Renin-angiotensin system
+path 04621 kegg n/a  naive 1  minpath 0  fam0  142  fam-found  4  name  NOD-like receptor signaling pathway
+path 04622 kegg n/a  naive 1  minpath 0  fam0  53  fam-found  1  name  RIG-I-like receptor signaling pathway
+path 04626 kegg n/a  naive 1  minpath 1  fam0  86  fam-found  7  name  Plant-pathogen interaction
+path 04657 kegg n/a  naive 1  minpath 0  fam0  81  fam-found  1  name  IL-17 signaling pathway
+path 04659 kegg n/a  naive 1  minpath 0  fam0  86  fam-found  1  name  Th17 cell differentiation
+path 04670 kegg n/a  naive 1  minpath 0  fam0  75  fam-found  1  name  Leukocyte transendothelial migration
+path 04714 kegg n/a  naive 1  minpath 0  fam0  188  fam-found  6  name  Thermogenesis
+path 04724 kegg n/a  naive 1  minpath 0  fam0  88  fam-found  2  name  Glutamatergic synapse
+path 04726 kegg n/a  naive 1  minpath 0  fam0  85  fam-found  2  name  Serotonergic synapse
+path 04727 kegg n/a  naive 1  minpath 0  fam0  69  fam-found  3  name  GABAergic synapse
+path 04728 kegg n/a  naive 1  minpath 0  fam0  84  fam-found  2  name  Dopaminergic synapse
+path 04910 kegg n/a  naive 1  minpath 1  fam0  88  fam-found  6  name  Insulin signaling pathway
+path 04914 kegg n/a  naive 1  minpath 0  fam0  64  fam-found  1  name  Progesterone-mediated oocyte maturation
+path 04915 kegg n/a  naive 1  minpath 0  fam0  77  fam-found  1  name  Estrogen signaling pathway
+path 04917 kegg n/a  naive 1  minpath 0  fam0  57  fam-found  1  name  Prolactin signaling pathway
+path 04918 kegg n/a  naive 1  minpath 1  fam0  53  fam-found  3  name  Thyroid hormone synthesis
+path 04919 kegg n/a  naive 1  minpath 0  fam0  91  fam-found  2  name  Thyroid hormone signaling pathway
+path 04920 kegg n/a  naive 1  minpath 0  fam0  53  fam-found  2  name  Adipocytokine signaling pathway
+path 04921 kegg n/a  naive 1  minpath 0  fam0  112  fam-found  1  name  Oxytocin signaling pathway
+path 04922 kegg n/a  naive 1  minpath 0  fam0  57  fam-found  9  name  Glucagon signaling pathway
+path 04926 kegg n/a  naive 1  minpath 0  fam0  96  fam-found  1  name  Relaxin signaling pathway
+path 04928 kegg n/a  naive 1  minpath 1  fam0  85  fam-found  1  name  Parathyroid hormone synthesis, secretion and action
+path 04930 kegg n/a  naive 1  minpath 0  fam0  37  fam-found  2  name  Type II diabetes mellitus
+path 04931 kegg n/a  naive 1  minpath 0  fam0  74  fam-found  4  name  Insulin resistance
+path 04932 kegg n/a  naive 1  minpath 0  fam0  125  fam-found  4  name  Non-alcoholic fatty liver disease
+path 04933 kegg n/a  naive 1  minpath 0  fam0  76  fam-found  1  name  AGE-RAGE signaling pathway in diabetic complications
+path 04934 kegg n/a  naive 1  minpath 0  fam0  122  fam-found  1  name  Cushing syndrome
+path 04940 kegg n/a  naive 1  minpath 0  fam0  25  fam-found  2  name  Type I diabetes mellitus
+path 04964 kegg n/a  naive 1  minpath 0  fam0  14  fam-found  3  name  Proximal tubule bicarbonate reclamation
+path 04970 kegg n/a  naive 1  minpath 0  fam0  64  fam-found  1  name  Salivary secretion
+path 04972 kegg n/a  naive 1  minpath 0  fam0  69  fam-found  1  name  Pancreatic secretion
+path 04973 kegg n/a  naive 1  minpath 0  fam0  22  fam-found  2  name  Carbohydrate digestion and absorption
+path 04974 kegg n/a  naive 1  minpath 1  fam0  66  fam-found  2  name  Protein digestion and absorption
+path 04975 kegg n/a  naive 1  minpath 0  fam0  28  fam-found  1  name  Fat digestion and absorption
+path 04976 kegg n/a  naive 1  minpath 0  fam0  62  fam-found  1  name  Bile secretion
+path 04977 kegg n/a  naive 1  minpath 1  fam0  23  fam-found  1  name  Vitamin digestion and absorption
+path 04978 kegg n/a  naive 1  minpath 1  fam0  36  fam-found  2  name  Mineral absorption
+path 04979 kegg n/a  naive 1  minpath 0  fam0  49  fam-found  1  name  Cholesterol metabolism
+path 05010 kegg n/a  naive 1  minpath 0  fam0  287  fam-found  5  name  Alzheimer disease
+path 05012 kegg n/a  naive 1  minpath 1  fam0  194  fam-found  9  name  Parkinson disease
+path 05014 kegg n/a  naive 1  minpath 0  fam0  280  fam-found  8  name  Amyotrophic lateral sclerosis
+path 05016 kegg n/a  naive 1  minpath 0  fam0  229  fam-found  7  name  Huntington disease
+path 05017 kegg n/a  naive 1  minpath 1  fam0  116  fam-found  7  name  Spinocerebellar ataxia
+path 05020 kegg n/a  naive 1  minpath 0  fam0  209  fam-found  5  name  Prion disease
+path 05022 kegg n/a  naive 1  minpath 0  fam0  368  fam-found  11  name  Pathways of neurodegeneration - multiple diseases
+path 05030 kegg n/a  naive 1  minpath 0  fam0  39  fam-found  2  name  Cocaine addiction
+path 05031 kegg n/a  naive 1  minpath 0  fam0  46  fam-found  2  name  Amphetamine addiction
+path 05034 kegg n/a  naive 1  minpath 0  fam0  86  fam-found  2  name  Alcoholism
+path 05100 kegg n/a  naive 1  minpath 1  fam0  76  fam-found  9  name  Bacterial invasion of epithelial cells
+path 05110 kegg n/a  naive 1  minpath 1  fam0  49  fam-found  2  name  Vibrio cholerae infection
+path 05111 kegg n/a  naive 1  minpath 1  fam0  106  fam-found  40  name  Biofilm formation - Vibrio cholerae
+path 05120 kegg n/a  naive 1  minpath 1  fam0  91  fam-found  6  name  Epithelial cell signaling in Helicobacter pylori infection
+path 05130 kegg n/a  naive 1  minpath 1  fam0  152  fam-found  9  name  Pathogenic Escherichia coli infection
+path 05131 kegg n/a  naive 1  minpath 0  fam0  205  fam-found  11  name  Shigellosis
+path 05132 kegg n/a  naive 1  minpath 1  fam0  217  fam-found  10  name  Salmonella infection
+path 05133 kegg n/a  naive 1  minpath 1  fam0  79  fam-found  11  name  Pertussis
+path 05134 kegg n/a  naive 1  minpath 1  fam0  69  fam-found  8  name  Legionellosis
+path 05135 kegg n/a  naive 1  minpath 0  fam0  122  fam-found  1  name  Yersinia infection
+path 05140 kegg n/a  naive 1  minpath 0  fam0  59  fam-found  1  name  Leishmaniasis
+path 05142 kegg n/a  naive 1  minpath 0  fam0  85  fam-found  1  name  Chagas disease
+path 05143 kegg n/a  naive 1  minpath 1  fam0  41  fam-found  3  name  African trypanosomiasis
+path 05145 kegg n/a  naive 1  minpath 0  fam0  95  fam-found  1  name  Toxoplasmosis
+path 05146 kegg n/a  naive 1  minpath 1  fam0  87  fam-found  4  name  Amoebiasis
+path 05150 kegg n/a  naive 1  minpath 1  fam0  74  fam-found  16  name  Staphylococcus aureus infection
+path 05152 kegg n/a  naive 1  minpath 0  fam0  131  fam-found  4  name  Tuberculosis
+path 05160 kegg n/a  naive 1  minpath 0  fam0  112  fam-found  2  name  Hepatitis C
+path 05161 kegg n/a  naive 1  minpath 0  fam0  132  fam-found  2  name  Hepatitis B
+path 05162 kegg n/a  naive 1  minpath 0  fam0  117  fam-found  2  name  Measles
+path 05163 kegg n/a  naive 1  minpath 0  fam0  192  fam-found  1  name  Human cytomegalovirus infection
+path 05164 kegg n/a  naive 1  minpath 0  fam0  128  fam-found  2  name  Influenza A
+path 05165 kegg n/a  naive 1  minpath 0  fam0  231  fam-found  3  name  Human papillomavirus infection
+path 05166 kegg n/a  naive 1  minpath 0  fam0  184  fam-found  2  name  Human T-cell leukemia virus 1 infection
+path 05167 kegg n/a  naive 1  minpath 0  fam0  169  fam-found  3  name  Kaposi sarcoma-associated herpesvirus infection
+path 05168 kegg n/a  naive 1  minpath 0  fam0  148  fam-found  2  name  Herpes simplex virus 1 infection
+path 05169 kegg n/a  naive 1  minpath 0  fam0  172  fam-found  1  name  Epstein-Barr virus infection
+path 05170 kegg n/a  naive 1  minpath 0  fam0  163  fam-found  1  name  Human immunodeficiency virus 1 infection
+path 05171 kegg n/a  naive 1  minpath 0  fam0  205  fam-found  28  name  Coronavirus disease - COVID-19
+path 05200 kegg n/a  naive 1  minpath 0  fam0  417  fam-found  5  name  Pathways in cancer
+path 05203 kegg n/a  naive 1  minpath 0  fam0  174  fam-found  4  name  Viral carcinogenesis
+path 05204 kegg n/a  naive 1  minpath 0  fam0  38  fam-found  2  name  Chemical carcinogenesis
+path 05205 kegg n/a  naive 1  minpath 0  fam0  165  fam-found  4  name  Proteoglycans in cancer
+path 05206 kegg n/a  naive 1  minpath 0  fam0  245  fam-found  3  name  MicroRNAs in cancer
+path 05210 kegg n/a  naive 1  minpath 0  fam0  72  fam-found  1  name  Colorectal cancer
+path 05211 kegg n/a  naive 1  minpath 0  fam0  56  fam-found  1  name  Renal cell carcinoma
+path 05215 kegg n/a  naive 1  minpath 0  fam0  81  fam-found  1  name  Prostate cancer
+path 05219 kegg n/a  naive 1  minpath 0  fam0  38  fam-found  1  name  Bladder cancer
+path 05222 kegg n/a  naive 1  minpath 0  fam0  74  fam-found  1  name  Small cell lung cancer
+path 05225 kegg n/a  naive 1  minpath 0  fam0  116  fam-found  2  name  Hepatocellular carcinoma
+path 05226 kegg n/a  naive 1  minpath 0  fam0  108  fam-found  1  name  Gastric cancer
+path 05230 kegg n/a  naive 1  minpath 0  fam0  49  fam-found  10  name  Central carbon metabolism in cancer
+path 05231 kegg n/a  naive 1  minpath 0  fam0  61  fam-found  2  name  Choline metabolism in cancer
+path 05340 kegg n/a  naive 1  minpath 0  fam0  37  fam-found  2  name  Primary immunodeficiency
+path 05415 kegg n/a  naive 1  minpath 0  fam0  160  fam-found  9  name  Diabetic cardiomyopathy
+path 05416 kegg n/a  naive 1  minpath 0  fam0  39  fam-found  1  name  Viral myocarditis
+path 05417 kegg n/a  naive 1  minpath 0  fam0  159  fam-found  5  name  Lipid and atherosclerosis
+path 05418 kegg n/a  naive 1  minpath 0  fam0  99  fam-found  5  name  Fluid shear stress and atherosclerosis

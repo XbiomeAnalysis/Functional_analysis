@@ -1,0 +1,10 @@
+"0","GGally::ggnet2(test.net, mode = mylayout,
+               label = T, size = ""degree"", weight = 'degree',
+               color = 'Group', shape = 'Group',
+               label.size = 5, layout.exp = 1.5, alpha = 0.75) +
+  scale_colour_manual(values = wes_palette(""FantasticFox1"")) + 
+  guides(color=guide_legend(""Group"")) + guides(size = ""none"")
+"
+"2","Ignoring unknown parameters: weight"
+"2","Scale for 'colour' is already present. Adding another scale for 'colour', which will replace the existing scale.
+"

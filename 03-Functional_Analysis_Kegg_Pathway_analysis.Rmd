@@ -1,13 +1,15 @@
 # Functional Analysis of KEGG
 
+_**This demo guides you how to analyze KEGG pathway profile and KO profile.**_  
+
+![FlowChart_KEGG](./flowcharts/FlowChart_KEGG.jpg)
+
+---
+
 ## Environment setup
 
 ```{r environment setup for kegg analysis, echo=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-## remove all libraries and variables in current environment
-
-rm(list = ls())
 
 ## Load requeired packages
 library(tibble)
@@ -19,22 +21,25 @@ library(magrittr)
 library(dplyr)
 library(pathview)
 
-setwd('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/')
-
 options(stringsAsFactors = FALSE)
+
+## Load functions
+source("./RScripts/ultility.R")
 ```
 
-## Read in processed profile table from script Functional_Analysis_Kegg_Pathway_preprocess.Rmd
+---
+
+## Data loading
 
 Here we use example data from Functional_Analysis_Kegg_Pathway_preprocess.Rmd and demo metadata created from Create_Demo_Metadata.
 
-- ../Demo_data/merged_pathway.txt, in merged pathway file, rows are pathways, columns are samples.
-- ../Demo_data/Demo_metadata.xls, in metadata file, rows are samples, columns are group info.
+- ./Demodata/KEGG/Demo_data/merged_pathway.txt.  rows are pathways, columns are samples.
+- ./Demodata/KEGG/Demo_data/Demo_metadata.xls.  rows are samples, columns are group info.
 
 ```{r read input}
 ## Some pathway ID start with 0, thus we need to read in first column as character object.
 
-pathway_profile_tbl <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Demo_data/merged_pathway.txt',header = TRUE, comment.char = '!', stringsAsFactors = FALSE , colClasses = c('# Gene Family' = 'character'), na.strings = '', sep='\t', check.names = FALSE)
+pathway_profile_tbl <- read.table('./Demodata/KEGG/Demo_data/merged_pathway.txt',header = TRUE, comment.char = '!', stringsAsFactors = FALSE , colClasses = c('# Gene Family' = 'character'), na.strings = '', sep='\t', check.names = FALSE)
 
 ## We can map pathway ID to pathway names with the mapping file in minpath.
 ## But it is not suggested to do the mapping in this step, because pathway names contain species characters, but we read in mapping file here anyways.
@@ -45,12 +50,15 @@ colnames(ID2Name_mapping_tbl) <- c('PathwayID', 'Label')
 
 
 ## Next we read in metadata (Group information)
-metadata <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Demo_data/Demo_metadata.xls', check.names = FALSE, header = TRUE)
+metadata <- read.table('./Demodata/KEGG/Demo_data/Demo_metadata.xls', check.names = FALSE, header = TRUE)
 metadata %<>% column_to_rownames('sample') %>% as.data.frame()
 ```
 
-## Pre-process pathway data
-### Remove the pathways whose abundance are 0 across all samples
+---
+
+## Data preprocessing
+
+_**Remove the pathways whose abundance are 0 across all samples**_
 
 ```{r remove 0-abundance pathways}
 ## If we use harmonic mean or median to calcualte pathway abundance from KOs, the pathway abundance may be 0, we therefore need to remove those pathways having 0 abundance across all samples.
@@ -60,7 +68,7 @@ pathway_profile_tbl %<>% column_to_rownames('# Gene Family') %>% dplyr::filter(r
 
 ```
 
-### Rescale data
+_**Transforming data**_  
 
 ```{r TSS}
 ## In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples. After re-scaling, we can apply DA to samples.
@@ -71,7 +79,7 @@ head(rescaled_pathway_profile_tbl)
 nrow(rescaled_pathway_profile_tbl)
 ```
 
-### Remove UNAMMPED entry
+_**Remove unppaed pathways**_  
 
 ```{r remove unmapped entry}
 ## In this chunk, we remove the umapped row in rescaled profile table because we are not able to intepret UNMAPPED entry.
@@ -80,27 +88,24 @@ rescaled_pathway_profile_tbl %<>% t() %>% as.data.frame() %>% dplyr::select(!UNM
 
 ```
 
-### Filter low abundance pathway
+_**Aggregate low abundance data**_  
+
+In this chunck, we aggregate low abundance features to one row.  
+_**1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition](https://doi.org/10.1016/j.chom.2019.07.004), pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.**_  
 
 ```{r Filter low abundance pathway}
-## In this chunck, we aggregate low abundance features to one row.
-## Import functions for filtering into enviroment.
-
-## 1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition] https://doi.org/10.1016/j.chom.2019.07.004, pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.
-
-
-source('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Scripts/R/ultility.R')
 
 filtered_pathway_RA_profile_tbl <- aggregate_low_abundance(input_data = rescaled_pathway_profile_tbl,
                                                            threshold = 1e-12) ## threshold should be modified based on your on study
 
-head(filtered_pathway_RA_profile_tbl)
-nrow(filtered_pathway_RA_profile_tbl)
+dim(filtered_pathway_RA_profile_tbl)
 ```
+
+---
 
 ## Standard Analysis
 
-- Compositional barplot
+_**Compositional barplot**_
 
 ```{r Compositional barplot of kegg pathway, fig.width = 6, fig.height = 9}
 ## In this chunk, we construct stacked pathway barplot to depict the pathway composition of samples, we use function plot_stacked_bar from xviz to plot.
@@ -113,7 +118,7 @@ pathway_stacked_barplot  <- xviz::plot_stacked_bar(otu_table = filtered_pathway_
 print(pathway_stacked_barplot)
 ```
 
-- Beta diversity
+_**Beta diversity**_
 
 ```{r Beta diversity of kegg pathway }
 ## In this chunk, we inherit the concept of Beta diversity of microbial taxa data and apply it to pathway data to explore the similarity between samples.
@@ -139,25 +144,26 @@ dispersion_permanova_res <- run_permanova_betadisp(physeq = phy,
 dispersion_permanova_res
 ```
 
-## Differential analysis
-### Filter low prevalence pathway
+---
+
+## Differential analysis(DA)
+
+_**Filter low prevalence pathway**_  
+
+Low prevalence pathways are pathways only occur in minor samples.
+In this chunk, we would remove pathways apperaing in less than max(2 , 5% of samples) from data set before doing analysis. **Remember to run all three chunks in data preprocessing section before running this chunk!**  
 
 ```{r Filter low prevalence pathway of KEGG data}
-## Low prevalence pathways are pathways only occur in minor samples.
-## In this chunk we filter low prevalence data with threshold of 0.02, 0.02 is an empirical value, users should change this value according to their own study.
 
 filtered_pathway_RA_profile_tbl <- filter_prevalence(otu_table = filtered_pathway_RA_profile_tbl,
-                  threshold = 0.02,
+                  threshold = 0.05,
                   taxa_are_rows = TRUE
                   )
 
-head(filtered_pathway_RA_profile_tbl)
-nrow(filtered_pathway_RA_profile_tbl)
+dim(filtered_pathway_RA_profile_tbl)
 ```
 
-### DA
-
-- DA with LM
+_**DA with LM**_
 
 ```{r DA of kegg pathway data}
 ## In this chunk, you would be using logistic regression model to find pathways that are significantly enriched in certain group.
@@ -204,17 +210,17 @@ LM_res %<>% mutate(OR = exp(Estimate)) %>% as.data.frame()
 LM_res %<>% merge(., ID2Name_mapping_tbl, by = 'PathwayID')
 ```
 
-- Show DA result with volcano plot
+_**Show DA result with volcano plot**_
 
 ```{r visualize DA result by volcano plot of KEGG pathway data}
 ## Plot volcano plot to show effect size (x-axis) and p value (y-axis) of pathways.
-## Here we only tend to hightlight pathways that satisfy adjust.p < 0.614 and OR < 0.2 at the same time.
+## Here we only tend to hightlight pathways that satisfy adjust.p < 0.614 and (OR < 0.2 | OR > 0.5) at the same time.
 ## You can nevertheless choose different threshold accroding to your own data.
 
 volcano_plot <- LM_res %>% mutate(p.adj.log = -log10(adjust.p), log10OR = log10(OR)) %>%
     ggplot(aes(x = log10OR, y = p.adj.log)) +
     geom_point(size = 0.5) +
-    geom_point(size = 0.5, color = "red", data = . %>% filter(adjust.p < 0.614 & OR < 0.2)) +
+    geom_point(size = 0.5, color = "red", data = . %>% filter(adjust.p < 0.614 & (OR < 0.2 | OR > 0.5))) +
     #geom_text_repel(size = 6/.pt, aes(label = Label), data = . %>% filter(adjust.p<0.614 & OR<0.2)) +
     geom_vline(xintercept = log10(c(0.05, 0.1, 0.2, 0.5, 1, 2)), size = 0.05, color = "grey") +
     geom_hline(yintercept = -log10(c(0.7)), size = 0.05, color = "grey") +
@@ -228,21 +234,25 @@ print(volcano_plot)
 
 ```
 
-- Show DA result with pathview
+_**Show DA result with pathview**_
+
+In this chunk, we use pathview to visualize enriched KOs in differential pathways.  
+
+**Step1. First we extract all KOs in differential pathways obtained from last chunk with mapping file: /share/work/runtime/softwares/MinPath/data/KEGG-mapping.txt.**  
+
+**Step2. We find differential KO in two groups using the same LM method in previous chunk.**  
+
+**Step3. Visualize differential KO in differential pathways with pathview.**  
 
 ```{r visualize DA result by kegg map}
-## In this chunk, we use pathview to visualize enriched KOs in differential pathways. We will use generated from Functional_Analysis_Kegg_Pathway_preprocess.Rmd
-## Step1. First we extract all KOs in differential pathways obtained from last chunk with mapping file: /share/work/runtime/softwares/MinPath/data/KEGG-mapping.txt. 
-## Step2. We find differential KO in two groups using the same LM method in previous chunk.
-## Step3. Visualize differential KO in differential pathways with pathview.
 
 ## Read in KO profile, since we've already removed UNMAPPED and re-scaled KO profile in Functional_Analysis_Kegg_Pathway_preprocess.Rmd, we only need to filer low_abundance and low-prevalenece KOs here.
 
-KO_profile <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Demo_data/merged_knumber.txt')
+KO_profile <- read.table('./Demodata/KEGG/Demo_data/merged_knumber.txt')
 
 ## Add hearder to KO profile, because KO profile file generated from Functional_Analysis_Kegg_Pathway_preprocess.Rmd has no headers by default.
 
-header <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Demo_data/merged_pathway.txt',header = TRUE, comment.char = '!', stringsAsFactors = FALSE , colClasses = c('# Gene Family' = 'character'), na.strings = '', sep='\t', check.names = FALSE) %>% colnames()
+header <- read.table('./Demodata/KEGG/Demo_data/merged_pathway.txt',header = TRUE, comment.char = '!', stringsAsFactors = FALSE , colClasses = c('# Gene Family' = 'character'), na.strings = '', sep='\t', check.names = FALSE) %>% colnames()
 
 header[1] <- 'KOs'
 
@@ -260,7 +270,7 @@ filtered_KO_profile <- KO_profile %>% column_to_rownames('KOs') %>% aggregate_lo
 ## Filter low-prevalenece KOs
 
 filtered_KO_profile <- filter_prevalence(otu_table = filtered_KO_profile,
-                  threshold = 0.02,
+                  threshold = 0.05,
                   taxa_are_rows = TRUE
                   )
 

@@ -1,0 +1,39 @@
+"0","## Install msea to your default python before running this template. Installation instruction: https://msea.readthedocs.io/en/latest/quickstart.html#installation
+
+/home/tongbangzhuo/Software/miniconda3/bin/python /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/MSEA_Run.py --input test_input --output testout.csv --PerturbationTimes 10
+"
+"1","
+Reading database file
+
+Calculating empirical ranks for each set...
+Number of unique microbes: 566
+"
+"2","  0%|          | 0/10 [00:00<?, ?it/s]"
+"2"," 10%|█         | 1/10 [00:01<00:12,  1.34s/it]"
+"2"," 20%|██        | 2/10 [00:02<00:07,  1.02it/s]"
+"2"," 30%|███       | 3/10 [00:02<00:05,  1.18it/s]"
+"2"," 40%|████      | 4/10 [00:03<00:05,  1.05it/s]"
+"2"," 50%|█████     | 5/10 [00:05<00:05,  1.14s/it]"
+"2"," 60%|██████    | 6/10 [00:06<00:04,  1.12s/it]"
+"2"," 70%|███████   | 7/10 [00:07<00:03,  1.02s/it]"
+"2"," 80%|████████  | 8/10 [00:08<00:01,  1.02it/s]"
+"2"," 90%|█████████ | 9/10 [00:08<00:00,  1.08it/s]"
+"2","100%|██████████| 10/10 [00:09<00:00,  1.20it/s]100%|██████████| 10/10 [00:09<00:00,  1.05it/s]
+"
+"1","
+Performing MSEA with adjustment
+
+Showing the head of result table:
+         oddsratio  ...  n_shared
+term                ...          
+IRAK4    45.454545  ...         5
+STAT2    54.545455  ...         3
+IFNAR1   53.333333  ...         4
+A2M     200.000000  ...         5
+IRF3     37.037037  ...         5
+
+[5 rows x 7 columns]
+
+Finished !!
+
+"

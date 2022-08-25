@@ -1,15 +1,12 @@
----
-title: "MSEA"
-author: "BangzhuoTong"
-date: "2022/7/20"
-output: html_document
----
-
 # MSEA
 
 This is a markdown tutorial for MSEA. To run MSEA, you need to Install MSEA to your default python before running this template. Installation instruction: https://msea.readthedocs.io/en/latest/quickstart.html#installation.  
 
-You can run MSEA when you got genus that you're interested in (e.g., DA genus), write all genus into one txt file, one genus per line and feed the file to MSEA as input.
+You can run MSEA when you have genus that you're interested in (e.g., DA genus), write all genus into one txt file, one genus per line and feed the file to MSEA as input.  
+
+![Flowchart](./flowcharts/MESA.jpg)
+
+---
 
 ## Execute MSEA with python script on server
 
@@ -20,15 +17,17 @@ You can run MSEA analysis with MSEA_Run.py on server, one required parameters an
 3. --PerturbationTimes (Optional), number of perturbation. Fisher's excat test has bias on group with large number of samples, MSEA uses random sampling to remove the bias. Larger number of perturbation would cause longer runtime. Default 50.  
 For more drtail, see *[citation](https://www.nature.com/articles/s41598-020-78511-y)*
 
-```{bash}
+```markdown
 
-/home/tongbangzhuo/Software/miniconda3/bin/python /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/MSEA_Run.py --input /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/test_input --output /share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/testout.csv --PerturbationTimes 10
+/home/tongbangzhuo/Software/miniconda3/bin/python ./MSEA/MSEA_Run.py --input ./MSEA/test_input --output ./MSEA/testout.csv --PerturbationTimes 10
 
 ```
 
-## Read in MSEA result
+---
 
-```{r environment setup}
+## Environment setup  
+
+```markdown
 library(dplyr)
 library(magrittr)
 library(ggplot2)
@@ -37,7 +36,24 @@ library(stringr)
 library(tibble)
 library(wesanderson)
 
-MSEA_res = read.csv('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/MSEA/testout.csv', sep = '\t')
+```
+
+```{r environment setup, echo = FALSE, message=FALSE}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+library(ggbipart)
+library(stringr)
+library(tibble)
+library(wesanderson)
+
+```
+
+## Read in MSEA result
+
+```{r read MSEA result}
+
+MSEA_res = read.csv('./MSEA/testout.csv', sep = '\t')
 head(MSEA_res, n=3)
 ```
 
@@ -52,8 +68,9 @@ As the table shown above, MSEA result has 8 columns:
 7. shared. Genus associated with the human gene.  
 8. n_shared. Number of genus associated with the human gene.  
 
+---
 
-## Filter and Visualize MSEA result
+## Filter MSEA result
 
 ```{r Filter MSEA}
 ## Filter MSEA result with qvalue
@@ -83,7 +100,11 @@ Transform_data <- function(df){
 Top_MSEA_res <- MSEA_res[1:10,]
 ```
 
-## Draw bipartit graph to show the relation between human genes and microbial Genus with ggnet.
+---
+
+## Visualization  
+
+_**Draw bipartit graph to show the relation between human genes and microbial Genus with ggnet.**_  
 
 ```{r bipartit graph}
 ## Generate data for bipartit graph
@@ -115,11 +136,13 @@ p <- GGally::ggnet2(test.net, mode = mylayout,
 p
 ```
 
+---
 
 ## Run enrichR analysis 
 
 After acquiring genus-associated human genes, you can run enrich your genes on different databases by enrichR.  
-The next chunk shows you how to run enrichR on R studio, you can either run enrichR on their interactive *[website](https://maayanlab.cloud/Enrichr/)*.
+The next chunk shows you how to run enrichR on R studio, you can either run enrichR on their interactive *[website](https://maayanlab.cloud/Enrichr/)*.  
+
 
 ```{r enrichR}
 library(enrichR)
@@ -150,11 +173,12 @@ GO_res <- enriched[['GO_Molecular_Function_2021']]
 head(GO_res)
 
 ## Plot Enrichment result
-plotEnrich(enriched[['KEGG_2019_Human']] %>% filter(Adjusted.P.value < 0.05),
+p <- plotEnrich(enriched[['KEGG_2019_Human']] %>% filter(Adjusted.P.value < 0.05),
            showTerms = 20, numChar = 40, y = "Count", orderBy = "P.value") + 
   scale_fill_gradientn(colours = rev(wes_palette("Zissou1", 10, type = "continuous")))
 
+
+p
 ```
 
 As shown above, Y axis shows the enriched terms of your input genes. X axis shows the number of input genes in the enriched terms.
-

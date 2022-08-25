@@ -1,10 +1,15 @@
 # Functional Analysis of TargetDatabase
 
+_**This demo guides you how to analyze the pathway profile annotated from humman2 against 7target databases.**_  
+
+![FlowChart_KEGG](./flowcharts/FlowChart_TargetDB.jpg)
+
+---
+
 ## Environment setup
 
 ```{r setup, echo=FALSE, message=FALSE}
-## remove all libraries and variables in current environment
-rm()
+knitr::opts_chunk$set(echo = TRUE)
 
 ## Load requeired packages
 library(tibble)
@@ -16,16 +21,20 @@ library(magrittr)
 library(dplyr)
 library(pathview)
 
-knitr::opts_chunk$set(echo = TRUE)
-setwd('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/')
+## Load functions
+source("./RScripts/ultility.R")
 ```
 
+---
 
-## Use card data as example
+## Data loading
+
+_**Since the format of pathway profile annotated in 7 target databases are almost identical, We use card data as an example.**_
 
 Same as kegg pathway data, we normalize data at the begining of analysis to reduce the differences of sequencing depth across all samples.
 
-### Read in card data
+_**Read in card data**_
+
 ```{r rescale card data}
 ## Read in merged card profile data
 
@@ -39,7 +48,11 @@ head(merged_card_profile, n = 2)
 metadata <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/Demo_data/Demo_metadata.xls', check.names = FALSE, header = TRUE)
 ```
 
-### Split strain info
+---
+
+## Data preprocessing
+
+_**Split strain info**_
 
 ```{r Split strain info}
 ## Split strain info. Profile generated from humann2 has species information, thus we need to extract them.
@@ -59,29 +72,29 @@ rownames(straintified_merged_card_profile) <- NULL
 rownames(merged_card_profile) <- NULL
 ```
 
-### Rescale card data
-```{r }
+_**Transforming data**_  
+
+```{r TSS transformation}
 rescaled_merged_card_profile <- merged_card_profile %>% column_to_rownames('ID') %>% apply(., 2, function(x) x/sum(x)) %>% as.data.frame()
 
 head(rescaled_merged_card_profile, n = 2)
 ```
 
-### Remove UNMAPPED row
-```{r remove unmapped}
+_**Remove unppaed pathways**_  
+
+```{r remove unmapped features}
 ## In this chunk, we remove the umapped row in rescaled profile table because we are not able to intepret UNMAPPED entry.
 
 card_profile <- rescaled_merged_card_profile[grep("UNMAPPED", rownames(rescaled_merged_card_profile), invert = TRUE), ]
 
 ```
 
-### Filter low abundance data
+_**Aggregate low abundance data**_  
+
+In this chunck, we aggregate low abundance features to one row.  
+_**1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition](https://doi.org/10.1016/j.chom.2019.07.004), pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.**_  
+
 ```{r filter}
-## In this chunck, we can aggregate low abundance features to one row.
-## Import functions for filtering into enviroment.
-
-## 1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition] https://doi.org/10.1016/j.chom.2019.07.004, pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.
-
-source('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Scripts/R/ultility.R')
 
 Filtered_card_profile <- aggregate_low_abundance(input_data = card_profile,
                                                            threshold = 1e-12) ## threshold should be modified based on your on study
@@ -90,9 +103,11 @@ head(Filtered_card_profile)
 
 ```
 
-### Basic analysis
+---
 
-- Compositional barplot
+### Standard analysis
+
+_**Compositional barplot**_
 
 ```{r Compositional barplot, fig.width = 6, fig.height = 9}
 ## In this chunk, we construct stacked pathway barplot to depict the pathway composition of samples, we use function plot_stacked_bar from xviz to plot.
@@ -105,7 +120,7 @@ compositional_plt <- xviz::plot_stacked_bar(otu_table = Filtered_card_profile %>
 compositional_plt
 ```
 
-- Beta diversity
+_**Beta diversity**_
 
 ```{r Beta diversity}
 ## In this chunk, we inherit the concept of Beta diversity of microbial taxa data and apply it to pathway data to explore the similarity between samples.
@@ -135,17 +150,21 @@ dispersion_permanova_res
 
 ```
 
-## Differential analysis
-### Filter low prevalence pathway
+---
+
+## Differential analysis(DA)
+
+_**Filter low prevalence pathway**_  
+
+Low prevalence pathways are pathways only occur in minor samples.
+In this chunk, we would remove pathways apperaing in less than max(2 , 5% of samples) from data set before doing analysis. **Remember to run all three chunks in data preprocessing section before running this chunk!**  
 
 ```{r Filter low prevalence pathway}
-## Low prevalence pathways are pathways only occur in minor samples.
-## In this chunk we filter low prevalence data with threshold of 0.02, 0.02 is an arbitrary value, users should change this value according to their own study.
 
 print(paste0(nrow(Filtered_card_profile), ' entries before filtering low prevalence data'))
 
 Filtered_card_profile <- filter_prevalence(otu_table = Filtered_card_profile,
-                  threshold = 0.02,
+                  threshold = 0.05,
                   taxa_are_rows = TRUE
                   )
 
@@ -155,9 +174,7 @@ print(paste0(nrow(Filtered_card_profile), ' entries After filtering low prevalen
 
 ```
 
-### DA
-
-- DA with LM
+_**DA with LM**_
 
 ```{r DA}
 ## In this chunk, you would be using logistic regression model to find pathways that are significantly enriched in certain group.
@@ -203,17 +220,17 @@ head(LM_res)
 
 ```
 
-- Show DA result with volcano plot
+_**Show DA result with volcano plot**_
 
 ```{r visualize DA result by volcano plot}
 ## Plot volcano plot to show effect size (x-axis) and p value (y-axis) of pathways.
-## Here we only tend to hightlight pathways that satisfy adjust.p < 0.7 and OR > 0.01 at the same time.
+## Here we only tend to hightlight pathways that satisfy adjust.p < 0.05 and (OR < 0.2 | OR > 0.5) at the same time.
 ## You can nevertheless choose different threshold accroding to your own data.
 
 volcano_plot <- LM_res %>% mutate(p.log = -log10(`Pr(>|t|)`), log10OR = log10(OR)) %>%
     ggplot(aes(x = log10OR, y = p.log)) +
     geom_point(size = 0.5) +
-    geom_point(size = 0.5, color = "red", data = . %>% filter(`Pr(>|t|)` < 0.05 & OR > 0.2)) + 
+    geom_point(size = 0.5, color = "red", data = . %>% filter(`Pr(>|t|)` < 0.05 & (OR < 0.2 | OR > 0.5))) + 
     theme_bw() + 
     geom_vline(xintercept = log10(c(0.05, 0.1, 0.2, 0.5, 1, 2)), size = 0.05, color = "grey") +
     geom_hline(yintercept = -log10(c(0.7)), size = 0.05, color = "grey") +

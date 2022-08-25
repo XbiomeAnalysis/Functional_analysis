@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1658889060224.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3358219966",
+    "id" : "4703C08B",
+    "lastKnownWriteTime" : 1658891836,
+    "last_content_update" : 1658891836841,
+    "path" : "/share/projects/SOP/Functional_Analysis/Tongbangzhuo/bookdown/test/06-Functional_Analysis_MSEA.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "77,76",
+        "scrollLine" : "67"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

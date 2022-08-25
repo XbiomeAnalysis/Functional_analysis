@@ -2,6 +2,9 @@ bookdown::gitbook:
   css: assets/style.css
   config:
     toc:
+      collapse: subsection
+      scroll_highlight: true
+      toc_depth: 3
       before: |
         <li><a href="./">Function standard analysis workflow</a></li>
       after: |
