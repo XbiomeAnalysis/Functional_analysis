@@ -13,31 +13,61 @@ description: "Tutorial for MGS functional analysis"
 ---
 
 # Introduction
-This is a tutorial introducing the analysis of microbiome functional data (Including the analysis of data annotated from MetaCyc, KEGG, VFDB, SCFA, CARD, CAZY databases).
 
-Two cohorts' MGS data were used as demo data throughout this tutorial: One cohort contains 68 samples across 43 people (Including 15 donor, 1 BRS sample and 27 GvHD patients) in GvHD project. The other cohort consist of 10 samples from 8 patients, 1 water tube and 1 BRS in Newtech project. The first cohort was used as the input data for MetaCyc database analysis and the other one was used as the input for the analysis of KEGG, VFDB, SCFA, CARD, CAZY databases.
+---
 
-This book includes 7 Chapters for the following 4 templates of funcitonal analysis:
+**This is a tutorial introducing the analysis of microbiome functional data.**
 
-* Analysis of Metacyc data
+Flowchart of this tutorial:  
 
-* Analysis of KEGG data
+![Flowchart](./flowcharts/FlowChart_index.jpg)  
 
-* Analysis of target database data
+---
 
-* MSEA
+_**MGS data of two cohorts were used as demo data throughout the first 6 chapters in this tutorial.**_  
 
-Chapter1 introduces basic information of this tutorial.
+One cohort contains 13 samples of 6 patients in GvHD project.  
 
-Chapter2 introduces the analysis of Metacyc data.
+The other cohort consist of 10 samples from 8 patients, 1 water tube and 1 BRS in Newtech project.  
 
-Chapter3 introduces the preprocesssing (How to merge data of multiple samples and convert kegg genes to kegg pathways, etc,.) of KEGG data.
+The first cohort was used as the input data for MetaCyc database analysis and the other one was used as the input for the analysis of KEGG, VFDB, SCFA, CARD, CAZY databases.  
 
-Chapter4 introduces the analysis of processed KEGG data.
+_**16S data of mouse fecal samples from BeiZhong E round project was used as demo data in Chapter 8 (PICRUSt2).**_  
 
-Chapter5 introduces the preprocesssing (How to merge data of multiple samples) of VFDB, SCFA, CARD, CAZY data.
+_**Notably, only Genus names should be used as input in Chapter 7 for MSEA analysis.**_  
 
-Chapter6 introduces the analysis of processed CARD data.
+---
 
-Chapter7 introduces MSEA.
+This book includes 8 Chapters of the following 5 modules on funcitonal analysis:  
 
+**5 modules include:**  
+
+- Analysis of Metacyc data  
+
+- Analysis of KEGG data  
+
+- Analysis of target database data  
+
+- MSEA  
+
+- PICRUSt2  
+
+---
+
+**8 Chapters include:**  
+
+- Chapter1, introducing basic information of this tutorial.  
+
+- Chapter2, introducing the analysis of Metacyc data.  
+
+- Chapter3, introducing the preprocesssing (How to merge data of multiple samples and convert kegg genes to kegg pathways, etc,.) of KEGG data.  
+
+- Chapter4, introducing the analysis of processed KEGG data.  
+
+- Chapter5, introducing the preprocesssing (How to merge data of multiple samples) of VFDB, SCFA, CARD, CAZY data.  
+
+- Chapter6, introducing the analysis of processed CARD data.  
+
+- Chapter7, introducing MSEA.  
+
+- Chapter8, introducing PICRUSt2 analysis of 16S data.  

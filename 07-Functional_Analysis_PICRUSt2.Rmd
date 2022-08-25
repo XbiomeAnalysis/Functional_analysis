@@ -132,7 +132,7 @@ _**Run DA**_
 
 Run CLR transformed wilcoxon DA  
 
-```{r run aldex on KO profile, warning=FALSE}
+```{r run DA on KO profile, warning=FALSE}
 
 ## Run DA
 DA_res <- XMAS2::run_wilcox(

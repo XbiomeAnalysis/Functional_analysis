@@ -235,10 +235,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>*_pathabundance.tsv</p></li>
 <li><p>*_pathcoverage.tsv</p></li>
 </ol>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb31-1"></a><span class="ex">tree</span> -L 4 ./Demodata/KEGG/Pipeline_Out/14286/</span></code></pre></div>
-<pre><code>## ./Demodata/KEGG/Pipeline_Out/14286/ [error opening dir]
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb31-1"></a><span class="ex">tree</span> -L 4 ./Demodata/KEGG/Demo_data/Pipeline_Out/14286/</span></code></pre></div>
+<pre><code>## ./Demodata/KEGG/Demo_data/Pipeline_Out/14286/
+## └── humann2_kegg
+##     ├── 14286_genefamilies.tsv
+##     ├── 14286.log
+##     ├── 14286_pathabundance.tsv
+##     └── 14286_pathcoverage.tsv
 ## 
-## 0 directories, 0 files</code></pre>
+## 1 directory, 4 files</code></pre>
 <p><em><strong>Merge data from humann2 pipeline (Kegg database)</strong></em></p>
 <p>Use Script merge_metaphlan_tables.py from humann2 to merge all gene_family profile files.</p>
 <p>In this chunk, we merge all *genefamilies.tsv into one file and edit the colnames of the table</p>
@@ -337,9 +342,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  ! package              * version    date (UTC) lib source
 ##    abind                  1.4-5      2016-07-21 [1] CRAN (R 3.6.3)
 ##    ade4                   1.7-17     2021-06-17 [1] CRAN (R 3.6.3)
-##    ALDEx2                 1.18.0     2019-10-29 [1] Bioconductor
+##    ALDEx2               * 1.18.0     2019-10-29 [1] Bioconductor
 ##    annotate               1.64.0     2019-10-29 [1] Bioconductor
-##    AnnotationDbi          1.48.0     2019-10-29 [1] Bioconductor
+##    AnnotationDbi        * 1.48.0     2019-10-29 [1] Bioconductor
 ##    ape                    5.5        2021-04-25 [1] CRAN (R 3.6.3)
 ##    assertthat             0.2.1      2019-03-21 [2] CRAN (R 3.6.3)
 ##    backports              1.4.1      2021-12-13 [1] CRAN (R 3.6.3)
@@ -370,12 +375,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    cli                    3.1.0      2021-10-27 [1] CRAN (R 3.6.3)
 ##    clue                   0.3-59     2021-04-16 [1] CRAN (R 3.6.3)
 ##    cluster                2.1.0      2019-06-19 [2] CRAN (R 3.6.3)
+##    coda                   0.19-4     2020-09-30 [1] CRAN (R 3.6.3)
 ##    codetools              0.2-16     2018-12-24 [2] CRAN (R 3.6.3)
+##    coin                   1.4-2      2021-10-08 [1] CRAN (R 3.6.3)
 ##    colorspace             2.0-2      2021-06-24 [1] CRAN (R 3.6.3)
 ##    ComplexHeatmap       * 2.2.0      2019-10-29 [1] Bioconductor
 ##    compositions           2.0-2      2021-07-14 [1] CRAN (R 3.6.3)
 ##    cowplot              * 1.1.1      2020-12-30 [1] CRAN (R 3.6.3)
 ##    crayon                 1.5.0      2022-02-14 [1] CRAN (R 3.6.3)
+##    curl                   4.3.2      2021-06-23 [2] CRAN (R 3.6.3)
 ##    dada2                * 1.14.1     2020-02-22 [1] Bioconductor
 ##    data.table           * 1.14.0     2021-02-21 [1] CRAN (R 3.6.3)
 ##    DBI                    1.1.1      2021-01-15 [1] CRAN (R 3.6.3)
@@ -391,6 +399,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    edgeR                  3.28.1     2020-02-26 [1] Bioconductor
 ##    ellipsis               0.3.2      2021-04-29 [1] CRAN (R 3.6.3)
 ##    EnhancedVolcano      * 1.4.0      2019-10-29 [1] Bioconductor
+##    enrichR              * 3.0        2021-02-02 [1] CRAN (R 3.6.3)
 ##    evaluate               0.15       2022-02-18 [2] CRAN (R 3.6.3)
 ##    fansi                  1.0.2      2022-01-14 [1] CRAN (R 3.6.3)
 ##    farver                 2.1.0      2021-02-28 [2] CRAN (R 3.6.3)
@@ -413,6 +422,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    GenomicRanges        * 1.38.0     2019-10-29 [2] Bioconductor
 ##    getopt                 1.20.3     2019-03-22 [1] CRAN (R 3.6.3)
 ##    GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 3.6.3)
+##    GGally               * 2.1.2      2021-06-21 [1] CRAN (R 3.6.3)
+##    ggbipart             * 0.1.2      2022-07-20 [1] Github (pedroj/bipartite_plots@162f577)
 ##    ggExtra              * 0.9        2019-08-27 [1] CRAN (R 3.6.3)
 ##    ggplot2              * 3.3.5      2021-06-25 [1] CRAN (R 3.6.3)
 ##    ggpubr               * 0.4.0      2020-06-27 [1] CRAN (R 3.6.3)
@@ -424,6 +435,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    glue                   1.6.1      2022-01-22 [1] CRAN (R 3.6.3)
 ##    GMPR                   0.1.3      2021-05-17 [1] local
 ##    gplots                 3.1.1      2020-11-28 [1] CRAN (R 3.6.3)
+##    graph                  1.64.0     2019-10-29 [1] Bioconductor
 ##    gridExtra              2.3        2017-09-09 [2] CRAN (R 3.6.3)
 ##    gtable                 0.3.0      2019-03-25 [2] CRAN (R 3.6.3)
 ##    gtools                 3.9.2      2021-06-06 [1] CRAN (R 3.6.3)
@@ -444,6 +456,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    jpeg                   0.1-9      2021-07-24 [1] CRAN (R 3.6.3)
 ##    jquerylib              0.1.4      2021-04-26 [1] CRAN (R 3.6.3)
 ##    jsonlite               1.8.0      2022-02-22 [2] CRAN (R 3.6.3)
+##    KEGGgraph              1.46.0     2019-10-29 [1] Bioconductor
+##    KEGGREST               1.26.1     2019-11-06 [1] Bioconductor
 ##    KernSmooth             2.23-16    2019-10-15 [2] CRAN (R 3.6.3)
 ##    knitr                  1.36       2021-09-29 [1] CRAN (R 3.6.3)
 ##    labeling               0.4.2      2020-10-20 [2] CRAN (R 3.6.3)
@@ -452,6 +466,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    lattice              * 0.20-38    2018-11-04 [2] CRAN (R 3.6.3)
 ##    latticeExtra           0.6-29     2019-12-19 [1] CRAN (R 3.6.3)
 ##    lazyeval               0.2.2      2019-03-15 [2] CRAN (R 3.6.3)
+##    libcoin                1.0-9      2021-09-27 [1] CRAN (R 3.6.3)
 ##    lifecycle              1.0.1      2021-09-24 [1] CRAN (R 3.6.3)
 ##    limma                  3.42.2     2020-02-03 [2] Bioconductor
 ##    locfit                 1.5-9.4    2020-03-25 [1] CRAN (R 3.6.3)
@@ -471,12 +486,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    mime                   0.12       2021-09-28 [2] CRAN (R 3.6.3)
 ##    miniUI                 0.1.1.1    2018-05-18 [1] CRAN (R 3.6.3)
 ##    modelr                 0.1.8      2020-05-19 [1] CRAN (R 3.6.3)
+##    modeltools             0.2-23     2020-03-05 [1] CRAN (R 3.6.3)
+##    multcomp               1.4-17     2021-04-29 [1] CRAN (R 3.6.3)
 ##    multtest               2.42.0     2019-10-29 [2] Bioconductor
 ##    munsell                0.5.0      2018-06-12 [2] CRAN (R 3.6.3)
 ##    mvtnorm                1.1-3      2021-10-08 [1] CRAN (R 3.6.3)
+##    network              * 1.17.1     2021-06-14 [1] CRAN (R 3.6.3)
 ##    nlme                   3.1-144    2020-02-06 [2] CRAN (R 3.6.3)
 ##    nnet                   7.3-12     2016-02-02 [2] CRAN (R 3.6.3)
 ##    optparse               1.7.1      2021-10-08 [1] CRAN (R 3.6.3)
+##    org.Hs.eg.db         * 3.10.0     2021-12-08 [1] Bioconductor
+##    pathview             * 1.26.0     2019-10-29 [1] Bioconductor
 ##    pcaPP                  1.9-74     2021-04-23 [1] CRAN (R 3.6.3)
 ##    permute              * 0.9-5      2019-03-12 [1] CRAN (R 3.6.3)
 ##    phyloseq             * 1.30.0     2019-10-29 [1] Bioconductor
@@ -506,7 +526,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    readxl               * 1.3.1      2019-03-13 [1] CRAN (R 3.6.3)
 ##    remotes                2.4.2      2021-11-30 [1] CRAN (R 3.6.3)
 ##    reprex                 2.0.1      2021-08-05 [1] CRAN (R 3.6.3)
+##    reshape                0.8.9      2022-04-12 [1] CRAN (R 3.6.3)
 ##    reshape2             * 1.4.4      2020-04-09 [2] CRAN (R 3.6.3)
+##    Rgraphviz              2.30.0     2019-10-29 [1] Bioconductor
 ##    rhdf5                  2.30.1     2019-11-26 [1] Bioconductor
 ##    Rhdf5lib               1.8.0      2019-10-29 [1] Bioconductor
 ##    rJava                  1.0-5      2021-09-24 [1] CRAN (R 3.6.3)
@@ -523,6 +545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    Rtsne                  0.15       2018-11-10 [1] CRAN (R 3.6.3)
 ##    rvest                  1.0.2      2021-10-16 [1] CRAN (R 3.6.3)
 ##    S4Vectors            * 0.24.4     2020-04-09 [2] Bioconductor
+##    sandwich               3.0-1      2021-05-18 [1] CRAN (R 3.6.3)
 ##    sass                   0.4.0      2021-05-12 [1] CRAN (R 3.6.3)
 ##    scales                 1.2.0      2022-04-13 [2] CRAN (R 3.6.3)
 ##    seqinr               * 4.2-8      2021-06-09 [1] CRAN (R 3.6.3)
@@ -531,6 +554,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    shiny                  1.7.1      2021-10-02 [1] CRAN (R 3.6.3)
 ##    ShortRead              1.44.3     2020-02-03 [1] Bioconductor
 ##    slam                   0.1-49     2021-11-17 [1] CRAN (R 3.6.3)
+##    sna                    2.6        2020-10-06 [1] CRAN (R 3.6.3)
+##    statnet.common         4.5.0      2021-06-05 [1] CRAN (R 3.6.3)
 ##    stringi                1.7.4      2021-08-25 [1] CRAN (R 3.6.3)
 ##    stringr              * 1.4.0      2019-02-10 [2] CRAN (R 3.6.3)
 ##    SummarizedExperiment * 1.16.1     2019-12-19 [2] Bioconductor
@@ -538,6 +563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    tensorA                0.36.2     2020-11-19 [1] CRAN (R 3.6.3)
 ##    testthat               3.1.4      2022-04-26 [2] CRAN (R 3.6.3)
 ##    textshape              1.7.3      2021-05-28 [1] CRAN (R 3.6.3)
+##    TH.data                1.1-0      2021-09-27 [1] CRAN (R 3.6.3)
 ##    tibble               * 3.1.6      2021-11-07 [1] CRAN (R 3.6.3)
 ##    tidyr                * 1.2.0      2022-02-01 [1] CRAN (R 3.6.3)
 ##    tidyselect             1.1.1      2021-04-30 [1] CRAN (R 3.6.3)
@@ -551,12 +577,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    VennDiagram            1.7.1      2021-12-02 [1] CRAN (R 3.6.3)
 ##    viridisLite            0.4.0      2021-04-13 [2] CRAN (R 3.6.3)
 ##    vroom                  1.5.7      2021-11-30 [1] CRAN (R 3.6.3)
+##    wesanderson          * 0.3.6.9000 2021-07-21 [1] Github (karthik/wesanderson@651c944)
 ##    withr                  2.4.3      2021-11-30 [1] CRAN (R 3.6.3)
 ##    Wrench                 1.4.0      2019-10-29 [1] Bioconductor
 ##    xfun                   0.23       2021-05-15 [1] CRAN (R 3.6.3)
 ##    xlsx                 * 0.6.5      2020-11-10 [1] CRAN (R 3.6.3)
 ##    xlsxjars               0.6.1      2014-08-22 [1] CRAN (R 3.6.3)
 ##    XMAS                 * 0.0.0.9000 2022-03-23 [1] local
+##    XMAS2                  2.1.7.7    2022-08-25 [2] local
 ##    XML                    3.99-0.3   2020-01-20 [1] CRAN (R 3.6.3)
 ##    xml2                   1.3.3      2021-11-30 [2] CRAN (R 3.6.3)
 ##    xtable                 1.8-4      2019-04-21 [1] CRAN (R 3.6.3)
@@ -564,6 +592,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    xviz                 * 1.1.0      2021-01-14 [1] local
 ##    yaml                   2.2.2      2022-01-25 [1] CRAN (R 3.6.3)
 ##    zlibbioc               1.32.0     2019-10-29 [2] Bioconductor
+##    zoo                    1.8-9      2021-03-09 [1] CRAN (R 3.6.3)
 ## 
 ##  [1] /share/home/tongbangzhuo/R/x86_64-pc-linux-gnu-library/3.6
 ##  [2] /opt/R-3.6.3/lib/R/library

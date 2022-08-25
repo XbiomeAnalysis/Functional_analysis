@@ -36,7 +36,7 @@ Four files should be included in humann2_kegg folder of each sample:
 4. *_pathcoverage.tsv
 
 ```{bash folder structure}
-tree -L 4 ./Demodata/KEGG/Pipeline_Out/14286/
+tree -L 4 ./Demodata/KEGG/Demo_data/Pipeline_Out/14286/
 ```
 
 _**Merge data from humann2 pipeline (Kegg database)**_

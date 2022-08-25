@@ -257,7 +257,7 @@ for (i in pathway_list) {
 
 image_path <- NULL
 
-image_path <- system('ls ./output/MetaCyc/*PWY*png', intern = TRUE) %>% unlist() %>% as.character() %>% as.vector()
+image_path <- system('ls ./output/MetaCyc/*PWY*png', intern = TRUE) %>% unlist() %>% as.character() %>% as.vector() %>% .[1:5]
 
 ## In the graph(s) below, green KO are those KOs enriched in GroupB, red KO are those KOs enriched in GroupA
 knitr::include_graphics(image_path)
