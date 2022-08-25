@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 PICRUSt2 | Functional analysis</title>
+  <meta name="description" content="Tutorial for MGS functional analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 PICRUSt2 | Functional analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial for MGS functional analysis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 PICRUSt2 | Functional analysis" />
+  
+  <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
+  
+
+<meta name="author" content="Bangzhuo Tong" />
+
+
+<meta name="date" content="2022-08-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="msea.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Function standard analysis workflow</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html"><i class="fa fa-check"></i><b>2</b> Functional Analysis of Metacyc database</a><ul>
+<li class="chapter" data-level="2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#environment-setup"><i class="fa fa-check"></i><b>2.1</b> Environment setup</a></li>
+<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-loading"><i class="fa fa-check"></i><b>2.2</b> Data loading</a></li>
+<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-preprocess"><i class="fa fa-check"></i><b>2.3</b> Data preprocess</a></li>
+<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.4</b> Plot Beta diversity</a></li>
+<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.5</b> Permanova test</a></li>
+<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.6</b> Differential analysis(DA)</a></li>
+<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contributing-to-differential-pathways"><i class="fa fa-check"></i><b>2.7</b> Bacteria contributing to differential pathways</a></li>
+<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8</b> Plot Bacteria contribution</a></li>
+<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#gene-and-ensyme-involed-in-differential-pathways"><i class="fa fa-check"></i><b>2.9</b> Gene and Ensyme involed in differential pathways</a></li>
+<li class="chapter" data-level="2.10" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.10</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Preprocess of Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="3.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="3.2" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#process-pipeline-output"><i class="fa fa-check"></i><b>3.2</b> Process pipeline output</a></li>
+<li class="chapter" data-level="3.3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#session-info-1"><i class="fa fa-check"></i><b>3.3</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="4.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#environment-setup-2"><i class="fa fa-check"></i><b>4.1</b> Environment setup</a></li>
+<li class="chapter" data-level="4.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-loading-1"><i class="fa fa-check"></i><b>4.2</b> Data loading</a></li>
+<li class="chapter" data-level="4.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-preprocessing"><i class="fa fa-check"></i><b>4.3</b> Data preprocessing</a></li>
+<li class="chapter" data-level="4.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#standard-analysis"><i class="fa fa-check"></i><b>4.4</b> Standard Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysisda-1"><i class="fa fa-check"></i><b>4.5</b> Differential analysis(DA)</a></li>
+<li class="chapter" data-level="4.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information"><i class="fa fa-check"></i><b>4.6</b> Session information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>5</b> Preprocess of Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="5.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#merge-sample-data"><i class="fa fa-check"></i><b>5.1</b> Merge sample data</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>6</b> Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-3"><i class="fa fa-check"></i><b>6.1</b> Environment setup</a></li>
+<li class="chapter" data-level="6.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-loading-2"><i class="fa fa-check"></i><b>6.2</b> Data loading</a></li>
+<li class="chapter" data-level="6.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-preprocessing-1"><i class="fa fa-check"></i><b>6.3</b> Data preprocessing</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#standard-analysis-1"><i class="fa fa-check"></i><b>6.3.1</b> Standard analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysisda-2"><i class="fa fa-check"></i><b>6.4</b> Differential analysis(DA)</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="msea.html"><a href="msea.html"><i class="fa fa-check"></i><b>7</b> MSEA</a><ul>
+<li class="chapter" data-level="7.1" data-path="msea.html"><a href="msea.html#execute-msea-with-python-script-on-server"><i class="fa fa-check"></i><b>7.1</b> Execute MSEA with python script on server</a></li>
+<li class="chapter" data-level="7.2" data-path="msea.html"><a href="msea.html#environment-setup-4"><i class="fa fa-check"></i><b>7.2</b> Environment setup</a></li>
+<li class="chapter" data-level="7.3" data-path="msea.html"><a href="msea.html#read-in-msea-result"><i class="fa fa-check"></i><b>7.3</b> Read in MSEA result</a></li>
+<li class="chapter" data-level="7.4" data-path="msea.html"><a href="msea.html#filter-msea-result"><i class="fa fa-check"></i><b>7.4</b> Filter MSEA result</a></li>
+<li class="chapter" data-level="7.5" data-path="msea.html"><a href="msea.html#visualization"><i class="fa fa-check"></i><b>7.5</b> Visualization</a></li>
+<li class="chapter" data-level="7.6" data-path="msea.html"><a href="msea.html#run-enrichr-analysis"><i class="fa fa-check"></i><b>7.6</b> Run enrichR analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>8</b> PICRUSt2</a><ul>
+<li class="chapter" data-level="8.1" data-path="picrust2.html"><a href="picrust2.html#environment-setup-5"><i class="fa fa-check"></i><b>8.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="8.2" data-path="picrust2.html"><a href="picrust2.html#run-picrust2"><i class="fa fa-check"></i><b>8.2</b> Run PICRUSt2</a></li>
+<li class="chapter" data-level="8.3" data-path="picrust2.html"><a href="picrust2.html#use-da-to-interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>8.3</b> Use DA to interpret result table from PICRUSt2</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="picrust2.html"><a href="picrust2.html#read-input"><i class="fa fa-check"></i><b>8.3.1</b> Read input</a></li>
+<li class="chapter" data-level="8.3.2" data-path="picrust2.html"><a href="picrust2.html#preprocess"><i class="fa fa-check"></i><b>8.3.2</b> Preprocess</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="picrust2" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> PICRUSt2</h1>
+<p><em><strong>This demo would guide you how to implement funciton analysis on 16S data</strong></em></p>
+<div class="figure">
+<img src="flowcharts/FlowChart_PICRUSt2.jpg" alt="" />
+<p class="caption">FlowChart_PICRUSt2}</p>
+</div>
+<hr />
+<p><strong>PICRUSt2 algorithm</strong></p>
+<p>The Picture below shows the algorithm of PICRUSt2. Please find details on <a href="https://github.com/picrust/picrust2/wiki" class="uri">https://github.com/picrust/picrust2/wiki</a>.</p>
+<p><img src="flowcharts/PICRUSt2Algorithm.jpg" alt="PICRUSt2 Algorithm" /><br />
+(a) The PICRUSt2 method consists of phylogenetic placement, hidden-state-prediction and sample-wise gene and pathway abundance tabulation. ASV sequences and abundances are taken as input, and gene family and pathway abundances are output. All necessary reference tree and trait databases for the default workflow are included in the PICRUSt2 implementation.</p>
+<hr />
+<div id="environment-setup-5" class="section level2">
+<h2><span class="header-section-number">8.1</span> Environment Setup</h2>
+<p>Pull docker image of picrust2(authored by <a href="mailto:zhangzhikuan@xbiome.com" class="email">zhangzhikuan@xbiome.com</a>) from server. You can skip this step if you have pulled docker image of picrust2 on your server already.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb103-1"><a href="picrust2.html#cb103-1"></a>docker pull harbor.xbiome.com/xbiome/environments/picrust2:v2.4.1-03d011a</span></code></pre></div>
+<hr />
+</div>
+<div id="run-picrust2" class="section level2">
+<h2><span class="header-section-number">8.2</span> Run PICRUSt2</h2>
+<p>Check the required parameters of picrust2 docker image.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb104-1"><a href="picrust2.html#cb104-1"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /home/tongbangzhuo/tongbangzhuo_Xbiome1/Project/PICRUSt2/:/in harbor.xbiome.com/xbiome/environments/picrust2:v2.4.1-03d011a bash -c <span class="st">&quot;python picrust2_main.py --help&quot;</span></span></code></pre></div>
+<pre><code>## usage: picrust2_main.py [-h] -i INPUTDIR -o OUTPUTDIR [-b REFDB] [-r RESOURCE]
+##                         -p PARAM
+## 
+## optional arguments:
+##   -h, --help            show this help message and exit
+##   -i INPUTDIR, --inputdir INPUTDIR
+##                         input dir
+##   -o OUTPUTDIR, --outputdir OUTPUTDIR
+##                         The dir that where the result output to
+##   -b REFDB, --refdb REFDB
+##                         required database path if needed, for example:
+##                         &quot;db_name:db_path&quot;, if there are more than 1 database,
+##                         please join them by &quot;,&quot;
+##   -r RESOURCE, --resource RESOURCE
+##                         The resources that the module need,
+##                         &quot;cpu:2,mem:6,disk:6&quot; or &quot;cpu:2,mem:6&quot; or &quot;cpu:3&quot;
+##   -p PARAM, --param PARAM
+##                         JSON format config file</code></pre>
+<p><strong>Three parameters are required:</strong></p>
+<ul>
+<li>INPUTDIR, specify your dada2 output folder as the input of picrust2 docker image.<br />
+</li>
+<li>OUTPUTDIR, specify the output dirctory. Don’t create the output folder your self, picrust2 docker image would take care of it.<br />
+</li>
+<li>PARAM, config files of running picrust2 docker image. Usually use the default file in docker image: /opt/test/parameter_default.json</li>
+</ul>
+<p>The whole process might take hours to finish. Demo data (3970 ASVs cost approximately 1 hour)</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb106-1"><a href="picrust2.html#cb106-1"></a>docker run -i --rm -u $(id -u):$(id -g) -v /home/tongbangzhuo/tongbangzhuo_Xbiome1/Project/PICRUSt2/:/in harbor.xbiome.com/xbiome/environments/picrust2:v2.4.1-03d011a bash -c &quot;python picrust2_main.py -i /in/Demodata/ -o /in/output/ -p /opt/test/parameter_default.json&quot;</span></code></pre></div>
+<hr />
+</div>
+<div id="use-da-to-interpret-result-table-from-picrust2" class="section level2">
+<h2><span class="header-section-number">8.3</span> Use DA to interpret result table from PICRUSt2</h2>
+<p>There are many possible ways to analyze the PICRUSt2 output. STAMP is one tool that can be used that requires no background in scripting languages. This tool is very useful for visualizing microbiome data, but <strong>note that there are better alternatives for conducting statistical tests with compositional data (such as the ALDEx2 R package)</strong>. If you would like to try out STAMP for visualizing the PICRUSt2 output, see <a href="https://github.com/picrust/picrust2/wiki/STAMP-example">here</a>.</p>
+<p>No matter what analysis approach you take, you should be aware that <strong>results based on differential abundance testing can vary substantially between shotgun metagenomics sequencing data and amplicon-based metagenome predictions based on the same samples. This is especially true for community-wide pathway predictions.</strong> Please check out <a href="https://github.com/picrust/picrust2/wiki/Major-Bug-Reports-and-Announcements#updated-biorxiv-pre-print-and-major-caveats-highlighted">this post</a> and <a href="https://github.com/picrust/picrust2/wiki/Frequently-Asked-Questions#how-should-i-analyze-the-picrust2-output">this response</a> to a FAQ for more details.</p>
+<p><em>But here, we carry out DA on KO profile table predicted from PICRUSt2 as demo.</em></p>
+<div id="read-input" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Read input</h3>
+<p>In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.</p>
+<p>Read profile table from PICRUSt2 result</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="picrust2.html#cb107-1"></a><span class="co">## Load aldex</span></span>
+<span id="cb107-2"><a href="picrust2.html#cb107-2"></a><span class="kw">library</span>(ALDEx2)</span>
+<span id="cb107-3"><a href="picrust2.html#cb107-3"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb107-4"><a href="picrust2.html#cb107-4"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb107-5"><a href="picrust2.html#cb107-5"></a><span class="kw">library</span>(phyloseq)</span>
+<span id="cb107-6"><a href="picrust2.html#cb107-6"></a></span>
+<span id="cb107-7"><a href="picrust2.html#cb107-7"></a>KO_profile &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;./Demodata/PICRUSt2/output/KO_metagenome_out/pred_metagenome_unstrat.tsv&#39;</span>,</span>
+<span id="cb107-8"><a href="picrust2.html#cb107-8"></a>                         <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">comment.char =</span> <span class="st">&#39;&#39;</span>, <span class="dt">na.strings =</span> <span class="st">&#39;&#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb107-9"><a href="picrust2.html#cb107-9"></a><span class="kw">head</span>(KO_profile)</span></code></pre></div>
+<pre><code>##   function      1-1     1-10      1-2      1-3      1-4      1-5      1-6      1-7      1-8      1-9  2-1_new     2-10      2-2      2-3      2-4
+## 1   K00001  1111.02 15361.65 13872.39 13718.14 13197.77  4978.74  8640.27  8610.96 13514.95 10794.91 24054.05  1577.49  2562.29 12037.83 21575.02
+## 2   K00002    62.00    45.00     0.00    30.00   208.00   307.00    34.00   115.00   572.00    41.00   140.00     0.00   146.00   183.40     0.00
+## 3   K00003  2333.08 35353.06 17687.85 25700.77 21103.60 11221.88 30983.44 27016.03  8010.85 14502.45 40309.95  8444.30 13531.49 21307.22 24598.45
+## 4   K00004  1913.87   117.80  1304.60  3378.97 11791.20 11862.60   307.40   420.17   664.75   328.66 66993.10 13792.60 21589.49  2133.60  5628.47
+## 5   K00005 21600.27 48223.27  6437.13  5929.35  5347.54  3884.48 17472.11 20782.03 13209.86  7707.98 37765.21   433.10  1466.68  8481.97  9026.81
+## 6   K00007 10468.99    45.57   462.54   172.10   459.08   652.43    65.21   210.00  3495.53   155.72 18018.53     5.00   337.29  3010.23    47.38
+##        2-5      2-6      2-7      2-8      2-9      3-1     3-10      3-2      3-3  3-4_new      3-5  3-6_new      3-7  3-8_new  3-9_new      4-1
+## 1  4129.33   537.12  3579.25  1879.32  6504.89   600.93 11001.92   594.74  2588.96 38966.52  3939.76 55757.66  4177.65 46536.71 52996.07 12799.43
+## 2     0.00     0.00    86.00    74.00     5.00     0.00    61.00    13.00    79.00   102.00   159.00  2191.00   844.00  1404.00  2802.00     0.00
+## 3 15593.47 11804.09  9616.33 11389.30 13398.25 11720.00 24071.84 11151.16  9787.05 44070.14 14095.11 63869.31 22690.82 33295.34 44499.99  6382.85
+## 4 10415.70 14730.80 11360.99 20338.00 15685.80 22329.80   780.60 14570.33 15106.40 18652.20 16127.80  4099.27   125.50  6176.00  3934.03    30.00
+## 5  4212.19  4801.46  2251.23  1018.49  1405.52   166.17 10586.31  3245.26  1172.18 11695.52  3886.85 47517.98 18250.52 29082.51 43558.97  5978.59
+## 6    45.93     2.71   200.14   174.86     4.15     0.00   208.64    14.26   170.43   572.72   305.85 11819.90   298.72  6875.43  9593.22    92.92
+##       4-10      4-2      4-3      4-4      4-5      4-6      4-7      4-8      4-9      5-1     5-10      5-2      5-3      5-4      5-5      5-6
+## 1 15743.00  8006.54 17418.30 13203.65 15239.94 17004.02 14919.00 17362.83 18735.60 14412.40 11185.25 24000.96 18124.75 19642.75 15365.55 10873.53
+## 2  1170.00     0.00  2354.00   410.00  1021.00  1428.00  1660.00  1877.00  2614.00  1561.00     0.00  4521.00  2087.00  2957.00  1816.00   153.00
+## 3  5207.10 16143.88 10088.60  4528.80  7241.90  6809.42  6946.40  7973.55 11145.80  6955.16 15659.17 19274.30  8416.25 11985.00  7350.30 19120.00
+## 4   192.20    24.00     0.00    44.00     7.00   235.75   201.80   235.60   225.40     0.00    99.25    11.60     2.00     7.00     8.00    80.00
+## 5 12638.42  6265.20 14223.27 12231.55 12387.03 17688.55 14985.24 15053.94 16793.67 11458.42 10131.42 20513.47 15019.70 17020.17 12546.52 13788.47
+## 6  3784.21    70.99  3499.32  3828.33  3186.93  6247.42  4006.83  4459.93  4493.67  2859.21     5.71  4698.32  4167.89  4485.42  3432.01   142.82
+##        5-7      5-8  5-9_new      6-1     6-10      6-2      6-3  6-4_new  6-5_new      6-6  6-7_new  6-8_new      6-9     7-1     7-10      7-2
+## 1 11123.50 11579.00 49723.71  2032.02   490.23  1040.64   477.12 39453.21 26497.25  2746.95 59430.45 49094.97   543.44 8061.66 15081.42  7689.49
+## 2     0.00     0.00   522.00     0.00    38.00    12.00     0.00   535.00   455.00    58.00  3982.00  1480.00     0.00    0.00     0.00     0.00
+## 3 19435.17 11338.03 44850.17  9420.23 10552.97  9010.06 10712.08 63167.75 49282.61 11464.98 45404.40 55049.48 13072.15 5829.43  5626.50 10723.00
+## 4    78.00   357.95   611.85 13440.40 19492.40 15746.00 20157.87 22847.23 35772.70 17008.40  6240.25 17086.20  8690.07   18.20    20.00    36.00
+## 5 13842.11  8711.45 27699.92  1789.83   200.89   200.10   209.91 22441.96 24121.40  1250.74 41184.17 26278.59  7864.24 1538.00   660.50  2526.67
+## 6     5.72    66.29  1714.11     0.00     2.86     0.00     3.57  1218.52  1569.78     4.33  9898.11  4345.75     4.67    0.00     0.00     0.00
+##        7-3      7-4      7-5      7-6      7-7      7-8      7-9      8-1     8-10      8-2      8-3      8-4      8-5      8-6      8-7      8-8
+## 1 11046.41 11913.08 18184.75 12650.25  7948.35 13681.54 14887.71 13590.42 13137.37 11680.42  9330.06 14908.71 12144.25 11506.58 12139.83 13407.25
+## 2     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00
+## 3 12207.57 11690.03 12747.30 13734.58 10495.17 18670.50  7706.84 11422.33 15111.75  9126.67 11392.08 18340.16 13613.83  6827.33  6532.00 10133.83
+## 4     0.00    24.40    22.60    84.00     0.00    52.00    11.00    28.00    36.00    14.00     5.00     7.00    24.00     0.00     6.00    14.00
+## 5  2195.41  1115.50  1860.83  3549.50  2878.00  3145.50  1004.17  1390.66  3691.41  1289.25  3883.24  6055.33  3591.66   863.00  1052.50  1132.67
+## 6     0.00     0.00     0.00     0.00     0.00     0.00     0.00     1.25     0.00     0.00     0.00     0.00     0.00     0.00     0.00     0.00
+##        8-9
+## 1 12041.21
+## 2     3.20
+## 3 16754.94
+## 4     0.00
+## 5  3653.50
+## 6     3.45</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="picrust2.html#cb109-1"></a><span class="kw">dim</span>(KO_profile)</span></code></pre></div>
+<pre><code>## [1] 7287   81</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="picrust2.html#cb111-1"></a>metadata &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="st">&#39;./Demodata/PICRUSt2/Demodata/Eround1_Animal_metadata.xlsx&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;SampleID&#39;</span>)</span>
+<span id="cb111-2"><a href="picrust2.html#cb111-2"></a></span>
+<span id="cb111-3"><a href="picrust2.html#cb111-3"></a><span class="co">## Construct phyloseq object of functional data</span></span>
+<span id="cb111-4"><a href="picrust2.html#cb111-4"></a>phy &lt;-<span class="st"> </span>phyloseq<span class="op">::</span><span class="kw">phyloseq</span>(<span class="kw">otu_table</span>(KO_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;function&#39;</span>), <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb111-5"><a href="picrust2.html#cb111-5"></a>         <span class="kw">sample_data</span>(metadata))</span></code></pre></div>
+</div>
+<div id="preprocess" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Preprocess</h3>
+<p><em><strong>Data transformation</strong></em></p>
+<p>In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="picrust2.html#cb112-1"></a><span class="co">## Normalize into relative abundance</span></span>
+<span id="cb112-2"><a href="picrust2.html#cb112-2"></a>phy_ra &lt;-<span class="st"> </span>XMAS2<span class="op">::</span><span class="kw">normalize</span>(<span class="dt">object =</span> phy,</span>
+<span id="cb112-3"><a href="picrust2.html#cb112-3"></a>                 <span class="dt">method =</span> <span class="st">&quot;TSS&quot;</span>)</span>
+<span id="cb112-4"><a href="picrust2.html#cb112-4"></a></span>
+<span id="cb112-5"><a href="picrust2.html#cb112-5"></a><span class="kw">head</span>(<span class="kw">otu_table</span>(phy_ra))</span></code></pre></div>
+<pre><code>## OTU Table:          [6 taxa and 80 samples]
+##                      taxa are rows
+##                 1-1         1-10          1-2          1-3          1-4          1-5          1-6          1-7          1-8          1-9      2-1_new
+## K00001 2.801193e-05 2.352827e-04 3.410494e-04 2.981510e-04 2.521403e-04 1.462433e-04 1.648275e-04 1.963857e-04 3.363588e-04 3.413925e-04 1.353956e-04
+## K00002 1.563194e-06 6.892306e-07 0.000000e+00 6.520220e-07 3.973791e-06 9.017681e-06 6.486063e-07 2.622746e-06 1.423588e-05 1.296638e-06 7.880332e-07
+## K00003 5.882349e-05 5.414758e-04 4.348516e-04 5.585822e-04 4.031793e-04 3.296265e-04 5.910604e-04 6.161407e-04 1.993733e-04 4.586447e-04 2.268970e-04
+## K00004 4.825403e-05 1.804253e-06 3.207328e-05 7.343876e-05 2.252681e-04 3.484467e-04 5.864164e-06 9.582600e-06 1.654424e-05 1.039398e-05 3.770913e-04
+## K00005 5.446034e-04 7.385990e-04 1.582553e-04 1.288689e-04 1.021635e-04 1.141010e-04 3.333094e-04 4.739650e-04 3.287658e-04 2.437674e-04 2.125731e-04
+## K00007 2.639526e-04 6.979609e-07 1.137144e-05 3.740433e-06 8.770615e-06 1.916419e-05 1.243989e-06 4.789362e-06 8.699643e-05 4.924695e-06 1.014229e-04
+##                2-10          2-2          2-3          2-4          2-5          2-6          2-7          2-8          2-9          3-1         3-10
+## K00001 6.023389e-05 5.907292e-05 2.576559e-04 4.523432e-04 1.232080e-04 1.517257e-05 1.277041e-04 4.984256e-05 1.716372e-04 1.575852e-05 2.270144e-04
+## K00002 0.000000e+00 3.365992e-06 3.925466e-06 0.000000e+00 0.000000e+00 0.000000e+00 3.068396e-06 1.962598e-06 1.319294e-07 0.000000e+00 1.258678e-06
+## K00003 3.224318e-04 3.119649e-04 4.560565e-04 5.157326e-04 4.652668e-04 3.334419e-04 3.431012e-04 3.020624e-04 3.535246e-04 3.073400e-04 4.967000e-04
+## K00004 5.266480e-04 4.977400e-04 4.566725e-05 1.180069e-04 3.107762e-04 4.161156e-04 4.053490e-04 5.393961e-04 4.138836e-04 5.855666e-04 1.610696e-05
+## K00005 1.653722e-05 3.381392e-05 1.815468e-04 1.892567e-04 1.256803e-04 1.356316e-04 8.032168e-05 2.701197e-05 3.708588e-05 4.357567e-06 2.184387e-04
+## K00007 1.909169e-07 7.776132e-06 6.443051e-05 9.933720e-07 1.370426e-06 7.655208e-08 7.140799e-06 4.637565e-06 1.095014e-07 0.000000e+00 4.305092e-06
+##                 3-2          3-3      3-4_new          3-5      3-6_new          3-7      3-8_new      3-9_new          4-1         4-10          4-2
+## K00001 1.800142e-05 8.197794e-05 3.077143e-04 9.929381e-05 3.183005e-04 9.031339e-05 3.809448e-04 3.381220e-04 4.443248e-04 3.987389e-04 2.494767e-04
+## K00002 3.934802e-07 2.501490e-06 8.054827e-07 4.007278e-06 1.250764e-05 1.824578e-05 1.149300e-05 1.787713e-05 0.000000e+00 2.963377e-05 0.000000e+00
+## K00003 3.375201e-04 3.099014e-04 3.480170e-04 3.552392e-04 3.646070e-04 4.905353e-04 2.725523e-04 2.839158e-04 2.215770e-04 1.318855e-04 5.030291e-04
+## K00004 4.410105e-04 4.783356e-04 1.472944e-04 4.064691e-04 2.340127e-05 2.713088e-06 5.055611e-05 2.509963e-05 1.041433e-06 4.868044e-06 7.478189e-07
+## K00005 9.822658e-05 3.711641e-05 9.235822e-05 9.796032e-05 2.712632e-04 3.945439e-04 2.380665e-04 2.779120e-04 2.075433e-04 3.201061e-04 1.952181e-04
+## K00007 4.316175e-07 5.396569e-06 4.522706e-06 7.708340e-06 6.747558e-05 6.457797e-06 5.628157e-05 6.120602e-05 3.225664e-06 9.584652e-05 2.211986e-06
+##                 4-3          4-4          4-5          4-6          4-7          4-8          4-9          5-1         5-10          5-2          5-3
+## K00001 4.022330e-04 3.625752e-04 3.767764e-04 3.729072e-04 3.448071e-04 3.896673e-04 3.834663e-04 4.033027e-04 2.959880e-04 4.087573e-04 4.050189e-04
+## K00002 5.435987e-05 1.125869e-05 2.524214e-05 3.131680e-05 3.836583e-05 4.212479e-05 5.350141e-05 4.368152e-05 0.000000e+00 7.699658e-05 4.663647e-05
+## K00003 2.329715e-04 1.243619e-04 1.790412e-04 1.493342e-04 1.605448e-04 1.789473e-04 2.281239e-04 1.946265e-04 4.143785e-04 3.282582e-04 1.880710e-04
+## K00004 0.000000e+00 1.208250e-06 1.730607e-07 5.170123e-06 4.663991e-06 5.287480e-06 4.613319e-06 0.000000e+00 2.626389e-06 1.975581e-07 4.469235e-08
+## K00005 3.284516e-04 3.358811e-04 3.062440e-04 3.879193e-04 3.463381e-04 3.378498e-04 3.437203e-04 3.206414e-04 2.681012e-04 3.493623e-04 3.356329e-04
+## K00007 8.080823e-05 1.051268e-04 7.879034e-05 1.370092e-04 9.260565e-05 1.000925e-04 9.197309e-05 8.000937e-05 1.511000e-07 8.001649e-05 9.313641e-05
+##                 5-4          5-5          5-6          5-7          5-8      5-9_new          6-1         6-10          6-2          6-3      6-4_new
+## K00001 3.946021e-04 4.080849e-04 2.609576e-04 2.577150e-04 3.662952e-04 3.876332e-04 7.037032e-05 1.451313e-05 3.643616e-05 1.365941e-05 2.453076e-04
+## K00002 5.940301e-05 4.823012e-05 3.671900e-06 0.000000e+00 0.000000e+00 4.069377e-06 0.000000e+00 1.124980e-06 4.201587e-07 0.000000e+00 3.326461e-06
+## K00003 2.407660e-04 1.952125e-04 4.588675e-04 4.502841e-04 3.586722e-04 3.496403e-04 3.262294e-04 3.124178e-04 3.154712e-04 3.066748e-04 3.927571e-04
+## K00004 1.406226e-07 2.124675e-07 1.919948e-06 1.807144e-06 1.132355e-05 4.769824e-06 4.654508e-04 5.770672e-04 5.513182e-04 5.770972e-04 1.420569e-04
+## K00005 3.419172e-04 3.332159e-04 3.309142e-04 3.207012e-04 2.755819e-04 2.159414e-04 6.198311e-05 5.947294e-06 7.006146e-06 6.009488e-06 1.395370e-04
+## K00007 9.010735e-05 9.114881e-05 3.427586e-06 1.325239e-07 2.097047e-06 1.336276e-05 0.000000e+00 8.466953e-08 0.000000e+00 1.022051e-07 7.576373e-06
+##             6-5_new          6-6      6-7_new      6-8_new          6-9          7-1         7-10          7-2          7-3          7-4          7-5
+## K00001 1.835822e-04 7.841405e-05 3.599708e-04 3.138890e-04 1.625962e-05 4.770528e-04 5.847251e-04 2.983688e-04 3.903168e-04 4.311137e-04 5.655906e-04
+## K00002 3.152399e-06 1.655660e-06 2.411901e-05 9.462389e-06 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+## K00003 3.414471e-04 3.272777e-04 2.750149e-04 3.519592e-04 3.911163e-04 3.449595e-04 2.181463e-04 4.160755e-04 4.313456e-04 4.230419e-04 3.964725e-04
+## K00004 2.478457e-04 4.855194e-04 3.779726e-05 1.092407e-04 2.600053e-04 1.076994e-06 7.754245e-07 1.396878e-06 0.000000e+00 8.829937e-07 7.029158e-07
+## K00005 1.671215e-04 3.570345e-05 2.494529e-04 1.680123e-04 2.352966e-04 9.101193e-05 2.560839e-05 9.804024e-05 7.757321e-05 4.036801e-05 5.787641e-05
+## K00007 1.087598e-05 1.236036e-07 5.995295e-05 2.778458e-05 1.397255e-07 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+##                 7-6          7-7          7-8          7-9          8-1         8-10          8-2          8-3          8-4          8-5          8-6
+## K00001 4.123612e-04 0.0003666980 3.938285e-04 5.193777e-04 4.405701e-04 3.523975e-04 5.024012e-04 3.705616e-04 4.364260e-04 3.945743e-04 5.142765e-04
+## K00002 0.000000e+00 0.0000000000 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+## K00003 4.477072e-04 0.0004841959 5.374377e-04 2.688634e-04 3.702856e-04 4.053584e-04 3.925587e-04 4.524587e-04 5.368756e-04 4.423218e-04 3.051415e-04
+## K00004 2.738155e-06 0.0000000000 1.496840e-06 3.837498e-07 9.076955e-07 9.656659e-07 6.021716e-07 1.985848e-07 2.049126e-07 7.797750e-07 0.000000e+00
+## K00005 1.157033e-04 0.0001327769 9.054445e-05 3.503182e-05 4.508199e-05 9.901857e-05 5.545355e-05 1.542305e-04 1.772590e-04 1.166953e-04 3.857103e-05
+## K00007 0.000000e+00 0.0000000000 0.000000e+00 0.000000e+00 4.052212e-08 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00
+##                 8-7          8-8          8-9
+## K00001 4.992422e-04 4.641715e-04 3.800689e-04
+## K00002 0.000000e+00 0.000000e+00 1.010049e-07
+## K00003 2.686240e-04 3.508427e-04 5.288532e-04
+## K00004 2.467459e-07 4.846931e-07 0.000000e+00
+## K00005 4.328334e-05 3.921410e-05 1.153191e-04
+## K00007 0.000000e+00 0.000000e+00 1.088959e-07</code></pre>
+<p><em><strong>Aggregate low abundance data</strong></em></p>
+<p>In this chunck, we aggregate low abundance features to one row. <strong>Notably, you need to transform and remove unmapped entries in your data before running this chunk!!</strong></p>
+<p><em>1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper <a href="https://doi.org/10.1016/j.chom.2019.07.004">Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition</a><br />
+pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.</em></p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="picrust2.html#cb114-1"></a><span class="kw">source</span>(<span class="st">&#39;./RScripts/ultility.R&#39;</span>)</span>
+<span id="cb114-2"><a href="picrust2.html#cb114-2"></a></span>
+<span id="cb114-3"><a href="picrust2.html#cb114-3"></a>filtered_KO_profile &lt;-<span class="st"> </span><span class="kw">aggregate_low_abundance</span>(<span class="dt">input_data =</span> <span class="kw">otu_table</span>(phy_ra) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>(),</span>
+<span id="cb114-4"><a href="picrust2.html#cb114-4"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>) <span class="co">## threshold should be modified based on your on study</span></span>
+<span id="cb114-5"><a href="picrust2.html#cb114-5"></a></span>
+<span id="cb114-6"><a href="picrust2.html#cb114-6"></a><span class="kw">dim</span>(filtered_KO_profile)</span></code></pre></div>
+<pre><code>## [1] 7287   80</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="picrust2.html#cb116-1"></a>filtered_phy_ra &lt;-<span class="st"> </span>phyloseq<span class="op">::</span><span class="kw">phyloseq</span>(<span class="kw">otu_table</span>(filtered_KO_profile, <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb116-2"><a href="picrust2.html#cb116-2"></a>                            <span class="kw">sample_data</span>(metadata))</span></code></pre></div>
+<p><em><strong>Filter low prevalence pathway</strong></em></p>
+<p>In this chunk, we would remove pathways apperaing in less than 5% of samples from data set before doing analysis. <strong>Remember to run all three chunks in data preprocessing section before running this chunk!</strong></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="picrust2.html#cb117-1"></a><span class="co">## Filter features whose frequency are less than 0.05. </span></span>
+<span id="cb117-2"><a href="picrust2.html#cb117-2"></a>filtered_phy_ra &lt;-<span class="st"> </span>XMAS2<span class="op">::</span><span class="kw">run_trim</span>(<span class="dt">object =</span> filtered_phy_ra, <span class="dt">cutoff =</span> <span class="fl">0.05</span>, <span class="dt">trim =</span> <span class="st">&quot;feature&quot;</span>)</span>
+<span id="cb117-3"><a href="picrust2.html#cb117-3"></a></span>
+<span id="cb117-4"><a href="picrust2.html#cb117-4"></a><span class="kw">dim</span>(<span class="kw">otu_table</span>(filtered_phy_ra))</span></code></pre></div>
+<pre><code>## [1] 6542   80</code></pre>
+<p><em><strong>Run DA</strong></em></p>
+<p>Run CLR transformed wilcoxon DA</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="picrust2.html#cb119-1"></a><span class="co">## Run DA</span></span>
+<span id="cb119-2"><a href="picrust2.html#cb119-2"></a>DA_res &lt;-<span class="st"> </span>XMAS2<span class="op">::</span><span class="kw">run_wilcox</span>(</span>
+<span id="cb119-3"><a href="picrust2.html#cb119-3"></a>                    <span class="dt">ps =</span> filtered_phy_ra,</span>
+<span id="cb119-4"><a href="picrust2.html#cb119-4"></a>                    <span class="dt">group =</span> <span class="st">&quot;Group2&quot;</span>,</span>
+<span id="cb119-5"><a href="picrust2.html#cb119-5"></a>                    <span class="dt">group_names =</span> <span class="kw">c</span>(<span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;Treatment&quot;</span>),</span>
+<span id="cb119-6"><a href="picrust2.html#cb119-6"></a>                    <span class="dt">norm =</span> <span class="st">&quot;CLR&quot;</span>)</span>
+<span id="cb119-7"><a href="picrust2.html#cb119-7"></a></span>
+<span id="cb119-8"><a href="picrust2.html#cb119-8"></a><span class="kw">head</span>(DA_res)</span></code></pre></div>
+<pre><code>##   TaxaID                       Block Enrichment EffectSize Statistic       Pvalue AdjustedPvalue Log2FoldChange (Median)\nBaseline_vs_Treatment
+## 1 K00001 20_Baseline vs 30_Treatment  Nonsignif 0.03408348       400 0.0481294633    0.084008024                                            NaN
+## 2 K00002 20_Baseline vs 30_Treatment  Treatment 0.00000000       153 0.0015758495    0.007121667                                             NA
+## 3 K00003 20_Baseline vs 30_Treatment   Baseline 0.38917933       469 0.0005871079    0.004360078                                       4.053116
+## 4 K00004 20_Baseline vs 30_Treatment   Baseline 0.13210957       424 0.0144350133    0.032641111                                      -6.455651
+## 5 K00005 20_Baseline vs 30_Treatment   Baseline 0.30350692       487 0.0001205459    0.001902819                                            NaN
+## 6 K00007 20_Baseline vs 30_Treatment  Treatment 0.17518023       148 0.0019300012    0.007987687                                             NA
+##   Median Abundance\n(All) Median Abundance\nBaseline Median Abundance\nTreatment Log2FoldChange (Rank)\nBaseline_vs_Treatment
+## 1              -0.1482320                 0.49958520                 -0.64810011                                    0.4602005
+## 2               0.0000000                -3.82423193                  0.00000000                                   -0.7441018
+## 3               0.4637099                 0.93270253                  0.05618674                                    0.7728197
+## 4              -0.6159066                -0.05899854                 -5.17828202                                    0.5688959
+## 5              -1.2776484                 0.10889870                 -1.87146624                                    0.8548021
+## 6              -1.0353115                -3.66474858                  0.00000000                                   -0.7721570
+##   Mean Rank Abundance\nBaseline Mean Rank Abundance\nTreatment Occurrence (100%)\n(All) Occurrence (100%)\nBaseline Occurrence (100%)\nTreatment
+## 1                         30.50                          22.17                      100                         100                       100.00
+## 2                         18.15                          30.40                       46                          75                        26.67
+## 3                         33.95                          19.87                      100                         100                       100.00
+## 4                         31.70                          21.37                       92                         100                        86.67
+## 5                         34.85                          19.27                      100                         100                       100.00
+## 6                         17.90                          30.57                       60                         100                        33.33
+##   Odds Ratio (95% CI)
+## 1    0.57 (-0.51;1.7)
+## 2     0.39 (-1.5;2.2)
+## 3     0.28 (-2.3;2.8)
+## 4     0.23 (-2.7;3.1)
+## 5     0.23 (-2.6;3.1)
+## 6     0.18 (-3.2;3.6)</code></pre>
+<p><strong>Visualize DA result</strong></p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="picrust2.html#cb121-1"></a><span class="co">## Read in description for </span></span>
+<span id="cb121-2"><a href="picrust2.html#cb121-2"></a>ID_Description_Mapping &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;./Demodata/PICRUSt2/output/KO_metagenome_out/pred_metagenome_unstrat_descrip.tsv&#39;</span>,</span>
+<span id="cb121-3"><a href="picrust2.html#cb121-3"></a>                                     <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">comment.char =</span> <span class="st">&#39;&#39;</span>, <span class="dt">na.strings =</span> <span class="st">&#39;&#39;</span>, <span class="dt">quote =</span> <span class="st">&#39;&#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;function&#39;</span>)</span>
+<span id="cb121-4"><a href="picrust2.html#cb121-4"></a></span>
+<span id="cb121-5"><a href="picrust2.html#cb121-5"></a>renames_DA_res &lt;-<span class="st"> </span>DA_res <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">TaxaID =</span> ID_Description_Mapping[DA_res<span class="op">$</span>TaxaID,] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.vector</span>())</span>
+<span id="cb121-6"><a href="picrust2.html#cb121-6"></a></span>
+<span id="cb121-7"><a href="picrust2.html#cb121-7"></a><span class="co">## Volcano plot</span></span>
+<span id="cb121-8"><a href="picrust2.html#cb121-8"></a>p &lt;-<span class="st"> </span>XMAS2<span class="op">::</span><span class="kw">plot_volcano</span>(</span>
+<span id="cb121-9"><a href="picrust2.html#cb121-9"></a>    <span class="dt">da_res =</span> DA_res,</span>
+<span id="cb121-10"><a href="picrust2.html#cb121-10"></a>    <span class="dt">group_names =</span> <span class="kw">c</span>(<span class="st">&quot;Baseline&quot;</span>, <span class="st">&quot;Treatment&quot;</span>),</span>
+<span id="cb121-11"><a href="picrust2.html#cb121-11"></a>    <span class="dt">x_index =</span> <span class="st">&quot;Log2FoldChange (Rank)</span><span class="ch">\n</span><span class="st">Baseline_vs_Treatment&quot;</span>,</span>
+<span id="cb121-12"><a href="picrust2.html#cb121-12"></a>    <span class="dt">x_index_cutoff =</span> <span class="fl">0.5</span>,</span>
+<span id="cb121-13"><a href="picrust2.html#cb121-13"></a>    <span class="dt">y_index =</span> <span class="st">&quot;AdjustedPvalue&quot;</span>,</span>
+<span id="cb121-14"><a href="picrust2.html#cb121-14"></a>    <span class="dt">y_index_cutoff =</span> <span class="fl">0.05</span>,</span>
+<span id="cb121-15"><a href="picrust2.html#cb121-15"></a>    <span class="dt">group_color =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;grey&quot;</span>, <span class="st">&quot;blue&quot;</span>),</span>
+<span id="cb121-16"><a href="picrust2.html#cb121-16"></a>    <span class="dt">topN =</span> <span class="dv">5</span>,</span>
+<span id="cb121-17"><a href="picrust2.html#cb121-17"></a>    <span class="dt">taxa_name =</span> <span class="ot">NULL</span>)</span>
+<span id="cb121-18"><a href="picrust2.html#cb121-18"></a></span>
+<span id="cb121-19"><a href="picrust2.html#cb121-19"></a>p</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/Visualize%20DA%20result-1.png" width="1920" /></p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="picrust2.html#cb122-1"></a>filtered_DA_res &lt;-<span class="st"> </span>DA_res <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(<span class="st">`</span><span class="dt">AdjustedPvalue</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Log2FoldChange (Rank)</span><span class="ch">\n</span><span class="dt">Baseline_vs_Treatment</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb122-2"><a href="picrust2.html#cb122-2"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">AdjustedPvalue</span><span class="st">`</span> <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="kw">abs</span>(<span class="st">`</span><span class="dt">Log2FoldChange (Rank)</span><span class="ch">\n</span><span class="dt">Baseline_vs_Treatment</span><span class="st">`</span>) <span class="op">&gt;</span><span class="st"> </span></span>
+<span id="cb122-3"><a href="picrust2.html#cb122-3"></a><span class="st">                                                               </span><span class="fl">0.5</span>)</span>
+<span id="cb122-4"><a href="picrust2.html#cb122-4"></a></span>
+<span id="cb122-5"><a href="picrust2.html#cb122-5"></a>top_features &lt;-<span class="st"> </span>filtered_DA_res[<span class="kw">order</span>(filtered_DA_res<span class="op">$</span>AdjustedPvalue), ] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>TaxaID</span>
+<span id="cb122-6"><a href="picrust2.html#cb122-6"></a></span>
+<span id="cb122-7"><a href="picrust2.html#cb122-7"></a></span>
+<span id="cb122-8"><a href="picrust2.html#cb122-8"></a><span class="co">## Boxplot</span></span>
+<span id="cb122-9"><a href="picrust2.html#cb122-9"></a>filtered_pf &lt;-<span class="st"> </span><span class="kw">otu_table</span>(filtered_phy_ra) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span>.[top_features, ] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;feature&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">feature =</span> ID_Description_Mapping[top_features, ]) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;feature&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb122-10"><a href="picrust2.html#cb122-10"></a></span>
+<span id="cb122-11"><a href="picrust2.html#cb122-11"></a>filtered_pf <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">cbind</span>(., metadata)</span>
+<span id="cb122-12"><a href="picrust2.html#cb122-12"></a></span>
+<span id="cb122-13"><a href="picrust2.html#cb122-13"></a>XMAS2<span class="op">::</span><span class="kw">plot_boxplot</span>(<span class="dt">data =</span> filtered_pf,</span>
+<span id="cb122-14"><a href="picrust2.html#cb122-14"></a>             <span class="dt">y_index =</span> ID_Description_Mapping[top_features, ] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.vector</span>(),</span>
+<span id="cb122-15"><a href="picrust2.html#cb122-15"></a>             <span class="dt">group =</span> <span class="st">&quot;Group2&quot;</span>,</span>
+<span id="cb122-16"><a href="picrust2.html#cb122-16"></a>             <span class="dt">group_names =</span> <span class="kw">c</span>(<span class="st">&#39;Treatment&#39;</span>,<span class="st">&#39;Baseline&#39;</span>),</span>
+<span id="cb122-17"><a href="picrust2.html#cb122-17"></a>             <span class="dt">do_test =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb122-18"><a href="picrust2.html#cb122-18"></a>             <span class="dt">method =</span> <span class="st">&quot;wilcox.test&quot;</span>)</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/Visualize%20DA%20result-2.png" width="1920" /></p>
+<p>Same analysis can be applied to the EC profile, KEGG pathway profile as well as Metacyc pathway profile.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="msea.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/07-Functional_Analysis_PICRUSt2.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Function standard analysis workflow.pdf", "Function standard analysis workflow.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

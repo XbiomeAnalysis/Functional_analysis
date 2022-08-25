@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Preprocess of Functional Analysis of KEGG | Functional analysis</title>
+  <meta name="description" content="Tutorial for MGS functional analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Preprocess of Functional Analysis of KEGG | Functional analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial for MGS functional analysis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Preprocess of Functional Analysis of KEGG | Functional analysis" />
+  
+  <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
+  
+
+<meta name="author" content="Bangzhuo Tong" />
+
+
+<meta name="date" content="2022-08-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="functional-analysis-of-metacyc-database.html"/>
+<link rel="next" href="functional-analysis-of-kegg.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Function standard analysis workflow</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html"><i class="fa fa-check"></i><b>2</b> Functional Analysis of Metacyc database</a><ul>
+<li class="chapter" data-level="2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#environment-setup"><i class="fa fa-check"></i><b>2.1</b> Environment setup</a></li>
+<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-loading"><i class="fa fa-check"></i><b>2.2</b> Data loading</a></li>
+<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-preprocess"><i class="fa fa-check"></i><b>2.3</b> Data preprocess</a></li>
+<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.4</b> Plot Beta diversity</a></li>
+<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.5</b> Permanova test</a></li>
+<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.6</b> Differential analysis(DA)</a></li>
+<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contributing-to-differential-pathways"><i class="fa fa-check"></i><b>2.7</b> Bacteria contributing to differential pathways</a></li>
+<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8</b> Plot Bacteria contribution</a></li>
+<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#gene-and-ensyme-involed-in-differential-pathways"><i class="fa fa-check"></i><b>2.9</b> Gene and Ensyme involed in differential pathways</a></li>
+<li class="chapter" data-level="2.10" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.10</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Preprocess of Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="3.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="3.2" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#process-pipeline-output"><i class="fa fa-check"></i><b>3.2</b> Process pipeline output</a></li>
+<li class="chapter" data-level="3.3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#session-info-1"><i class="fa fa-check"></i><b>3.3</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="4.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#environment-setup-2"><i class="fa fa-check"></i><b>4.1</b> Environment setup</a></li>
+<li class="chapter" data-level="4.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-loading-1"><i class="fa fa-check"></i><b>4.2</b> Data loading</a></li>
+<li class="chapter" data-level="4.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-preprocessing"><i class="fa fa-check"></i><b>4.3</b> Data preprocessing</a></li>
+<li class="chapter" data-level="4.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#standard-analysis"><i class="fa fa-check"></i><b>4.4</b> Standard Analysis</a></li>
+<li class="chapter" data-level="4.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysisda-1"><i class="fa fa-check"></i><b>4.5</b> Differential analysis(DA)</a></li>
+<li class="chapter" data-level="4.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information"><i class="fa fa-check"></i><b>4.6</b> Session information</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>5</b> Preprocess of Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="5.1" data-path="preprocess-of-functional-analysis-of-targetdatabase.html"><a href="preprocess-of-functional-analysis-of-targetdatabase.html#merge-sample-data"><i class="fa fa-check"></i><b>5.1</b> Merge sample data</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>6</b> Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-3"><i class="fa fa-check"></i><b>6.1</b> Environment setup</a></li>
+<li class="chapter" data-level="6.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-loading-2"><i class="fa fa-check"></i><b>6.2</b> Data loading</a></li>
+<li class="chapter" data-level="6.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-preprocessing-1"><i class="fa fa-check"></i><b>6.3</b> Data preprocessing</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#standard-analysis-1"><i class="fa fa-check"></i><b>6.3.1</b> Standard analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysisda-2"><i class="fa fa-check"></i><b>6.4</b> Differential analysis(DA)</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="msea.html"><a href="msea.html"><i class="fa fa-check"></i><b>7</b> MSEA</a><ul>
+<li class="chapter" data-level="7.1" data-path="msea.html"><a href="msea.html#execute-msea-with-python-script-on-server"><i class="fa fa-check"></i><b>7.1</b> Execute MSEA with python script on server</a></li>
+<li class="chapter" data-level="7.2" data-path="msea.html"><a href="msea.html#environment-setup-4"><i class="fa fa-check"></i><b>7.2</b> Environment setup</a></li>
+<li class="chapter" data-level="7.3" data-path="msea.html"><a href="msea.html#read-in-msea-result"><i class="fa fa-check"></i><b>7.3</b> Read in MSEA result</a></li>
+<li class="chapter" data-level="7.4" data-path="msea.html"><a href="msea.html#filter-msea-result"><i class="fa fa-check"></i><b>7.4</b> Filter MSEA result</a></li>
+<li class="chapter" data-level="7.5" data-path="msea.html"><a href="msea.html#visualization"><i class="fa fa-check"></i><b>7.5</b> Visualization</a></li>
+<li class="chapter" data-level="7.6" data-path="msea.html"><a href="msea.html#run-enrichr-analysis"><i class="fa fa-check"></i><b>7.6</b> Run enrichR analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>8</b> PICRUSt2</a><ul>
+<li class="chapter" data-level="8.1" data-path="picrust2.html"><a href="picrust2.html#environment-setup-5"><i class="fa fa-check"></i><b>8.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="8.2" data-path="picrust2.html"><a href="picrust2.html#run-picrust2"><i class="fa fa-check"></i><b>8.2</b> Run PICRUSt2</a></li>
+<li class="chapter" data-level="8.3" data-path="picrust2.html"><a href="picrust2.html#use-da-to-interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>8.3</b> Use DA to interpret result table from PICRUSt2</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="picrust2.html"><a href="picrust2.html#read-input"><i class="fa fa-check"></i><b>8.3.1</b> Read input</a></li>
+<li class="chapter" data-level="8.3.2" data-path="picrust2.html"><a href="picrust2.html#preprocess"><i class="fa fa-check"></i><b>8.3.2</b> Preprocess</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Functional analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="preprocess-of-functional-analysis-of-kegg" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Preprocess of Functional Analysis of KEGG</h1>
+<p><em><strong>This demo guides you how to merge and generate KO profile and pathway profile from humann2 pipeline output folder in bash.</strong></em></p>
+<p>In this Chapter, data of a cohort consisting of 10 samples from 8 patients, 1 water tube and 1 BRS in Newtech project were used as demo data.</p>
+<hr />
+<div id="environment-setup-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Environment Setup</h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb30-1"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">warning =</span> <span class="ot">FALSE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="process-pipeline-output" class="section level2">
+<h2><span class="header-section-number">3.2</span> Process pipeline output</h2>
+<p><em><strong>Demo datacan be found in KEGG/Demo_data</strong></em></p>
+<ul>
+<li><p>Pipeline_Out. Folder containing all samples’ pipeline result.</p></li>
+<li><p>metadata.xls. Metadata of samples.</p></li>
+</ul>
+<p><em><strong>Folder structure of humann2 pipeline result</strong></em></p>
+<p>Four files should be included in humann2_kegg folder of each sample:</p>
+<ol style="list-style-type: decimal">
+<li><p>*_genefamilies.tsv (KEGG gene profile file, rows are gene names consist of SpeciesCode:GeneName, columns are samples, unit of abundance is RPK)</p></li>
+<li><p>*.log</p></li>
+<li><p>*_pathabundance.tsv</p></li>
+<li><p>*_pathcoverage.tsv</p></li>
+</ol>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb31-1"></a><span class="ex">tree</span> -L 4 ./Demodata/KEGG/Pipeline_Out/14286/</span></code></pre></div>
+<pre><code>## ./Demodata/KEGG/Pipeline_Out/14286/ [error opening dir]
+## 
+## 0 directories, 0 files</code></pre>
+<p><em><strong>Merge data from humann2 pipeline (Kegg database)</strong></em></p>
+<p>Use Script merge_metaphlan_tables.py from humann2 to merge all gene_family profile files.</p>
+<p>In this chunk, we merge all *genefamilies.tsv into one file and edit the colnames of the table</p>
+<ul>
+<li><p>input: <em>genefamilies.tsv, path of all </em>genefamilies.tsv files</p></li>
+<li><p>output: file name of merged profile table.</p></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb33-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb33-1"></a><span class="fu">## Start merging profile files</span></span>
+<span id="cb33-2"><a href="preprocess-of-functional-analysis-of-kegg.html#cb33-2"></a></span>
+<span id="cb33-3"><a href="preprocess-of-functional-analysis-of-kegg.html#cb33-3"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/Demo_data/Pipeline_Out/*/humann2_kegg/*genefamilies.tsv &gt; /in/Demo_data/merged_profile.tsv&quot;</span>
+<span id="cb33-4"><a href="preprocess-of-functional-analysis-of-kegg.html#cb33-4"></a></span>
+<span id="cb33-5"><a href="preprocess-of-functional-analysis-of-kegg.html#cb33-5"></a><span class="fu">## Remove suffix in sample name</span></span>
+<span id="cb33-6"><a href="preprocess-of-functional-analysis-of-kegg.html#cb33-6"></a>sed -i &#39;s#_genefamilies##g&#39; /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv</span>
+<span id="cb33-7"><a href="preprocess-of-functional-analysis-of-kegg.html#cb33-7"></a>sed -i &#39;s$^ID$# Gene Family$g&#39; /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv</span></code></pre></div>
+<p><em><strong>Transform all species code with species name in merged profile file &amp; map kegg gene ID to KO entries</strong></em></p>
+<p>In this chunk, we transform the species code to species names and convert the kegg gene id to K numbers.</p>
+<ul>
+<li><p>input1: *profile.tsv</p></li>
+<li><p>input2: path of kegg database</p></li>
+<li><p>output: <em>kegg, renamed profile table. (suffix must be </em>.kegg)</p></li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb34-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb34-1"></a><span class="fu">## Mapping file prokaryotes.dat.gz was used to map species code to species names and map kegg gene id to K numbers.</span></span>
+<span id="cb34-2"><a href="preprocess-of-functional-analysis-of-kegg.html#cb34-2"></a><span class="fu">## Version of prokaryotes.dat.gz should be consistent with the version of Kegg database.</span></span>
+<span id="cb34-3"><a href="preprocess-of-functional-analysis-of-kegg.html#cb34-3"></a><span class="fu">## Note!!!! file name of output must ends with &quot;.kegg&quot;</span></span>
+<span id="cb34-4"><a href="preprocess-of-functional-analysis-of-kegg.html#cb34-4"></a></span>
+<span id="cb34-5"><a href="preprocess-of-functional-analysis-of-kegg.html#cb34-5"></a>python /share/projects/SOP/Functional_Analysis/Functional_analysis/Scripts/rename-kegg-gene.py -in /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv -db /share/projects/SOP/Functional_Analysis/Functional_analysis/Scripts/db/ -out /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg -species 1</span>
+<span id="cb34-6"><a href="preprocess-of-functional-analysis-of-kegg.html#cb34-6"></a></span>
+<span id="cb34-7"><a href="preprocess-of-functional-analysis-of-kegg.html#cb34-7"></a>tail -n 2 /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg</span></code></pre></div>
+<p><em><strong>Remove unmapped row in merged profile file</strong></em></p>
+<p>In this chunk, we remove unmapped row from merged profile file.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb35-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb35-1"></a><span class="fu">## Since unmapped row doesn&#39;t convey any information we need, we remove unmapped row from merged profile file.</span></span>
+<span id="cb35-2"><a href="preprocess-of-functional-analysis-of-kegg.html#cb35-2"></a></span>
+<span id="cb35-3"><a href="preprocess-of-functional-analysis-of-kegg.html#cb35-3"></a>grep -v &quot;^UNMAPPED&quot; /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg &gt; /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt</span></code></pre></div>
+<p><em><strong>Re-scale (Total Sum Scale) &amp; map kegg gene entries to KO entries</strong></em></p>
+<p>In this chunk, we re-scale the profile of each feature by divding their RPK value by the column sum (sum of RPK values within one sample).</p>
+<ul>
+<li><p>input: the *remove_unmapped.txt file from last step</p></li>
+<li><p>output1: *knumber.txt, the profile table of all k numbers in all samples</p></li>
+<li><p>output2: <em>input, a list including all K numers in </em>knumber.txt</p></li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb36-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb36-1"></a><span class="fu">## In this chunk we take merged_remove_unmapped.txt from last step as input, re-scale all features abundance into relative abundance (sum to 1). We also extracted the abundance of K numbers and saved in *knumber.txt</span></span>
+<span id="cb36-2"><a href="preprocess-of-functional-analysis-of-kegg.html#cb36-2"></a></span>
+<span id="cb36-3"><a href="preprocess-of-functional-analysis-of-kegg.html#cb36-3"></a>python /share/projects/SOP/Functional_Analysis/Functional_analysis/Scripts/reminpath.py -i /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt -k /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_knumber.txt -m /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.input</span></code></pre></div>
+<p><em><strong>Use minpath to extract the mapping information between Knumers and KEGG pathways</strong></em></p>
+<p>In this chunk, we use minpath to extract the mapping relation between K numers and KEGG pathways and generate <em>report and </em>details for the calculation of pathway abundance.</p>
+<ul>
+<li><p>input: *input from last step</p></li>
+<li><p>output1: *report, report of minpath</p></li>
+<li><p>output2: *details, detail of minpath</p></li>
+</ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb37-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb37-1"></a>python /share/work/runtime/softwares/MinPath/MinPath.py -ko /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.input -report /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.report -details /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.details &gt; /dev/null 2&gt;&amp;1</span></code></pre></div>
+<p><em><strong>Calculate the abundance of Kegg pathways</strong></em></p>
+<p>In this chunk we calculate the abundance of KEGG pathways. Since multiple K numbers may belong to the same Pathway, we provided three methods to calculate the abundance of pathway from multiple K numbers:</p>
+<ol style="list-style-type: decimal">
+<li><p>Harmonic Mean</p></li>
+<li><p>Median</p></li>
+<li><p>Average of top 50% abundance KOs</p></li>
+</ol>
+<ul>
+<li><p>input1: *report from last step</p></li>
+<li><p>input2: *details from last step</p></li>
+<li><p>input3: *remove_unmapped.txt from chunk “remove unmapped row”, unit for each feature is RPK.</p></li>
+<li><p>output: *pathway.txt, pathway profile file</p></li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb38-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-1"></a><span class="fu">## In this chunk, we use the minpath report (stroing the mapping information between KO and Kegg pathway) and abundance table (unit of feature is RPK) of KO to estimate the abundance of pathways.</span></span>
+<span id="cb38-2"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-2"></a><span class="fu">## Note: Becasue minpath mapping file doesn&#39;t include the UMAPPED entry, we need to add UMAPPED entry to the output manually after the calcualtion of pathway abundance.</span></span>
+<span id="cb38-3"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-3"></a></span>
+<span id="cb38-4"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-4"></a>python /share/projects/SOP/Functional_Analysis/Functional_analysis/Scripts/kegg_abundance.py -path /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.report -detail /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.details -in  /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt -out /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt</span>
+<span id="cb38-5"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-5"></a></span>
+<span id="cb38-6"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-6"></a><span class="fu">## Add UNMAPPED row to pathway abundance table</span></span>
+<span id="cb38-7"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-7"></a></span>
+<span id="cb38-8"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-8"></a>grep &quot;UNMAPPED&quot; /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg | grep -v &quot;|&quot; &gt;&gt; /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt</span>
+<span id="cb38-9"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-9"></a></span>
+<span id="cb38-10"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-10"></a><span class="fu">## Quick view of kegg pathway profile</span></span>
+<span id="cb38-11"><a href="preprocess-of-functional-analysis-of-kegg.html#cb38-11"></a>head /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt</span></code></pre></div>
+<hr />
+</div>
+<div id="session-info-1" class="section level2">
+<h2><span class="header-section-number">3.3</span> Session info</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="preprocess-of-functional-analysis-of-kegg.html#cb39-1"></a>devtools<span class="op">::</span><span class="kw">session_info</span>()</span></code></pre></div>
+<pre><code>## ─ Session info ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  setting  value
+##  version  R version 3.6.3 (2020-02-29)
+##  os       Ubuntu 16.04.7 LTS
+##  system   x86_64, linux-gnu
+##  ui       RStudio
+##  language (EN)
+##  collate  en_IN.UTF-8
+##  ctype    en_IN.UTF-8
+##  tz       Asia/Hong_Kong
+##  date     2022-08-25
+##  rstudio  1.1.419 (server)
+##  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)
+## 
+## ─ Packages ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  ! package              * version    date (UTC) lib source
+##    abind                  1.4-5      2016-07-21 [1] CRAN (R 3.6.3)
+##    ade4                   1.7-17     2021-06-17 [1] CRAN (R 3.6.3)
+##    ALDEx2                 1.18.0     2019-10-29 [1] Bioconductor
+##    annotate               1.64.0     2019-10-29 [1] Bioconductor
+##    AnnotationDbi          1.48.0     2019-10-29 [1] Bioconductor
+##    ape                    5.5        2021-04-25 [1] CRAN (R 3.6.3)
+##    assertthat             0.2.1      2019-03-21 [2] CRAN (R 3.6.3)
+##    backports              1.4.1      2021-12-13 [1] CRAN (R 3.6.3)
+##    base64enc              0.1-3      2015-07-28 [2] CRAN (R 3.6.3)
+##    bayesm                 3.1-4      2019-10-15 [1] CRAN (R 3.6.3)
+##    biglm                  0.9-2.1    2020-11-27 [1] CRAN (R 3.6.3)
+##    Biobase              * 2.46.0     2019-10-29 [2] Bioconductor
+##    BiocGenerics         * 0.32.0     2019-10-29 [2] Bioconductor
+##    BiocParallel         * 1.20.1     2019-12-21 [2] Bioconductor
+##    biomformat             1.14.0     2019-10-29 [1] Bioconductor
+##    Biostrings             2.54.0     2019-10-29 [1] Bioconductor
+##    bit                    4.0.4      2020-08-04 [1] CRAN (R 3.6.3)
+##    bit64                  4.0.5      2020-08-30 [1] CRAN (R 3.6.3)
+##    bitops                 1.0-7      2021-04-24 [1] CRAN (R 3.6.3)
+##    blob                   1.2.2      2021-07-23 [1] CRAN (R 3.6.3)
+##    bookdown               0.24       2021-09-02 [1] CRAN (R 3.6.3)
+##    brio                   1.1.3      2021-11-30 [2] CRAN (R 3.6.3)
+##    broom                  0.7.12     2022-01-28 [1] CRAN (R 3.6.3)
+##    bslib                  0.3.1      2021-10-06 [1] CRAN (R 3.6.3)
+##    cachem                 1.0.5      2021-05-15 [1] CRAN (R 3.6.3)
+##    callr                  3.7.0      2021-04-20 [2] CRAN (R 3.6.3)
+##    car                    3.0-12     2021-11-06 [1] CRAN (R 3.6.3)
+##    carData                3.0-4      2020-05-22 [1] CRAN (R 3.6.3)
+##    caTools                1.18.2     2021-03-28 [1] CRAN (R 3.6.3)
+##    cellranger             1.1.0      2016-07-27 [1] CRAN (R 3.6.3)
+##    checkmate              2.0.0      2020-02-06 [1] CRAN (R 3.6.3)
+##    circlize             * 0.4.13     2021-06-09 [1] CRAN (R 3.6.3)
+##    cli                    3.1.0      2021-10-27 [1] CRAN (R 3.6.3)
+##    clue                   0.3-59     2021-04-16 [1] CRAN (R 3.6.3)
+##    cluster                2.1.0      2019-06-19 [2] CRAN (R 3.6.3)
+##    codetools              0.2-16     2018-12-24 [2] CRAN (R 3.6.3)
+##    colorspace             2.0-2      2021-06-24 [1] CRAN (R 3.6.3)
+##    ComplexHeatmap       * 2.2.0      2019-10-29 [1] Bioconductor
+##    compositions           2.0-2      2021-07-14 [1] CRAN (R 3.6.3)
+##    cowplot              * 1.1.1      2020-12-30 [1] CRAN (R 3.6.3)
+##    crayon                 1.5.0      2022-02-14 [1] CRAN (R 3.6.3)
+##    dada2                * 1.14.1     2020-02-22 [1] Bioconductor
+##    data.table           * 1.14.0     2021-02-21 [1] CRAN (R 3.6.3)
+##    DBI                    1.1.1      2021-01-15 [1] CRAN (R 3.6.3)
+##    dbplyr                 2.1.1      2021-04-06 [1] CRAN (R 3.6.3)
+##    DelayedArray         * 0.12.3     2020-04-09 [2] Bioconductor
+##    DelayedMatrixStats     1.8.0      2019-10-29 [1] Bioconductor
+##    DEoptimR               1.0-9      2021-05-24 [1] CRAN (R 3.6.3)
+##    desc                   1.4.1      2022-03-06 [2] CRAN (R 3.6.3)
+##    DESeq2               * 1.26.0     2019-10-29 [1] Bioconductor
+##    devtools               2.4.3      2021-11-30 [1] CRAN (R 3.6.3)
+##    digest                 0.6.29     2021-12-01 [1] CRAN (R 3.6.3)
+##    dplyr                * 1.0.6      2021-05-05 [1] CRAN (R 3.6.3)
+##    edgeR                  3.28.1     2020-02-26 [1] Bioconductor
+##    ellipsis               0.3.2      2021-04-29 [1] CRAN (R 3.6.3)
+##    EnhancedVolcano      * 1.4.0      2019-10-29 [1] Bioconductor
+##    evaluate               0.15       2022-02-18 [2] CRAN (R 3.6.3)
+##    fansi                  1.0.2      2022-01-14 [1] CRAN (R 3.6.3)
+##    farver                 2.1.0      2021-02-28 [2] CRAN (R 3.6.3)
+##    fastmap                1.1.0      2021-01-25 [1] CRAN (R 3.6.3)
+##    fdrtool                1.2.17     2021-11-13 [1] CRAN (R 3.6.3)
+##    forcats              * 0.5.1      2021-01-27 [1] CRAN (R 3.6.3)
+##    foreach                1.5.2      2022-02-02 [2] CRAN (R 3.6.3)
+##    foreign                0.8-75     2020-01-20 [2] CRAN (R 3.6.3)
+##    formatR                1.12       2022-03-31 [2] CRAN (R 3.6.3)
+##    Formula                1.2-4      2020-10-16 [1] CRAN (R 3.6.3)
+##    fs                     1.5.2      2021-12-08 [1] CRAN (R 3.6.3)
+##    futile.logger          1.4.3      2016-07-10 [2] CRAN (R 3.6.3)
+##    futile.options         1.0.1      2018-04-20 [2] CRAN (R 3.6.3)
+##    genefilter             1.68.0     2019-10-29 [1] Bioconductor
+##    geneplotter            1.64.0     2019-10-29 [1] Bioconductor
+##    generics               0.1.2      2022-01-31 [1] CRAN (R 3.6.3)
+##    GenomeInfoDb         * 1.22.1     2020-03-27 [2] Bioconductor
+##    GenomeInfoDbData       1.2.2      2020-08-24 [2] Bioconductor
+##    GenomicAlignments      1.22.1     2019-11-12 [1] Bioconductor
+##    GenomicRanges        * 1.38.0     2019-10-29 [2] Bioconductor
+##    getopt                 1.20.3     2019-03-22 [1] CRAN (R 3.6.3)
+##    GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 3.6.3)
+##    GGally                 2.1.2      2021-06-21 [1] CRAN (R 3.6.3)
+##    ggExtra              * 0.9        2019-08-27 [1] CRAN (R 3.6.3)
+##    ggplot2              * 3.3.5      2021-06-25 [1] CRAN (R 3.6.3)
+##    ggpubr               * 0.4.0      2020-06-27 [1] CRAN (R 3.6.3)
+##    ggrepel              * 0.9.1      2021-01-15 [2] CRAN (R 3.6.3)
+##    ggsci                * 2.9        2018-05-14 [1] CRAN (R 3.6.3)
+##    ggsignif               0.6.3      2021-09-09 [1] CRAN (R 3.6.3)
+##    glmnet                 4.1-2      2021-06-24 [1] CRAN (R 3.6.3)
+##    GlobalOptions          0.1.2      2020-06-10 [1] CRAN (R 3.6.3)
+##    glue                   1.6.1      2022-01-22 [1] CRAN (R 3.6.3)
+##    GMPR                   0.1.3      2021-05-17 [1] local
+##    gplots                 3.1.1      2020-11-28 [1] CRAN (R 3.6.3)
+##    gridExtra              2.3        2017-09-09 [2] CRAN (R 3.6.3)
+##    gtable                 0.3.0      2019-03-25 [2] CRAN (R 3.6.3)
+##    gtools                 3.9.2      2021-06-06 [1] CRAN (R 3.6.3)
+##    haven                  2.4.1      2021-04-23 [1] CRAN (R 3.6.3)
+##    highr                  0.9        2021-04-16 [1] CRAN (R 3.6.3)
+##    Hmisc                  4.5-0      2021-02-28 [1] CRAN (R 3.6.3)
+##    hms                    1.1.1      2021-09-26 [1] CRAN (R 3.6.3)
+##    htmlTable              2.3.0      2021-10-12 [1] CRAN (R 3.6.3)
+##    htmltools              0.5.2      2021-08-25 [1] CRAN (R 3.6.3)
+##    htmlwidgets            1.5.4      2021-09-08 [2] CRAN (R 3.6.3)
+##    httpuv                 1.6.1      2021-05-07 [1] CRAN (R 3.6.3)
+##    httr                   1.4.3      2022-05-04 [2] CRAN (R 3.6.3)
+##    hwriter                1.3.2      2014-09-10 [1] CRAN (R 3.6.3)
+##    igraph                 1.3.1      2022-04-20 [2] CRAN (R 3.6.3)
+##    IHW                    1.14.0     2019-10-29 [1] Bioconductor
+##    IRanges              * 2.20.2     2020-01-13 [2] Bioconductor
+##    iterators              1.0.14     2022-02-05 [2] CRAN (R 3.6.3)
+##    jpeg                   0.1-9      2021-07-24 [1] CRAN (R 3.6.3)
+##    jquerylib              0.1.4      2021-04-26 [1] CRAN (R 3.6.3)
+##    jsonlite               1.8.0      2022-02-22 [2] CRAN (R 3.6.3)
+##    KernSmooth             2.23-16    2019-10-15 [2] CRAN (R 3.6.3)
+##    knitr                  1.36       2021-09-29 [1] CRAN (R 3.6.3)
+##    labeling               0.4.2      2020-10-20 [2] CRAN (R 3.6.3)
+##    lambda.r               1.2.4      2019-09-18 [2] CRAN (R 3.6.3)
+##    later                  1.3.0      2021-08-18 [2] CRAN (R 3.6.3)
+##    lattice              * 0.20-38    2018-11-04 [2] CRAN (R 3.6.3)
+##    latticeExtra           0.6-29     2019-12-19 [1] CRAN (R 3.6.3)
+##    lazyeval               0.2.2      2019-03-15 [2] CRAN (R 3.6.3)
+##    lifecycle              1.0.1      2021-09-24 [1] CRAN (R 3.6.3)
+##    limma                  3.42.2     2020-02-03 [2] Bioconductor
+##    locfit                 1.5-9.4    2020-03-25 [1] CRAN (R 3.6.3)
+##    lpsymphony             1.14.0     2019-10-29 [1] Bioconductor (R 3.6.3)
+##    lubridate              1.7.10     2021-02-26 [1] CRAN (R 3.6.3)
+##    Maaslin2               1.7.3      2022-03-23 [1] Github (biobakery/maaslin2@8d090e4)
+##    magrittr             * 2.0.2      2022-01-26 [1] CRAN (R 3.6.3)
+##    MASS                   7.3-54     2021-05-03 [1] CRAN (R 3.6.3)
+##    Matrix                 1.3-4      2021-06-01 [1] CRAN (R 3.6.3)
+##    matrixStats          * 0.60.0     2021-07-26 [1] CRAN (R 3.6.3)
+##    mbzinb                 0.2        2021-06-23 [1] local
+##    memoise                2.0.1      2021-11-26 [2] CRAN (R 3.6.3)
+##    metagenomeSeq          1.28.2     2020-02-03 [1] Bioconductor
+##    metamicrobiomeR        1.1        2021-02-03 [1] local
+##    mgcv                   1.8-31     2019-11-09 [2] CRAN (R 3.6.3)
+##    microbiome             1.8.0      2019-10-29 [1] Bioconductor
+##    mime                   0.12       2021-09-28 [2] CRAN (R 3.6.3)
+##    miniUI                 0.1.1.1    2018-05-18 [1] CRAN (R 3.6.3)
+##    modelr                 0.1.8      2020-05-19 [1] CRAN (R 3.6.3)
+##    multtest               2.42.0     2019-10-29 [2] Bioconductor
+##    munsell                0.5.0      2018-06-12 [2] CRAN (R 3.6.3)
+##    mvtnorm                1.1-3      2021-10-08 [1] CRAN (R 3.6.3)
+##    nlme                   3.1-144    2020-02-06 [2] CRAN (R 3.6.3)
+##    nnet                   7.3-12     2016-02-02 [2] CRAN (R 3.6.3)
+##    optparse               1.7.1      2021-10-08 [1] CRAN (R 3.6.3)
+##    pcaPP                  1.9-74     2021-04-23 [1] CRAN (R 3.6.3)
+##    permute              * 0.9-5      2019-03-12 [1] CRAN (R 3.6.3)
+##    phyloseq             * 1.30.0     2019-10-29 [1] Bioconductor
+##    pillar                 1.7.0      2022-02-01 [1] CRAN (R 3.6.3)
+##    pkgbuild               1.3.1      2021-12-20 [2] CRAN (R 3.6.3)
+##    pkgconfig              2.0.3      2019-09-22 [2] CRAN (R 3.6.3)
+##    pkgload                1.2.4      2021-11-30 [2] CRAN (R 3.6.3)
+##    plotly               * 4.10.0     2021-10-09 [1] CRAN (R 3.6.3)
+##    plyr                   1.8.7      2022-03-24 [2] CRAN (R 3.6.3)
+##    png                    0.1-7      2013-12-03 [1] CRAN (R 3.6.3)
+##    prettyunits            1.1.1      2020-01-24 [2] CRAN (R 3.6.3)
+##    processx               3.5.3      2022-03-25 [2] CRAN (R 3.6.3)
+##    promises               1.2.0.1    2021-02-11 [2] CRAN (R 3.6.3)
+##    protoclust             1.6.3      2019-01-31 [1] CRAN (R 3.6.3)
+##    ps                     1.7.0      2022-04-23 [2] CRAN (R 3.6.3)
+##    pscl                   1.5.5      2020-03-07 [1] CRAN (R 3.6.3)
+##    purrr                * 0.3.4      2020-04-17 [2] CRAN (R 3.6.3)
+##    qvalue                 2.18.0     2019-10-29 [1] Bioconductor
+##    R6                     2.5.1      2021-08-19 [1] CRAN (R 3.6.3)
+##    RAIDA                  1.0        2021-06-23 [1] local
+##    ranacapa               0.1.0      2021-06-18 [1] Github (gauravsk/ranacapa@58c0cab)
+##    RColorBrewer         * 1.1-3      2022-04-03 [2] CRAN (R 3.6.3)
+##    Rcpp                 * 1.0.7      2021-07-07 [1] CRAN (R 3.6.3)
+##    RcppParallel           5.1.4      2021-05-04 [1] CRAN (R 3.6.3)
+##    RCurl                  1.98-1.6   2022-02-08 [2] CRAN (R 3.6.3)
+##    readr                * 2.0.0      2021-07-20 [1] CRAN (R 3.6.3)
+##    readxl               * 1.3.1      2019-03-13 [1] CRAN (R 3.6.3)
+##    remotes                2.4.2      2021-11-30 [1] CRAN (R 3.6.3)
+##    reprex                 2.0.1      2021-08-05 [1] CRAN (R 3.6.3)
+##    reshape                0.8.9      2022-04-12 [1] CRAN (R 3.6.3)
+##    reshape2             * 1.4.4      2020-04-09 [2] CRAN (R 3.6.3)
+##    rhdf5                  2.30.1     2019-11-26 [1] Bioconductor
+##    Rhdf5lib               1.8.0      2019-10-29 [1] Bioconductor
+##    rJava                  1.0-5      2021-09-24 [1] CRAN (R 3.6.3)
+##    rjson                  0.2.20     2018-06-08 [1] CRAN (R 3.6.3)
+##  R rlang                  1.0.2      &lt;NA&gt;       [2] &lt;NA&gt;
+##    rmarkdown              2.11       2021-09-14 [1] CRAN (R 3.6.3)
+##    robustbase             0.93-9     2021-09-27 [1] CRAN (R 3.6.3)
+##    rpart                  4.1-15     2019-04-12 [2] CRAN (R 3.6.3)
+##    rprojroot              2.0.2      2020-11-15 [1] CRAN (R 3.6.3)
+##    Rsamtools              2.2.3      2020-02-23 [1] Bioconductor
+##    RSQLite                2.2.7      2021-04-22 [1] CRAN (R 3.6.3)
+##    rstatix                0.7.0      2021-02-13 [1] CRAN (R 3.6.3)
+##    rstudioapi             0.13       2020-11-12 [2] CRAN (R 3.6.3)
+##    Rtsne                  0.15       2018-11-10 [1] CRAN (R 3.6.3)
+##    rvest                  1.0.2      2021-10-16 [1] CRAN (R 3.6.3)
+##    S4Vectors            * 0.24.4     2020-04-09 [2] Bioconductor
+##    sass                   0.4.0      2021-05-12 [1] CRAN (R 3.6.3)
+##    scales                 1.2.0      2022-04-13 [2] CRAN (R 3.6.3)
+##    seqinr               * 4.2-8      2021-06-09 [1] CRAN (R 3.6.3)
+##    sessioninfo            1.2.2      2021-12-06 [2] CRAN (R 3.6.3)
+##    shape                  1.4.6      2021-05-19 [1] CRAN (R 3.6.3)
+##    shiny                  1.7.1      2021-10-02 [1] CRAN (R 3.6.3)
+##    ShortRead              1.44.3     2020-02-03 [1] Bioconductor
+##    slam                   0.1-49     2021-11-17 [1] CRAN (R 3.6.3)
+##    stringi                1.7.4      2021-08-25 [1] CRAN (R 3.6.3)
+##    stringr              * 1.4.0      2019-02-10 [2] CRAN (R 3.6.3)
+##    SummarizedExperiment * 1.16.1     2019-12-19 [2] Bioconductor
+##    survival               3.1-8      2019-12-03 [2] CRAN (R 3.6.3)
+##    tensorA                0.36.2     2020-11-19 [1] CRAN (R 3.6.3)
+##    testthat               3.1.4      2022-04-26 [2] CRAN (R 3.6.3)
+##    textshape              1.7.3      2021-05-28 [1] CRAN (R 3.6.3)
+##    tibble               * 3.1.6      2021-11-07 [1] CRAN (R 3.6.3)
+##    tidyr                * 1.2.0      2022-02-01 [1] CRAN (R 3.6.3)
+##    tidyselect             1.1.1      2021-04-30 [1] CRAN (R 3.6.3)
+##    tidyverse            * 1.3.1      2021-04-15 [1] CRAN (R 3.6.3)
+##    tzdb                   0.2.0      2021-10-27 [1] CRAN (R 3.6.3)
+##    UpSetR                 1.4.0      2019-05-22 [1] CRAN (R 3.6.3)
+##    usethis                2.1.6      2022-05-25 [2] CRAN (R 3.6.3)
+##    utf8                   1.2.2      2021-07-24 [1] CRAN (R 3.6.3)
+##    vctrs                  0.3.8      2021-04-29 [1] CRAN (R 3.6.3)
+##    vegan                * 2.5-7      2020-11-28 [1] CRAN (R 3.6.3)
+##    VennDiagram            1.7.1      2021-12-02 [1] CRAN (R 3.6.3)
+##    viridisLite            0.4.0      2021-04-13 [2] CRAN (R 3.6.3)
+##    vroom                  1.5.7      2021-11-30 [1] CRAN (R 3.6.3)
+##    withr                  2.4.3      2021-11-30 [1] CRAN (R 3.6.3)
+##    Wrench                 1.4.0      2019-10-29 [1] Bioconductor
+##    xfun                   0.23       2021-05-15 [1] CRAN (R 3.6.3)
+##    xlsx                 * 0.6.5      2020-11-10 [1] CRAN (R 3.6.3)
+##    xlsxjars               0.6.1      2014-08-22 [1] CRAN (R 3.6.3)
+##    XMAS                 * 0.0.0.9000 2022-03-23 [1] local
+##    XML                    3.99-0.3   2020-01-20 [1] CRAN (R 3.6.3)
+##    xml2                   1.3.3      2021-11-30 [2] CRAN (R 3.6.3)
+##    xtable                 1.8-4      2019-04-21 [1] CRAN (R 3.6.3)
+##    XVector                0.26.0     2019-10-29 [2] Bioconductor
+##    xviz                 * 1.1.0      2021-01-14 [1] local
+##    yaml                   2.2.2      2022-01-25 [1] CRAN (R 3.6.3)
+##    zlibbioc               1.32.0     2019-10-29 [2] Bioconductor
+## 
+##  [1] /share/home/tongbangzhuo/R/x86_64-pc-linux-gnu-library/3.6
+##  [2] /opt/R-3.6.3/lib/R/library
+## 
+##  R ── Package was removed from disk.
+## 
+## ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functional-analysis-of-metacyc-database.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functional-analysis-of-kegg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/02-Functional_Analysis_Kegg_Pathway_preprocess.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Function standard analysis workflow.pdf", "Function standard analysis workflow.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
