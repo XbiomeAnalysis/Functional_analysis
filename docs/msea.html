@@ -24,7 +24,7 @@
 <meta name="author" content="Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-08-26" />
+<meta name="date" content="2022-09-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,6 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="msea" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> MSEA</h1>
+<p>(This script was written in <em><strong>/share/projects/SOP/Functional_Analysis/github/Functional_analysis/</strong></em> , all relative paths below are under this complete path.)</p>
 <p>This is a markdown tutorial for MSEA. To run MSEA, you need to Install MSEA to your default python before running this template. Installation instruction: <a href="https://msea.readthedocs.io/en/latest/quickstart.html#installation" class="uri">https://msea.readthedocs.io/en/latest/quickstart.html#installation</a>.</p>
 <p>You can run MSEA when you have genus that you’re interested in (e.g., DA genus), write all genus into one txt file, one genus per line and feed the file to MSEA as input.</p>
 <div class="figure">
@@ -228,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>–output (Optional), output csv file of MSEA result. Default testout.csv<br />
 </li>
 <li>–PerturbationTimes (Optional), number of perturbation. Fisher’s excat test has bias on group with large number of samples, MSEA uses random sampling to remove the bias. Larger number of perturbation would cause longer runtime. Default 50.<br />
-For more drtail, see <em><a href="https://www.nature.com/articles/s41598-020-78511-y">citation</a></em></li>
+For more detail, see <em><a href="https://www.nature.com/articles/s41598-020-78511-y">citation</a></em></li>
 </ol>
 <div class="sourceCode" id="cb88"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb88-1"><a href="msea.html#cb88-1"></a></span>
 <span id="cb88-2"><a href="msea.html#cb88-2"></a>/home/tongbangzhuo/Software/miniconda3/bin/python ./MSEA/MSEA_Run.py --input ./MSEA/test_input --output ./MSEA/testout.csv --PerturbationTimes 10</span></code></pre></div>
@@ -351,20 +352,13 @@ The next chunk shows you how to run enrichR on R studio, you can either run enri
 <span id="cb94-11"><a href="msea.html#cb94-11"></a>dbs &lt;-<span class="st"> </span><span class="kw">listEnrichrDbs</span>()</span>
 <span id="cb94-12"><a href="msea.html#cb94-12"></a><span class="cf">if</span> (<span class="kw">is.null</span>(dbs)) websiteLive &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
 <span id="cb94-13"><a href="msea.html#cb94-13"></a><span class="cf">if</span> (websiteLive) <span class="kw">head</span>(dbs)</span></code></pre></div>
-<pre><code>##   geneCoverage genesPerTerm                      libraryName                                                     link numTerms
-## 1        13362          275              Genome_Browser_PWMs http://hgdownload.cse.ucsc.edu/goldenPath/hg18/database/      615
-## 2        27884         1284         TRANSFAC_and_JASPAR_PWMs                 http://jaspar.genereg.net/html/DOWNLOAD/      326
-## 3         6002           77        Transcription_Factor_PPIs                                                               290
-## 4        47172         1370                        ChEA_2013           http://amp.pharm.mssm.edu/lib/cheadownload.jsp      353
-## 5        47107          509 Drug_Perturbations_from_GEO_2014                         http://www.ncbi.nlm.nih.gov/geo/      701
-## 6        21493         3713          ENCODE_TF_ChIP-seq_2014             http://genome.ucsc.edu/ENCODE/downloads.html      498
-##                                    appyter categoryId
-## 1 ea115789fcbf12797fd692cec6df0ab4dbc79c6a          1
-## 2 7d42eb43a64a4e3b20d721fc7148f685b53b6b30          1
-## 3 849f222220618e2599d925b6b51868cf1dab3763          1
-## 4 7ebe772afb55b63b41b79dd8d06ea0fdd9fa2630          7
-## 5 ad270a6876534b7cb063e004289dcd4d3164f342          7
-## 6 497787ebc418d308045efb63b8586f10c526af51          7</code></pre>
+<pre><code>##   geneCoverage genesPerTerm                      libraryName                                                     link numTerms                                  appyter categoryId
+## 1        13362          275              Genome_Browser_PWMs http://hgdownload.cse.ucsc.edu/goldenPath/hg18/database/      615 ea115789fcbf12797fd692cec6df0ab4dbc79c6a          1
+## 2        27884         1284         TRANSFAC_and_JASPAR_PWMs                 http://jaspar.genereg.net/html/DOWNLOAD/      326 7d42eb43a64a4e3b20d721fc7148f685b53b6b30          1
+## 3         6002           77        Transcription_Factor_PPIs                                                               290 849f222220618e2599d925b6b51868cf1dab3763          1
+## 4        47172         1370                        ChEA_2013           http://amp.pharm.mssm.edu/lib/cheadownload.jsp      353 7ebe772afb55b63b41b79dd8d06ea0fdd9fa2630          7
+## 5        47107          509 Drug_Perturbations_from_GEO_2014                         http://www.ncbi.nlm.nih.gov/geo/      701 ad270a6876534b7cb063e004289dcd4d3164f342          7
+## 6        21493         3713          ENCODE_TF_ChIP-seq_2014             http://genome.ucsc.edu/ENCODE/downloads.html      498 497787ebc418d308045efb63b8586f10c526af51          7</code></pre>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="msea.html#cb96-1"></a><span class="co">## Choose the databases you want to enrich your genes with and Run enrichR of genus-associated human genes on chosen databases</span></span>
 <span id="cb96-2"><a href="msea.html#cb96-2"></a>dbs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;GO_Molecular_Function_2021&quot;</span>,<span class="st">&quot;KEGG_2019_Human&quot;</span>)</span>
 <span id="cb96-3"><a href="msea.html#cb96-3"></a><span class="cf">if</span> (websiteLive) {</span>

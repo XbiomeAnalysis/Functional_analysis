@@ -1,5 +1,7 @@
 # PICRUSt2
 
+(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
+
 _**This demo would guide you how to implement funciton analysis on 16S data**_  
 
 ![FlowChart_PICRUSt2}](./flowcharts/FlowChart_PICRUSt2.jpg)
@@ -146,6 +148,7 @@ head(DA_res)
 ```
 
 **Visualize DA result**  
+
 ```{r Visualize DA result, fig.width= 20, fig.height=9, warning=FALSE}
 ## Read in description for 
 ID_Description_Mapping <- read.table('./Demodata/PICRUSt2/output/KO_metagenome_out/pred_metagenome_unstrat_descrip.tsv',

@@ -1,5 +1,7 @@
 # Functional Analysis of TargetDatabase
 
+(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
+
 _**This demo guides you how to analyze the pathway profile annotated from humman2 against 7 target databases.**_  
 
 ![FlowChart_KEGG](./flowcharts/FlowChart_TargetDB.jpg)
@@ -38,14 +40,14 @@ _**Read in card data**_
 ```{r rescale card data}
 ## Read in merged card profile data
 
-merged_card_profile <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/Demo_data/merged_card_profile.tsv',
+merged_card_profile <- read.table('./Demodata/TargetDatabase/Demo_data/merged_card_profile.tsv',
                                   sep = '\t', header = TRUE, check.names = FALSE, na.strings = '?',comment.char = '?')
 
 head(merged_card_profile, n = 2)
 
 ## Read in metadata (Group information)
 
-metadata <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase2/TargetDatabase/Demo_data/Demo_metadata.xls', check.names = FALSE, header = TRUE)
+metadata <- read.table('./Demodata/TargetDatabase/Demo_data/Demo_metadata.xls', check.names = FALSE, header = TRUE)
 ```
 
 ---

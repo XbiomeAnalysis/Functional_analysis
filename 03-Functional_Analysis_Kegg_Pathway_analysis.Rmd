@@ -1,5 +1,7 @@
 # Functional Analysis of KEGG
 
+(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
+
 _**This demo guides you how to analyze KEGG pathway profile and KO profile.**_  
 
 ![FlowChart_KEGG](./flowcharts/FlowChart_KEGG.jpg)

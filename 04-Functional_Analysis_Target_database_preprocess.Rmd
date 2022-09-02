@@ -1,5 +1,7 @@
 # Preprocess of Functional Analysis of Target Database
 
+(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
+
 _**In this tutorial, we aim to teach you how to merge *genefamilies.tsv files of all samples into one file.**_  
 
 Target database inclues 7 types: 

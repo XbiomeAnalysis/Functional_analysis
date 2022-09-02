@@ -1,5 +1,7 @@
 # Preprocess of Functional Analysis of KEGG
 
+(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
+
 _**This demo guides you how to merge and generate KO profile and pathway profile from humann2 pipeline output folder in bash.**_  
 
 In this Chapter, data of a cohort consisting of 10 samples from 8 patients, 1 water tube and 1 BRS in Newtech project were used as demo data.  
@@ -52,11 +54,11 @@ In this chunk, we merge all *genefamilies.tsv into one file and edit the colname
 ```markdown
 ## Start merging profile files
 
-docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/Pipeline_Out/*/humann2_kegg/*genefamilies.tsv > /in/Demo_data/merged_profile.tsv"
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/Demo_data/Pipeline_Out/*/humann2_kegg/*genefamilies.tsv > /in/Demo_data/merged_profile.tsv"
 
 ## Remove suffix in sample name
-sed -i 's#_genefamilies##g' /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv
-sed -i 's$^ID$# Gene Family$g' /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv
+sed -i 's#_genefamilies##g' /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv
+sed -i 's$^ID$# Gene Family$g' /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv
 
 ```
 
@@ -64,7 +66,7 @@ _**Transform all species code with species name in merged profile file & map keg
 
 In this chunk, we transform the species code to species names and convert the kegg gene id to K numbers.
 
-- input1: *profile.tsv 
+- input1: *profile.tsv  
 
 - input2: path of kegg database
 
@@ -75,9 +77,9 @@ In this chunk, we transform the species code to species names and convert the ke
 ## Version of prokaryotes.dat.gz should be consistent with the version of Kegg database.
 ## Note!!!! file name of output must ends with ".kegg"
 
-python /share/projects/SOP/Functional_Analysis/Functional_analysis/Scripts/rename-kegg-gene.py -in /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv -db /share/projects/SOP/Functional_Analysis/Functional_analysis/Scripts/db/ -out /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg -species 1
+python ./Scripts/rename-kegg-gene.py -in /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_profile.tsv -db ./Scripts/db/ -out /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg -species 1
 
-tail -n 2 /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg
+tail -n 2 /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg
 ```
 
 _**Remove unmapped row in merged profile file**_
@@ -87,7 +89,7 @@ In this chunk, we remove unmapped row from merged profile file.
 ```markdown
 ## Since unmapped row doesn't convey any information we need, we remove unmapped row from merged profile file.
 
-grep -v "^UNMAPPED" /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg > /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt
+grep -v "^UNMAPPED" /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg > /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt
 ```
 
 _**Re-scale (Total Sum Scale) & map kegg gene entries to KO entries**_
@@ -103,7 +105,7 @@ In this chunk, we re-scale the profile of each feature by divding their RPK valu
 ```markdown
 ## In this chunk we take merged_remove_unmapped.txt from last step as input, re-scale all features abundance into relative abundance (sum to 1). We also extracted the abundance of K numbers and saved in *knumber.txt
 
-python /share/projects/SOP/Functional_Analysis/Functional_analysis/Scripts/reminpath.py -i /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt -k /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_knumber.txt -m /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.input
+python ./Scripts/reminpath.py -i /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt -k /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_knumber.txt -m /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.input
 ```
 
 _**Use minpath to extract the mapping information between Knumers and KEGG pathways**_
@@ -117,7 +119,7 @@ In this chunk, we use minpath to extract the mapping relation between K numers a
 - output2: *details, detail of minpath
 
 ```markdown
-python /share/work/runtime/softwares/MinPath/MinPath.py -ko /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.input -report /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.report -details /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.details > /dev/null 2>&1
+python /share/work/runtime/softwares/MinPath/MinPath.py -ko /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.input -report /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.report -details /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.details > /dev/null 2>&1
 ```
 
 _**Calculate the abundance of Kegg pathways**_
@@ -142,19 +144,20 @@ In this chunk we calculate the abundance of KEGG pathways. Since multiple K numb
 ## In this chunk, we use the minpath report (stroing the mapping information between KO and Kegg pathway) and abundance table (unit of feature is RPK) of KO to estimate the abundance of pathways.
 ## Note: Becasue minpath mapping file doesn't include the UMAPPED entry, we need to add UMAPPED entry to the output manually after the calcualtion of pathway abundance.
 
-python /share/projects/SOP/Functional_Analysis/Functional_analysis/Scripts/kegg_abundance.py -path /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.report -detail /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.details -in  /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt -out /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt
+python ./Scripts/kegg_abundance.py -path /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.report -detail /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.details -in  /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_remove_unmapped.txt -out /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt
 
 ## Add UNMAPPED row to pathway abundance table
 
-grep "UNMAPPED" /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg | grep -v "|" >> /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt
+grep "UNMAPPED" /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged.kegg | grep -v "|" >> /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt
 
 ## Quick view of kegg pathway profile
-head /share/projects/SOP/Functional_Analysis/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt
+head /share/projects/SOP/Functional_Analysis/github/Functional_analysis/Demodata/KEGG/Demo_data/merged_pathway.txt
 ```
 
 ---
 
-## Session info
+## Session info  
+
 ```{r}
 devtools::session_info()
-```
+```  

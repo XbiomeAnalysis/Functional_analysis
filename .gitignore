@@ -2,3 +2,11 @@
 .Rhistory
 .RData
 .Ruserdata
+./Demodata/KEGG/Demo_data/merged.kegg
+./Demodata/KEGG/Demo_data/merged_profile.tsv
+./Demodata/KEGG/Demo_data/merged_remove_unmapped.txt
+./Demodata/KEGG/Demo_data/Pipeline_Out/
+./Demodata/KEGG/Demo_data/Test/
+./Demodata/TargetDatabase/Demo_data_donor/
+./Demodata/TargetDatabase/Demo_data_donor_test_threshold/
+./Demodata/TargetDatabase/Demo_data/

@@ -1,5 +1,7 @@
 # Functional Analysis of Metacyc database
 
+(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
+
 _**This demo provides guidance to standard data analysis of MetaCyc pathway data. Humman2 is used to annotate MGS reads with MetaCyc database.**_  
 
 ![FlowChart_MetaCyc](./flowcharts/FlowChart_MetaCyc.jpg)
