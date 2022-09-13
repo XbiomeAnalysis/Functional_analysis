@@ -1,6 +1,6 @@
 # Functional Analysis of Metacyc database
 
-(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
+(This script was written in _**/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/**_ , all relative paths below are under this complete path.)
 
 _**This demo provides guidance to standard data analysis of MetaCyc pathway data. Humman2 is used to annotate MGS reads with MetaCyc database.**_  
 
@@ -56,7 +56,7 @@ Read MetaCyc metadata from Demo folder.
 
 ```{r metadata}
 
-metadata <- read.table("./Demodata/MetaCyc/metadata.txt",header = TRUE,stringsAsFactors = FALSE) %>%
+metadata <- read.table("./Demodata/metadata.txt",header = TRUE,stringsAsFactors = FALSE) %>%
   mutate(seqid2 = seqid) %>%  # keep seqid in the metadata
   column_to_rownames("seqid2")
 
@@ -72,7 +72,7 @@ Read MetaCyc profile table from Demo folder.
 
 ```{r load_unstratified_pahtwaydata}
 
-pathwaydata <- read_delim("./Demodata/MetaCyc/merged_relab_pathabundance_unstratified.tsv", delim = "\t") %>%
+pathwaydata <- read_delim("./Demodata/merged_relab_pathabundance_unstratified.tsv", delim = "\t") %>%
   mutate(`# Pathway` = str_split_fixed(`# Pathway`, ":", 2)[,1]) %>%           # do not edit 
   column_to_rownames("# Pathway") %>%                                          # do not edit
   t() %>% as.data.frame() %>%                                                  # do not edit
@@ -202,7 +202,7 @@ da_pathway$id %<>% str_replace_all("_","-")
 ```{r bacteria_contribution, fig.width=7,fig.width=7}
 options(stringsAsFactors = FALSE)
 
-pathway_stratified <- read_delim("./Demodata/MetaCyc/merged_relab_pathabundance_stratified.pcl", delim = "\t") %>%
+pathway_stratified <- read_delim("./Demodata/merged_relab_pathabundance_stratified.pcl", delim = "\t") %>%
     column_to_rownames("pathwayID") %>%
     t() %>%
     as.data.frame() %>%
@@ -229,7 +229,7 @@ pathway_list <- pathway_stratified %>% as.data.frame() %>%
     rownames()
     
 
-read_delim("./Demodata/MetaCyc/merged_relab_pathabundance_stratified.tsv", delim = "\t") %>%
+read_delim("./Demodata/merged_relab_pathabundance_stratified.tsv", delim = "\t") %>%
     column_to_rownames("# Pathway") %>%
     t() %>%
     as.data.frame() %>%
