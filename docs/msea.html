@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 MSEA | Functional analysis</title>
+  <title>Chapter 5 MSEA | Functional analysis</title>
   <meta name="description" content="Tutorial for MGS functional analysis" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 MSEA | Functional analysis" />
+  <meta property="og:title" content="Chapter 5 MSEA | Functional analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 MSEA | Functional analysis" />
+  <meta name="twitter:title" content="Chapter 5 MSEA | Functional analysis" />
   
   <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-09-02" />
+<meta name="date" content="2022-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,55 +140,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html"><i class="fa fa-check"></i><b>2</b> Functional Analysis of Metacyc database</a><ul>
 <li class="chapter" data-level="2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#environment-setup"><i class="fa fa-check"></i><b>2.1</b> Environment setup</a></li>
-<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-loading"><i class="fa fa-check"></i><b>2.2</b> Data loading</a></li>
-<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-preprocess"><i class="fa fa-check"></i><b>2.3</b> Data preprocess</a></li>
-<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.4</b> Plot Beta diversity</a></li>
-<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.5</b> Permanova test</a></li>
-<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.6</b> Differential analysis(DA)</a></li>
-<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contributing-to-differential-pathways"><i class="fa fa-check"></i><b>2.7</b> Bacteria contributing to differential pathways</a></li>
-<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8</b> Plot Bacteria contribution</a></li>
-<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#gene-and-ensyme-involed-in-differential-pathways"><i class="fa fa-check"></i><b>2.9</b> Gene and Ensyme involed in differential pathways</a></li>
-<li class="chapter" data-level="2.10" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.10</b> Session info</a></li>
+<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#pipeline-file-processing"><i class="fa fa-check"></i><b>2.2</b> Pipeline file processing</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#merge-sample-files"><i class="fa fa-check"></i><b>2.2.1</b> Merge sample files</a></li>
+<li class="chapter" data-level="2.2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#split-strain-info"><i class="fa fa-check"></i><b>2.2.2</b> Split strain info</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Preprocess of Functional Analysis of KEGG</a><ul>
-<li class="chapter" data-level="3.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment Setup</a></li>
-<li class="chapter" data-level="3.2" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#process-pipeline-output"><i class="fa fa-check"></i><b>3.2</b> Process pipeline output</a></li>
-<li class="chapter" data-level="3.3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#session-info-1"><i class="fa fa-check"></i><b>3.3</b> Session info</a></li>
+<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-loading"><i class="fa fa-check"></i><b>2.3</b> Data loading</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#read-metadata"><i class="fa fa-check"></i><b>2.3.1</b> Read metadata:</a></li>
+<li class="chapter" data-level="2.3.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#read-metaphlan2-profile-table"><i class="fa fa-check"></i><b>2.3.2</b> Read metaphlan2 profile table:</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis of KEGG</a><ul>
-<li class="chapter" data-level="4.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#environment-setup-2"><i class="fa fa-check"></i><b>4.1</b> Environment setup</a></li>
-<li class="chapter" data-level="4.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-loading-1"><i class="fa fa-check"></i><b>4.2</b> Data loading</a></li>
-<li class="chapter" data-level="4.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-preprocessing"><i class="fa fa-check"></i><b>4.3</b> Data preprocessing</a></li>
-<li class="chapter" data-level="4.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#standard-analysis"><i class="fa fa-check"></i><b>4.4</b> Standard Analysis</a></li>
-<li class="chapter" data-level="4.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysisda-1"><i class="fa fa-check"></i><b>4.5</b> Differential analysis(DA)</a></li>
-<li class="chapter" data-level="4.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information"><i class="fa fa-check"></i><b>4.6</b> Session information</a></li>
+<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-preprocess"><i class="fa fa-check"></i><b>2.4</b> Data preprocess</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#transforming-data"><i class="fa fa-check"></i><b>2.4.1</b> Transforming data</a></li>
+<li class="chapter" data-level="2.4.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#remove-unppaed-pathways"><i class="fa fa-check"></i><b>2.4.2</b> Remove unppaed pathways</a></li>
+<li class="chapter" data-level="2.4.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#aggregate-low-abundance-data"><i class="fa fa-check"></i><b>2.4.3</b> Aggregate low abundance data</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="preprocess-of-functional-analysis-of-target-database.html"><a href="preprocess-of-functional-analysis-of-target-database.html"><i class="fa fa-check"></i><b>5</b> Preprocess of Functional Analysis of Target Database</a><ul>
-<li class="chapter" data-level="5.1" data-path="preprocess-of-functional-analysis-of-target-database.html"><a href="preprocess-of-functional-analysis-of-target-database.html#merge-sample-data"><i class="fa fa-check"></i><b>5.1</b> Merge sample data</a></li>
+<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.5</b> Plot Beta diversity</a></li>
+<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.6</b> Permanova test</a></li>
+<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.7</b> Differential analysis(DA)</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#filter-low-prevalence-pathway"><i class="fa fa-check"></i><b>2.7.1</b> Filter low prevalence pathway</a></li>
+<li class="chapter" data-level="2.7.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#lefse"><i class="fa fa-check"></i><b>2.7.2</b> LefSE</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>6</b> Functional Analysis of TargetDatabase</a><ul>
-<li class="chapter" data-level="6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-3"><i class="fa fa-check"></i><b>6.1</b> Environment setup</a></li>
-<li class="chapter" data-level="6.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-loading-2"><i class="fa fa-check"></i><b>6.2</b> Data loading</a></li>
-<li class="chapter" data-level="6.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-preprocessing-1"><i class="fa fa-check"></i><b>6.3</b> Data preprocessing</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#standard-analysis-1"><i class="fa fa-check"></i><b>6.3.1</b> Standard analysis</a></li>
+<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contribution-to-differential-pathways"><i class="fa fa-check"></i><b>2.8</b> Bacteria contribution to differential pathways</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#generate-input-from-contribution-barplot"><i class="fa fa-check"></i><b>2.8.1</b> Generate input from contribution barplot</a></li>
+<li class="chapter" data-level="2.8.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8.2</b> Plot Bacteria contribution</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysisda-2"><i class="fa fa-check"></i><b>6.4</b> Differential analysis(DA)</a></li>
+<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.9</b> Session info</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="msea.html"><a href="msea.html"><i class="fa fa-check"></i><b>7</b> MSEA</a><ul>
-<li class="chapter" data-level="7.1" data-path="msea.html"><a href="msea.html#execute-msea-with-python-script-on-server"><i class="fa fa-check"></i><b>7.1</b> Execute MSEA with python script on server</a></li>
-<li class="chapter" data-level="7.2" data-path="msea.html"><a href="msea.html#environment-setup-4"><i class="fa fa-check"></i><b>7.2</b> Environment setup</a></li>
-<li class="chapter" data-level="7.3" data-path="msea.html"><a href="msea.html#read-in-msea-result"><i class="fa fa-check"></i><b>7.3</b> Read in MSEA result</a></li>
-<li class="chapter" data-level="7.4" data-path="msea.html"><a href="msea.html#filter-msea-result"><i class="fa fa-check"></i><b>7.4</b> Filter MSEA result</a></li>
-<li class="chapter" data-level="7.5" data-path="msea.html"><a href="msea.html#visualization"><i class="fa fa-check"></i><b>7.5</b> Visualization</a></li>
-<li class="chapter" data-level="7.6" data-path="msea.html"><a href="msea.html#run-enrichr-analysis"><i class="fa fa-check"></i><b>7.6</b> Run enrichR analysis</a></li>
+<li class="chapter" data-level="3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="3.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment setup</a></li>
+<li class="chapter" data-level="3.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#pipeline-file-processing-kegg"><i class="fa fa-check"></i><b>3.2</b> Pipeline file processing (KEGG)</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-description-in-kegg-map-profile"><i class="fa fa-check"></i><b>3.2.1</b> Remove description in KEGG map profile</a></li>
+<li class="chapter" data-level="3.2.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#merge-kegg-map-profile-of-samples"><i class="fa fa-check"></i><b>3.2.2</b> Merge KEGG map profile of samples</a></li>
+<li class="chapter" data-level="3.2.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-tmp-tsv"><i class="fa fa-check"></i><b>3.2.3</b> Remove tmp tsv</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>8</b> PICRUSt2</a><ul>
-<li class="chapter" data-level="8.1" data-path="picrust2.html"><a href="picrust2.html#environment-setup-5"><i class="fa fa-check"></i><b>8.1</b> Environment Setup</a></li>
-<li class="chapter" data-level="8.2" data-path="picrust2.html"><a href="picrust2.html#run-picrust2"><i class="fa fa-check"></i><b>8.2</b> Run PICRUSt2</a></li>
-<li class="chapter" data-level="8.3" data-path="picrust2.html"><a href="picrust2.html#use-da-to-interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>8.3</b> Use DA to interpret result table from PICRUSt2</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="picrust2.html"><a href="picrust2.html#read-input"><i class="fa fa-check"></i><b>8.3.1</b> Read input</a></li>
-<li class="chapter" data-level="8.3.2" data-path="picrust2.html"><a href="picrust2.html#preprocess"><i class="fa fa-check"></i><b>8.3.2</b> Preprocess</a></li>
+<li class="chapter" data-level="3.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-loading-kegg"><i class="fa fa-check"></i><b>3.3</b> Data loading (KEGG)</a></li>
+<li class="chapter" data-level="3.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-preprocessing-kegg"><i class="fa fa-check"></i><b>3.4</b> Data preprocessing (KEGG)</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-0-abundance-maps"><i class="fa fa-check"></i><b>3.4.1</b> Remove 0 abundance maps</a></li>
+<li class="chapter" data-level="3.4.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#transforming-data-kegg"><i class="fa fa-check"></i><b>3.4.2</b> Transforming data (KEGG)</a></li>
+<li class="chapter" data-level="3.4.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#aggregate-low-abundance-data-1"><i class="fa fa-check"></i><b>3.4.3</b> Aggregate low abundance data</a></li>
 </ul></li>
+<li class="chapter" data-level="3.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#standard-analysis-kegg"><i class="fa fa-check"></i><b>3.5</b> Standard Analysis (KEGG)</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#compositional-barplot"><i class="fa fa-check"></i><b>3.5.1</b> Compositional barplot</a></li>
+<li class="chapter" data-level="3.5.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#beta-diversity"><i class="fa fa-check"></i><b>3.5.2</b> Beta diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysis-kegg"><i class="fa fa-check"></i><b>3.6</b> Differential analysis (KEGG)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#filter-low-prevalence-pathway-kegg"><i class="fa fa-check"></i><b>3.6.1</b> Filter low prevalence pathway (KEGG)</a></li>
+<li class="chapter" data-level="3.6.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#da-with-logistic-regression"><i class="fa fa-check"></i><b>3.6.2</b> DA with Logistic Regression</a></li>
+<li class="chapter" data-level="3.6.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#show-da-result-with-volcano-plot"><i class="fa fa-check"></i><b>3.6.3</b> Show DA result with volcano plot</a></li>
+<li class="chapter" data-level="3.6.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#show-da-result-with-pathview"><i class="fa fa-check"></i><b>3.6.4</b> Show DA result with pathview</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information-kegg"><i class="fa fa-check"></i><b>3.7</b> Session information (KEGG)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="4.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-2"><i class="fa fa-check"></i><b>4.1</b> Environment setup</a></li>
+<li class="chapter" data-level="4.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#pipeline-file-processing-1"><i class="fa fa-check"></i><b>4.2</b> Pipeline file processing</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#merge-sample-files-target-db"><i class="fa fa-check"></i><b>4.2.1</b> Merge sample files (Target db)</a></li>
+<li class="chapter" data-level="4.2.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#split-strain-info-target-db"><i class="fa fa-check"></i><b>4.2.2</b> Split strain info (Target db)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-loading-target-db"><i class="fa fa-check"></i><b>4.3</b> Data loading (Target db)</a></li>
+<li class="chapter" data-level="4.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-preprocessing-target-db"><i class="fa fa-check"></i><b>4.4</b> Data preprocessing (Target db)</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#transforming-data-target-db"><i class="fa fa-check"></i><b>4.4.1</b> Transforming data (Target db)</a></li>
+<li class="chapter" data-level="4.4.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#remove-unppaed-pathways-target-db"><i class="fa fa-check"></i><b>4.4.2</b> Remove unppaed pathways (Target db)</a></li>
+<li class="chapter" data-level="4.4.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#aggregate-low-abundance-data-2"><i class="fa fa-check"></i><b>4.4.3</b> Aggregate low abundance data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#standard-analysis"><i class="fa fa-check"></i><b>4.5</b> Standard analysis</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#compositional-barplot-1"><i class="fa fa-check"></i><b>4.5.1</b> Compositional barplot</a></li>
+<li class="chapter" data-level="4.5.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#beta-diversity-1"><i class="fa fa-check"></i><b>4.5.2</b> Beta diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysis-da"><i class="fa fa-check"></i><b>4.6</b> Differential analysis (DA)</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-prevalence-pathway-da"><i class="fa fa-check"></i><b>4.6.1</b> Filter low prevalence pathway (DA)</a></li>
+<li class="chapter" data-level="4.6.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#da-with-lm"><i class="fa fa-check"></i><b>4.6.2</b> DA with LM</a></li>
+<li class="chapter" data-level="4.6.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#show-da-result-with-volcano-plot-1"><i class="fa fa-check"></i><b>4.6.3</b> Show DA result with volcano plot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#session-info-1"><i class="fa fa-check"></i><b>4.7</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="msea.html"><a href="msea.html"><i class="fa fa-check"></i><b>5</b> MSEA</a><ul>
+<li class="chapter" data-level="5.1" data-path="msea.html"><a href="msea.html#execute-msea-with-python-script-on-server"><i class="fa fa-check"></i><b>5.1</b> Execute MSEA with python script on server</a></li>
+<li class="chapter" data-level="5.2" data-path="msea.html"><a href="msea.html#environment-setup-3"><i class="fa fa-check"></i><b>5.2</b> Environment setup</a></li>
+<li class="chapter" data-level="5.3" data-path="msea.html"><a href="msea.html#read-in-msea-result"><i class="fa fa-check"></i><b>5.3</b> Read in MSEA result</a></li>
+<li class="chapter" data-level="5.4" data-path="msea.html"><a href="msea.html#filter-msea-result"><i class="fa fa-check"></i><b>5.4</b> Filter MSEA result</a></li>
+<li class="chapter" data-level="5.5" data-path="msea.html"><a href="msea.html#visualization"><i class="fa fa-check"></i><b>5.5</b> Visualization</a></li>
+<li class="chapter" data-level="5.6" data-path="msea.html"><a href="msea.html#run-enrichr-analysis"><i class="fa fa-check"></i><b>5.6</b> Run enrichR analysis</a></li>
+<li class="chapter" data-level="5.7" data-path="msea.html"><a href="msea.html#session-info-2"><i class="fa fa-check"></i><b>5.7</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>6</b> PICRUSt2</a><ul>
+<li class="chapter" data-level="6.1" data-path="picrust2.html"><a href="picrust2.html#environment-setup-4"><i class="fa fa-check"></i><b>6.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="6.2" data-path="picrust2.html"><a href="picrust2.html#run-picrust2"><i class="fa fa-check"></i><b>6.2</b> Run PICRUSt2</a></li>
+<li class="chapter" data-level="6.3" data-path="picrust2.html"><a href="picrust2.html#use-da-to-interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>6.3</b> Use DA to interpret result table from PICRUSt2</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="picrust2.html"><a href="picrust2.html#read-input"><i class="fa fa-check"></i><b>6.3.1</b> Read input</a></li>
+<li class="chapter" data-level="6.3.2" data-path="picrust2.html"><a href="picrust2.html#preprocess"><i class="fa fa-check"></i><b>6.3.2</b> Preprocess</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="picrust2.html"><a href="picrust2.html#session-info-3"><i class="fa fa-check"></i><b>6.4</b> Session info</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -211,8 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="msea" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> MSEA</h1>
-<p>(This script was written in <em><strong>/share/projects/SOP/Functional_Analysis/github/Functional_analysis/</strong></em> , all relative paths below are under this complete path.)</p>
+<h1><span class="header-section-number">Chapter 5</span> MSEA</h1>
 <p>This is a markdown tutorial for MSEA. To run MSEA, you need to Install MSEA to your default python before running this template. Installation instruction: <a href="https://msea.readthedocs.io/en/latest/quickstart.html#installation" class="uri">https://msea.readthedocs.io/en/latest/quickstart.html#installation</a>.</p>
 <p>You can run MSEA when you have genus that you’re interested in (e.g., DA genus), write all genus into one txt file, one genus per line and feed the file to MSEA as input.</p>
 <div class="figure">
@@ -221,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <hr />
 <div id="execute-msea-with-python-script-on-server" class="section level2">
-<h2><span class="header-section-number">7.1</span> Execute MSEA with python script on server</h2>
+<h2><span class="header-section-number">5.1</span> Execute MSEA with python script on server</h2>
 <p>You can run MSEA analysis with MSEA_Run.py on server, one required parameters and two optional parameters need to be provided for the script:</p>
 <ol style="list-style-type: decimal">
 <li>–input (Required), input genus list file for MSEA, one genus per line.<br />
@@ -231,24 +271,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>–PerturbationTimes (Optional), number of perturbation. Fisher’s excat test has bias on group with large number of samples, MSEA uses random sampling to remove the bias. Larger number of perturbation would cause longer runtime. Default 50.<br />
 For more detail, see <em><a href="https://www.nature.com/articles/s41598-020-78511-y">citation</a></em></li>
 </ol>
-<div class="sourceCode" id="cb88"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb88-1"><a href="msea.html#cb88-1"></a></span>
-<span id="cb88-2"><a href="msea.html#cb88-2"></a>/home/tongbangzhuo/Software/miniconda3/bin/python ./MSEA/MSEA_Run.py --input ./MSEA/test_input --output ./MSEA/testout.csv --PerturbationTimes 10</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb82-1"><a href="msea.html#cb82-1"></a></span>
+<span id="cb82-2"><a href="msea.html#cb82-2"></a>/home/tongbangzhuo/Software/miniconda3/bin/python ./MSEA/MSEA_Run.py --input ./MSEA/test_input --output ./MSEA/testout.csv --PerturbationTimes 10</span></code></pre></div>
 <hr />
 </div>
-<div id="environment-setup-4" class="section level2">
-<h2><span class="header-section-number">7.2</span> Environment setup</h2>
-<div class="sourceCode" id="cb89"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb89-1"><a href="msea.html#cb89-1"></a>library(dplyr)</span>
-<span id="cb89-2"><a href="msea.html#cb89-2"></a>library(magrittr)</span>
-<span id="cb89-3"><a href="msea.html#cb89-3"></a>library(ggplot2)</span>
-<span id="cb89-4"><a href="msea.html#cb89-4"></a>library(ggbipart)</span>
-<span id="cb89-5"><a href="msea.html#cb89-5"></a>library(stringr)</span>
-<span id="cb89-6"><a href="msea.html#cb89-6"></a>library(tibble)</span>
-<span id="cb89-7"><a href="msea.html#cb89-7"></a>library(wesanderson)</span></code></pre></div>
+<div id="environment-setup-3" class="section level2">
+<h2><span class="header-section-number">5.2</span> Environment setup</h2>
+<div class="sourceCode" id="cb83"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb83-1"><a href="msea.html#cb83-1"></a>library(dplyr)</span>
+<span id="cb83-2"><a href="msea.html#cb83-2"></a>library(magrittr)</span>
+<span id="cb83-3"><a href="msea.html#cb83-3"></a>library(ggplot2)</span>
+<span id="cb83-4"><a href="msea.html#cb83-4"></a>library(ggbipart)</span>
+<span id="cb83-5"><a href="msea.html#cb83-5"></a>library(stringr)</span>
+<span id="cb83-6"><a href="msea.html#cb83-6"></a>library(tibble)</span>
+<span id="cb83-7"><a href="msea.html#cb83-7"></a>library(wesanderson)</span></code></pre></div>
 </div>
 <div id="read-in-msea-result" class="section level2">
-<h2><span class="header-section-number">7.3</span> Read in MSEA result</h2>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="msea.html#cb90-1"></a>MSEA_res =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;./MSEA/testout.csv&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
-<span id="cb90-2"><a href="msea.html#cb90-2"></a><span class="kw">head</span>(MSEA_res, <span class="dt">n=</span><span class="dv">3</span>)</span></code></pre></div>
+<h2><span class="header-section-number">5.3</span> Read in MSEA result</h2>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="msea.html#cb84-1"></a>MSEA_res =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/github/Functional_analysis/MSEA/testout.csv&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</span>
+<span id="cb84-2"><a href="msea.html#cb84-2"></a><span class="kw">head</span>(MSEA_res, <span class="dt">n=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##     term oddsratio       pvalue       qvalue    zscore combined_score                                                           shared n_shared
 ## 1    SP7  27.58621 9.571517e-05 0.0003983486 -8.376409       77.51640             [&#39;Pseudomonas&#39;, &#39;Salmonella&#39;, &#39;Azomonas&#39;, &#39;Sodalis&#39;]        4
 ## 2  SOCS3  29.41176 1.234368e-05 0.0001439254 -5.916120       66.86615 [&#39;Salmonella&#39;, &#39;Azomonas&#39;, &#39;Sodalis&#39;, &#39;Pseudomonas&#39;, &#39;Borrelia&#39;]        5
@@ -274,103 +314,110 @@ For more detail, see <em><a href="https://www.nature.com/articles/s41598-020-785
 <hr />
 </div>
 <div id="filter-msea-result" class="section level2">
-<h2><span class="header-section-number">7.4</span> Filter MSEA result</h2>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="msea.html#cb92-1"></a><span class="co">## Filter MSEA result with qvalue</span></span>
-<span id="cb92-2"><a href="msea.html#cb92-2"></a>MSEA_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">filter</span>(qvalue <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>)</span>
-<span id="cb92-3"><a href="msea.html#cb92-3"></a></span>
-<span id="cb92-4"><a href="msea.html#cb92-4"></a></span>
-<span id="cb92-5"><a href="msea.html#cb92-5"></a><span class="co">## Draw bipartite with top 10 combined_score human genes</span></span>
-<span id="cb92-6"><a href="msea.html#cb92-6"></a></span>
-<span id="cb92-7"><a href="msea.html#cb92-7"></a><span class="co">## Define data transforming function</span></span>
-<span id="cb92-8"><a href="msea.html#cb92-8"></a>Transform_data &lt;-<span class="st"> </span><span class="cf">function</span>(df){</span>
-<span id="cb92-9"><a href="msea.html#cb92-9"></a>  All_Genus_in_res &lt;-<span class="st"> </span>df<span class="op">$</span>shared <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unique</span>()</span>
-<span id="cb92-10"><a href="msea.html#cb92-10"></a>  lst &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
-<span id="cb92-11"><a href="msea.html#cb92-11"></a>  <span class="cf">for</span> (i <span class="cf">in</span> All_Genus_in_res){</span>
-<span id="cb92-12"><a href="msea.html#cb92-12"></a>    count_vec &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb92-13"><a href="msea.html#cb92-13"></a>    <span class="cf">for</span> (j <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(df))){</span>
-<span id="cb92-14"><a href="msea.html#cb92-14"></a>      target_string =<span class="st"> </span>df[j,<span class="st">&#39;shared&#39;</span>]  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span>
-<span id="cb92-15"><a href="msea.html#cb92-15"></a>      count =<span class="st"> </span><span class="kw">sum</span>(i <span class="op">==</span><span class="st"> </span>target_string)</span>
-<span id="cb92-16"><a href="msea.html#cb92-16"></a>      count_vec &lt;-<span class="st"> </span><span class="kw">c</span>(count_vec, count)</span>
-<span id="cb92-17"><a href="msea.html#cb92-17"></a>    }</span>
-<span id="cb92-18"><a href="msea.html#cb92-18"></a>    lst[[i]] &lt;-<span class="st"> </span>count_vec</span>
-<span id="cb92-19"><a href="msea.html#cb92-19"></a>  }</span>
-<span id="cb92-20"><a href="msea.html#cb92-20"></a>  bipartite_tbl &lt;-<span class="st"> </span><span class="kw">cbind</span>(Top_MSEA_res, <span class="kw">as.data.frame</span>(lst)) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(term, <span class="kw">all_of</span>(All_Genus_in_res)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;term&#39;</span>)</span>
-<span id="cb92-21"><a href="msea.html#cb92-21"></a>  <span class="kw">return</span>(bipartite_tbl)</span>
-<span id="cb92-22"><a href="msea.html#cb92-22"></a>}</span>
-<span id="cb92-23"><a href="msea.html#cb92-23"></a></span>
-<span id="cb92-24"><a href="msea.html#cb92-24"></a><span class="co">## Select top 10 human genes</span></span>
-<span id="cb92-25"><a href="msea.html#cb92-25"></a>Top_MSEA_res &lt;-<span class="st"> </span>MSEA_res[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,]</span></code></pre></div>
+<h2><span class="header-section-number">5.4</span> Filter MSEA result</h2>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="msea.html#cb86-1"></a><span class="co">## Filter MSEA result with qvalue</span></span>
+<span id="cb86-2"><a href="msea.html#cb86-2"></a>MSEA_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">filter</span>(qvalue <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>)</span>
+<span id="cb86-3"><a href="msea.html#cb86-3"></a></span>
+<span id="cb86-4"><a href="msea.html#cb86-4"></a></span>
+<span id="cb86-5"><a href="msea.html#cb86-5"></a><span class="co">## Draw bipartite with top 10 combined_score human genes</span></span>
+<span id="cb86-6"><a href="msea.html#cb86-6"></a></span>
+<span id="cb86-7"><a href="msea.html#cb86-7"></a><span class="co">## Define data transforming function</span></span>
+<span id="cb86-8"><a href="msea.html#cb86-8"></a>Transform_data &lt;-<span class="st"> </span><span class="cf">function</span>(df){</span>
+<span id="cb86-9"><a href="msea.html#cb86-9"></a>  All_Genus_in_res &lt;-<span class="st"> </span>df<span class="op">$</span>shared <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unique</span>()</span>
+<span id="cb86-10"><a href="msea.html#cb86-10"></a>  lst &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb86-11"><a href="msea.html#cb86-11"></a>  <span class="cf">for</span> (i <span class="cf">in</span> All_Genus_in_res){</span>
+<span id="cb86-12"><a href="msea.html#cb86-12"></a>    count_vec &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb86-13"><a href="msea.html#cb86-13"></a>    <span class="cf">for</span> (j <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(df))){</span>
+<span id="cb86-14"><a href="msea.html#cb86-14"></a>      target_string =<span class="st"> </span>df[j,<span class="st">&#39;shared&#39;</span>]  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">[&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">]&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&quot;&#39;&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&#39;, &#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unlist</span>()</span>
+<span id="cb86-15"><a href="msea.html#cb86-15"></a>      count =<span class="st"> </span><span class="kw">sum</span>(i <span class="op">==</span><span class="st"> </span>target_string)</span>
+<span id="cb86-16"><a href="msea.html#cb86-16"></a>      count_vec &lt;-<span class="st"> </span><span class="kw">c</span>(count_vec, count)</span>
+<span id="cb86-17"><a href="msea.html#cb86-17"></a>    }</span>
+<span id="cb86-18"><a href="msea.html#cb86-18"></a>    lst[[i]] &lt;-<span class="st"> </span>count_vec</span>
+<span id="cb86-19"><a href="msea.html#cb86-19"></a>  }</span>
+<span id="cb86-20"><a href="msea.html#cb86-20"></a>  bipartite_tbl &lt;-<span class="st"> </span><span class="kw">cbind</span>(Top_MSEA_res, <span class="kw">as.data.frame</span>(lst)) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(term, <span class="kw">all_of</span>(All_Genus_in_res)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;term&#39;</span>)</span>
+<span id="cb86-21"><a href="msea.html#cb86-21"></a>  <span class="kw">return</span>(bipartite_tbl)</span>
+<span id="cb86-22"><a href="msea.html#cb86-22"></a>}</span>
+<span id="cb86-23"><a href="msea.html#cb86-23"></a></span>
+<span id="cb86-24"><a href="msea.html#cb86-24"></a><span class="co">## Select top 10 human genes</span></span>
+<span id="cb86-25"><a href="msea.html#cb86-25"></a>Top_MSEA_res &lt;-<span class="st"> </span>MSEA_res[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,]</span></code></pre></div>
 <hr />
 </div>
 <div id="visualization" class="section level2">
-<h2><span class="header-section-number">7.5</span> Visualization</h2>
+<h2><span class="header-section-number">5.5</span> Visualization</h2>
 <p><em><strong>Draw bipartit graph to show the relation between human genes and microbial Genus with ggnet.</strong></em></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="msea.html#cb93-1"></a><span class="co">## Generate data for bipartit graph</span></span>
-<span id="cb93-2"><a href="msea.html#cb93-2"></a>bipartite_tbl &lt;-<span class="st"> </span><span class="kw">Transform_data</span>(Top_MSEA_res)</span>
-<span id="cb93-3"><a href="msea.html#cb93-3"></a></span>
-<span id="cb93-4"><a href="msea.html#cb93-4"></a><span class="co">## Define network layout</span></span>
-<span id="cb93-5"><a href="msea.html#cb93-5"></a>mymat &lt;-<span class="st"> </span>bipartite_tbl</span>
-<span id="cb93-6"><a href="msea.html#cb93-6"></a>coordP &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">2</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb93-7"><a href="msea.html#cb93-7"></a><span class="st">        </span><span class="dv">2</span>)</span>
-<span id="cb93-8"><a href="msea.html#cb93-8"></a>coordA &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">4</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb93-9"><a href="msea.html#cb93-9"></a><span class="st">        </span><span class="dv">2</span>)</span>
-<span id="cb93-10"><a href="msea.html#cb93-10"></a></span>
-<span id="cb93-11"><a href="msea.html#cb93-11"></a>mylayout &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">rbind</span>(coordP, coordA))</span>
-<span id="cb93-12"><a href="msea.html#cb93-12"></a></span>
-<span id="cb93-13"><a href="msea.html#cb93-13"></a><span class="co">## Construct network content</span></span>
-<span id="cb93-14"><a href="msea.html#cb93-14"></a>test.net &lt;-<span class="st"> </span><span class="kw">bip_init_network</span>(mymat, <span class="dt">mode1 =</span> <span class="st">&#39;HumanGenes&#39;</span>,<span class="dt">mode2 =</span> <span class="st">&#39;MicrobialGenus&#39;</span>)</span>
-<span id="cb93-15"><a href="msea.html#cb93-15"></a></span>
-<span id="cb93-16"><a href="msea.html#cb93-16"></a><span class="co"># Define groups of network nodes</span></span>
-<span id="cb93-17"><a href="msea.html#cb93-17"></a>test.net <span class="op">%v%</span><span class="st"> &quot;Group&quot;</span> =<span class="st"> </span><span class="kw">get.vertex.attribute</span>(test.net, <span class="dt">attrname=</span><span class="st">&quot;mode&quot;</span>)</span>
-<span id="cb93-18"><a href="msea.html#cb93-18"></a></span>
-<span id="cb93-19"><a href="msea.html#cb93-19"></a><span class="co"># Draw network</span></span>
-<span id="cb93-20"><a href="msea.html#cb93-20"></a>p &lt;-<span class="st"> </span>GGally<span class="op">::</span><span class="kw">ggnet2</span>(test.net, <span class="dt">mode =</span> mylayout,</span>
-<span id="cb93-21"><a href="msea.html#cb93-21"></a>               <span class="dt">label =</span> T, <span class="dt">size =</span> <span class="st">&quot;degree&quot;</span>,</span>
-<span id="cb93-22"><a href="msea.html#cb93-22"></a>               <span class="dt">color =</span> <span class="st">&#39;Group&#39;</span>, <span class="dt">shape =</span> <span class="st">&#39;Group&#39;</span>,</span>
-<span id="cb93-23"><a href="msea.html#cb93-23"></a>               <span class="dt">label.size =</span> <span class="dv">5</span>, <span class="dt">layout.exp =</span> <span class="fl">1.5</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></span>
-<span id="cb93-24"><a href="msea.html#cb93-24"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;FantasticFox1&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb93-25"><a href="msea.html#cb93-25"></a><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color=</span><span class="kw">guide_legend</span>(<span class="st">&quot;Group&quot;</span>))</span>
-<span id="cb93-26"><a href="msea.html#cb93-26"></a></span>
-<span id="cb93-27"><a href="msea.html#cb93-27"></a>p</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="msea.html#cb87-1"></a><span class="co">## Generate data for bipartit graph</span></span>
+<span id="cb87-2"><a href="msea.html#cb87-2"></a>bipartite_tbl &lt;-<span class="st"> </span><span class="kw">Transform_data</span>(Top_MSEA_res)</span>
+<span id="cb87-3"><a href="msea.html#cb87-3"></a></span>
+<span id="cb87-4"><a href="msea.html#cb87-4"></a><span class="co">## Define network layout</span></span>
+<span id="cb87-5"><a href="msea.html#cb87-5"></a>mymat &lt;-<span class="st"> </span>bipartite_tbl</span>
+<span id="cb87-6"><a href="msea.html#cb87-6"></a>coordP &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">2</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb87-7"><a href="msea.html#cb87-7"></a><span class="st">        </span><span class="dv">2</span>)</span>
+<span id="cb87-8"><a href="msea.html#cb87-8"></a>coordA &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">4</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]), <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">dim</span>(mymat)[<span class="dv">2</span>]) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb87-9"><a href="msea.html#cb87-9"></a><span class="st">        </span><span class="dv">2</span>)</span>
+<span id="cb87-10"><a href="msea.html#cb87-10"></a></span>
+<span id="cb87-11"><a href="msea.html#cb87-11"></a>mylayout &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">rbind</span>(coordP, coordA))</span>
+<span id="cb87-12"><a href="msea.html#cb87-12"></a></span>
+<span id="cb87-13"><a href="msea.html#cb87-13"></a><span class="co">## Construct network content</span></span>
+<span id="cb87-14"><a href="msea.html#cb87-14"></a>test.net &lt;-<span class="st"> </span><span class="kw">bip_init_network</span>(mymat, <span class="dt">mode1 =</span> <span class="st">&#39;HumanGenes&#39;</span>,<span class="dt">mode2 =</span> <span class="st">&#39;MicrobialGenus&#39;</span>)</span>
+<span id="cb87-15"><a href="msea.html#cb87-15"></a></span>
+<span id="cb87-16"><a href="msea.html#cb87-16"></a><span class="co"># Define groups of network nodes</span></span>
+<span id="cb87-17"><a href="msea.html#cb87-17"></a>test.net <span class="op">%v%</span><span class="st"> &quot;Group&quot;</span> =<span class="st"> </span><span class="kw">get.vertex.attribute</span>(test.net, <span class="dt">attrname=</span><span class="st">&quot;mode&quot;</span>)</span>
+<span id="cb87-18"><a href="msea.html#cb87-18"></a></span>
+<span id="cb87-19"><a href="msea.html#cb87-19"></a><span class="co"># Draw network</span></span>
+<span id="cb87-20"><a href="msea.html#cb87-20"></a>p &lt;-<span class="st"> </span>GGally<span class="op">::</span><span class="kw">ggnet2</span>(test.net, <span class="dt">mode =</span> mylayout,</span>
+<span id="cb87-21"><a href="msea.html#cb87-21"></a>               <span class="dt">label =</span> T, <span class="dt">size =</span> <span class="st">&quot;degree&quot;</span>,</span>
+<span id="cb87-22"><a href="msea.html#cb87-22"></a>               <span class="dt">color =</span> <span class="st">&#39;Group&#39;</span>, <span class="dt">shape =</span> <span class="st">&#39;Group&#39;</span>,</span>
+<span id="cb87-23"><a href="msea.html#cb87-23"></a>               <span class="dt">label.size =</span> <span class="dv">5</span>, <span class="dt">layout.exp =</span> <span class="fl">1.5</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></span>
+<span id="cb87-24"><a href="msea.html#cb87-24"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> <span class="kw">wes_palette</span>(<span class="st">&quot;FantasticFox1&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb87-25"><a href="msea.html#cb87-25"></a><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color=</span><span class="kw">guide_legend</span>(<span class="st">&quot;Group&quot;</span>))</span>
+<span id="cb87-26"><a href="msea.html#cb87-26"></a></span>
+<span id="cb87-27"><a href="msea.html#cb87-27"></a>p</span></code></pre></div>
 <p><img src="Function-standard-analysis-workflow_files/figure-html/bipartit%20graph-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="run-enrichr-analysis" class="section level2">
-<h2><span class="header-section-number">7.6</span> Run enrichR analysis</h2>
+<h2><span class="header-section-number">5.6</span> Run enrichR analysis</h2>
 <p>After acquiring genus-associated human genes, you can run enrich your genes on different databases by enrichR.<br />
 The next chunk shows you how to run enrichR on R studio, you can either run enrichR on their interactive <em><a href="https://maayanlab.cloud/Enrichr/">website</a></em>.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="msea.html#cb94-1"></a><span class="kw">library</span>(enrichR)</span>
-<span id="cb94-2"><a href="msea.html#cb94-2"></a></span>
-<span id="cb94-3"><a href="msea.html#cb94-3"></a><span class="co">## List available types of databases</span></span>
-<span id="cb94-4"><a href="msea.html#cb94-4"></a><span class="kw">listEnrichrSites</span>()</span>
-<span id="cb94-5"><a href="msea.html#cb94-5"></a></span>
-<span id="cb94-6"><a href="msea.html#cb94-6"></a><span class="co">## Choose database of Human genes</span></span>
-<span id="cb94-7"><a href="msea.html#cb94-7"></a><span class="kw">setEnrichrSite</span>(<span class="st">&quot;Enrichr&quot;</span>)</span>
-<span id="cb94-8"><a href="msea.html#cb94-8"></a></span>
-<span id="cb94-9"><a href="msea.html#cb94-9"></a><span class="co">## List available database</span></span>
-<span id="cb94-10"><a href="msea.html#cb94-10"></a>websiteLive &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
-<span id="cb94-11"><a href="msea.html#cb94-11"></a>dbs &lt;-<span class="st"> </span><span class="kw">listEnrichrDbs</span>()</span>
-<span id="cb94-12"><a href="msea.html#cb94-12"></a><span class="cf">if</span> (<span class="kw">is.null</span>(dbs)) websiteLive &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
-<span id="cb94-13"><a href="msea.html#cb94-13"></a><span class="cf">if</span> (websiteLive) <span class="kw">head</span>(dbs)</span></code></pre></div>
-<pre><code>##   geneCoverage genesPerTerm                      libraryName                                                     link numTerms                                  appyter categoryId
-## 1        13362          275              Genome_Browser_PWMs http://hgdownload.cse.ucsc.edu/goldenPath/hg18/database/      615 ea115789fcbf12797fd692cec6df0ab4dbc79c6a          1
-## 2        27884         1284         TRANSFAC_and_JASPAR_PWMs                 http://jaspar.genereg.net/html/DOWNLOAD/      326 7d42eb43a64a4e3b20d721fc7148f685b53b6b30          1
-## 3         6002           77        Transcription_Factor_PPIs                                                               290 849f222220618e2599d925b6b51868cf1dab3763          1
-## 4        47172         1370                        ChEA_2013           http://amp.pharm.mssm.edu/lib/cheadownload.jsp      353 7ebe772afb55b63b41b79dd8d06ea0fdd9fa2630          7
-## 5        47107          509 Drug_Perturbations_from_GEO_2014                         http://www.ncbi.nlm.nih.gov/geo/      701 ad270a6876534b7cb063e004289dcd4d3164f342          7
-## 6        21493         3713          ENCODE_TF_ChIP-seq_2014             http://genome.ucsc.edu/ENCODE/downloads.html      498 497787ebc418d308045efb63b8586f10c526af51          7</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="msea.html#cb96-1"></a><span class="co">## Choose the databases you want to enrich your genes with and Run enrichR of genus-associated human genes on chosen databases</span></span>
-<span id="cb96-2"><a href="msea.html#cb96-2"></a>dbs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;GO_Molecular_Function_2021&quot;</span>,<span class="st">&quot;KEGG_2019_Human&quot;</span>)</span>
-<span id="cb96-3"><a href="msea.html#cb96-3"></a><span class="cf">if</span> (websiteLive) {</span>
-<span id="cb96-4"><a href="msea.html#cb96-4"></a>    enriched &lt;-<span class="st"> </span><span class="kw">enrichr</span>(MSEA_res<span class="op">$</span>term <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.vector</span>(), dbs)</span>
-<span id="cb96-5"><a href="msea.html#cb96-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="msea.html#cb88-1"></a><span class="kw">library</span>(enrichR)</span>
+<span id="cb88-2"><a href="msea.html#cb88-2"></a></span>
+<span id="cb88-3"><a href="msea.html#cb88-3"></a><span class="co">## List available types of databases</span></span>
+<span id="cb88-4"><a href="msea.html#cb88-4"></a><span class="kw">listEnrichrSites</span>()</span>
+<span id="cb88-5"><a href="msea.html#cb88-5"></a></span>
+<span id="cb88-6"><a href="msea.html#cb88-6"></a><span class="co">## Choose database of Human genes</span></span>
+<span id="cb88-7"><a href="msea.html#cb88-7"></a><span class="kw">setEnrichrSite</span>(<span class="st">&quot;Enrichr&quot;</span>)</span>
+<span id="cb88-8"><a href="msea.html#cb88-8"></a></span>
+<span id="cb88-9"><a href="msea.html#cb88-9"></a><span class="co">## List available database</span></span>
+<span id="cb88-10"><a href="msea.html#cb88-10"></a>websiteLive &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
+<span id="cb88-11"><a href="msea.html#cb88-11"></a>dbs &lt;-<span class="st"> </span><span class="kw">listEnrichrDbs</span>()</span>
+<span id="cb88-12"><a href="msea.html#cb88-12"></a><span class="cf">if</span> (<span class="kw">is.null</span>(dbs)) websiteLive &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
+<span id="cb88-13"><a href="msea.html#cb88-13"></a><span class="cf">if</span> (websiteLive) <span class="kw">head</span>(dbs)</span></code></pre></div>
+<pre><code>##   geneCoverage genesPerTerm                      libraryName                                                     link numTerms                                  appyter
+## 1        13362          275              Genome_Browser_PWMs http://hgdownload.cse.ucsc.edu/goldenPath/hg18/database/      615 ea115789fcbf12797fd692cec6df0ab4dbc79c6a
+## 2        27884         1284         TRANSFAC_and_JASPAR_PWMs                 http://jaspar.genereg.net/html/DOWNLOAD/      326 7d42eb43a64a4e3b20d721fc7148f685b53b6b30
+## 3         6002           77        Transcription_Factor_PPIs                                                               290 849f222220618e2599d925b6b51868cf1dab3763
+## 4        47172         1370                        ChEA_2013           http://amp.pharm.mssm.edu/lib/cheadownload.jsp      353 7ebe772afb55b63b41b79dd8d06ea0fdd9fa2630
+## 5        47107          509 Drug_Perturbations_from_GEO_2014                         http://www.ncbi.nlm.nih.gov/geo/      701 ad270a6876534b7cb063e004289dcd4d3164f342
+## 6        21493         3713          ENCODE_TF_ChIP-seq_2014             http://genome.ucsc.edu/ENCODE/downloads.html      498 497787ebc418d308045efb63b8586f10c526af51
+##   categoryId
+## 1          1
+## 2          1
+## 3          1
+## 4          7
+## 5          7
+## 6          7</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="msea.html#cb90-1"></a><span class="co">## Choose the databases you want to enrich your genes with and Run enrichR of genus-associated human genes on chosen databases</span></span>
+<span id="cb90-2"><a href="msea.html#cb90-2"></a>dbs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;GO_Molecular_Function_2021&quot;</span>,<span class="st">&quot;KEGG_2019_Human&quot;</span>)</span>
+<span id="cb90-3"><a href="msea.html#cb90-3"></a><span class="cf">if</span> (websiteLive) {</span>
+<span id="cb90-4"><a href="msea.html#cb90-4"></a>    enriched &lt;-<span class="st"> </span><span class="kw">enrichr</span>(MSEA_res<span class="op">$</span>term <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.vector</span>(), dbs)</span>
+<span id="cb90-5"><a href="msea.html#cb90-5"></a>}</span></code></pre></div>
 <pre><code>## Uploading data to Enrichr... Done.
 ##   Querying GO_Molecular_Function_2021... Done.
 ##   Querying KEGG_2019_Human... Done.
 ## Parsing results... Done.</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="msea.html#cb98-1"></a><span class="co">## Show first few rows of enrichment result</span></span>
-<span id="cb98-2"><a href="msea.html#cb98-2"></a>Kegg_res &lt;-<span class="st"> </span>enriched[[<span class="st">&#39;KEGG_2019_Human&#39;</span>]]</span>
-<span id="cb98-3"><a href="msea.html#cb98-3"></a><span class="kw">head</span>(Kegg_res)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="msea.html#cb92-1"></a><span class="co">## Show first few rows of enrichment result</span></span>
+<span id="cb92-2"><a href="msea.html#cb92-2"></a>Kegg_res &lt;-<span class="st"> </span>enriched[[<span class="st">&#39;KEGG_2019_Human&#39;</span>]]</span>
+<span id="cb92-3"><a href="msea.html#cb92-3"></a><span class="kw">head</span>(Kegg_res)</span></code></pre></div>
 <pre><code>##                                              Term Overlap      P.value Adjusted.P.value Old.P.value Old.Adjusted.P.value Odds.Ratio Combined.Score
 ## 1                              Pathways in cancer 118/530 3.368482e-53     6.029198e-51           0                    0   7.523619       909.0228
 ## 2          Cytokine-cytokine receptor interaction  90/294 4.368984e-53     6.029198e-51           0                    0  11.275567      1359.4103
@@ -385,8 +432,8 @@ The next chunk shows you how to run enrichR on R studio, you can either run enri
 ## 4                                                                                                                                                                                                                                                                                                            CDKN1A;CXCL8;ARAF;FASLG;TNF;CASP9;IKBKB;TBK1;CASP8;MYC;AKT2;CASP3;AKT1;JAK2;HRAS;MAP2K1;APAF1;CHUK;DDX58;IRAK4;TYK2;FOS;MMP9;TIRAP;CCNA2;CREB1;IRF3;TRAF6;IRF7;TP53;TLR4;TLR3;IFNAR1;ATF4;TLR2;SRC;RELA;MAPK8;IRAK1;STAT4;STAT6;FADD;SMAD2;TGFB2;SMAD4;TGFB1;SMAD3;TGFB3;STAT1;STAT2;STAT3;NFATC1;MAPK14;NFKB1;NFKBIA;MAVS;IL6;CDK2;FAS;BAX;GRB2;KRAS;MYD88
 ## 5                                                                                                                                                                                                                                                                                              CD86;CDKN1A;CSF2;CXCL8;TRADD;CXCL1;CXCL3;FGF2;CXCL2;ICAM1;CASP9;IKBKB;TBK1;CASP8;CCND1;MYC;AKT2;CASP3;AKT1;CCR5;JAK2;HRAS;CCR3;MAP2K1;SYK;CHUK;IFNGR1;TYK2;FOS;HLA-G;TNFRSF1A;HCK;CREB1;IRF3;IRF7;TP53;TLR3;IFNAR1;BECN1;SRC;PDGFB;PTGS2;HIF1A;RELA;C3;MAPK8;FADD;BAK1;LYN;CCR1;STAT1;STAT2;STAT3;NFATC1;MAPK14;NFKB1;MTOR;NFKBIA;RCAN1;IL6;CDK6;CDK4;FAS;BAX;CTNNB1;KRAS
 ## 6                                                                                                                                                                                                                                                                                                                      SCARB1;CDKN1A;CD81;TRADD;ARAF;FASLG;IFIT1;TNF;CASP9;IKBKB;TBK1;CASP8;CCND1;MYC;AKT2;CASP3;AKT1;HRAS;MAP2K1;RSAD2;APAF1;CHUK;DDX58;TYK2;PIAS1;TNFRSF1A;CLDN4;CLDN3;OAS1;IRF3;IFNG;TRAF6;IRF7;TP53;TLR3;IFNAR1;RELA;EGFR;SOCS3;RIPK1;FADD;BAK1;LDLR;EGF;STAT1;STAT2;MX1;STAT3;NFKB1;NFKBIA;CXCL10;OCLN;MAVS;CDK6;CDK4;CDK2;FAS;BAX;CTNNB1;GRB2;KRAS</code></pre>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="msea.html#cb100-1"></a>GO_res &lt;-<span class="st"> </span>enriched[[<span class="st">&#39;GO_Molecular_Function_2021&#39;</span>]]</span>
-<span id="cb100-2"><a href="msea.html#cb100-2"></a><span class="kw">head</span>(GO_res)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="msea.html#cb94-1"></a>GO_res &lt;-<span class="st"> </span>enriched[[<span class="st">&#39;GO_Molecular_Function_2021&#39;</span>]]</span>
+<span id="cb94-2"><a href="msea.html#cb94-2"></a><span class="kw">head</span>(GO_res)</span></code></pre></div>
 <pre><code>##                                      Term Overlap      P.value Adjusted.P.value Old.P.value Old.Adjusted.P.value Odds.Ratio Combined.Score
 ## 1          cytokine activity (GO:0005125)  61/173 3.155810e-40     2.098614e-37           0                    0  13.461367      1224.3673
 ## 2   receptor ligand activity (GO:0048018)  69/307 1.967964e-31     6.543481e-29           0                    0   7.192804       508.5538
@@ -401,15 +448,297 @@ The next chunk shows you how to run enrichR on R studio, you can either run enri
 ## 4                                                                                                                                                                                                                                      CCL13;CXCL6;CXCL9;CXCL8;CCL11;CXCL1;CXCL13;CXCL3;CXCL2;CX3CL1;CXCL5;CCL7;CCL2;CCL1;CCL19;CCL17;CCL25;CCL22;CCL21;CCL20;PPBP;CXCL10;CXCL11;CXCL12;CCL27;PF4
 ## 5                                                                                                                                                                                                             IL21;CSF3;IL1RN;EPO;PRL;PYCARD;TNFSF11;FADD;CCL19;JAK2;IL12RB1;SMAD2;IL10;CCL25;IL11;TGFB2;SMAD3;TSLP;SYK;CCL21;LIF;IL18;MIF;TYK2;PGF;IL2;IL4;GH2;ADAM17;IL6;CXCL12;TRAF6;IL1B;TLR9
 ## 6 CDKN1A;TFRC;TRADD;ILK;HSPB1;PARK7;FOXM1;IKBKB;CASP9;CCND1;RAC2;CASP1;JAK2;CHIA;PARP1;RPS6;RHOG;ADAM10;IRAK3;IRAK4;RHOC;CDC25A;RHOA;RHOB;CCNA2;FGR;CEACAM1;TRAF6;VDAC1;MAPT;SQSTM1;CRK;TP53;ATF4;CEBPA;BECN1;SRC;MVP;PLG;IQGAP1;NOD2;PTN;FOXO3;HIF1A;EGFR;RELA;TTN;RELB;CDC42;CCNB1;SOCS1;IRAK1;RPS3;PTPN1;SMAD3;CAV1;PLK1;STAT3;CDC6;EEF2;IRGM;PTK2;CYLD;MAVS;CD4;TOLLIP;CTNNB1;FAS;GRB2;BCL2L1</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="msea.html#cb102-1"></a><span class="co">## Plot Enrichment result</span></span>
-<span id="cb102-2"><a href="msea.html#cb102-2"></a>p &lt;-<span class="st"> </span><span class="kw">plotEnrich</span>(enriched[[<span class="st">&#39;KEGG_2019_Human&#39;</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Adjusted.P.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>),</span>
-<span id="cb102-3"><a href="msea.html#cb102-3"></a>           <span class="dt">showTerms =</span> <span class="dv">20</span>, <span class="dt">numChar =</span> <span class="dv">40</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="dt">orderBy =</span> <span class="st">&quot;P.value&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb102-4"><a href="msea.html#cb102-4"></a><span class="st">  </span><span class="kw">scale_fill_gradientn</span>(<span class="dt">colours =</span> <span class="kw">rev</span>(<span class="kw">wes_palette</span>(<span class="st">&quot;Zissou1&quot;</span>, <span class="dv">10</span>, <span class="dt">type =</span> <span class="st">&quot;continuous&quot;</span>)))</span>
-<span id="cb102-5"><a href="msea.html#cb102-5"></a></span>
-<span id="cb102-6"><a href="msea.html#cb102-6"></a></span>
-<span id="cb102-7"><a href="msea.html#cb102-7"></a>p</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="msea.html#cb96-1"></a><span class="co">## Plot Enrichment result</span></span>
+<span id="cb96-2"><a href="msea.html#cb96-2"></a>p &lt;-<span class="st"> </span><span class="kw">plotEnrich</span>(enriched[[<span class="st">&#39;KEGG_2019_Human&#39;</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Adjusted.P.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>),</span>
+<span id="cb96-3"><a href="msea.html#cb96-3"></a>           <span class="dt">showTerms =</span> <span class="dv">20</span>, <span class="dt">numChar =</span> <span class="dv">40</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="dt">orderBy =</span> <span class="st">&quot;P.value&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb96-4"><a href="msea.html#cb96-4"></a><span class="st">  </span><span class="kw">scale_fill_gradientn</span>(<span class="dt">colours =</span> <span class="kw">rev</span>(<span class="kw">wes_palette</span>(<span class="st">&quot;Zissou1&quot;</span>, <span class="dv">10</span>, <span class="dt">type =</span> <span class="st">&quot;continuous&quot;</span>)))</span>
+<span id="cb96-5"><a href="msea.html#cb96-5"></a></span>
+<span id="cb96-6"><a href="msea.html#cb96-6"></a></span>
+<span id="cb96-7"><a href="msea.html#cb96-7"></a>p</span></code></pre></div>
 <p><img src="Function-standard-analysis-workflow_files/figure-html/enrichR-1.png" width="672" /></p>
 <p>As shown above, Y axis shows the enriched terms of your input genes. X axis shows the number of input genes in the enriched terms.</p>
+<hr />
+</div>
+<div id="session-info-2" class="section level2">
+<h2><span class="header-section-number">5.7</span> Session info</h2>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="msea.html#cb97-1"></a>devtools<span class="op">::</span><span class="kw">session_info</span>()</span></code></pre></div>
+<pre><code>## ─ Session info ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  setting  value
+##  version  R version 3.6.3 (2020-02-29)
+##  os       Ubuntu 16.04.7 LTS
+##  system   x86_64, linux-gnu
+##  ui       RStudio
+##  language (EN)
+##  collate  en_IN.UTF-8
+##  ctype    en_IN.UTF-8
+##  tz       Asia/Hong_Kong
+##  date     2022-09-13
+##  rstudio  1.1.419 (server)
+##  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)
+## 
+## ─ Packages ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+##  ! package              * version    date (UTC) lib source
+##    abind                  1.4-5      2016-07-21 [1] CRAN (R 3.6.3)
+##    ade4                   1.7-17     2021-06-17 [1] CRAN (R 3.6.3)
+##    ALDEx2               * 1.18.0     2019-10-29 [1] Bioconductor
+##    annotate               1.64.0     2019-10-29 [1] Bioconductor
+##    AnnotationDbi        * 1.48.0     2019-10-29 [1] Bioconductor
+##    ape                    5.5        2021-04-25 [1] CRAN (R 3.6.3)
+##    assertthat             0.2.1      2019-03-21 [2] CRAN (R 3.6.3)
+##    backports              1.4.1      2021-12-13 [1] CRAN (R 3.6.3)
+##    base64enc              0.1-3      2015-07-28 [2] CRAN (R 3.6.3)
+##    bayesm                 3.1-4      2019-10-15 [1] CRAN (R 3.6.3)
+##    biglm                  0.9-2.1    2020-11-27 [1] CRAN (R 3.6.3)
+##    Biobase              * 2.46.0     2019-10-29 [2] Bioconductor
+##    BiocGenerics         * 0.32.0     2019-10-29 [2] Bioconductor
+##    BiocParallel         * 1.20.1     2019-12-21 [2] Bioconductor
+##    biomformat             1.14.0     2019-10-29 [1] Bioconductor
+##    Biostrings             2.54.0     2019-10-29 [1] Bioconductor
+##    bit                    4.0.4      2020-08-04 [1] CRAN (R 3.6.3)
+##    bit64                  4.0.5      2020-08-30 [1] CRAN (R 3.6.3)
+##    bitops                 1.0-7      2021-04-24 [1] CRAN (R 3.6.3)
+##    blob                   1.2.2      2021-07-23 [1] CRAN (R 3.6.3)
+##    bookdown               0.24       2021-09-02 [1] CRAN (R 3.6.3)
+##    brio                   1.1.3      2021-11-30 [2] CRAN (R 3.6.3)
+##    broom                  0.7.12     2022-01-28 [1] CRAN (R 3.6.3)
+##    bslib                  0.3.1      2021-10-06 [1] CRAN (R 3.6.3)
+##    cachem                 1.0.5      2021-05-15 [1] CRAN (R 3.6.3)
+##    callr                  3.7.0      2021-04-20 [2] CRAN (R 3.6.3)
+##    car                    3.0-12     2021-11-06 [1] CRAN (R 3.6.3)
+##    carData                3.0-4      2020-05-22 [1] CRAN (R 3.6.3)
+##    caTools                1.18.2     2021-03-28 [1] CRAN (R 3.6.3)
+##    cellranger             1.1.0      2016-07-27 [1] CRAN (R 3.6.3)
+##    checkmate              2.0.0      2020-02-06 [1] CRAN (R 3.6.3)
+##    circlize             * 0.4.13     2021-06-09 [1] CRAN (R 3.6.3)
+##    cli                    3.1.0      2021-10-27 [1] CRAN (R 3.6.3)
+##    clue                   0.3-59     2021-04-16 [1] CRAN (R 3.6.3)
+##    cluster                2.1.0      2019-06-19 [2] CRAN (R 3.6.3)
+##    coda                   0.19-4     2020-09-30 [1] CRAN (R 3.6.3)
+##    codetools              0.2-16     2018-12-24 [2] CRAN (R 3.6.3)
+##    coin                   1.4-2      2021-10-08 [1] CRAN (R 3.6.3)
+##    colorspace             2.0-2      2021-06-24 [1] CRAN (R 3.6.3)
+##    ComplexHeatmap       * 2.2.0      2019-10-29 [1] Bioconductor
+##    compositions           2.0-2      2021-07-14 [1] CRAN (R 3.6.3)
+##    cowplot              * 1.1.1      2020-12-30 [1] CRAN (R 3.6.3)
+##    crayon                 1.5.0      2022-02-14 [1] CRAN (R 3.6.3)
+##    curl                   4.3.2      2021-06-23 [2] CRAN (R 3.6.3)
+##    dada2                * 1.14.1     2020-02-22 [1] Bioconductor
+##    data.table           * 1.14.0     2021-02-21 [1] CRAN (R 3.6.3)
+##    DBI                    1.1.1      2021-01-15 [1] CRAN (R 3.6.3)
+##    dbplyr                 2.1.1      2021-04-06 [1] CRAN (R 3.6.3)
+##    DelayedArray         * 0.12.3     2020-04-09 [2] Bioconductor
+##    DelayedMatrixStats     1.8.0      2019-10-29 [1] Bioconductor
+##    DEoptimR               1.0-9      2021-05-24 [1] CRAN (R 3.6.3)
+##    desc                   1.4.1      2022-03-06 [2] CRAN (R 3.6.3)
+##    DESeq2               * 1.26.0     2019-10-29 [1] Bioconductor
+##    devtools               2.4.3      2021-11-30 [1] CRAN (R 3.6.3)
+##    digest                 0.6.29     2021-12-01 [1] CRAN (R 3.6.3)
+##    dplyr                * 1.0.6      2021-05-05 [1] CRAN (R 3.6.3)
+##    edgeR                  3.28.1     2020-02-26 [1] Bioconductor
+##    ellipsis               0.3.2      2021-04-29 [1] CRAN (R 3.6.3)
+##    EnhancedVolcano      * 1.4.0      2019-10-29 [1] Bioconductor
+##    enrichR              * 3.0        2021-02-02 [1] CRAN (R 3.6.3)
+##    evaluate               0.15       2022-02-18 [2] CRAN (R 3.6.3)
+##    fansi                  1.0.2      2022-01-14 [1] CRAN (R 3.6.3)
+##    farver                 2.1.0      2021-02-28 [2] CRAN (R 3.6.3)
+##    fastmap                1.1.0      2021-01-25 [1] CRAN (R 3.6.3)
+##    fdrtool                1.2.17     2021-11-13 [1] CRAN (R 3.6.3)
+##    forcats              * 0.5.1      2021-01-27 [1] CRAN (R 3.6.3)
+##    foreach                1.5.2      2022-02-02 [2] CRAN (R 3.6.3)
+##    foreign                0.8-75     2020-01-20 [2] CRAN (R 3.6.3)
+##    formatR                1.12       2022-03-31 [2] CRAN (R 3.6.3)
+##    Formula                1.2-4      2020-10-16 [1] CRAN (R 3.6.3)
+##    fs                     1.5.2      2021-12-08 [1] CRAN (R 3.6.3)
+##    futile.logger          1.4.3      2016-07-10 [2] CRAN (R 3.6.3)
+##    futile.options         1.0.1      2018-04-20 [2] CRAN (R 3.6.3)
+##    genefilter             1.68.0     2019-10-29 [1] Bioconductor
+##    geneplotter            1.64.0     2019-10-29 [1] Bioconductor
+##    generics               0.1.2      2022-01-31 [1] CRAN (R 3.6.3)
+##    GenomeInfoDb         * 1.22.1     2020-03-27 [2] Bioconductor
+##    GenomeInfoDbData       1.2.2      2020-08-24 [2] Bioconductor
+##    GenomicAlignments      1.22.1     2019-11-12 [1] Bioconductor
+##    GenomicRanges        * 1.38.0     2019-10-29 [2] Bioconductor
+##    getopt                 1.20.3     2019-03-22 [1] CRAN (R 3.6.3)
+##    GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 3.6.3)
+##    GGally               * 2.1.2      2021-06-21 [1] CRAN (R 3.6.3)
+##    ggbipart             * 0.1.2      2022-07-20 [1] Github (pedroj/bipartite_plots@162f577)
+##    ggExtra              * 0.9        2019-08-27 [1] CRAN (R 3.6.3)
+##    ggplot2              * 3.3.5      2021-06-25 [1] CRAN (R 3.6.3)
+##    ggpubr               * 0.4.0      2020-06-27 [1] CRAN (R 3.6.3)
+##    ggrepel              * 0.9.1      2021-01-15 [2] CRAN (R 3.6.3)
+##    ggsci                * 2.9        2018-05-14 [1] CRAN (R 3.6.3)
+##    ggsignif               0.6.3      2021-09-09 [1] CRAN (R 3.6.3)
+##    glmnet                 4.1-2      2021-06-24 [1] CRAN (R 3.6.3)
+##    GlobalOptions          0.1.2      2020-06-10 [1] CRAN (R 3.6.3)
+##    glue                   1.6.1      2022-01-22 [1] CRAN (R 3.6.3)
+##    GMPR                   0.1.3      2021-05-17 [1] local
+##    gplots                 3.1.1      2020-11-28 [1] CRAN (R 3.6.3)
+##    graph                  1.64.0     2019-10-29 [1] Bioconductor
+##    gridExtra              2.3        2017-09-09 [2] CRAN (R 3.6.3)
+##    gtable                 0.3.0      2019-03-25 [2] CRAN (R 3.6.3)
+##    gtools                 3.9.2      2021-06-06 [1] CRAN (R 3.6.3)
+##    haven                  2.4.1      2021-04-23 [1] CRAN (R 3.6.3)
+##    highr                  0.9        2021-04-16 [1] CRAN (R 3.6.3)
+##    Hmisc                  4.5-0      2021-02-28 [1] CRAN (R 3.6.3)
+##    hms                    1.1.1      2021-09-26 [1] CRAN (R 3.6.3)
+##    htmlTable              2.3.0      2021-10-12 [1] CRAN (R 3.6.3)
+##    htmltools              0.5.2      2021-08-25 [1] CRAN (R 3.6.3)
+##    htmlwidgets            1.5.4      2021-09-08 [2] CRAN (R 3.6.3)
+##    httpuv                 1.6.1      2021-05-07 [1] CRAN (R 3.6.3)
+##    httr                   1.4.3      2022-05-04 [2] CRAN (R 3.6.3)
+##    hwriter                1.3.2      2014-09-10 [1] CRAN (R 3.6.3)
+##    igraph                 1.3.1      2022-04-20 [2] CRAN (R 3.6.3)
+##    IHW                    1.14.0     2019-10-29 [1] Bioconductor
+##    IRanges              * 2.20.2     2020-01-13 [2] Bioconductor
+##    iterators              1.0.14     2022-02-05 [2] CRAN (R 3.6.3)
+##    jpeg                   0.1-9      2021-07-24 [1] CRAN (R 3.6.3)
+##    jquerylib              0.1.4      2021-04-26 [1] CRAN (R 3.6.3)
+##    jsonlite               1.8.0      2022-02-22 [2] CRAN (R 3.6.3)
+##    KEGGgraph              1.46.0     2019-10-29 [1] Bioconductor
+##    KEGGREST               1.26.1     2019-11-06 [1] Bioconductor
+##    KernSmooth             2.23-16    2019-10-15 [2] CRAN (R 3.6.3)
+##    knitr                  1.36       2021-09-29 [1] CRAN (R 3.6.3)
+##    labeling               0.4.2      2020-10-20 [2] CRAN (R 3.6.3)
+##    lambda.r               1.2.4      2019-09-18 [2] CRAN (R 3.6.3)
+##    later                  1.3.0      2021-08-18 [2] CRAN (R 3.6.3)
+##    lattice              * 0.20-38    2018-11-04 [2] CRAN (R 3.6.3)
+##    latticeExtra           0.6-29     2019-12-19 [1] CRAN (R 3.6.3)
+##    lazyeval               0.2.2      2019-03-15 [2] CRAN (R 3.6.3)
+##    libcoin                1.0-9      2021-09-27 [1] CRAN (R 3.6.3)
+##    lifecycle              1.0.1      2021-09-24 [1] CRAN (R 3.6.3)
+##    limma                  3.42.2     2020-02-03 [2] Bioconductor
+##    locfit                 1.5-9.4    2020-03-25 [1] CRAN (R 3.6.3)
+##    lpsymphony             1.14.0     2019-10-29 [1] Bioconductor (R 3.6.3)
+##    lubridate              1.7.10     2021-02-26 [1] CRAN (R 3.6.3)
+##    Maaslin2               1.7.3      2022-03-23 [1] Github (biobakery/maaslin2@8d090e4)
+##    magrittr             * 2.0.2      2022-01-26 [1] CRAN (R 3.6.3)
+##    MASS                   7.3-54     2021-05-03 [1] CRAN (R 3.6.3)
+##    Matrix                 1.3-4      2021-06-01 [1] CRAN (R 3.6.3)
+##    matrixStats          * 0.60.0     2021-07-26 [1] CRAN (R 3.6.3)
+##    mbzinb                 0.2        2021-06-23 [1] local
+##    memoise                2.0.1      2021-11-26 [2] CRAN (R 3.6.3)
+##    metagenomeSeq          1.28.2     2020-02-03 [1] Bioconductor
+##    metamicrobiomeR        1.1        2021-02-03 [1] local
+##    mgcv                   1.8-31     2019-11-09 [2] CRAN (R 3.6.3)
+##    microbiome             1.8.0      2019-10-29 [1] Bioconductor
+##    mime                   0.12       2021-09-28 [2] CRAN (R 3.6.3)
+##    miniUI                 0.1.1.1    2018-05-18 [1] CRAN (R 3.6.3)
+##    modelr                 0.1.8      2020-05-19 [1] CRAN (R 3.6.3)
+##    modeltools             0.2-23     2020-03-05 [1] CRAN (R 3.6.3)
+##    multcomp               1.4-17     2021-04-29 [1] CRAN (R 3.6.3)
+##    multtest               2.42.0     2019-10-29 [2] Bioconductor
+##    munsell                0.5.0      2018-06-12 [2] CRAN (R 3.6.3)
+##    mvtnorm                1.1-3      2021-10-08 [1] CRAN (R 3.6.3)
+##    network              * 1.17.1     2021-06-14 [1] CRAN (R 3.6.3)
+##    nlme                   3.1-144    2020-02-06 [2] CRAN (R 3.6.3)
+##    nnet                   7.3-12     2016-02-02 [2] CRAN (R 3.6.3)
+##    optparse               1.7.1      2021-10-08 [1] CRAN (R 3.6.3)
+##    org.Hs.eg.db         * 3.10.0     2021-12-08 [1] Bioconductor
+##    pathview             * 1.26.0     2019-10-29 [1] Bioconductor
+##    pcaPP                  1.9-74     2021-04-23 [1] CRAN (R 3.6.3)
+##    permute              * 0.9-5      2019-03-12 [1] CRAN (R 3.6.3)
+##    phyloseq             * 1.30.0     2019-10-29 [1] Bioconductor
+##    pillar                 1.7.0      2022-02-01 [1] CRAN (R 3.6.3)
+##    pkgbuild               1.3.1      2021-12-20 [2] CRAN (R 3.6.3)
+##    pkgconfig              2.0.3      2019-09-22 [2] CRAN (R 3.6.3)
+##    pkgload                1.2.4      2021-11-30 [2] CRAN (R 3.6.3)
+##    plotly               * 4.10.0     2021-10-09 [1] CRAN (R 3.6.3)
+##    plyr                   1.8.7      2022-03-24 [2] CRAN (R 3.6.3)
+##    png                    0.1-7      2013-12-03 [1] CRAN (R 3.6.3)
+##    prettyunits            1.1.1      2020-01-24 [2] CRAN (R 3.6.3)
+##    processx               3.5.3      2022-03-25 [2] CRAN (R 3.6.3)
+##    promises               1.2.0.1    2021-02-11 [2] CRAN (R 3.6.3)
+##    protoclust             1.6.3      2019-01-31 [1] CRAN (R 3.6.3)
+##    ps                     1.7.0      2022-04-23 [2] CRAN (R 3.6.3)
+##    pscl                   1.5.5      2020-03-07 [1] CRAN (R 3.6.3)
+##    purrr                * 0.3.4      2020-04-17 [2] CRAN (R 3.6.3)
+##    qvalue                 2.18.0     2019-10-29 [1] Bioconductor
+##    R6                     2.5.1      2021-08-19 [1] CRAN (R 3.6.3)
+##    RAIDA                  1.0        2021-06-23 [1] local
+##    ranacapa               0.1.0      2021-06-18 [1] Github (gauravsk/ranacapa@58c0cab)
+##    RColorBrewer         * 1.1-3      2022-04-03 [2] CRAN (R 3.6.3)
+##    Rcpp                 * 1.0.7      2021-07-07 [1] CRAN (R 3.6.3)
+##    RcppParallel           5.1.4      2021-05-04 [1] CRAN (R 3.6.3)
+##    RCurl                  1.98-1.6   2022-02-08 [2] CRAN (R 3.6.3)
+##    readr                * 2.0.0      2021-07-20 [1] CRAN (R 3.6.3)
+##    readxl               * 1.3.1      2019-03-13 [1] CRAN (R 3.6.3)
+##    remotes                2.4.2      2021-11-30 [1] CRAN (R 3.6.3)
+##    reprex                 2.0.1      2021-08-05 [1] CRAN (R 3.6.3)
+##    reshape                0.8.9      2022-04-12 [1] CRAN (R 3.6.3)
+##    reshape2             * 1.4.4      2020-04-09 [2] CRAN (R 3.6.3)
+##    Rgraphviz              2.30.0     2019-10-29 [1] Bioconductor
+##    rhdf5                  2.30.1     2019-11-26 [1] Bioconductor
+##    Rhdf5lib               1.8.0      2019-10-29 [1] Bioconductor
+##    rJava                  1.0-5      2021-09-24 [1] CRAN (R 3.6.3)
+##    rjson                  0.2.20     2018-06-08 [1] CRAN (R 3.6.3)
+##  R rlang                  1.0.2      &lt;NA&gt;       [2] &lt;NA&gt;
+##    rmarkdown              2.11       2021-09-14 [1] CRAN (R 3.6.3)
+##    robustbase             0.93-9     2021-09-27 [1] CRAN (R 3.6.3)
+##    rpart                  4.1-15     2019-04-12 [2] CRAN (R 3.6.3)
+##    rprojroot              2.0.2      2020-11-15 [1] CRAN (R 3.6.3)
+##    Rsamtools              2.2.3      2020-02-23 [1] Bioconductor
+##    rsconnect              0.8.25     2021-11-19 [1] CRAN (R 3.6.3)
+##    RSQLite                2.2.7      2021-04-22 [1] CRAN (R 3.6.3)
+##    rstatix                0.7.0      2021-02-13 [1] CRAN (R 3.6.3)
+##    rstudioapi             0.13       2020-11-12 [2] CRAN (R 3.6.3)
+##    Rtsne                  0.15       2018-11-10 [1] CRAN (R 3.6.3)
+##    rvest                  1.0.2      2021-10-16 [1] CRAN (R 3.6.3)
+##    S4Vectors            * 0.24.4     2020-04-09 [2] Bioconductor
+##    sandwich               3.0-1      2021-05-18 [1] CRAN (R 3.6.3)
+##    sass                   0.4.0      2021-05-12 [1] CRAN (R 3.6.3)
+##    scales                 1.2.0      2022-04-13 [2] CRAN (R 3.6.3)
+##    seqinr               * 4.2-8      2021-06-09 [1] CRAN (R 3.6.3)
+##    sessioninfo            1.2.2      2021-12-06 [2] CRAN (R 3.6.3)
+##    shape                  1.4.6      2021-05-19 [1] CRAN (R 3.6.3)
+##    shiny                  1.7.1      2021-10-02 [1] CRAN (R 3.6.3)
+##    ShortRead              1.44.3     2020-02-03 [1] Bioconductor
+##    slam                   0.1-49     2021-11-17 [1] CRAN (R 3.6.3)
+##    sna                    2.6        2020-10-06 [1] CRAN (R 3.6.3)
+##    statnet.common         4.5.0      2021-06-05 [1] CRAN (R 3.6.3)
+##    stringi                1.7.4      2021-08-25 [1] CRAN (R 3.6.3)
+##    stringr              * 1.4.0      2019-02-10 [2] CRAN (R 3.6.3)
+##    SummarizedExperiment * 1.16.1     2019-12-19 [2] Bioconductor
+##    survival               3.1-8      2019-12-03 [2] CRAN (R 3.6.3)
+##    tensorA                0.36.2     2020-11-19 [1] CRAN (R 3.6.3)
+##    testthat               3.1.4      2022-04-26 [2] CRAN (R 3.6.3)
+##    textshape              1.7.3      2021-05-28 [1] CRAN (R 3.6.3)
+##    TH.data                1.1-0      2021-09-27 [1] CRAN (R 3.6.3)
+##    tibble               * 3.1.6      2021-11-07 [1] CRAN (R 3.6.3)
+##    tidyr                * 1.2.0      2022-02-01 [1] CRAN (R 3.6.3)
+##    tidyselect             1.1.1      2021-04-30 [1] CRAN (R 3.6.3)
+##    tidyverse            * 1.3.1      2021-04-15 [1] CRAN (R 3.6.3)
+##    tzdb                   0.2.0      2021-10-27 [1] CRAN (R 3.6.3)
+##    UpSetR                 1.4.0      2019-05-22 [1] CRAN (R 3.6.3)
+##    usethis                2.1.6      2022-05-25 [2] CRAN (R 3.6.3)
+##    utf8                   1.2.2      2021-07-24 [1] CRAN (R 3.6.3)
+##    vctrs                  0.3.8      2021-04-29 [1] CRAN (R 3.6.3)
+##    vegan                * 2.5-7      2020-11-28 [1] CRAN (R 3.6.3)
+##    VennDiagram            1.7.1      2021-12-02 [1] CRAN (R 3.6.3)
+##    viridisLite            0.4.0      2021-04-13 [2] CRAN (R 3.6.3)
+##    vroom                  1.5.7      2021-11-30 [1] CRAN (R 3.6.3)
+##    wesanderson          * 0.3.6.9000 2021-07-21 [1] Github (karthik/wesanderson@651c944)
+##    withr                  2.4.3      2021-11-30 [1] CRAN (R 3.6.3)
+##    Wrench                 1.4.0      2019-10-29 [1] Bioconductor
+##    xfun                   0.23       2021-05-15 [1] CRAN (R 3.6.3)
+##    xlsx                 * 0.6.5      2020-11-10 [1] CRAN (R 3.6.3)
+##    xlsxjars               0.6.1      2014-08-22 [1] CRAN (R 3.6.3)
+##    XMAS                 * 0.0.0.9000 2022-03-23 [1] local
+##    XMAS2                  2.1.7.9    2022-09-09 [2] local
+##    XML                    3.99-0.3   2020-01-20 [1] CRAN (R 3.6.3)
+##    xml2                   1.3.3      2021-11-30 [2] CRAN (R 3.6.3)
+##    xtable                 1.8-4      2019-04-21 [1] CRAN (R 3.6.3)
+##    XVector                0.26.0     2019-10-29 [2] Bioconductor
+##    xviz                 * 1.1.0      2021-01-14 [1] local
+##    yaml                   2.2.2      2022-01-25 [1] CRAN (R 3.6.3)
+##    zlibbioc               1.32.0     2019-10-29 [2] Bioconductor
+##    zoo                    1.8-9      2021-03-09 [1] CRAN (R 3.6.3)
+## 
+##  [1] /share/home/tongbangzhuo/R/x86_64-pc-linux-gnu-library/3.6
+##  [2] /opt/R-3.6.3/lib/R/library
+## 
+##  R ── Package was removed from disk.
+## 
+## ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>
@@ -450,7 +779,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/06-Functional_Analysis_MSEA.Rmd",
+"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/04-Functional_Analysis_MSEA.Rmd",
 "text": "Edit"
 },
 "history": {

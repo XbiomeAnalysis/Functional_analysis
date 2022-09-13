@@ -1,7 +1,5 @@
 # MSEA
 
-(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
-
 This is a markdown tutorial for MSEA. To run MSEA, you need to Install MSEA to your default python before running this template. Installation instruction: https://msea.readthedocs.io/en/latest/quickstart.html#installation.  
 
 You can run MSEA when you have genus that you're interested in (e.g., DA genus), write all genus into one txt file, one genus per line and feed the file to MSEA as input.  
@@ -55,7 +53,7 @@ library(wesanderson)
 
 ```{r read MSEA result}
 
-MSEA_res = read.csv('./MSEA/testout.csv', sep = '\t')
+MSEA_res = read.csv('/share/projects/SOP/Functional_Analysis/github/Functional_analysis/MSEA/testout.csv', sep = '\t')
 head(MSEA_res, n=3)
 ```
 
@@ -184,3 +182,11 @@ p
 ```
 
 As shown above, Y axis shows the enriched terms of your input genes. X axis shows the number of input genes in the enriched terms.
+
+---
+
+## Session info
+
+```{r session info msea}
+devtools::session_info()
+```

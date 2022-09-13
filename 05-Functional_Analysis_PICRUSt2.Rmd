@@ -1,7 +1,5 @@
 # PICRUSt2
 
-(This script was written in _**/share/projects/SOP/Functional_Analysis/github/Functional_analysis/**_ , all relative paths below are under this complete path.)
-
 _**This demo would guide you how to implement funciton analysis on 16S data**_  
 
 ![FlowChart_PICRUSt2}](./flowcharts/FlowChart_PICRUSt2.jpg)
@@ -70,13 +68,13 @@ library(tibble)
 library(magrittr)
 library(phyloseq)
 
-KO_profile <- read.table('./Demodata/PICRUSt2/output/KO_metagenome_out/pred_metagenome_unstrat.tsv',
+KO_profile <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PICRUSt2/output/KO_metagenome_out/pred_metagenome_unstrat.tsv',
                          sep = '\t', comment.char = '', na.strings = '', header = TRUE, check.names = FALSE)
 head(KO_profile)
 
 dim(KO_profile)
 
-metadata <- readxl::read_xlsx('./Demodata/PICRUSt2/Demodata/Eround1_Animal_metadata.xlsx') %>% as.data.frame() %>% column_to_rownames('SampleID')
+metadata <- readxl::read_xlsx('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PICRUSt2/Demodata/Eround1_Animal_metadata.xlsx') %>% as.data.frame() %>% column_to_rownames('SampleID')
 
 ## Construct phyloseq object of functional data
 phy <- phyloseq::phyloseq(otu_table(KO_profile %>% column_to_rownames('function'), taxa_are_rows = TRUE),
@@ -105,7 +103,7 @@ _1e-12 is an empirical threshold fot filtering low abundance feature. According 
 pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default._  
 
 ```{r filter low abundance KO profile}
-source('./RScripts/ultility.R')
+source("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Scripts/R/ultility.R")
 
 filtered_KO_profile <- aggregate_low_abundance(input_data = otu_table(phy_ra) %>% as.data.frame(),
                                                            threshold = 1e-12) ## threshold should be modified based on your on study
@@ -151,7 +149,7 @@ head(DA_res)
 
 ```{r Visualize DA result, fig.width= 20, fig.height=9, warning=FALSE}
 ## Read in description for 
-ID_Description_Mapping <- read.table('./Demodata/PICRUSt2/output/KO_metagenome_out/pred_metagenome_unstrat_descrip.tsv',
+ID_Description_Mapping <- read.table('/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PICRUSt2/output/KO_metagenome_out/pred_metagenome_unstrat_descrip.tsv',
                                      sep = '\t', comment.char = '', na.strings = '', quote = '', header = TRUE, check.names = FALSE) %>% .[, c(1,2)] %>% column_to_rownames('function')
 
 renames_DA_res <- DA_res %>% dplyr::mutate(TaxaID = ID_Description_Mapping[DA_res$TaxaID,] %>% as.vector())
@@ -193,3 +191,11 @@ XMAS2::plot_boxplot(data = filtered_pf,
 ```
 
 Same analysis can be applied to the EC profile, KEGG pathway profile as well as Metacyc pathway profile.  
+
+---
+
+## Session info
+
+```{r session info picrust2}
+devtools::session_info()
+```

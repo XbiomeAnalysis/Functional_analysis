@@ -1,22 +1,20 @@
 # Functional Analysis of Metacyc database
 
-(This script was written in _**/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/**_ , all relative paths below are under this complete path.)
-
 _**This demo provides guidance to standard data analysis of MetaCyc pathway data. Humman2 is used to annotate MGS reads with MetaCyc database.**_  
 
 ![FlowChart_MetaCyc](./flowcharts/FlowChart_MetaCyc.jpg)
 
 ---
 
-_**There are five 7 steps in this tutorial:**_  
+_**There are five 8 steps in this tutorial:**_  
 
-- Data loading
-- Data Preprocess  
-- Beta diversity  
-- Permanova test  
-- Differential analysis  
-- Bacteria contribution to pathway  
-- Map Reaction(enzyme) and gene to pathway  
+- [Pipeline file processing](#pipeline-file-processing)  
+- [Data loading](#data-loading)  
+- [Data preprocess](#data-preprocess)  
+- [Beta diversity](#plot-beta-diversity)  
+- [Permanova test](#permanova-test)  
+- [Differential analysis](#differential-analysisda)  
+- [Bacteria contribution to pathway](#bacteria-contribution-to-differential-pathways)  
 
 ---
 
@@ -39,26 +37,53 @@ library(xlsx)
 library(magrittr)
 
 ## Load functions
-source("./RScripts/permanova.R")
-source("./RScripts/pathway2gene.R")
-source("./RScripts/ultility.R")
+source("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/RScript/permanova.R")
+source("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/RScript/pathway2gene.R")
+source("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Scripts/R/ultility.R")
 ```
 
 ---
 
+## Pipeline file processing
+
+_As described in the introduction chapter, **a cohort containing 8 MGS samples of 4 patients from 2 groups in MAFLD project** would be used as demo data in this tutorial._  
+
+### Merge sample files  
+
+Here we need to merge all data from 8 samples into one profile table with the merge script from Humann2 **in Bash**. But if you have merged the sample data already, please skip this chunk and jump to [Data loading](#data-loading).
+
+```markdown
+
+docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c "merge_metaphlan_tables.py /in/PipelineOutput/*/humann2/*_pathabundance.tsv > /in/Metacyc/merged_metacyc_profile.tsv"
+
+```
+
+### Split strain info
+
+Output profile from Humann2 pipeline contains strain information, we need to split the profile file into two files **in Bash**. But if you have splitted the sample data already, please skip this chunk and jump to [Data loading](#data-loading).
+
+- unstratified profile file
+- stratified profile file
+
+```markdown
+
+grep -v "|" /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Metacyc/merged_metacyc_profile.tsv > /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Metacyc/merged_metacyc_profile_unstratified.tsv
+
+grep -E "\\||pathabundance" /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Metacyc/merged_metacyc_profile.tsv > /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Metacyc/merged_metacyc_profile_stratified.tsv
+
+```
+
 ## Data loading
 
-_As described in the introduction chapter,_ _**a cohort containing 13 samples of 6 patients in GvHD project**_ _would be used as demo data in this Chapter._  
-
-_**Read metadata:**_  
+### Read metadata:  
 
 Read MetaCyc metadata from Demo folder.  
 
 ```{r metadata}
 
-metadata <- read.table("./Demodata/metadata.txt",header = TRUE,stringsAsFactors = FALSE) %>%
-  mutate(seqid2 = seqid) %>%  # keep seqid in the metadata
-  column_to_rownames("seqid2")
+metadata <- read.table("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/metadata.xls",header = TRUE,stringsAsFactors = FALSE) %>%
+  mutate(seqid = SeqID) %>%  # keep seqid in the metadata
+  column_to_rownames("SeqID")
 
 dim(metadata)
 
@@ -66,18 +91,18 @@ head(metadata)
 
 ```
 
-_**Read metaphlan2 profile table:**_  
+### Read metaphlan2 profile table:  
 
 Read MetaCyc profile table from Demo folder.  
 
 ```{r load_unstratified_pahtwaydata}
 
-pathwaydata <- read_delim("./Demodata/merged_relab_pathabundance_unstratified.tsv", delim = "\t") %>%
-  mutate(`# Pathway` = str_split_fixed(`# Pathway`, ":", 2)[,1]) %>%           # do not edit 
-  column_to_rownames("# Pathway") %>%                                          # do not edit
+pathwaydata <- read_delim("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Metacyc/merged_metacyc_profile_unstratified.tsv", delim = "\t") %>%
+  mutate(`ID` = str_split_fixed(`ID`, ":", 2)[,1]) %>%           # do not edit 
+  column_to_rownames("ID") %>%                                          # do not edit
   t() %>% as.data.frame() %>%                                                  # do not edit
   rownames_to_column("seq_id") %>%                                             # do not edit
-  mutate(seq_id=str_extract(seq_id, "\\d{4}")) %>%                             # do not edit 
+  mutate(seq_id=str_remove_all(seq_id, "_.+")) %>%                             # do not edit 
   filter(seq_id %in% metadata$seqid) %>%                                       # *** only keep samples in metadata, edit if needed ***
   column_to_rownames("seq_id")   %>%                                           # do not edit
   t() %>% as.data.frame() %>%                                                  # do not edit
@@ -92,7 +117,7 @@ dim(pathwaydata)
 
 ## Data preprocess
 
-_**Transforming data**_  
+### Transforming data  
 
 In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.  
 
@@ -104,9 +129,9 @@ dim(rescaled_pathwaydata)
 
 ```
 
-_**Remove unppaed pathways**_  
+### Remove unppaed pathways  
 
-Note: you need to transform your data into relative abundance before running this chunk!!  
+**Note: you need to [transform](#transforming-data) your data into relative abundance before running this chunk!!**  
 
 ```{r filtering}
 
@@ -118,13 +143,12 @@ rescaled_pathway.clean <- rescaled_pathwaydata %>%
 dim(rescaled_pathway.clean)
 ```
 
-_**Aggregate low abundance data**_  
+### Aggregate low abundance data  
 
-In this chunck, we aggregate low abundance features to one row. **Notably, you need to transform and remove unmapped entries in your data before running this chunk!!**  
+In this chunck, we aggregate low abundance features to one row. **Note: you need to [transform](#transforming-data) and [Remove unppaed pathways](#remove-unppaed-pathways) in your data before running this chunk!!**  
 
 _1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition](https://doi.org/10.1016/j.chom.2019.07.004)  
 pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default._  
-
 
 ```{r aggregate}
 
@@ -138,7 +162,7 @@ dim(pathway.clean)
 
 ## Plot Beta diversity  
 
-In this demo, we plot PCoA with Bray-Curtis distance as example.  
+In this chunk, we plot PCoA with Bray-Curtis distance as example.  
 plot_beta_diversity is a fucntion in XVIZ working on calculating the beta diversity distance and visualzing output. Input of plot_beta_diversity should be a phyloseq object.  
 
 ```{r beta_diversity,fig.width=12}
@@ -166,9 +190,9 @@ phyloseq(otu_table(pathway.clean, taxa_are_rows = T), sample_data(metadata)) %>%
 
 ## Differential analysis(DA)  
 
-_**Filter low prevalence pathway**_  
+### Filter low prevalence pathway  
 
-In this chunk, we would remove pathways apperaing in less than max(2 , 5% of samples) from data set before doing analysis. **Remember to run all three chunks in data preprocessing section before running this chunk!**  
+In this chunk, we would remove pathways apperaing in less than max(2 , 5% of samples) from data set before doing analysis. **Remember to run [Data preprocess](#data-preprocess) section before running this chunk!**  
 
 ```{r filter_prevalance}
 
@@ -182,9 +206,9 @@ dim(pathway.filter)
 
 ```
 
-_**LefSE**_
+### LefSE
 
-**Remember to filter_prevalance in the chunk above before running this chunk!**  
+**Remember to [Filter low prevalence pathway](#filter-low-prevalence-pathway) before running this chunk!**  
 
 ```{r lefse}
 da_pathway =  phyloseq(otu_table(pathway.filter, taxa_are_rows = T), sample_data(metadata)) %>%
@@ -197,17 +221,21 @@ da_pathway$id %<>% str_replace_all("_","-")
 
 ---
 
-## Bacteria contributing to differential pathways  
+## Bacteria contribution to differential pathways  
+
+Use script from Humann2 to visualize the species contribution to differential MetaCyc pathways.
+
+### Generate input from contribution barplot
 
 ```{r bacteria_contribution, fig.width=7,fig.width=7}
 options(stringsAsFactors = FALSE)
 
-pathway_stratified <- read_delim("./Demodata/merged_relab_pathabundance_stratified.pcl", delim = "\t") %>%
-    column_to_rownames("pathwayID") %>%
+pathway_stratified <- read_delim("/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Metacyc/merged_metacyc_profile_stratified.tsv", delim = "\t") %>%
+    column_to_rownames("ID") %>%
     t() %>%
     as.data.frame() %>%
     rownames_to_column("seq_id") %>%
-    mutate(seq_id=str_extract(seq_id, "\\d{4}")) %>%
+    mutate(seq_id=str_remove_all(seq_id, "_.+")) %>%
     filter(seq_id %in% metadata$seqid) %>%
     column_to_rownames("seq_id") %>% 
     t() %>%
@@ -227,24 +255,22 @@ pathway_list <- pathway_stratified %>% as.data.frame() %>%
     pivot_wider(names_from = "Species",values_from = "Species") %>%
     column_to_rownames("PathwayID") %>% .[apply(.,1,function(x) sum(!is.na(x))) >= 2,] %>%
     rownames()
-    
 
-read_delim("./Demodata/merged_relab_pathabundance_stratified.tsv", delim = "\t") %>%
-    column_to_rownames("# Pathway") %>%
+pathway_stratified %>%
+    column_to_rownames("pathwayID") %>%
     t() %>%
     as.data.frame() %>%
     rownames_to_column("seqid") %>%
-    mutate(seqid=str_extract(seqid, "\\d{4}")) %>%
-    merge(metadata,.,  by="seqid") %>%
+    merge(metadata %>% dplyr::select(c(Group, seqid)), .,  by="seqid") %>%
     filter(seqid %in% metadata$seqid) %>%
     column_to_rownames("seqid") %>%
     t() %>%
     as.data.frame() %>%
     rownames_to_column("pathwayID") %>%
-    write.table(.,"./output/MetaCyc/merged_relab_pathabundance_stratified.pcl", row.names = FALSE, quote = FALSE, sep = "\t")
+    write.table(.,"/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Metacyc/merged_relab_pathabundance_stratified.pcl", row.names = FALSE, quote = FALSE, sep = "\t")
 
 for (i in pathway_list) {
-    commond_text <- "python3.5 ~/tongbangzhuo_Xbiome1/Script/humann2_barplot.py --input ./output/MetaCyc/merged_relab_pathabundance_stratified.pcl --focal-feature ${pathwayID} --focal-metadatum Group --last-metadatum Group -d 8 4 --output output/MetaCyc/${pathwayID}.png -e 0.8"
+    commond_text <- "/home/tongbangzhuo/Software/miniconda3/bin/python /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Metacyc/humann2_barplot.py --input /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Metacyc/merged_relab_pathabundance_stratified.pcl --focal-feature ${pathwayID} --focal-metadatum Group --last-metadatum Group -d 8 4 --output /share/projects/SOP/Functional_Analysis/github/Functional_analysis/output/MetaCyc/${pathwayID}.png -e 0.8"
     commond_text <- stringr::str_interp(commond_text, list(pathwayID = i))
     system(commond_text)
 }
@@ -253,79 +279,16 @@ for (i in pathway_list) {
 
 ---
 
-## Plot Bacteria contribution
+### Plot Bacteria contribution
 
 ```{r plot_bacteria_contribution}
 
 image_path <- NULL
 
-image_path <- system('ls ./output/MetaCyc/*PWY*png', intern = TRUE) %>% unlist() %>% as.character() %>% as.vector() %>% .[1:5]
+image_path <- system('ls /share/projects/SOP/Functional_Analysis/github/Functional_analysis/output/MetaCyc/*PWY*png', intern = TRUE) %>% unlist() %>% as.character() %>% as.vector() %>% .[1:5]
 
 ## In the graph(s) below, green KO are those KOs enriched in GroupB, red KO are those KOs enriched in GroupA
 knitr::include_graphics(image_path)
-
-```
-
----
-
-## Gene and Ensyme involed in differential pathways  
-
-_**load tables to mapping pathway to gene and enzyme**_  
-
-```{r load_metacyc_data}
-
-# gene family
-my_genefamily = read.table("./Demodata/MetaCyc/all.genefamilies.tsv",sep="\t")
-my_genefamily_unstratified = my_genefamily %>% filter(!str_detect(V1,"[|]"))
-
-metacyc_pwy_name = read_delim("./Demodata/MetaCyc/map_metacyc-pwy_name.txt",delim = "\t",col_names = FALSE)
-
-```
-
-_**Mapping pathway to related gene and reaction**_  
-
-```{r gene_ensyme}
-
-cur_path = 1
-append_option = TRUE
-da_pathway_gene_full_list = list()
-
-
-for(i in 1:length(pathway_list)){
-  pathway_gene_result = pathway2gene(pathway_list[i])
-
-  if(is.null(pathway_gene_result)){
-    cur_path = cur_path+1
-    next()
-  }
-
-  else{
-    pathway_gene_result = pathway_gene_result %>% dplyr::filter(genefamily %in% my_genefamily$V1)
-
-  if(cur_path == 1){
-    append_option = FALSE
-  }
-
-  if(cur_path > 1){
-     append_option = TRUE
-  }
-
-  da_pathway_gene_full_list[[pathway_list[i]]] = pathway_gene_result
-
-  cur_path = cur_path + 1
-  }
-
-}
-
-
-```
-
-_**Show the result of one of the differential pathways for example:**_  
-
-
-```{r pathway_reaction_gene_example}
-
-head(da_pathway_gene_full_list[[1]])
 
 ```
 

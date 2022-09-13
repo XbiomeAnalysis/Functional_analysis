@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Functional Analysis of KEGG | Functional analysis</title>
+  <title>Chapter 3 Functional Analysis of KEGG | Functional analysis</title>
   <meta name="description" content="Tutorial for MGS functional analysis" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Functional Analysis of KEGG | Functional analysis" />
+  <meta property="og:title" content="Chapter 3 Functional Analysis of KEGG | Functional analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Functional Analysis of KEGG | Functional analysis" />
+  <meta name="twitter:title" content="Chapter 3 Functional Analysis of KEGG | Functional analysis" />
   
   <meta name="twitter:description" content="Tutorial for MGS functional analysis" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-09-02" />
+<meta name="date" content="2022-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="preprocess-of-functional-analysis-of-kegg.html"/>
-<link rel="next" href="preprocess-of-functional-analysis-of-target-database.html"/>
+<link rel="prev" href="functional-analysis-of-metacyc-database.html"/>
+<link rel="next" href="functional-analysis-of-targetdatabase.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -140,55 +140,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html"><i class="fa fa-check"></i><b>2</b> Functional Analysis of Metacyc database</a><ul>
 <li class="chapter" data-level="2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#environment-setup"><i class="fa fa-check"></i><b>2.1</b> Environment setup</a></li>
-<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-loading"><i class="fa fa-check"></i><b>2.2</b> Data loading</a></li>
-<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-preprocess"><i class="fa fa-check"></i><b>2.3</b> Data preprocess</a></li>
-<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.4</b> Plot Beta diversity</a></li>
-<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.5</b> Permanova test</a></li>
-<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.6</b> Differential analysis(DA)</a></li>
-<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contributing-to-differential-pathways"><i class="fa fa-check"></i><b>2.7</b> Bacteria contributing to differential pathways</a></li>
-<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8</b> Plot Bacteria contribution</a></li>
-<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#gene-and-ensyme-involed-in-differential-pathways"><i class="fa fa-check"></i><b>2.9</b> Gene and Ensyme involed in differential pathways</a></li>
-<li class="chapter" data-level="2.10" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.10</b> Session info</a></li>
+<li class="chapter" data-level="2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#pipeline-file-processing"><i class="fa fa-check"></i><b>2.2</b> Pipeline file processing</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#merge-sample-files"><i class="fa fa-check"></i><b>2.2.1</b> Merge sample files</a></li>
+<li class="chapter" data-level="2.2.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#split-strain-info"><i class="fa fa-check"></i><b>2.2.2</b> Split strain info</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Preprocess of Functional Analysis of KEGG</a><ul>
-<li class="chapter" data-level="3.1" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment Setup</a></li>
-<li class="chapter" data-level="3.2" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#process-pipeline-output"><i class="fa fa-check"></i><b>3.2</b> Process pipeline output</a></li>
-<li class="chapter" data-level="3.3" data-path="preprocess-of-functional-analysis-of-kegg.html"><a href="preprocess-of-functional-analysis-of-kegg.html#session-info-1"><i class="fa fa-check"></i><b>3.3</b> Session info</a></li>
+<li class="chapter" data-level="2.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-loading"><i class="fa fa-check"></i><b>2.3</b> Data loading</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#read-metadata"><i class="fa fa-check"></i><b>2.3.1</b> Read metadata:</a></li>
+<li class="chapter" data-level="2.3.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#read-metaphlan2-profile-table"><i class="fa fa-check"></i><b>2.3.2</b> Read metaphlan2 profile table:</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis of KEGG</a><ul>
-<li class="chapter" data-level="4.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#environment-setup-2"><i class="fa fa-check"></i><b>4.1</b> Environment setup</a></li>
-<li class="chapter" data-level="4.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-loading-1"><i class="fa fa-check"></i><b>4.2</b> Data loading</a></li>
-<li class="chapter" data-level="4.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-preprocessing"><i class="fa fa-check"></i><b>4.3</b> Data preprocessing</a></li>
-<li class="chapter" data-level="4.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#standard-analysis"><i class="fa fa-check"></i><b>4.4</b> Standard Analysis</a></li>
-<li class="chapter" data-level="4.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysisda-1"><i class="fa fa-check"></i><b>4.5</b> Differential analysis(DA)</a></li>
-<li class="chapter" data-level="4.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information"><i class="fa fa-check"></i><b>4.6</b> Session information</a></li>
+<li class="chapter" data-level="2.4" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#data-preprocess"><i class="fa fa-check"></i><b>2.4</b> Data preprocess</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#transforming-data"><i class="fa fa-check"></i><b>2.4.1</b> Transforming data</a></li>
+<li class="chapter" data-level="2.4.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#remove-unppaed-pathways"><i class="fa fa-check"></i><b>2.4.2</b> Remove unppaed pathways</a></li>
+<li class="chapter" data-level="2.4.3" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#aggregate-low-abundance-data"><i class="fa fa-check"></i><b>2.4.3</b> Aggregate low abundance data</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="preprocess-of-functional-analysis-of-target-database.html"><a href="preprocess-of-functional-analysis-of-target-database.html"><i class="fa fa-check"></i><b>5</b> Preprocess of Functional Analysis of Target Database</a><ul>
-<li class="chapter" data-level="5.1" data-path="preprocess-of-functional-analysis-of-target-database.html"><a href="preprocess-of-functional-analysis-of-target-database.html#merge-sample-data"><i class="fa fa-check"></i><b>5.1</b> Merge sample data</a></li>
+<li class="chapter" data-level="2.5" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-beta-diversity"><i class="fa fa-check"></i><b>2.5</b> Plot Beta diversity</a></li>
+<li class="chapter" data-level="2.6" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#permanova-test"><i class="fa fa-check"></i><b>2.6</b> Permanova test</a></li>
+<li class="chapter" data-level="2.7" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#differential-analysisda"><i class="fa fa-check"></i><b>2.7</b> Differential analysis(DA)</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#filter-low-prevalence-pathway"><i class="fa fa-check"></i><b>2.7.1</b> Filter low prevalence pathway</a></li>
+<li class="chapter" data-level="2.7.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#lefse"><i class="fa fa-check"></i><b>2.7.2</b> LefSE</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>6</b> Functional Analysis of TargetDatabase</a><ul>
-<li class="chapter" data-level="6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-3"><i class="fa fa-check"></i><b>6.1</b> Environment setup</a></li>
-<li class="chapter" data-level="6.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-loading-2"><i class="fa fa-check"></i><b>6.2</b> Data loading</a></li>
-<li class="chapter" data-level="6.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-preprocessing-1"><i class="fa fa-check"></i><b>6.3</b> Data preprocessing</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#standard-analysis-1"><i class="fa fa-check"></i><b>6.3.1</b> Standard analysis</a></li>
+<li class="chapter" data-level="2.8" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#bacteria-contribution-to-differential-pathways"><i class="fa fa-check"></i><b>2.8</b> Bacteria contribution to differential pathways</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#generate-input-from-contribution-barplot"><i class="fa fa-check"></i><b>2.8.1</b> Generate input from contribution barplot</a></li>
+<li class="chapter" data-level="2.8.2" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#plot-bacteria-contribution"><i class="fa fa-check"></i><b>2.8.2</b> Plot Bacteria contribution</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysisda-2"><i class="fa fa-check"></i><b>6.4</b> Differential analysis(DA)</a></li>
+<li class="chapter" data-level="2.9" data-path="functional-analysis-of-metacyc-database.html"><a href="functional-analysis-of-metacyc-database.html#session-info"><i class="fa fa-check"></i><b>2.9</b> Session info</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="msea.html"><a href="msea.html"><i class="fa fa-check"></i><b>7</b> MSEA</a><ul>
-<li class="chapter" data-level="7.1" data-path="msea.html"><a href="msea.html#execute-msea-with-python-script-on-server"><i class="fa fa-check"></i><b>7.1</b> Execute MSEA with python script on server</a></li>
-<li class="chapter" data-level="7.2" data-path="msea.html"><a href="msea.html#environment-setup-4"><i class="fa fa-check"></i><b>7.2</b> Environment setup</a></li>
-<li class="chapter" data-level="7.3" data-path="msea.html"><a href="msea.html#read-in-msea-result"><i class="fa fa-check"></i><b>7.3</b> Read in MSEA result</a></li>
-<li class="chapter" data-level="7.4" data-path="msea.html"><a href="msea.html#filter-msea-result"><i class="fa fa-check"></i><b>7.4</b> Filter MSEA result</a></li>
-<li class="chapter" data-level="7.5" data-path="msea.html"><a href="msea.html#visualization"><i class="fa fa-check"></i><b>7.5</b> Visualization</a></li>
-<li class="chapter" data-level="7.6" data-path="msea.html"><a href="msea.html#run-enrichr-analysis"><i class="fa fa-check"></i><b>7.6</b> Run enrichR analysis</a></li>
+<li class="chapter" data-level="3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html"><i class="fa fa-check"></i><b>3</b> Functional Analysis of KEGG</a><ul>
+<li class="chapter" data-level="3.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#environment-setup-1"><i class="fa fa-check"></i><b>3.1</b> Environment setup</a></li>
+<li class="chapter" data-level="3.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#pipeline-file-processing-kegg"><i class="fa fa-check"></i><b>3.2</b> Pipeline file processing (KEGG)</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-description-in-kegg-map-profile"><i class="fa fa-check"></i><b>3.2.1</b> Remove description in KEGG map profile</a></li>
+<li class="chapter" data-level="3.2.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#merge-kegg-map-profile-of-samples"><i class="fa fa-check"></i><b>3.2.2</b> Merge KEGG map profile of samples</a></li>
+<li class="chapter" data-level="3.2.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-tmp-tsv"><i class="fa fa-check"></i><b>3.2.3</b> Remove tmp tsv</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>8</b> PICRUSt2</a><ul>
-<li class="chapter" data-level="8.1" data-path="picrust2.html"><a href="picrust2.html#environment-setup-5"><i class="fa fa-check"></i><b>8.1</b> Environment Setup</a></li>
-<li class="chapter" data-level="8.2" data-path="picrust2.html"><a href="picrust2.html#run-picrust2"><i class="fa fa-check"></i><b>8.2</b> Run PICRUSt2</a></li>
-<li class="chapter" data-level="8.3" data-path="picrust2.html"><a href="picrust2.html#use-da-to-interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>8.3</b> Use DA to interpret result table from PICRUSt2</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="picrust2.html"><a href="picrust2.html#read-input"><i class="fa fa-check"></i><b>8.3.1</b> Read input</a></li>
-<li class="chapter" data-level="8.3.2" data-path="picrust2.html"><a href="picrust2.html#preprocess"><i class="fa fa-check"></i><b>8.3.2</b> Preprocess</a></li>
+<li class="chapter" data-level="3.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-loading-kegg"><i class="fa fa-check"></i><b>3.3</b> Data loading (KEGG)</a></li>
+<li class="chapter" data-level="3.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#data-preprocessing-kegg"><i class="fa fa-check"></i><b>3.4</b> Data preprocessing (KEGG)</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#remove-0-abundance-maps"><i class="fa fa-check"></i><b>3.4.1</b> Remove 0 abundance maps</a></li>
+<li class="chapter" data-level="3.4.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#transforming-data-kegg"><i class="fa fa-check"></i><b>3.4.2</b> Transforming data (KEGG)</a></li>
+<li class="chapter" data-level="3.4.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#aggregate-low-abundance-data-1"><i class="fa fa-check"></i><b>3.4.3</b> Aggregate low abundance data</a></li>
 </ul></li>
+<li class="chapter" data-level="3.5" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#standard-analysis-kegg"><i class="fa fa-check"></i><b>3.5</b> Standard Analysis (KEGG)</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#compositional-barplot"><i class="fa fa-check"></i><b>3.5.1</b> Compositional barplot</a></li>
+<li class="chapter" data-level="3.5.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#beta-diversity"><i class="fa fa-check"></i><b>3.5.2</b> Beta diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#differential-analysis-kegg"><i class="fa fa-check"></i><b>3.6</b> Differential analysis (KEGG)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#filter-low-prevalence-pathway-kegg"><i class="fa fa-check"></i><b>3.6.1</b> Filter low prevalence pathway (KEGG)</a></li>
+<li class="chapter" data-level="3.6.2" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#da-with-logistic-regression"><i class="fa fa-check"></i><b>3.6.2</b> DA with Logistic Regression</a></li>
+<li class="chapter" data-level="3.6.3" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#show-da-result-with-volcano-plot"><i class="fa fa-check"></i><b>3.6.3</b> Show DA result with volcano plot</a></li>
+<li class="chapter" data-level="3.6.4" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#show-da-result-with-pathview"><i class="fa fa-check"></i><b>3.6.4</b> Show DA result with pathview</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="functional-analysis-of-kegg.html"><a href="functional-analysis-of-kegg.html#session-information-kegg"><i class="fa fa-check"></i><b>3.7</b> Session information (KEGG)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html"><i class="fa fa-check"></i><b>4</b> Functional Analysis of TargetDatabase</a><ul>
+<li class="chapter" data-level="4.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#environment-setup-2"><i class="fa fa-check"></i><b>4.1</b> Environment setup</a></li>
+<li class="chapter" data-level="4.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#pipeline-file-processing-1"><i class="fa fa-check"></i><b>4.2</b> Pipeline file processing</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#merge-sample-files-target-db"><i class="fa fa-check"></i><b>4.2.1</b> Merge sample files (Target db)</a></li>
+<li class="chapter" data-level="4.2.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#split-strain-info-target-db"><i class="fa fa-check"></i><b>4.2.2</b> Split strain info (Target db)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-loading-target-db"><i class="fa fa-check"></i><b>4.3</b> Data loading (Target db)</a></li>
+<li class="chapter" data-level="4.4" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#data-preprocessing-target-db"><i class="fa fa-check"></i><b>4.4</b> Data preprocessing (Target db)</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#transforming-data-target-db"><i class="fa fa-check"></i><b>4.4.1</b> Transforming data (Target db)</a></li>
+<li class="chapter" data-level="4.4.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#remove-unppaed-pathways-target-db"><i class="fa fa-check"></i><b>4.4.2</b> Remove unppaed pathways (Target db)</a></li>
+<li class="chapter" data-level="4.4.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#aggregate-low-abundance-data-2"><i class="fa fa-check"></i><b>4.4.3</b> Aggregate low abundance data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#standard-analysis"><i class="fa fa-check"></i><b>4.5</b> Standard analysis</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#compositional-barplot-1"><i class="fa fa-check"></i><b>4.5.1</b> Compositional barplot</a></li>
+<li class="chapter" data-level="4.5.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#beta-diversity-1"><i class="fa fa-check"></i><b>4.5.2</b> Beta diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#differential-analysis-da"><i class="fa fa-check"></i><b>4.6</b> Differential analysis (DA)</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#filter-low-prevalence-pathway-da"><i class="fa fa-check"></i><b>4.6.1</b> Filter low prevalence pathway (DA)</a></li>
+<li class="chapter" data-level="4.6.2" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#da-with-lm"><i class="fa fa-check"></i><b>4.6.2</b> DA with LM</a></li>
+<li class="chapter" data-level="4.6.3" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#show-da-result-with-volcano-plot-1"><i class="fa fa-check"></i><b>4.6.3</b> Show DA result with volcano plot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="functional-analysis-of-targetdatabase.html"><a href="functional-analysis-of-targetdatabase.html#session-info-1"><i class="fa fa-check"></i><b>4.7</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="msea.html"><a href="msea.html"><i class="fa fa-check"></i><b>5</b> MSEA</a><ul>
+<li class="chapter" data-level="5.1" data-path="msea.html"><a href="msea.html#execute-msea-with-python-script-on-server"><i class="fa fa-check"></i><b>5.1</b> Execute MSEA with python script on server</a></li>
+<li class="chapter" data-level="5.2" data-path="msea.html"><a href="msea.html#environment-setup-3"><i class="fa fa-check"></i><b>5.2</b> Environment setup</a></li>
+<li class="chapter" data-level="5.3" data-path="msea.html"><a href="msea.html#read-in-msea-result"><i class="fa fa-check"></i><b>5.3</b> Read in MSEA result</a></li>
+<li class="chapter" data-level="5.4" data-path="msea.html"><a href="msea.html#filter-msea-result"><i class="fa fa-check"></i><b>5.4</b> Filter MSEA result</a></li>
+<li class="chapter" data-level="5.5" data-path="msea.html"><a href="msea.html#visualization"><i class="fa fa-check"></i><b>5.5</b> Visualization</a></li>
+<li class="chapter" data-level="5.6" data-path="msea.html"><a href="msea.html#run-enrichr-analysis"><i class="fa fa-check"></i><b>5.6</b> Run enrichR analysis</a></li>
+<li class="chapter" data-level="5.7" data-path="msea.html"><a href="msea.html#session-info-2"><i class="fa fa-check"></i><b>5.7</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>6</b> PICRUSt2</a><ul>
+<li class="chapter" data-level="6.1" data-path="picrust2.html"><a href="picrust2.html#environment-setup-4"><i class="fa fa-check"></i><b>6.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="6.2" data-path="picrust2.html"><a href="picrust2.html#run-picrust2"><i class="fa fa-check"></i><b>6.2</b> Run PICRUSt2</a></li>
+<li class="chapter" data-level="6.3" data-path="picrust2.html"><a href="picrust2.html#use-da-to-interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>6.3</b> Use DA to interpret result table from PICRUSt2</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="picrust2.html"><a href="picrust2.html#read-input"><i class="fa fa-check"></i><b>6.3.1</b> Read input</a></li>
+<li class="chapter" data-level="6.3.2" data-path="picrust2.html"><a href="picrust2.html#preprocess"><i class="fa fa-check"></i><b>6.3.2</b> Preprocess</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="picrust2.html"><a href="picrust2.html#session-info-3"><i class="fa fa-check"></i><b>6.4</b> Session info</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -211,312 +252,369 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="functional-analysis-of-kegg" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Functional Analysis of KEGG</h1>
-<p>(This script was written in <em><strong>/share/projects/SOP/Functional_Analysis/github/Functional_analysis/</strong></em> , all relative paths below are under this complete path.)</p>
+<h1><span class="header-section-number">Chapter 3</span> Functional Analysis of KEGG</h1>
 <p><em><strong>This demo guides you how to analyze KEGG pathway profile and KO profile.</strong></em></p>
 <div class="figure">
 <img src="flowcharts/FlowChart_KEGG.jpg" alt="" />
 <p class="caption">FlowChart_KEGG</p>
 </div>
 <hr />
-<div id="environment-setup-2" class="section level2">
-<h2><span class="header-section-number">4.1</span> Environment setup</h2>
+<div id="environment-setup-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Environment setup</h2>
 <hr />
 </div>
-<div id="data-loading-1" class="section level2">
-<h2><span class="header-section-number">4.2</span> Data loading</h2>
-<p>Here we use example data from Functional_Analysis_Kegg_Pathway_preprocess.Rmd and demo metadata created from Create_Demo_Metadata.</p>
-<ul>
-<li>./Demodata/KEGG/Demo_data/merged_pathway.txt. rows are pathways, columns are samples.</li>
-<li>./Demodata/KEGG/Demo_data/Demo_metadata.xls. rows are samples, columns are group info.</li>
-</ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="functional-analysis-of-kegg.html#cb41-1"></a><span class="co">## Some pathway ID start with 0, thus we need to read in first column as character object.</span></span>
-<span id="cb41-2"><a href="functional-analysis-of-kegg.html#cb41-2"></a></span>
-<span id="cb41-3"><a href="functional-analysis-of-kegg.html#cb41-3"></a>pathway_profile_tbl &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;./Demodata/KEGG/Demo_data/merged_pathway.txt&#39;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&#39;!&#39;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span> , <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;# Gene Family&#39;</span> =<span class="st"> &#39;character&#39;</span>), <span class="dt">na.strings =</span> <span class="st">&#39;&#39;</span>, <span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb41-4"><a href="functional-analysis-of-kegg.html#cb41-4"></a></span>
-<span id="cb41-5"><a href="functional-analysis-of-kegg.html#cb41-5"></a><span class="co">## We can map pathway ID to pathway names with the mapping file in minpath.</span></span>
-<span id="cb41-6"><a href="functional-analysis-of-kegg.html#cb41-6"></a><span class="co">## But it is not suggested to do the mapping in this step, because pathway names contain species characters, but we read in mapping file here anyways.</span></span>
-<span id="cb41-7"><a href="functional-analysis-of-kegg.html#cb41-7"></a></span>
-<span id="cb41-8"><a href="functional-analysis-of-kegg.html#cb41-8"></a>ID2Name_mapping_tbl &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/work/runtime/softwares/MinPath/data/KEGG-pathway.txt&#39;</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">na.strings =</span> <span class="st">&#39;&#39;</span>, <span class="dt">comment.char =</span> <span class="st">&#39;&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;V1&#39;</span> =<span class="st"> &#39;character&#39;</span>))</span>
-<span id="cb41-9"><a href="functional-analysis-of-kegg.html#cb41-9"></a></span>
-<span id="cb41-10"><a href="functional-analysis-of-kegg.html#cb41-10"></a><span class="kw">colnames</span>(ID2Name_mapping_tbl) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;PathwayID&#39;</span>, <span class="st">&#39;Label&#39;</span>)</span>
-<span id="cb41-11"><a href="functional-analysis-of-kegg.html#cb41-11"></a></span>
-<span id="cb41-12"><a href="functional-analysis-of-kegg.html#cb41-12"></a></span>
-<span id="cb41-13"><a href="functional-analysis-of-kegg.html#cb41-13"></a><span class="co">## Next we read in metadata (Group information)</span></span>
-<span id="cb41-14"><a href="functional-analysis-of-kegg.html#cb41-14"></a>metadata &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;./Demodata/KEGG/Demo_data/Demo_metadata.xls&#39;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb41-15"><a href="functional-analysis-of-kegg.html#cb41-15"></a>metadata <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;sample&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span></code></pre></div>
+<div id="pipeline-file-processing-kegg" class="section level2">
+<h2><span class="header-section-number">3.2</span> Pipeline file processing (KEGG)</h2>
+<p><em>As described in the introduction chapter, <strong>a cohort containing 8 MGS samples of 4 patients from 2 groups in MAFLD project</strong> would be used as demo data in this tutorial.</em></p>
+<p><strong>Note: Pathway abundance can be calculated in many ways (median/mean/avarage_top_half value of KO profiles), in this tutorial we use “median” as example.</strong></p>
+<div id="remove-description-in-kegg-map-profile" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Remove description in KEGG map profile</h3>
+<p>Here we need to remove the description column of kegg map profile of 8 samples <strong>in Bash</strong>. But if you have removed the column data already, please skip this chunk and jump to <a href="functional-analysis-of-kegg.html#merge-kegg-map-profile-of-samples">Merge KEGG map profile of samples</a>.</p>
+<pre class="mamrkdown"><code>for i in /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PipelineOutput/*/humann2_post_kegg/*_pathway_abundance_median_des.tsv; do awk -F &#39;\t&#39; &#39;{print $1&quot;\t&quot;$2}&#39; $i &gt; $i.tmp.tsv ;done</code></pre>
+</div>
+<div id="merge-kegg-map-profile-of-samples" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Merge KEGG map profile of samples</h3>
+<p>Here we need to merge all data from 8 samples into one profile table with the merge script from Humann2 <strong>in Bash</strong>. But if you have merged the sample data already, please skip this chunk and jump to <a href="functional-analysis-of-kegg.html#data-loading-kegg">Data loading</a>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb29-1"><a href="functional-analysis-of-kegg.html#cb29-1"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/PipelineOutput/*/humann2_post_kegg/*.tmp.tsv &gt; /in/Kegg/merged_kegg_profile.tsv&quot;</span></code></pre></div>
+</div>
+<div id="remove-tmp-tsv" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Remove tmp tsv</h3>
+<p>Remove tmp tsv files created above</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="functional-analysis-of-kegg.html#cb30-1"></a>rm /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PipelineOutput/*/humann2_post_kegg/*.tmp.tsv</span>
+<span id="cb30-2"><a href="functional-analysis-of-kegg.html#cb30-2"></a></span>
+<span id="cb30-3"><a href="functional-analysis-of-kegg.html#cb30-3"></a>sed -i &#39;/pathway\t/d&#39; /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Kegg/merged_kegg_profile.tsv</span></code></pre></div>
+</div>
+</div>
+<div id="data-loading-kegg" class="section level2">
+<h2><span class="header-section-number">3.3</span> Data loading (KEGG)</h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="functional-analysis-of-kegg.html#cb31-1"></a>pathway_profile_tbl &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Kegg/merged_kegg_profile.tsv&#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&#39;&#39;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span> , <span class="dt">na.strings =</span> <span class="st">&#39;&#39;</span>, <span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb31-2"><a href="functional-analysis-of-kegg.html#cb31-2"></a></span>
+<span id="cb31-3"><a href="functional-analysis-of-kegg.html#cb31-3"></a><span class="kw">colnames</span>(pathway_profile_tbl)[<span class="dv">1</span>] &lt;-<span class="st"> &#39;PathwayID&#39;</span></span>
+<span id="cb31-4"><a href="functional-analysis-of-kegg.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="functional-analysis-of-kegg.html#cb31-5"></a><span class="co">## Remove suffix in sample SeqIDs</span></span>
+<span id="cb31-6"><a href="functional-analysis-of-kegg.html#cb31-6"></a><span class="kw">colnames</span>(pathway_profile_tbl) <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;_.+&#39;</span>)</span>
+<span id="cb31-7"><a href="functional-analysis-of-kegg.html#cb31-7"></a></span>
+<span id="cb31-8"><a href="functional-analysis-of-kegg.html#cb31-8"></a><span class="co">## Remove prefix in map IDs</span></span>
+<span id="cb31-9"><a href="functional-analysis-of-kegg.html#cb31-9"></a>pathway_profile_tbl<span class="op">$</span>PathwayID <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">str_remove_all</span>(<span class="st">&#39;map&#39;</span>)</span>
+<span id="cb31-10"><a href="functional-analysis-of-kegg.html#cb31-10"></a></span>
+<span id="cb31-11"><a href="functional-analysis-of-kegg.html#cb31-11"></a><span class="co">## We can map pathway ID to pathway names with the mapping file in minpath.</span></span>
+<span id="cb31-12"><a href="functional-analysis-of-kegg.html#cb31-12"></a><span class="co">## But it is not suggested to do the mapping in this step, because pathway names contain species characters, but we read in mapping file here anyways.</span></span>
+<span id="cb31-13"><a href="functional-analysis-of-kegg.html#cb31-13"></a></span>
+<span id="cb31-14"><a href="functional-analysis-of-kegg.html#cb31-14"></a>ID2Name_mapping_tbl &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/work/runtime/softwares/MinPath/data/KEGG-pathway.txt&#39;</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">na.strings =</span> <span class="st">&#39;&#39;</span>, <span class="dt">comment.char =</span> <span class="st">&#39;&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;V1&#39;</span> =<span class="st"> &#39;character&#39;</span>))</span>
+<span id="cb31-15"><a href="functional-analysis-of-kegg.html#cb31-15"></a></span>
+<span id="cb31-16"><a href="functional-analysis-of-kegg.html#cb31-16"></a><span class="kw">colnames</span>(ID2Name_mapping_tbl) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;PathwayID&#39;</span>, <span class="st">&#39;Label&#39;</span>)</span>
+<span id="cb31-17"><a href="functional-analysis-of-kegg.html#cb31-17"></a></span>
+<span id="cb31-18"><a href="functional-analysis-of-kegg.html#cb31-18"></a><span class="co">## Next we read in metadata (Group information)</span></span>
+<span id="cb31-19"><a href="functional-analysis-of-kegg.html#cb31-19"></a>metadata &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/metadata.xls&#39;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb31-20"><a href="functional-analysis-of-kegg.html#cb31-20"></a>metadata <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">SeqID2 =</span> SeqID) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;SeqID2&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span></code></pre></div>
 <hr />
 </div>
-<div id="data-preprocessing" class="section level2">
-<h2><span class="header-section-number">4.3</span> Data preprocessing</h2>
-<p><em><strong>Remove the pathways whose abundance are 0 across all samples</strong></em></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="functional-analysis-of-kegg.html#cb42-1"></a><span class="co">## If we use harmonic mean or median to calcualte pathway abundance from KOs, the pathway abundance may be 0, we therefore need to remove those pathways having 0 abundance across all samples.</span></span>
-<span id="cb42-2"><a href="functional-analysis-of-kegg.html#cb42-2"></a><span class="co">## Sample 14295 is water, don&#39;t panick when you see loads of 0s in your data, check the sample source when you see weird numbers in profile table.</span></span>
-<span id="cb42-3"><a href="functional-analysis-of-kegg.html#cb42-3"></a></span>
-<span id="cb42-4"><a href="functional-analysis-of-kegg.html#cb42-4"></a>pathway_profile_tbl <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;# Gene Family&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="kw">rowSums</span>(.) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
-<p><em><strong>Transforming data</strong></em></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="functional-analysis-of-kegg.html#cb43-1"></a><span class="co">## In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples. After re-scaling, we can apply DA to samples.</span></span>
-<span id="cb43-2"><a href="functional-analysis-of-kegg.html#cb43-2"></a></span>
-<span id="cb43-3"><a href="functional-analysis-of-kegg.html#cb43-3"></a>rescaled_pathway_profile_tbl &lt;-<span class="st"> </span>pathway_profile_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(., <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="op">/</span><span class="kw">sum</span>(x)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
-<span id="cb43-4"><a href="functional-analysis-of-kegg.html#cb43-4"></a></span>
-<span id="cb43-5"><a href="functional-analysis-of-kegg.html#cb43-5"></a><span class="kw">head</span>(rescaled_pathway_profile_tbl)</span></code></pre></div>
-<pre><code>##              14286        14287        14288        14289        14290        14291        14292        14293        14294 14295
-## 00010 1.283440e-04 3.357828e-06 1.128246e-05 9.462703e-05 3.238698e-06 2.927676e-06 2.364773e-05 8.041385e-06 7.623641e-05     0
-## 00020 6.879852e-05 9.505726e-06 1.616029e-05 1.167247e-04 1.025686e-05 1.061323e-05 2.828187e-05 2.880967e-05 7.161811e-05     0
-## 00030 4.098493e-06 0.000000e+00 9.312244e-07 4.416249e-05 3.468932e-07 3.713000e-07 3.258050e-06 2.532759e-06 6.328223e-06     0
-## 00040 1.150498e-06 5.421290e-07 8.982930e-07 7.318994e-06 3.960937e-07 0.000000e+00 7.673043e-07 9.071024e-07 0.000000e+00     0
-## 00051 2.058384e-05 2.036986e-06 1.252159e-06 5.090830e-05 5.512341e-07 1.205087e-06 4.321008e-06 8.141639e-07 5.743959e-05     0
-## 00052 1.143786e-05 4.884568e-06 2.666522e-06 6.195852e-05 2.631011e-06 8.223274e-07 6.765689e-06 3.606556e-06 1.175916e-04     0</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="functional-analysis-of-kegg.html#cb45-1"></a><span class="kw">nrow</span>(rescaled_pathway_profile_tbl)</span></code></pre></div>
-<pre><code>## [1] 68</code></pre>
-<p><em><strong>Remove unppaed pathways</strong></em></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="functional-analysis-of-kegg.html#cb47-1"></a><span class="co">## In this chunk, we remove the umapped row in rescaled profile table because we are not able to intepret UNMAPPED entry.</span></span>
-<span id="cb47-2"><a href="functional-analysis-of-kegg.html#cb47-2"></a></span>
-<span id="cb47-3"><a href="functional-analysis-of-kegg.html#cb47-3"></a>rescaled_pathway_profile_tbl <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">!</span>UNMAPPED) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span></code></pre></div>
-<p><em><strong>Aggregate low abundance data</strong></em></p>
+<div id="data-preprocessing-kegg" class="section level2">
+<h2><span class="header-section-number">3.4</span> Data preprocessing (KEGG)</h2>
+<div id="remove-0-abundance-maps" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Remove 0 abundance maps</h3>
+<p><strong>Remove the pathways whose abundance are 0 across all samples.</strong> <em>If we use harmonic mean or median to calcualte pathway abundance from KOs, the pathway abundance may be 0, we therefore need to remove those pathways having 0 abundance across all samples.</em></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="functional-analysis-of-kegg.html#cb32-1"></a><span class="co">## If we use harmonic mean or median to calcualte pathway abundance from KOs, the pathway abundance may be 0, we therefore need to remove those pathways having 0 abundance across all samples.</span></span>
+<span id="cb32-2"><a href="functional-analysis-of-kegg.html#cb32-2"></a></span>
+<span id="cb32-3"><a href="functional-analysis-of-kegg.html#cb32-3"></a>pathway_profile_tbl <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;PathwayID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="kw">rowSums</span>(.) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb32-4"><a href="functional-analysis-of-kegg.html#cb32-4"></a><span class="kw">dim</span>(pathway_profile_tbl)</span></code></pre></div>
+<pre><code>## [1] 63  8</code></pre>
+</div>
+<div id="transforming-data-kegg" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Transforming data (KEGG)</h3>
+<p><strong>Note: Run <a href="functional-analysis-of-kegg.html#remove-0-abundance-maps">Remove 0 abundance maps</a> before running this chunk!</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="functional-analysis-of-kegg.html#cb34-1"></a><span class="co">## In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples. After re-scaling, we can apply DA to samples.</span></span>
+<span id="cb34-2"><a href="functional-analysis-of-kegg.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="functional-analysis-of-kegg.html#cb34-3"></a>rescaled_pathway_profile_tbl &lt;-<span class="st"> </span>pathway_profile_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(., <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="op">/</span><span class="kw">sum</span>(x)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb34-4"><a href="functional-analysis-of-kegg.html#cb34-4"></a></span>
+<span id="cb34-5"><a href="functional-analysis-of-kegg.html#cb34-5"></a><span class="kw">dim</span>(rescaled_pathway_profile_tbl)</span></code></pre></div>
+<pre><code>## [1] 63  8</code></pre>
+</div>
+<div id="aggregate-low-abundance-data-1" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Aggregate low abundance data</h3>
 <p>In this chunck, we aggregate low abundance features to one row.<br />
 <em><strong>1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper <a href="https://doi.org/10.1016/j.chom.2019.07.004">Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition</a>, pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.</strong></em></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="functional-analysis-of-kegg.html#cb48-1"></a>filtered_pathway_RA_profile_tbl &lt;-<span class="st"> </span><span class="kw">aggregate_low_abundance</span>(<span class="dt">input_data =</span> rescaled_pathway_profile_tbl,</span>
-<span id="cb48-2"><a href="functional-analysis-of-kegg.html#cb48-2"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>) <span class="co">## threshold should be modified based on your on study</span></span>
-<span id="cb48-3"><a href="functional-analysis-of-kegg.html#cb48-3"></a></span>
-<span id="cb48-4"><a href="functional-analysis-of-kegg.html#cb48-4"></a><span class="kw">dim</span>(filtered_pathway_RA_profile_tbl)</span></code></pre></div>
-<pre><code>## [1] 67 10</code></pre>
+<p>Note: Run <a href="functional-analysis-of-kegg.html#transforming-data-kegg">Transforming data</a> before running this chunk!</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="functional-analysis-of-kegg.html#cb36-1"></a>filtered_pathway_RA_profile_tbl &lt;-<span class="st"> </span><span class="kw">aggregate_low_abundance</span>(<span class="dt">input_data =</span> rescaled_pathway_profile_tbl,</span>
+<span id="cb36-2"><a href="functional-analysis-of-kegg.html#cb36-2"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>) <span class="co">## threshold should be modified based on your on study</span></span>
+<span id="cb36-3"><a href="functional-analysis-of-kegg.html#cb36-3"></a></span>
+<span id="cb36-4"><a href="functional-analysis-of-kegg.html#cb36-4"></a><span class="kw">dim</span>(filtered_pathway_RA_profile_tbl)</span></code></pre></div>
+<pre><code>## [1] 63  8</code></pre>
 <hr />
 </div>
-<div id="standard-analysis" class="section level2">
-<h2><span class="header-section-number">4.4</span> Standard Analysis</h2>
-<p><em><strong>Compositional barplot</strong></em></p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="functional-analysis-of-kegg.html#cb50-1"></a><span class="co">## In this chunk, we construct stacked pathway barplot to depict the pathway composition of samples, we use function plot_stacked_bar from xviz to plot.</span></span>
-<span id="cb50-2"><a href="functional-analysis-of-kegg.html#cb50-2"></a><span class="co">## In case there are too much entries, we use parameter &quot;collapse&quot; in plot_stacked_bar function to integrate entries whose abundance are below given threshold into &quot;Others&quot;.</span></span>
-<span id="cb50-3"><a href="functional-analysis-of-kegg.html#cb50-3"></a><span class="co">## Note: make sure your graph is long enough to show the group information.</span></span>
-<span id="cb50-4"><a href="functional-analysis-of-kegg.html#cb50-4"></a></span>
-<span id="cb50-5"><a href="functional-analysis-of-kegg.html#cb50-5"></a>pathway_stacked_barplot  &lt;-<span class="st"> </span>xviz<span class="op">::</span><span class="kw">plot_stacked_bar</span>(<span class="dt">otu_table =</span> filtered_pathway_RA_profile_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>(),</span>
-<span id="cb50-6"><a href="functional-analysis-of-kegg.html#cb50-6"></a>                 <span class="dt">metadata =</span> metadata, <span class="dt">collapse =</span> <span class="fl">1e-3</span>, <span class="dt">feature =</span> <span class="st">&#39;group&#39;</span>)</span>
-<span id="cb50-7"><a href="functional-analysis-of-kegg.html#cb50-7"></a></span>
-<span id="cb50-8"><a href="functional-analysis-of-kegg.html#cb50-8"></a><span class="kw">print</span>(pathway_stacked_barplot)</span></code></pre></div>
-<p><img src="Function-standard-analysis-workflow_files/figure-html/Compositional%20barplot%20of%20kegg%20pathway-1.png" width="576" /></p>
-<p><em><strong>Beta diversity</strong></em></p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="functional-analysis-of-kegg.html#cb51-1"></a><span class="co">## In this chunk, we inherit the concept of Beta diversity of microbial taxa data and apply it to pathway data to explore the similarity between samples.</span></span>
-<span id="cb51-2"><a href="functional-analysis-of-kegg.html#cb51-2"></a><span class="co">## construct phyloseq for beta diversity analysis</span></span>
-<span id="cb51-3"><a href="functional-analysis-of-kegg.html#cb51-3"></a></span>
-<span id="cb51-4"><a href="functional-analysis-of-kegg.html#cb51-4"></a>phy &lt;-<span class="st"> </span><span class="kw">phyloseq</span>(<span class="kw">otu_table</span>(filtered_pathway_RA_profile_tbl, <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span>),</span>
-<span id="cb51-5"><a href="functional-analysis-of-kegg.html#cb51-5"></a>                <span class="kw">sample_data</span>(metadata))</span>
-<span id="cb51-6"><a href="functional-analysis-of-kegg.html#cb51-6"></a></span>
-<span id="cb51-7"><a href="functional-analysis-of-kegg.html#cb51-7"></a><span class="co">## PCOA plot with bray_curtis distance</span></span>
-<span id="cb51-8"><a href="functional-analysis-of-kegg.html#cb51-8"></a>PCOA_plot &lt;-<span class="st"> </span>xviz<span class="op">::</span><span class="kw">plot_beta_diversity</span>(<span class="dt">phyloseq =</span> phy,</span>
-<span id="cb51-9"><a href="functional-analysis-of-kegg.html#cb51-9"></a>                                       <span class="dt">feature =</span> <span class="st">&#39;group&#39;</span>,</span>
-<span id="cb51-10"><a href="functional-analysis-of-kegg.html#cb51-10"></a>                                       <span class="dt">method =</span> <span class="st">&#39;bray&#39;</span>,</span>
-<span id="cb51-11"><a href="functional-analysis-of-kegg.html#cb51-11"></a>                                       <span class="dt">label =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb51-12"><a href="functional-analysis-of-kegg.html#cb51-12"></a><span class="kw">print</span>(PCOA_plot)</span></code></pre></div>
+</div>
+<div id="standard-analysis-kegg" class="section level2">
+<h2><span class="header-section-number">3.5</span> Standard Analysis (KEGG)</h2>
+<p><strong>Note: All chunks in <a href="functional-analysis-of-kegg.html#data-preprocessing-kegg">Data preprocessing</a> should be excuted before doing analysis in this chunk.</strong></p>
+<div id="compositional-barplot" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Compositional barplot</h3>
+<p>Generate compositional barplot</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb38-1"><a href="functional-analysis-of-kegg.html#cb38-1"></a><span class="fu">## In this chunk, we construct stacked pathway barplot to depict the pathway composition of samples, we use function plot_stacked_bar from xviz to plot.</span></span>
+<span id="cb38-2"><a href="functional-analysis-of-kegg.html#cb38-2"></a><span class="fu">## In case there are too much entries, we use parameter &quot;collapse&quot; in plot_stacked_bar function to integrate entries whose abundance are below given threshold into &quot;Others&quot;.</span></span>
+<span id="cb38-3"><a href="functional-analysis-of-kegg.html#cb38-3"></a><span class="fu">## Note: make sure your graph is long enough to show the group information.</span></span>
+<span id="cb38-4"><a href="functional-analysis-of-kegg.html#cb38-4"></a></span>
+<span id="cb38-5"><a href="functional-analysis-of-kegg.html#cb38-5"></a>pathway_stacked_barplot  &lt;- xviz::plot_stacked_bar(otu_table = filtered_pathway_RA_profile_tbl %&gt;% t() %&gt;% as.data.frame(),</span>
+<span id="cb38-6"><a href="functional-analysis-of-kegg.html#cb38-6"></a><span class="bn">                 metadata = metadata, collapse = 1e-3, feature = &#39;Group&#39;)</span></span></code></pre></div>
+<p>Plot compositional barplot</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="functional-analysis-of-kegg.html#cb39-1"></a><span class="kw">print</span>(pathway_stacked_barplot)</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/Plot%20compositional%20barplot-1.png" width="672" /></p>
+</div>
+<div id="beta-diversity" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Beta diversity</h3>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="functional-analysis-of-kegg.html#cb40-1"></a><span class="co">## In this chunk, we inherit the concept of Beta diversity of microbial taxa data and apply it to pathway data to explore the similarity between samples.</span></span>
+<span id="cb40-2"><a href="functional-analysis-of-kegg.html#cb40-2"></a><span class="co">## construct phyloseq for beta diversity analysis</span></span>
+<span id="cb40-3"><a href="functional-analysis-of-kegg.html#cb40-3"></a></span>
+<span id="cb40-4"><a href="functional-analysis-of-kegg.html#cb40-4"></a>phy &lt;-<span class="st"> </span><span class="kw">phyloseq</span>(<span class="kw">otu_table</span>(filtered_pathway_RA_profile_tbl, <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb40-5"><a href="functional-analysis-of-kegg.html#cb40-5"></a>                <span class="kw">sample_data</span>(metadata))</span>
+<span id="cb40-6"><a href="functional-analysis-of-kegg.html#cb40-6"></a></span>
+<span id="cb40-7"><a href="functional-analysis-of-kegg.html#cb40-7"></a><span class="co">## PCOA plot with bray_curtis distance</span></span>
+<span id="cb40-8"><a href="functional-analysis-of-kegg.html#cb40-8"></a>PCOA_plot &lt;-<span class="st"> </span>xviz<span class="op">::</span><span class="kw">plot_beta_diversity</span>(<span class="dt">phyloseq =</span> phy,</span>
+<span id="cb40-9"><a href="functional-analysis-of-kegg.html#cb40-9"></a>                                       <span class="dt">feature =</span> <span class="st">&#39;Group&#39;</span>,</span>
+<span id="cb40-10"><a href="functional-analysis-of-kegg.html#cb40-10"></a>                                       <span class="dt">method =</span> <span class="st">&#39;bray&#39;</span>,</span>
+<span id="cb40-11"><a href="functional-analysis-of-kegg.html#cb40-11"></a>                                       <span class="dt">label =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb40-12"><a href="functional-analysis-of-kegg.html#cb40-12"></a><span class="kw">print</span>(PCOA_plot)</span></code></pre></div>
 <p><img src="Function-standard-analysis-workflow_files/figure-html/Beta%20diversity%20of%20kegg%20pathway-1.png" width="672" /></p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="functional-analysis-of-kegg.html#cb52-1"></a><span class="co">## PERMANOVA test &amp; beta dispersion test</span></span>
-<span id="cb52-2"><a href="functional-analysis-of-kegg.html#cb52-2"></a><span class="co">## We use PERMANOVA test to check the differences of function composition among different groups. Additionally, we also take homogeneity of group variance into consideration.</span></span>
-<span id="cb52-3"><a href="functional-analysis-of-kegg.html#cb52-3"></a></span>
-<span id="cb52-4"><a href="functional-analysis-of-kegg.html#cb52-4"></a>dispersion_permanova_res &lt;-<span class="st"> </span><span class="kw">run_permanova_betadisp</span>(<span class="dt">physeq =</span> phy,</span>
-<span id="cb52-5"><a href="functional-analysis-of-kegg.html#cb52-5"></a>                                                   <span class="dt">vars =</span> <span class="st">&#39;group&#39;</span></span>
-<span id="cb52-6"><a href="functional-analysis-of-kegg.html#cb52-6"></a>                                                   )</span>
-<span id="cb52-7"><a href="functional-analysis-of-kegg.html#cb52-7"></a></span>
-<span id="cb52-8"><a href="functional-analysis-of-kegg.html#cb52-8"></a>dispersion_permanova_res</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="functional-analysis-of-kegg.html#cb41-1"></a><span class="co">## PERMANOVA test &amp; beta dispersion test</span></span>
+<span id="cb41-2"><a href="functional-analysis-of-kegg.html#cb41-2"></a><span class="co">## We use PERMANOVA test to check the differences of function composition among different groups. Additionally, we also take homogeneity of group variance into consideration.</span></span>
+<span id="cb41-3"><a href="functional-analysis-of-kegg.html#cb41-3"></a></span>
+<span id="cb41-4"><a href="functional-analysis-of-kegg.html#cb41-4"></a>dispersion_permanova_res &lt;-<span class="st"> </span><span class="kw">run_permanova_betadisp</span>(<span class="dt">physeq =</span> phy,</span>
+<span id="cb41-5"><a href="functional-analysis-of-kegg.html#cb41-5"></a>                                                   <span class="dt">vars =</span> <span class="st">&#39;Group&#39;</span></span>
+<span id="cb41-6"><a href="functional-analysis-of-kegg.html#cb41-6"></a>                                                   )</span>
+<span id="cb41-7"><a href="functional-analysis-of-kegg.html#cb41-7"></a></span>
+<span id="cb41-8"><a href="functional-analysis-of-kegg.html#cb41-8"></a>dispersion_permanova_res</span></code></pre></div>
 <pre><code>## $betadisp_res
 ##   variable p_value                       analysis
-## 1    group   0.787 beta_dispersion_permutation999
+## 1    Group   0.109 beta_dispersion_permutation999
 ## 
 ## $permanova_res
 ##   variable p_value         R2                 analysis
-## 1    group   0.782 0.07308638 permanova_permutation999</code></pre>
+## 1    Group   0.622 0.08514936 permanova_permutation999</code></pre>
 <hr />
 </div>
-<div id="differential-analysisda-1" class="section level2">
-<h2><span class="header-section-number">4.5</span> Differential analysis(DA)</h2>
-<p><em><strong>Filter low prevalence pathway</strong></em></p>
-<p>Low prevalence pathways are pathways only occur in minor samples.
-In this chunk, we would remove pathways apperaing in less than max(2 , 5% of samples) from data set before doing analysis. <strong>Remember to run all three chunks in data preprocessing section before running this chunk!</strong></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="functional-analysis-of-kegg.html#cb54-1"></a>filtered_pathway_RA_profile_tbl &lt;-<span class="st"> </span><span class="kw">filter_prevalence</span>(<span class="dt">otu_table =</span> filtered_pathway_RA_profile_tbl,</span>
-<span id="cb54-2"><a href="functional-analysis-of-kegg.html#cb54-2"></a>                  <span class="dt">threshold =</span> <span class="fl">0.05</span>,</span>
-<span id="cb54-3"><a href="functional-analysis-of-kegg.html#cb54-3"></a>                  <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span></span>
-<span id="cb54-4"><a href="functional-analysis-of-kegg.html#cb54-4"></a>                  )</span>
-<span id="cb54-5"><a href="functional-analysis-of-kegg.html#cb54-5"></a></span>
-<span id="cb54-6"><a href="functional-analysis-of-kegg.html#cb54-6"></a><span class="kw">dim</span>(filtered_pathway_RA_profile_tbl)</span></code></pre></div>
-<pre><code>## [1] 57 10</code></pre>
-<p><em><strong>DA with LM</strong></em></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="functional-analysis-of-kegg.html#cb56-1"></a><span class="co">## In this chunk, you would be using logistic regression model to find pathways that are significantly enriched in certain group.</span></span>
-<span id="cb56-2"><a href="functional-analysis-of-kegg.html#cb56-2"></a></span>
-<span id="cb56-3"><a href="functional-analysis-of-kegg.html#cb56-3"></a><span class="co">## Due to the nature of compositional data, we cannot apply linear models to compositional data directly. </span></span>
-<span id="cb56-4"><a href="functional-analysis-of-kegg.html#cb56-4"></a><span class="co">## Transformation of relative abundance data should be carried out before feeding the data to LM.</span></span>
-<span id="cb56-5"><a href="functional-analysis-of-kegg.html#cb56-5"></a><span class="co">## Here, we add a very small value (1e-12) to the pathway profile table to avoid genrating NA during transformation, then use logit transformation to transform data. And eventually we apply LM to the transformed data</span></span>
-<span id="cb56-6"><a href="functional-analysis-of-kegg.html#cb56-6"></a></span>
-<span id="cb56-7"><a href="functional-analysis-of-kegg.html#cb56-7"></a><span class="co">## Adding small value to the profile table (The value is arbitrary).</span></span>
-<span id="cb56-8"><a href="functional-analysis-of-kegg.html#cb56-8"></a></span>
-<span id="cb56-9"><a href="functional-analysis-of-kegg.html#cb56-9"></a>DA_pathway_RA_profile_tbl &lt;-<span class="st"> </span>filtered_pathway_RA_profile_tbl <span class="op">+</span><span class="st"> </span><span class="fl">1e-12</span></span>
-<span id="cb56-10"><a href="functional-analysis-of-kegg.html#cb56-10"></a></span>
-<span id="cb56-11"><a href="functional-analysis-of-kegg.html#cb56-11"></a><span class="co">## Reshape profile data table and use logit transformation.</span></span>
-<span id="cb56-12"><a href="functional-analysis-of-kegg.html#cb56-12"></a></span>
-<span id="cb56-13"><a href="functional-analysis-of-kegg.html#cb56-13"></a>DA_pathway_RA_profile_tbl &lt;-<span class="st"> </span>DA_pathway_RA_profile_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
-<span id="cb56-14"><a href="functional-analysis-of-kegg.html#cb56-14"></a>DA_metadata &lt;-<span class="st"> </span>metadata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
-<span id="cb56-15"><a href="functional-analysis-of-kegg.html#cb56-15"></a></span>
-<span id="cb56-16"><a href="functional-analysis-of-kegg.html#cb56-16"></a><span class="co">## Reshape dataframe into long table</span></span>
-<span id="cb56-17"><a href="functional-analysis-of-kegg.html#cb56-17"></a>DA_input &lt;-<span class="st"> </span><span class="kw">merge</span>(DA_pathway_RA_profile_tbl, DA_metadata, <span class="dt">by=</span><span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>reshape2<span class="op">::</span><span class="kw">melt</span>(<span class="dt">value.name =</span> <span class="st">&#39;RA&#39;</span>,</span>
-<span id="cb56-18"><a href="functional-analysis-of-kegg.html#cb56-18"></a>                                                                                         <span class="dt">variable.name =</span> <span class="st">&#39;PathwayIDs&#39;</span>)</span>
-<span id="cb56-19"><a href="functional-analysis-of-kegg.html#cb56-19"></a></span>
-<span id="cb56-20"><a href="functional-analysis-of-kegg.html#cb56-20"></a><span class="co">## Logit transformation</span></span>
-<span id="cb56-21"><a href="functional-analysis-of-kegg.html#cb56-21"></a>DA_input <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RA_logit =</span> <span class="kw">log</span>(RA<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>RA)))</span>
-<span id="cb56-22"><a href="functional-analysis-of-kegg.html#cb56-22"></a></span>
-<span id="cb56-23"><a href="functional-analysis-of-kegg.html#cb56-23"></a><span class="co">## Fit data to LM</span></span>
-<span id="cb56-24"><a href="functional-analysis-of-kegg.html#cb56-24"></a><span class="co">## Loop over each pathway in two groups</span></span>
-<span id="cb56-25"><a href="functional-analysis-of-kegg.html#cb56-25"></a>LM_res &lt;-<span class="st"> </span>DA_input <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">split</span>(.<span class="op">$</span>PathwayIDs) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">lapply</span>(., <span class="cf">function</span>(x){</span>
-<span id="cb56-26"><a href="functional-analysis-of-kegg.html#cb56-26"></a>  gml_res_summary &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> x, <span class="dt">formula =</span> RA_logit <span class="op">~</span><span class="st"> </span>group) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>coefficients <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="dt">var =</span> <span class="st">&quot;Factors&quot;</span>)</span>
-<span id="cb56-27"><a href="functional-analysis-of-kegg.html#cb56-27"></a>  }</span>
-<span id="cb56-28"><a href="functional-analysis-of-kegg.html#cb56-28"></a>)</span>
-<span id="cb56-29"><a href="functional-analysis-of-kegg.html#cb56-29"></a></span>
-<span id="cb56-30"><a href="functional-analysis-of-kegg.html#cb56-30"></a><span class="co">## Merge all result in one table</span></span>
-<span id="cb56-31"><a href="functional-analysis-of-kegg.html#cb56-31"></a>LM_res &lt;-<span class="st"> </span>LM_res <span class="op">%&gt;%</span><span class="st"> </span>data.table<span class="op">::</span><span class="kw">rbindlist</span>(<span class="dt">idcol =</span> <span class="st">&quot;PathwayID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Factors <span class="op">!=</span><span class="st"> &quot;(Intercept)&quot;</span>)</span>
-<span id="cb56-32"><a href="functional-analysis-of-kegg.html#cb56-32"></a></span>
-<span id="cb56-33"><a href="functional-analysis-of-kegg.html#cb56-33"></a><span class="co">## Adjust p value using p.adjust function from stats package, you could choose different adjust method.</span></span>
-<span id="cb56-34"><a href="functional-analysis-of-kegg.html#cb56-34"></a>LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">adjust.p  =</span> stats<span class="op">::</span><span class="kw">p.adjust</span>(.<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span>,</span>
-<span id="cb56-35"><a href="functional-analysis-of-kegg.html#cb56-35"></a>                                               <span class="dt">method =</span> <span class="st">&#39;BH&#39;</span>))</span>
-<span id="cb56-36"><a href="functional-analysis-of-kegg.html#cb56-36"></a></span>
-<span id="cb56-37"><a href="functional-analysis-of-kegg.html#cb56-37"></a><span class="co">## Calculate effect size (Odds ratio) of each feature</span></span>
-<span id="cb56-38"><a href="functional-analysis-of-kegg.html#cb56-38"></a>LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">OR =</span> <span class="kw">exp</span>(Estimate)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
-<span id="cb56-39"><a href="functional-analysis-of-kegg.html#cb56-39"></a></span>
-<span id="cb56-40"><a href="functional-analysis-of-kegg.html#cb56-40"></a><span class="co">## Add label to pathwayIDs</span></span>
-<span id="cb56-41"><a href="functional-analysis-of-kegg.html#cb56-41"></a></span>
-<span id="cb56-42"><a href="functional-analysis-of-kegg.html#cb56-42"></a>LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">merge</span>(., ID2Name_mapping_tbl, <span class="dt">by =</span> <span class="st">&#39;PathwayID&#39;</span>)</span></code></pre></div>
-<p><em><strong>Show DA result with volcano plot</strong></em></p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="functional-analysis-of-kegg.html#cb57-1"></a><span class="co">## Plot volcano plot to show effect size (x-axis) and p value (y-axis) of pathways.</span></span>
-<span id="cb57-2"><a href="functional-analysis-of-kegg.html#cb57-2"></a><span class="co">## Here we only tend to hightlight pathways that satisfy adjust.p &lt; 0.614 and (OR &lt; 0.2 | OR &gt; 0.5) at the same time.</span></span>
-<span id="cb57-3"><a href="functional-analysis-of-kegg.html#cb57-3"></a><span class="co">## You can nevertheless choose different threshold accroding to your own data.</span></span>
-<span id="cb57-4"><a href="functional-analysis-of-kegg.html#cb57-4"></a></span>
-<span id="cb57-5"><a href="functional-analysis-of-kegg.html#cb57-5"></a>volcano_plot &lt;-<span class="st"> </span>LM_res <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">p.adj.log =</span> <span class="op">-</span><span class="kw">log10</span>(adjust.p), <span class="dt">log10OR =</span> <span class="kw">log10</span>(OR)) <span class="op">%&gt;%</span></span>
-<span id="cb57-6"><a href="functional-analysis-of-kegg.html#cb57-6"></a><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> log10OR, <span class="dt">y =</span> p.adj.log)) <span class="op">+</span></span>
-<span id="cb57-7"><a href="functional-analysis-of-kegg.html#cb57-7"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
-<span id="cb57-8"><a href="functional-analysis-of-kegg.html#cb57-8"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> . <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(adjust.p <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.614</span> <span class="op">&amp;</span><span class="st"> </span>(OR <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.2</span> <span class="op">|</span><span class="st"> </span>OR <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>))) <span class="op">+</span></span>
-<span id="cb57-9"><a href="functional-analysis-of-kegg.html#cb57-9"></a><span class="st">    </span><span class="co">#geom_text_repel(size = 6/.pt, aes(label = Label), data = . %&gt;% filter(adjust.p&lt;0.614 &amp; OR&lt;0.2)) +</span></span>
-<span id="cb57-10"><a href="functional-analysis-of-kegg.html#cb57-10"></a><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>)), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></span>
-<span id="cb57-11"><a href="functional-analysis-of-kegg.html#cb57-11"></a><span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="op">-</span><span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.7</span>)), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></span>
-<span id="cb57-12"><a href="functional-analysis-of-kegg.html#cb57-12"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">aspect.ratio =</span> <span class="dv">1</span>,</span>
-<span id="cb57-13"><a href="functional-analysis-of-kegg.html#cb57-13"></a>          <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</span>
-<span id="cb57-14"><a href="functional-analysis-of-kegg.html#cb57-14"></a>          <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>()</span>
-<span id="cb57-15"><a href="functional-analysis-of-kegg.html#cb57-15"></a>          ) <span class="op">+</span></span>
-<span id="cb57-16"><a href="functional-analysis-of-kegg.html#cb57-16"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Estimated Odds Ratio&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;FDR adjusted p-values(-log10)&quot;</span>)</span>
-<span id="cb57-17"><a href="functional-analysis-of-kegg.html#cb57-17"></a></span>
-<span id="cb57-18"><a href="functional-analysis-of-kegg.html#cb57-18"></a><span class="kw">print</span>(volcano_plot)</span></code></pre></div>
-<p><img src="Function-standard-analysis-workflow_files/figure-html/visualize%20DA%20result%20by%20volcano%20plot%20of%20KEGG%20pathway%20data-1.png" width="672" /></p>
-<p><em><strong>Show DA result with pathview</strong></em></p>
-<p>In this chunk, we use pathview to visualize enriched KOs in differential pathways.</p>
-<p><strong>Step1. First we extract all KOs in differential pathways obtained from last chunk with mapping file: /share/work/runtime/softwares/MinPath/data/KEGG-mapping.txt.</strong></p>
-<p><strong>Step2. We find differential KO in two groups using the same LM method in previous chunk.</strong></p>
-<p><strong>Step3. Visualize differential KO in differential pathways with pathview.</strong></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="functional-analysis-of-kegg.html#cb58-1"></a><span class="co">## Read in KO profile, since we&#39;ve already removed UNMAPPED and re-scaled KO profile in Functional_Analysis_Kegg_Pathway_preprocess.Rmd, we only need to filer low_abundance and low-prevalenece KOs here.</span></span>
-<span id="cb58-2"><a href="functional-analysis-of-kegg.html#cb58-2"></a></span>
-<span id="cb58-3"><a href="functional-analysis-of-kegg.html#cb58-3"></a>KO_profile &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;./Demodata/KEGG/Demo_data/merged_knumber.txt&#39;</span>)</span>
-<span id="cb58-4"><a href="functional-analysis-of-kegg.html#cb58-4"></a></span>
-<span id="cb58-5"><a href="functional-analysis-of-kegg.html#cb58-5"></a><span class="co">## Add hearder to KO profile, because KO profile file generated from Functional_Analysis_Kegg_Pathway_preprocess.Rmd has no headers by default.</span></span>
-<span id="cb58-6"><a href="functional-analysis-of-kegg.html#cb58-6"></a></span>
-<span id="cb58-7"><a href="functional-analysis-of-kegg.html#cb58-7"></a>header &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;./Demodata/KEGG/Demo_data/merged_pathway.txt&#39;</span>,<span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">comment.char =</span> <span class="st">&#39;!&#39;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span> , <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;# Gene Family&#39;</span> =<span class="st"> &#39;character&#39;</span>), <span class="dt">na.strings =</span> <span class="st">&#39;&#39;</span>, <span class="dt">sep=</span><span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">colnames</span>()</span>
-<span id="cb58-8"><a href="functional-analysis-of-kegg.html#cb58-8"></a></span>
-<span id="cb58-9"><a href="functional-analysis-of-kegg.html#cb58-9"></a>header[<span class="dv">1</span>] &lt;-<span class="st"> &#39;KOs&#39;</span></span>
-<span id="cb58-10"><a href="functional-analysis-of-kegg.html#cb58-10"></a></span>
-<span id="cb58-11"><a href="functional-analysis-of-kegg.html#cb58-11"></a><span class="kw">colnames</span>(KO_profile) &lt;-<span class="st"> </span>header</span>
-<span id="cb58-12"><a href="functional-analysis-of-kegg.html#cb58-12"></a> </span>
-<span id="cb58-13"><a href="functional-analysis-of-kegg.html#cb58-13"></a><span class="co">## Rescale KO profile</span></span>
-<span id="cb58-14"><a href="functional-analysis-of-kegg.html#cb58-14"></a></span>
-<span id="cb58-15"><a href="functional-analysis-of-kegg.html#cb58-15"></a>KO_profile <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;KOs&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(., <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="op">/</span><span class="kw">sum</span>(x)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;KOs&#39;</span>)</span>
-<span id="cb58-16"><a href="functional-analysis-of-kegg.html#cb58-16"></a></span>
-<span id="cb58-17"><a href="functional-analysis-of-kegg.html#cb58-17"></a><span class="co">## Filter low abundance KOs</span></span>
-<span id="cb58-18"><a href="functional-analysis-of-kegg.html#cb58-18"></a></span>
-<span id="cb58-19"><a href="functional-analysis-of-kegg.html#cb58-19"></a>filtered_KO_profile &lt;-<span class="st"> </span>KO_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;KOs&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">aggregate_low_abundance</span>(<span class="dt">input_data =</span> .,</span>
-<span id="cb58-20"><a href="functional-analysis-of-kegg.html#cb58-20"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>)</span>
-<span id="cb58-21"><a href="functional-analysis-of-kegg.html#cb58-21"></a></span>
-<span id="cb58-22"><a href="functional-analysis-of-kegg.html#cb58-22"></a><span class="co">## Filter low-prevalenece KOs</span></span>
-<span id="cb58-23"><a href="functional-analysis-of-kegg.html#cb58-23"></a></span>
-<span id="cb58-24"><a href="functional-analysis-of-kegg.html#cb58-24"></a>filtered_KO_profile &lt;-<span class="st"> </span><span class="kw">filter_prevalence</span>(<span class="dt">otu_table =</span> filtered_KO_profile,</span>
-<span id="cb58-25"><a href="functional-analysis-of-kegg.html#cb58-25"></a>                  <span class="dt">threshold =</span> <span class="fl">0.05</span>,</span>
-<span id="cb58-26"><a href="functional-analysis-of-kegg.html#cb58-26"></a>                  <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span></span>
-<span id="cb58-27"><a href="functional-analysis-of-kegg.html#cb58-27"></a>                  )</span>
-<span id="cb58-28"><a href="functional-analysis-of-kegg.html#cb58-28"></a></span>
-<span id="cb58-29"><a href="functional-analysis-of-kegg.html#cb58-29"></a><span class="co">## Read in KO-Pathway mapping file</span></span>
-<span id="cb58-30"><a href="functional-analysis-of-kegg.html#cb58-30"></a>KO2Pathway_mapping &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/work/runtime/softwares/MinPath/data/KEGG-mapping.txt&#39;</span>, <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;V1&#39;</span> =<span class="st"> &#39;character&#39;</span>))</span>
-<span id="cb58-31"><a href="functional-analysis-of-kegg.html#cb58-31"></a></span>
-<span id="cb58-32"><a href="functional-analysis-of-kegg.html#cb58-32"></a></span>
-<span id="cb58-33"><a href="functional-analysis-of-kegg.html#cb58-33"></a><span class="co">## Loop over differential pathways</span></span>
-<span id="cb58-34"><a href="functional-analysis-of-kegg.html#cb58-34"></a>Diff_pathway &lt;-<span class="st"> </span>LM_res <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span> <span class="op">&lt;</span><span class="st"> </span><span class="fl">.05</span>) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>PathwayID <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.vector</span>()</span>
-<span id="cb58-35"><a href="functional-analysis-of-kegg.html#cb58-35"></a></span>
-<span id="cb58-36"><a href="functional-analysis-of-kegg.html#cb58-36"></a><span class="cf">for</span> (pathway <span class="cf">in</span> Diff_pathway){</span>
-<span id="cb58-37"><a href="functional-analysis-of-kegg.html#cb58-37"></a>  </span>
-<span id="cb58-38"><a href="functional-analysis-of-kegg.html#cb58-38"></a>  <span class="co">## Create a list to store the log2fc of each KO in each kegg pathway</span></span>
-<span id="cb58-39"><a href="functional-analysis-of-kegg.html#cb58-39"></a>  log2fc_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
-<span id="cb58-40"><a href="functional-analysis-of-kegg.html#cb58-40"></a>  </span>
-<span id="cb58-41"><a href="functional-analysis-of-kegg.html#cb58-41"></a>  <span class="co">## Extract all KOs in differential pathway</span></span>
-<span id="cb58-42"><a href="functional-analysis-of-kegg.html#cb58-42"></a>  KO_ID_in_mapping &lt;-<span class="st"> </span>KO2Pathway_mapping <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(V1 <span class="op">==</span><span class="st"> </span>pathway) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>V2</span>
-<span id="cb58-43"><a href="functional-analysis-of-kegg.html#cb58-43"></a>  </span>
-<span id="cb58-44"><a href="functional-analysis-of-kegg.html#cb58-44"></a>  <span class="co">## Some KOs are not included in mapping file, here we take intersection of KO ID in mapping file and avaiable KO ID in KO profile</span></span>
-<span id="cb58-45"><a href="functional-analysis-of-kegg.html#cb58-45"></a>  KO_ID &lt;-<span class="st"> </span><span class="kw">intersect</span>(KO_ID_in_mapping, <span class="kw">rownames</span>(filtered_KO_profile))</span>
-<span id="cb58-46"><a href="functional-analysis-of-kegg.html#cb58-46"></a>  </span>
-<span id="cb58-47"><a href="functional-analysis-of-kegg.html#cb58-47"></a>  tmp_KO_profile &lt;-<span class="st"> </span>filtered_KO_profile[KO_ID,]</span>
-<span id="cb58-48"><a href="functional-analysis-of-kegg.html#cb58-48"></a>  tmp_KO_meta &lt;-<span class="st"> </span>DA_metadata</span>
-<span id="cb58-49"><a href="functional-analysis-of-kegg.html#cb58-49"></a>  </span>
-<span id="cb58-50"><a href="functional-analysis-of-kegg.html#cb58-50"></a>  <span class="co">## re-format tmp KO profile table</span></span>
-<span id="cb58-51"><a href="functional-analysis-of-kegg.html#cb58-51"></a>  KO_DA_input &lt;-<span class="st"> </span><span class="kw">merge</span>(tmp_KO_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>),</span>
-<span id="cb58-52"><a href="functional-analysis-of-kegg.html#cb58-52"></a>                       tmp_KO_meta,</span>
-<span id="cb58-53"><a href="functional-analysis-of-kegg.html#cb58-53"></a>                       <span class="dt">by =</span> <span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>reshape2<span class="op">::</span><span class="kw">melt</span>(<span class="dt">variable.name =</span> <span class="st">&#39;KO&#39;</span>,</span>
-<span id="cb58-54"><a href="functional-analysis-of-kegg.html#cb58-54"></a>                                                        <span class="dt">value.name =</span> <span class="st">&#39;RA&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RA =</span> RA <span class="op">+</span><span class="st"> </span><span class="fl">1e-12</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RA_logit =</span> <span class="kw">log</span>(RA<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>RA)))</span>
-<span id="cb58-55"><a href="functional-analysis-of-kegg.html#cb58-55"></a>  </span>
-<span id="cb58-56"><a href="functional-analysis-of-kegg.html#cb58-56"></a>  <span class="co">## DA using LM</span></span>
-<span id="cb58-57"><a href="functional-analysis-of-kegg.html#cb58-57"></a>  KO_LM_res &lt;-<span class="st"> </span>KO_DA_input <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">split</span>(.<span class="op">$</span>KO) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">lapply</span>(., <span class="cf">function</span>(x){</span>
-<span id="cb58-58"><a href="functional-analysis-of-kegg.html#cb58-58"></a></span>
-<span id="cb58-59"><a href="functional-analysis-of-kegg.html#cb58-59"></a>        KO_gml_res_summary &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> x, <span class="dt">formula =</span> RA_logit <span class="op">~</span><span class="st"> </span>group) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>coefficients <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="dt">var =</span> <span class="st">&quot;Factors&quot;</span>)</span>
-<span id="cb58-60"><a href="functional-analysis-of-kegg.html#cb58-60"></a>    }</span>
-<span id="cb58-61"><a href="functional-analysis-of-kegg.html#cb58-61"></a>  )</span>
-<span id="cb58-62"><a href="functional-analysis-of-kegg.html#cb58-62"></a>  </span>
-<span id="cb58-63"><a href="functional-analysis-of-kegg.html#cb58-63"></a>  <span class="co">## Merge result of all tested KOs</span></span>
-<span id="cb58-64"><a href="functional-analysis-of-kegg.html#cb58-64"></a>  KO_LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span>data.table<span class="op">::</span><span class="kw">rbindlist</span>(<span class="dt">idcol =</span> <span class="st">&quot;KOID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Factors <span class="op">!=</span><span class="st"> &quot;(Intercept)&quot;</span>)</span>
-<span id="cb58-65"><a href="functional-analysis-of-kegg.html#cb58-65"></a>  </span>
-<span id="cb58-66"><a href="functional-analysis-of-kegg.html#cb58-66"></a>  <span class="co">## Adjust p value using p.adjust function from stats package, you could choose different adjust method.</span></span>
-<span id="cb58-67"><a href="functional-analysis-of-kegg.html#cb58-67"></a>  KO_LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">adjust.p  =</span> stats<span class="op">::</span><span class="kw">p.adjust</span>(.<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span>,</span>
-<span id="cb58-68"><a href="functional-analysis-of-kegg.html#cb58-68"></a>                                                 <span class="dt">method =</span> <span class="st">&#39;BH&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
-<span id="cb58-69"><a href="functional-analysis-of-kegg.html#cb58-69"></a>  </span>
-<span id="cb58-70"><a href="functional-analysis-of-kegg.html#cb58-70"></a>  <span class="co">## Filter significant differential KOs with p-value, we use pvalue &lt; 0.05 as filtering criteria here, choose your own standard for filtering.</span></span>
-<span id="cb58-71"><a href="functional-analysis-of-kegg.html#cb58-71"></a>  Sig_KO &lt;-<span class="st"> </span>KO_LM_res <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span> <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>KOID</span>
-<span id="cb58-72"><a href="functional-analysis-of-kegg.html#cb58-72"></a>  </span>
-<span id="cb58-73"><a href="functional-analysis-of-kegg.html#cb58-73"></a>  <span class="co">## Calculate Log2FC of each significant KO in two groups</span></span>
-<span id="cb58-74"><a href="functional-analysis-of-kegg.html#cb58-74"></a>  <span class="cf">for</span> (ko <span class="cf">in</span> Sig_KO){</span>
-<span id="cb58-75"><a href="functional-analysis-of-kegg.html#cb58-75"></a>    <span class="co">## Add a small value to avoid 0</span></span>
-<span id="cb58-76"><a href="functional-analysis-of-kegg.html#cb58-76"></a>    Sig_KO_profile &lt;-<span class="st"> </span>tmp_KO_profile[ko, ] <span class="op">+</span><span class="st"> </span><span class="fl">1e-12</span></span>
-<span id="cb58-77"><a href="functional-analysis-of-kegg.html#cb58-77"></a>    </span>
-<span id="cb58-78"><a href="functional-analysis-of-kegg.html#cb58-78"></a>    <span class="co">## calculate median for each KO in two groups</span></span>
-<span id="cb58-79"><a href="functional-analysis-of-kegg.html#cb58-79"></a>    Sig_KO_log2fc &lt;-<span class="st"> </span><span class="kw">merge</span>(Sig_KO_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>),</span>
-<span id="cb58-80"><a href="functional-analysis-of-kegg.html#cb58-80"></a>                           tmp_KO_meta,</span>
-<span id="cb58-81"><a href="functional-analysis-of-kegg.html#cb58-81"></a>                           <span class="dt">by =</span> <span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(group) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">median =</span> <span class="kw">median</span>(<span class="op">!!</span><span class="kw">as.symbol</span>(ko))) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() </span>
-<span id="cb58-82"><a href="functional-analysis-of-kegg.html#cb58-82"></a>    </span>
-<span id="cb58-83"><a href="functional-analysis-of-kegg.html#cb58-83"></a>    <span class="co">## Here we extact the median value for each group separatly</span></span>
-<span id="cb58-84"><a href="functional-analysis-of-kegg.html#cb58-84"></a>    GroupA_median &lt;-<span class="st"> </span>Sig_KO_log2fc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;group&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;median&#39;</span>]</span>
-<span id="cb58-85"><a href="functional-analysis-of-kegg.html#cb58-85"></a>    GroupB_median &lt;-<span class="st"> </span>Sig_KO_log2fc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;group&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[<span class="st">&#39;B&#39;</span>, <span class="st">&#39;median&#39;</span>]</span>
-<span id="cb58-86"><a href="functional-analysis-of-kegg.html#cb58-86"></a>    </span>
-<span id="cb58-87"><a href="functional-analysis-of-kegg.html#cb58-87"></a>    <span class="co">## Calculate log2FC for each KO and save the value in list</span></span>
-<span id="cb58-88"><a href="functional-analysis-of-kegg.html#cb58-88"></a>    <span class="co">## Please be clear which group is divided by the other, it decides the direction of your log2fc</span></span>
-<span id="cb58-89"><a href="functional-analysis-of-kegg.html#cb58-89"></a>    <span class="co">## Positive log2fc value would be highlighted in red in pathview result while negative log2fc value would be highlighted in green</span></span>
-<span id="cb58-90"><a href="functional-analysis-of-kegg.html#cb58-90"></a>    log2fc_list[[ko]] &lt;-<span class="st"> </span><span class="kw">log2</span>(GroupA_median <span class="op">-</span><span class="st"> </span>GroupB_median)</span>
-<span id="cb58-91"><a href="functional-analysis-of-kegg.html#cb58-91"></a>  }</span>
-<span id="cb58-92"><a href="functional-analysis-of-kegg.html#cb58-92"></a>  </span>
-<span id="cb58-93"><a href="functional-analysis-of-kegg.html#cb58-93"></a>    <span class="co">## converst list to data frame and use it as input for pathview</span></span>
-<span id="cb58-94"><a href="functional-analysis-of-kegg.html#cb58-94"></a>    input &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(log2fc_list) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.matrix</span>()</span>
-<span id="cb58-95"><a href="functional-analysis-of-kegg.html#cb58-95"></a>    </span>
-<span id="cb58-96"><a href="functional-analysis-of-kegg.html#cb58-96"></a>    <span class="co">## Visualization</span></span>
-<span id="cb58-97"><a href="functional-analysis-of-kegg.html#cb58-97"></a>    <span class="kw">pathview</span>(input, <span class="dt">pathway.id =</span> pathway, <span class="dt">species =</span> <span class="st">&quot;ko&quot;</span>, <span class="dt">out.suffix=</span> <span class="st">&#39;PathView&#39;</span>)</span>
-<span id="cb58-98"><a href="functional-analysis-of-kegg.html#cb58-98"></a>  </span>
-<span id="cb58-99"><a href="functional-analysis-of-kegg.html#cb58-99"></a>}</span>
-<span id="cb58-100"><a href="functional-analysis-of-kegg.html#cb58-100"></a></span>
-<span id="cb58-101"><a href="functional-analysis-of-kegg.html#cb58-101"></a><span class="co">## Knit Pathview picture to RMD</span></span>
-<span id="cb58-102"><a href="functional-analysis-of-kegg.html#cb58-102"></a>graph_list &lt;-<span class="st"> </span><span class="kw">system</span>(<span class="st">&#39;ls *.PathView.png&#39;</span>, <span class="dt">intern =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb58-103"><a href="functional-analysis-of-kegg.html#cb58-103"></a></span>
-<span id="cb58-104"><a href="functional-analysis-of-kegg.html#cb58-104"></a><span class="co">## In the graph(s) below, green KO are those KOs enriched in GroupB, red KO are those KOs enriched in GroupA</span></span>
-<span id="cb58-105"><a href="functional-analysis-of-kegg.html#cb58-105"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(graph_list)</span></code></pre></div>
-<p><img src="ko00040.PathView.png" width="549" /><img src="ko02020.PathView.png" width="720" /></p>
 </div>
-<div id="session-information" class="section level2">
-<h2><span class="header-section-number">4.6</span> Session information</h2>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="functional-analysis-of-kegg.html#cb59-1"></a>devtools<span class="op">::</span><span class="kw">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<div id="differential-analysis-kegg" class="section level2">
+<h2><span class="header-section-number">3.6</span> Differential analysis (KEGG)</h2>
+<p><strong>Note: All chunks in <a href="functional-analysis-of-kegg.html#data-preprocessing-kegg">Data preprocessing</a> should be executed before doing analysis in this chunk.</strong></p>
+<div id="filter-low-prevalence-pathway-kegg" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Filter low prevalence pathway (KEGG)</h3>
+<p>Low prevalence pathways are pathways only occur in minor samples.
+In this chunk, we would remove pathways apperaing in less than max(2 , 5% of samples) from data set before doing analysis. **If you have filtered the low prevalence pathways please jump to <a href="functional-analysis-of-kegg.html#da-with-logistic-regression">DA with Logistic Regression</a> for differential analysis.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="functional-analysis-of-kegg.html#cb43-1"></a>filtered_pathway_RA_profile_tbl &lt;-<span class="st"> </span><span class="kw">filter_prevalence</span>(<span class="dt">otu_table =</span> filtered_pathway_RA_profile_tbl,</span>
+<span id="cb43-2"><a href="functional-analysis-of-kegg.html#cb43-2"></a>                  <span class="dt">threshold =</span> <span class="fl">0.05</span>,</span>
+<span id="cb43-3"><a href="functional-analysis-of-kegg.html#cb43-3"></a>                  <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span></span>
+<span id="cb43-4"><a href="functional-analysis-of-kegg.html#cb43-4"></a>                  )</span>
+<span id="cb43-5"><a href="functional-analysis-of-kegg.html#cb43-5"></a></span>
+<span id="cb43-6"><a href="functional-analysis-of-kegg.html#cb43-6"></a><span class="kw">dim</span>(filtered_pathway_RA_profile_tbl)</span></code></pre></div>
+<pre><code>## [1] 61  8</code></pre>
+</div>
+<div id="da-with-logistic-regression" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> DA with Logistic Regression</h3>
+<p><em>In this chunk, you would be using logistic regression model to find pathways that are significantly enriched in certain group.</em></p>
+<p><strong>Note: Remeber to <a href="functional-analysis-of-kegg.html#filter-low-prevalence-pathway-kegg">Filter low prevalence pathway</a> before running this chunk.</strong></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="functional-analysis-of-kegg.html#cb45-1"></a><span class="co">## Due to the nature of compositional data, we cannot apply linear models to compositional data directly. </span></span>
+<span id="cb45-2"><a href="functional-analysis-of-kegg.html#cb45-2"></a><span class="co">## Transformation of relative abundance data should be carried out before feeding the data to LM.</span></span>
+<span id="cb45-3"><a href="functional-analysis-of-kegg.html#cb45-3"></a><span class="co">## Here, we add a very small value (1e-12) to the pathway profile table to avoid genrating NA during transformation, then use logit transformation to transform data. And eventually we apply LM to the transformed data</span></span>
+<span id="cb45-4"><a href="functional-analysis-of-kegg.html#cb45-4"></a></span>
+<span id="cb45-5"><a href="functional-analysis-of-kegg.html#cb45-5"></a><span class="co">## Adding small value to the profile table (The value is arbitrary).</span></span>
+<span id="cb45-6"><a href="functional-analysis-of-kegg.html#cb45-6"></a></span>
+<span id="cb45-7"><a href="functional-analysis-of-kegg.html#cb45-7"></a>DA_pathway_RA_profile_tbl &lt;-<span class="st"> </span>filtered_pathway_RA_profile_tbl <span class="op">+</span><span class="st"> </span><span class="fl">1e-12</span></span>
+<span id="cb45-8"><a href="functional-analysis-of-kegg.html#cb45-8"></a></span>
+<span id="cb45-9"><a href="functional-analysis-of-kegg.html#cb45-9"></a><span class="co">## Reshape profile data table and use logit transformation.</span></span>
+<span id="cb45-10"><a href="functional-analysis-of-kegg.html#cb45-10"></a></span>
+<span id="cb45-11"><a href="functional-analysis-of-kegg.html#cb45-11"></a>DA_pathway_RA_profile_tbl &lt;-<span class="st"> </span>DA_pathway_RA_profile_tbl <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb45-12"><a href="functional-analysis-of-kegg.html#cb45-12"></a>DA_metadata &lt;-<span class="st"> </span>metadata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb45-13"><a href="functional-analysis-of-kegg.html#cb45-13"></a></span>
+<span id="cb45-14"><a href="functional-analysis-of-kegg.html#cb45-14"></a><span class="co">## Reshape dataframe into long table</span></span>
+<span id="cb45-15"><a href="functional-analysis-of-kegg.html#cb45-15"></a>DA_input &lt;-<span class="st"> </span><span class="kw">merge</span>(DA_pathway_RA_profile_tbl, DA_metadata, <span class="dt">by=</span><span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>reshape2<span class="op">::</span><span class="kw">melt</span>(<span class="dt">value.name =</span> <span class="st">&#39;RA&#39;</span>,</span>
+<span id="cb45-16"><a href="functional-analysis-of-kegg.html#cb45-16"></a>                                                                                         <span class="dt">variable.name =</span> <span class="st">&#39;PathwayIDs&#39;</span>)</span>
+<span id="cb45-17"><a href="functional-analysis-of-kegg.html#cb45-17"></a></span>
+<span id="cb45-18"><a href="functional-analysis-of-kegg.html#cb45-18"></a><span class="co">## Logit transformation</span></span>
+<span id="cb45-19"><a href="functional-analysis-of-kegg.html#cb45-19"></a>DA_input <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RA_logit =</span> <span class="kw">log</span>(RA<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>RA)))</span>
+<span id="cb45-20"><a href="functional-analysis-of-kegg.html#cb45-20"></a></span>
+<span id="cb45-21"><a href="functional-analysis-of-kegg.html#cb45-21"></a><span class="co">## Fit data to LM</span></span>
+<span id="cb45-22"><a href="functional-analysis-of-kegg.html#cb45-22"></a><span class="co">## Loop over each pathway in two groups</span></span>
+<span id="cb45-23"><a href="functional-analysis-of-kegg.html#cb45-23"></a>LM_res &lt;-<span class="st"> </span>DA_input <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">split</span>(.<span class="op">$</span>PathwayIDs) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">lapply</span>(., <span class="cf">function</span>(x){</span>
+<span id="cb45-24"><a href="functional-analysis-of-kegg.html#cb45-24"></a>  gml_res_summary &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> x, <span class="dt">formula =</span> RA_logit <span class="op">~</span><span class="st"> </span>Group) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>coefficients <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="dt">var =</span> <span class="st">&quot;Factors&quot;</span>)</span>
+<span id="cb45-25"><a href="functional-analysis-of-kegg.html#cb45-25"></a>  }</span>
+<span id="cb45-26"><a href="functional-analysis-of-kegg.html#cb45-26"></a>)</span>
+<span id="cb45-27"><a href="functional-analysis-of-kegg.html#cb45-27"></a></span>
+<span id="cb45-28"><a href="functional-analysis-of-kegg.html#cb45-28"></a><span class="co">## Merge all result in one table</span></span>
+<span id="cb45-29"><a href="functional-analysis-of-kegg.html#cb45-29"></a>LM_res &lt;-<span class="st"> </span>LM_res <span class="op">%&gt;%</span><span class="st"> </span>data.table<span class="op">::</span><span class="kw">rbindlist</span>(<span class="dt">idcol =</span> <span class="st">&quot;PathwayID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Factors <span class="op">!=</span><span class="st"> &quot;(Intercept)&quot;</span>)</span>
+<span id="cb45-30"><a href="functional-analysis-of-kegg.html#cb45-30"></a></span>
+<span id="cb45-31"><a href="functional-analysis-of-kegg.html#cb45-31"></a><span class="co">## Adjust p value using p.adjust function from stats package, you could choose different adjust method.</span></span>
+<span id="cb45-32"><a href="functional-analysis-of-kegg.html#cb45-32"></a>LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">adjust.p  =</span> stats<span class="op">::</span><span class="kw">p.adjust</span>(.<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span>,</span>
+<span id="cb45-33"><a href="functional-analysis-of-kegg.html#cb45-33"></a>                                               <span class="dt">method =</span> <span class="st">&#39;BH&#39;</span>))</span>
+<span id="cb45-34"><a href="functional-analysis-of-kegg.html#cb45-34"></a></span>
+<span id="cb45-35"><a href="functional-analysis-of-kegg.html#cb45-35"></a><span class="co">## Calculate effect size (Odds ratio) of each feature</span></span>
+<span id="cb45-36"><a href="functional-analysis-of-kegg.html#cb45-36"></a>LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">OR =</span> <span class="kw">exp</span>(Estimate)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb45-37"><a href="functional-analysis-of-kegg.html#cb45-37"></a></span>
+<span id="cb45-38"><a href="functional-analysis-of-kegg.html#cb45-38"></a><span class="co">## Add label to pathwayIDs</span></span>
+<span id="cb45-39"><a href="functional-analysis-of-kegg.html#cb45-39"></a></span>
+<span id="cb45-40"><a href="functional-analysis-of-kegg.html#cb45-40"></a>LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">merge</span>(., ID2Name_mapping_tbl, <span class="dt">by =</span> <span class="st">&#39;PathwayID&#39;</span>)</span></code></pre></div>
+</div>
+<div id="show-da-result-with-volcano-plot" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> Show DA result with volcano plot</h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="functional-analysis-of-kegg.html#cb46-1"></a><span class="co">## Plot volcano plot to show effect size (x-axis) and p value (y-axis) of pathways.</span></span>
+<span id="cb46-2"><a href="functional-analysis-of-kegg.html#cb46-2"></a><span class="co">## Here we only tend to hightlight pathways that satisfy adjust.p &lt; 0.614 and (OR &lt; 0.2 | OR &gt; 0.5) at the same time.</span></span>
+<span id="cb46-3"><a href="functional-analysis-of-kegg.html#cb46-3"></a><span class="co">## You can nevertheless choose different threshold accroding to your own data.</span></span>
+<span id="cb46-4"><a href="functional-analysis-of-kegg.html#cb46-4"></a></span>
+<span id="cb46-5"><a href="functional-analysis-of-kegg.html#cb46-5"></a>volcano_plot &lt;-<span class="st"> </span>LM_res <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">p.adj.log =</span> <span class="op">-</span><span class="kw">log10</span>(adjust.p), <span class="dt">log10OR =</span> <span class="kw">log10</span>(OR)) <span class="op">%&gt;%</span></span>
+<span id="cb46-6"><a href="functional-analysis-of-kegg.html#cb46-6"></a><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> log10OR, <span class="dt">y =</span> p.adj.log)) <span class="op">+</span></span>
+<span id="cb46-7"><a href="functional-analysis-of-kegg.html#cb46-7"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb46-8"><a href="functional-analysis-of-kegg.html#cb46-8"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> . <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(adjust.p <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.614</span> <span class="op">&amp;</span><span class="st"> </span>(OR <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.2</span> <span class="op">|</span><span class="st"> </span>OR <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>))) <span class="op">+</span></span>
+<span id="cb46-9"><a href="functional-analysis-of-kegg.html#cb46-9"></a><span class="st">    </span><span class="co">#geom_text_repel(size = 6/.pt, aes(label = Label), data = . %&gt;% filter(adjust.p&lt;0.614 &amp; OR&lt;0.2)) +</span></span>
+<span id="cb46-10"><a href="functional-analysis-of-kegg.html#cb46-10"></a><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>)), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></span>
+<span id="cb46-11"><a href="functional-analysis-of-kegg.html#cb46-11"></a><span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="op">-</span><span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.7</span>)), <span class="dt">size =</span> <span class="fl">0.05</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="op">+</span></span>
+<span id="cb46-12"><a href="functional-analysis-of-kegg.html#cb46-12"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">aspect.ratio =</span> <span class="dv">1</span>,</span>
+<span id="cb46-13"><a href="functional-analysis-of-kegg.html#cb46-13"></a>          <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb46-14"><a href="functional-analysis-of-kegg.html#cb46-14"></a>          <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb46-15"><a href="functional-analysis-of-kegg.html#cb46-15"></a>          ) <span class="op">+</span></span>
+<span id="cb46-16"><a href="functional-analysis-of-kegg.html#cb46-16"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Estimated Odds Ratio&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;FDR adjusted p-values(-log10)&quot;</span>)</span>
+<span id="cb46-17"><a href="functional-analysis-of-kegg.html#cb46-17"></a></span>
+<span id="cb46-18"><a href="functional-analysis-of-kegg.html#cb46-18"></a><span class="kw">print</span>(volcano_plot)</span></code></pre></div>
+<p><img src="Function-standard-analysis-workflow_files/figure-html/visualize%20DA%20result%20by%20volcano%20plot%20of%20KEGG%20pathway%20data-1.png" width="672" /></p>
+</div>
+<div id="show-da-result-with-pathview" class="section level3">
+<h3><span class="header-section-number">3.6.4</span> Show DA result with pathview</h3>
+<p>In this chunk, we use pathview to visualize enriched KOs in differential pathways.</p>
+<p><strong>Step1. First we extract all KOs in differential pathways obtained from last chunk with mapping file: /share/work/runtime/softwares/MinPath/data/KEGG-mapping.txt.</strong><br />
+<strong>Step2. We find differential KO in two groups using the same LM method in previous chunk.</strong></p>
+<p><strong>Step3. Visualize differential KO in differential pathways with pathview.</strong></p>
+<p>In order to find differential KO in two groups, we need to merge all profiles of all samples</p>
+<div id="merge-ko-profiles" class="section level4">
+<h4><span class="header-section-number">3.6.4.1</span> Merge KO profiles</h4>
+<div class="sourceCode" id="cb47"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb47-1"><a href="functional-analysis-of-kegg.html#cb47-1"></a>/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PipelineOutput/*/humann2_post_kegg/16466_filter_unstratified_with_des.kegg</span></code></pre></div>
+<div id="remove-description-in-ko-profile" class="section level5">
+<h5><span class="header-section-number">3.6.4.1.1</span> Remove description in KO profile</h5>
+<p>Here we need to remove the description column of KO profile of 8 samples <strong>in Bash</strong>. But if you have removed the column data already, please skip this chunk and jump to <a href="functional-analysis-of-kegg.html#read-merged-ko-profile">Read merged KO profile</a>.</p>
+<pre class="mamrkdown"><code>for i in /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PipelineOutput/*/humann2_post_kegg/*filter_unstratified_with_des.kegg; do awk -F &#39;\t&#39; &#39;{print $1&quot;\t&quot;$2}&#39; $i &gt; $i.tmp.tsv ;done</code></pre>
+</div>
+<div id="merge-ko-profile-of-all-sample" class="section level5">
+<h5><span class="header-section-number">3.6.4.1.2</span> Merge KO profile of all sample</h5>
+<p>Here we need to merge all KO data from 8 samples into one profile table with the merge script from Humann2 <strong>in Bash</strong>. But if you have merged the sample data already, please skip this chunk and jump to <a href="functional-analysis-of-kegg.html#read-merged-ko-profile">Read merged KO profile</a>.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb49-1"><a href="functional-analysis-of-kegg.html#cb49-1"></a>docker run -i --rm -u $(id -u):$(id -g) -v /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/:/in harbor.xbiome.com/xbiome/environments/humann2:2.8.1-2b8c5c3 bash -c &quot;merge_metaphlan_tables.py /in/PipelineOutput/*/humann2_post_kegg/*.tmp.tsv &gt; /in/Kegg/merged_ko_profile.tsv&quot;</span></code></pre></div>
+</div>
+<div id="remove-tmp-ko-tsv-files" class="section level5">
+<h5><span class="header-section-number">3.6.4.1.3</span> Remove tmp KO tsv files</h5>
+<p>Remove tmp tsv files created above</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb50-1"><a href="functional-analysis-of-kegg.html#cb50-1"></a>rm /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PipelineOutput/*/humann2_post_kegg/*.tmp.tsv</span>
+<span id="cb50-2"><a href="functional-analysis-of-kegg.html#cb50-2"></a></span>
+<span id="cb50-3"><a href="functional-analysis-of-kegg.html#cb50-3"></a>sed -i &#39;/filter_unstratified_with_des.kegg.tmp/d&#39; /share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Kegg/merged_ko_profile.tsv</span></code></pre></div>
+</div>
+</div>
+<div id="read-merged-ko-profile" class="section level4">
+<h4><span class="header-section-number">3.6.4.2</span> Read merged KO profile</h4>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="functional-analysis-of-kegg.html#cb51-1"></a><span class="co">## Read in KO profile, since we&#39;ve already removed UNMAPPED and re-scaled KO profile in Functional_Analysis_Kegg_Pathway_preprocess.Rmd, we only need to filer low_abundance and low-prevalenece KOs here.</span></span>
+<span id="cb51-2"><a href="functional-analysis-of-kegg.html#cb51-2"></a></span>
+<span id="cb51-3"><a href="functional-analysis-of-kegg.html#cb51-3"></a>KO_profile &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/Kegg/merged_ko_profile.tsv&#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb51-4"><a href="functional-analysis-of-kegg.html#cb51-4"></a><span class="kw">colnames</span>(KO_profile) <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">str_remove</span>(<span class="st">&#39;_.+&#39;</span>)</span></code></pre></div>
+</div>
+<div id="preprocess-merged-ko-profile" class="section level4">
+<h4><span class="header-section-number">3.6.4.3</span> Preprocess merged KO profile</h4>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="functional-analysis-of-kegg.html#cb52-1"></a><span class="co">## Rescale KO profile</span></span>
+<span id="cb52-2"><a href="functional-analysis-of-kegg.html#cb52-2"></a></span>
+<span id="cb52-3"><a href="functional-analysis-of-kegg.html#cb52-3"></a>KO_profile <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;ID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(., <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="op">/</span><span class="kw">sum</span>(x)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;KOs&#39;</span>)</span>
+<span id="cb52-4"><a href="functional-analysis-of-kegg.html#cb52-4"></a></span>
+<span id="cb52-5"><a href="functional-analysis-of-kegg.html#cb52-5"></a><span class="co">## Filter low abundance KOs</span></span>
+<span id="cb52-6"><a href="functional-analysis-of-kegg.html#cb52-6"></a></span>
+<span id="cb52-7"><a href="functional-analysis-of-kegg.html#cb52-7"></a>filtered_KO_profile &lt;-<span class="st"> </span>KO_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;KOs&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">aggregate_low_abundance</span>(<span class="dt">input_data =</span> .,</span>
+<span id="cb52-8"><a href="functional-analysis-of-kegg.html#cb52-8"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>)</span>
+<span id="cb52-9"><a href="functional-analysis-of-kegg.html#cb52-9"></a></span>
+<span id="cb52-10"><a href="functional-analysis-of-kegg.html#cb52-10"></a><span class="co">## Filter low-prevalenece KOs</span></span>
+<span id="cb52-11"><a href="functional-analysis-of-kegg.html#cb52-11"></a></span>
+<span id="cb52-12"><a href="functional-analysis-of-kegg.html#cb52-12"></a>filtered_KO_profile &lt;-<span class="st"> </span><span class="kw">filter_prevalence</span>(<span class="dt">otu_table =</span> filtered_KO_profile,</span>
+<span id="cb52-13"><a href="functional-analysis-of-kegg.html#cb52-13"></a>                  <span class="dt">threshold =</span> <span class="fl">0.05</span>,</span>
+<span id="cb52-14"><a href="functional-analysis-of-kegg.html#cb52-14"></a>                  <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span></span>
+<span id="cb52-15"><a href="functional-analysis-of-kegg.html#cb52-15"></a>                  )</span></code></pre></div>
+</div>
+<div id="find-differential-ko-for-each-differential-kegg-map" class="section level4">
+<h4><span class="header-section-number">3.6.4.4</span> Find differential KO for each differential Kegg map</h4>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="functional-analysis-of-kegg.html#cb53-1"></a><span class="co">## Read in KO-Pathway mapping file</span></span>
+<span id="cb53-2"><a href="functional-analysis-of-kegg.html#cb53-2"></a>KO2Pathway_mapping &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/work/runtime/softwares/MinPath/data/KEGG-mapping.txt&#39;</span>, <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;V1&#39;</span> =<span class="st"> &#39;character&#39;</span>))</span>
+<span id="cb53-3"><a href="functional-analysis-of-kegg.html#cb53-3"></a></span>
+<span id="cb53-4"><a href="functional-analysis-of-kegg.html#cb53-4"></a></span>
+<span id="cb53-5"><a href="functional-analysis-of-kegg.html#cb53-5"></a><span class="co">## Loop over differential pathways</span></span>
+<span id="cb53-6"><a href="functional-analysis-of-kegg.html#cb53-6"></a>Diff_pathway &lt;-<span class="st"> </span>LM_res <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span> <span class="op">&lt;</span><span class="st"> </span><span class="fl">.05</span>) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>PathwayID <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.vector</span>()</span>
+<span id="cb53-7"><a href="functional-analysis-of-kegg.html#cb53-7"></a></span>
+<span id="cb53-8"><a href="functional-analysis-of-kegg.html#cb53-8"></a></span>
+<span id="cb53-9"><a href="functional-analysis-of-kegg.html#cb53-9"></a><span class="cf">for</span> (pathway <span class="cf">in</span> Diff_pathway){</span>
+<span id="cb53-10"><a href="functional-analysis-of-kegg.html#cb53-10"></a>  </span>
+<span id="cb53-11"><a href="functional-analysis-of-kegg.html#cb53-11"></a>  <span class="co">## Create a list to store the log2fc of each KO in each kegg pathway</span></span>
+<span id="cb53-12"><a href="functional-analysis-of-kegg.html#cb53-12"></a>  log2fc_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
+<span id="cb53-13"><a href="functional-analysis-of-kegg.html#cb53-13"></a>  </span>
+<span id="cb53-14"><a href="functional-analysis-of-kegg.html#cb53-14"></a>  <span class="co">## Extract all KOs in differential pathway</span></span>
+<span id="cb53-15"><a href="functional-analysis-of-kegg.html#cb53-15"></a>  KO_ID_in_mapping &lt;-<span class="st"> </span>KO2Pathway_mapping <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(V1 <span class="op">==</span><span class="st"> </span>pathway) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>V2</span>
+<span id="cb53-16"><a href="functional-analysis-of-kegg.html#cb53-16"></a>  </span>
+<span id="cb53-17"><a href="functional-analysis-of-kegg.html#cb53-17"></a>  <span class="co">## Some KOs are not included in mapping file, here we take intersection of KO ID in mapping file and avaiable KO ID in KO profile</span></span>
+<span id="cb53-18"><a href="functional-analysis-of-kegg.html#cb53-18"></a>  KO_ID &lt;-<span class="st"> </span><span class="kw">intersect</span>(KO_ID_in_mapping, <span class="kw">rownames</span>(filtered_KO_profile))</span>
+<span id="cb53-19"><a href="functional-analysis-of-kegg.html#cb53-19"></a>  </span>
+<span id="cb53-20"><a href="functional-analysis-of-kegg.html#cb53-20"></a>  tmp_KO_profile &lt;-<span class="st"> </span>filtered_KO_profile[KO_ID,]</span>
+<span id="cb53-21"><a href="functional-analysis-of-kegg.html#cb53-21"></a>  tmp_KO_meta &lt;-<span class="st"> </span>DA_metadata</span>
+<span id="cb53-22"><a href="functional-analysis-of-kegg.html#cb53-22"></a>  </span>
+<span id="cb53-23"><a href="functional-analysis-of-kegg.html#cb53-23"></a>  <span class="co">## re-format tmp KO profile table</span></span>
+<span id="cb53-24"><a href="functional-analysis-of-kegg.html#cb53-24"></a>  KO_DA_input &lt;-<span class="st"> </span><span class="kw">merge</span>(tmp_KO_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>),</span>
+<span id="cb53-25"><a href="functional-analysis-of-kegg.html#cb53-25"></a>                       tmp_KO_meta,</span>
+<span id="cb53-26"><a href="functional-analysis-of-kegg.html#cb53-26"></a>                       <span class="dt">by =</span> <span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>reshape2<span class="op">::</span><span class="kw">melt</span>(<span class="dt">variable.name =</span> <span class="st">&#39;KO&#39;</span>,</span>
+<span id="cb53-27"><a href="functional-analysis-of-kegg.html#cb53-27"></a>                                                        <span class="dt">value.name =</span> <span class="st">&#39;RA&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RA =</span> RA <span class="op">+</span><span class="st"> </span><span class="fl">1e-12</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">RA_logit =</span> <span class="kw">log</span>(RA<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>RA)))</span>
+<span id="cb53-28"><a href="functional-analysis-of-kegg.html#cb53-28"></a>  </span>
+<span id="cb53-29"><a href="functional-analysis-of-kegg.html#cb53-29"></a>  <span class="co">## DA using LM</span></span>
+<span id="cb53-30"><a href="functional-analysis-of-kegg.html#cb53-30"></a>  KO_LM_res &lt;-<span class="st"> </span>KO_DA_input <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">split</span>(.<span class="op">$</span>KO) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">lapply</span>(., <span class="cf">function</span>(x){</span>
+<span id="cb53-31"><a href="functional-analysis-of-kegg.html#cb53-31"></a></span>
+<span id="cb53-32"><a href="functional-analysis-of-kegg.html#cb53-32"></a>        KO_gml_res_summary &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> x, <span class="dt">formula =</span> RA_logit <span class="op">~</span><span class="st"> </span>Group) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summary</span>() <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>coefficients <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.matrix</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="dt">var =</span> <span class="st">&quot;Factors&quot;</span>)</span>
+<span id="cb53-33"><a href="functional-analysis-of-kegg.html#cb53-33"></a>    }</span>
+<span id="cb53-34"><a href="functional-analysis-of-kegg.html#cb53-34"></a>  )</span>
+<span id="cb53-35"><a href="functional-analysis-of-kegg.html#cb53-35"></a>  </span>
+<span id="cb53-36"><a href="functional-analysis-of-kegg.html#cb53-36"></a>  <span class="co">## Merge result of all tested KOs</span></span>
+<span id="cb53-37"><a href="functional-analysis-of-kegg.html#cb53-37"></a>  KO_LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span>data.table<span class="op">::</span><span class="kw">rbindlist</span>(<span class="dt">idcol =</span> <span class="st">&quot;KOID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Factors <span class="op">!=</span><span class="st"> &quot;(Intercept)&quot;</span>)</span>
+<span id="cb53-38"><a href="functional-analysis-of-kegg.html#cb53-38"></a>  </span>
+<span id="cb53-39"><a href="functional-analysis-of-kegg.html#cb53-39"></a>  <span class="co">## Adjust p value using p.adjust function from stats package, you could choose different adjust method.</span></span>
+<span id="cb53-40"><a href="functional-analysis-of-kegg.html#cb53-40"></a>  KO_LM_res <span class="op">%&lt;&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">adjust.p  =</span> stats<span class="op">::</span><span class="kw">p.adjust</span>(.<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span>,</span>
+<span id="cb53-41"><a href="functional-analysis-of-kegg.html#cb53-41"></a>                                                 <span class="dt">method =</span> <span class="st">&#39;BH&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb53-42"><a href="functional-analysis-of-kegg.html#cb53-42"></a>  </span>
+<span id="cb53-43"><a href="functional-analysis-of-kegg.html#cb53-43"></a>  <span class="co">## Filter significant differential KOs with p-value, we use pvalue &lt; 0.05 as filtering criteria here, choose your own standard for filtering.</span></span>
+<span id="cb53-44"><a href="functional-analysis-of-kegg.html#cb53-44"></a>  Sig_KO &lt;-<span class="st"> </span>KO_LM_res <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">Pr(&gt;|t|)</span><span class="st">`</span> <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>) <span class="op">%&gt;%</span><span class="st"> </span>.<span class="op">$</span>KOID</span>
+<span id="cb53-45"><a href="functional-analysis-of-kegg.html#cb53-45"></a>  </span>
+<span id="cb53-46"><a href="functional-analysis-of-kegg.html#cb53-46"></a>  <span class="co">## Calculate Log2FC of each significant KO in two groups</span></span>
+<span id="cb53-47"><a href="functional-analysis-of-kegg.html#cb53-47"></a>  <span class="cf">for</span> (ko <span class="cf">in</span> Sig_KO){</span>
+<span id="cb53-48"><a href="functional-analysis-of-kegg.html#cb53-48"></a>    <span class="co">## Add a small value to avoid 0</span></span>
+<span id="cb53-49"><a href="functional-analysis-of-kegg.html#cb53-49"></a>    Sig_KO_profile &lt;-<span class="st"> </span>tmp_KO_profile[ko, ] <span class="op">+</span><span class="st"> </span><span class="fl">1e-12</span></span>
+<span id="cb53-50"><a href="functional-analysis-of-kegg.html#cb53-50"></a>    </span>
+<span id="cb53-51"><a href="functional-analysis-of-kegg.html#cb53-51"></a>    <span class="co">## calculate median for each KO in two groups</span></span>
+<span id="cb53-52"><a href="functional-analysis-of-kegg.html#cb53-52"></a>    Sig_KO_log2fc &lt;-<span class="st"> </span><span class="kw">merge</span>(Sig_KO_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">t</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="st">&#39;SeqID&#39;</span>),</span>
+<span id="cb53-53"><a href="functional-analysis-of-kegg.html#cb53-53"></a>                           tmp_KO_meta,</span>
+<span id="cb53-54"><a href="functional-analysis-of-kegg.html#cb53-54"></a>                           <span class="dt">by =</span> <span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;SeqID&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Group) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">median =</span> <span class="kw">median</span>(<span class="op">!!</span><span class="kw">as.symbol</span>(ko))) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>() </span>
+<span id="cb53-55"><a href="functional-analysis-of-kegg.html#cb53-55"></a>    </span>
+<span id="cb53-56"><a href="functional-analysis-of-kegg.html#cb53-56"></a>    <span class="co">## Here we extact the median value for each group separatly</span></span>
+<span id="cb53-57"><a href="functional-analysis-of-kegg.html#cb53-57"></a>    GroupA_median &lt;-<span class="st"> </span>Sig_KO_log2fc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;Group&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;median&#39;</span>]</span>
+<span id="cb53-58"><a href="functional-analysis-of-kegg.html#cb53-58"></a>    GroupB_median &lt;-<span class="st"> </span>Sig_KO_log2fc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;Group&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[<span class="st">&#39;B&#39;</span>, <span class="st">&#39;median&#39;</span>]</span>
+<span id="cb53-59"><a href="functional-analysis-of-kegg.html#cb53-59"></a>    </span>
+<span id="cb53-60"><a href="functional-analysis-of-kegg.html#cb53-60"></a>    <span class="co">## Calculate log2FC for each KO and save the value in list</span></span>
+<span id="cb53-61"><a href="functional-analysis-of-kegg.html#cb53-61"></a>    <span class="co">## Please be clear which group is divided by the other, it decides the direction of your log2fc</span></span>
+<span id="cb53-62"><a href="functional-analysis-of-kegg.html#cb53-62"></a>    <span class="co">## Positive log2fc value would be highlighted in red in pathview result while negative log2fc value would be highlighted in green</span></span>
+<span id="cb53-63"><a href="functional-analysis-of-kegg.html#cb53-63"></a>    log2fc_list[[ko]] &lt;-<span class="st"> </span><span class="kw">log2</span>(GroupA_median <span class="op">-</span><span class="st"> </span>GroupB_median)</span>
+<span id="cb53-64"><a href="functional-analysis-of-kegg.html#cb53-64"></a>  }</span>
+<span id="cb53-65"><a href="functional-analysis-of-kegg.html#cb53-65"></a>  </span>
+<span id="cb53-66"><a href="functional-analysis-of-kegg.html#cb53-66"></a>    <span class="co">## converst list to data frame and use it as input for pathview</span></span>
+<span id="cb53-67"><a href="functional-analysis-of-kegg.html#cb53-67"></a>    input &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(log2fc_list) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.matrix</span>()</span>
+<span id="cb53-68"><a href="functional-analysis-of-kegg.html#cb53-68"></a>    </span>
+<span id="cb53-69"><a href="functional-analysis-of-kegg.html#cb53-69"></a>    <span class="co">## Visualization</span></span>
+<span id="cb53-70"><a href="functional-analysis-of-kegg.html#cb53-70"></a>    <span class="kw">pathview</span>(input, <span class="dt">pathway.id =</span> pathway, <span class="dt">species =</span> <span class="st">&quot;ko&quot;</span>, <span class="dt">out.suffix=</span> <span class="st">&#39;PathView&#39;</span>)</span>
+<span id="cb53-71"><a href="functional-analysis-of-kegg.html#cb53-71"></a>  </span>
+<span id="cb53-72"><a href="functional-analysis-of-kegg.html#cb53-72"></a>}</span>
+<span id="cb53-73"><a href="functional-analysis-of-kegg.html#cb53-73"></a></span>
+<span id="cb53-74"><a href="functional-analysis-of-kegg.html#cb53-74"></a><span class="co">## Knit Pathview picture to RMD</span></span>
+<span id="cb53-75"><a href="functional-analysis-of-kegg.html#cb53-75"></a>graph_list &lt;-<span class="st"> </span><span class="kw">system</span>(<span class="st">&#39;ls *.PathView.png&#39;</span>, <span class="dt">intern =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb53-76"><a href="functional-analysis-of-kegg.html#cb53-76"></a></span>
+<span id="cb53-77"><a href="functional-analysis-of-kegg.html#cb53-77"></a><span class="co">## In the graph(s) below, green KO are those KOs enriched in GroupB, red KO are those KOs enriched in GroupA</span></span>
+<span id="cb53-78"><a href="functional-analysis-of-kegg.html#cb53-78"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(graph_list)</span></code></pre></div>
+<p><img src="ko00040.PathView.png" width="549" /><img src="ko00531.PathView.png" width="609" /><img src="ko02020.PathView.png" width="720" /><img src="ko04112.PathView.png" width="460" /></p>
+</div>
+</div>
+</div>
+<div id="session-information-kegg" class="section level2">
+<h2><span class="header-section-number">3.7</span> Session information (KEGG)</h2>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="functional-analysis-of-kegg.html#cb54-1"></a>devtools<span class="op">::</span><span class="kw">session_info</span>()</span></code></pre></div>
+<pre><code>## ─ Session info ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 3.6.3 (2020-02-29)
 ##  os       Ubuntu 16.04.7 LTS
@@ -526,15 +624,15 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##  collate  en_IN.UTF-8
 ##  ctype    en_IN.UTF-8
 ##  tz       Asia/Hong_Kong
-##  date     2022-09-02
+##  date     2022-09-13
 ##  rstudio  1.1.419 (server)
 ##  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)
 ## 
-## ─ Packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  ! package              * version    date (UTC) lib source
 ##    abind                  1.4-5      2016-07-21 [1] CRAN (R 3.6.3)
 ##    ade4                   1.7-17     2021-06-17 [1] CRAN (R 3.6.3)
-##    ALDEx2                 1.18.0     2019-10-29 [1] Bioconductor
+##    ALDEx2               * 1.18.0     2019-10-29 [1] Bioconductor
 ##    annotate               1.64.0     2019-10-29 [1] Bioconductor
 ##    AnnotationDbi        * 1.48.0     2019-10-29 [1] Bioconductor
 ##    ape                    5.5        2021-04-25 [1] CRAN (R 3.6.3)
@@ -567,6 +665,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    cli                    3.1.0      2021-10-27 [1] CRAN (R 3.6.3)
 ##    clue                   0.3-59     2021-04-16 [1] CRAN (R 3.6.3)
 ##    cluster                2.1.0      2019-06-19 [2] CRAN (R 3.6.3)
+##    coda                   0.19-4     2020-09-30 [1] CRAN (R 3.6.3)
 ##    codetools              0.2-16     2018-12-24 [2] CRAN (R 3.6.3)
 ##    coin                   1.4-2      2021-10-08 [1] CRAN (R 3.6.3)
 ##    colorspace             2.0-2      2021-06-24 [1] CRAN (R 3.6.3)
@@ -574,6 +673,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    compositions           2.0-2      2021-07-14 [1] CRAN (R 3.6.3)
 ##    cowplot              * 1.1.1      2020-12-30 [1] CRAN (R 3.6.3)
 ##    crayon                 1.5.0      2022-02-14 [1] CRAN (R 3.6.3)
+##    curl                   4.3.2      2021-06-23 [2] CRAN (R 3.6.3)
 ##    dada2                * 1.14.1     2020-02-22 [1] Bioconductor
 ##    data.table           * 1.14.0     2021-02-21 [1] CRAN (R 3.6.3)
 ##    DBI                    1.1.1      2021-01-15 [1] CRAN (R 3.6.3)
@@ -589,6 +689,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    edgeR                  3.28.1     2020-02-26 [1] Bioconductor
 ##    ellipsis               0.3.2      2021-04-29 [1] CRAN (R 3.6.3)
 ##    EnhancedVolcano      * 1.4.0      2019-10-29 [1] Bioconductor
+##    enrichR              * 3.0        2021-02-02 [1] CRAN (R 3.6.3)
 ##    evaluate               0.15       2022-02-18 [2] CRAN (R 3.6.3)
 ##    fansi                  1.0.2      2022-01-14 [1] CRAN (R 3.6.3)
 ##    farver                 2.1.0      2021-02-28 [2] CRAN (R 3.6.3)
@@ -611,6 +712,8 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    GenomicRanges        * 1.38.0     2019-10-29 [2] Bioconductor
 ##    getopt                 1.20.3     2019-03-22 [1] CRAN (R 3.6.3)
 ##    GetoptLong             1.0.5      2020-12-15 [1] CRAN (R 3.6.3)
+##    GGally               * 2.1.2      2021-06-21 [1] CRAN (R 3.6.3)
+##    ggbipart             * 0.1.2      2022-07-20 [1] Github (pedroj/bipartite_plots@162f577)
 ##    ggExtra              * 0.9        2019-08-27 [1] CRAN (R 3.6.3)
 ##    ggplot2              * 3.3.5      2021-06-25 [1] CRAN (R 3.6.3)
 ##    ggpubr               * 0.4.0      2020-06-27 [1] CRAN (R 3.6.3)
@@ -678,6 +781,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    multtest               2.42.0     2019-10-29 [2] Bioconductor
 ##    munsell                0.5.0      2018-06-12 [2] CRAN (R 3.6.3)
 ##    mvtnorm                1.1-3      2021-10-08 [1] CRAN (R 3.6.3)
+##    network              * 1.17.1     2021-06-14 [1] CRAN (R 3.6.3)
 ##    nlme                   3.1-144    2020-02-06 [2] CRAN (R 3.6.3)
 ##    nnet                   7.3-12     2016-02-02 [2] CRAN (R 3.6.3)
 ##    optparse               1.7.1      2021-10-08 [1] CRAN (R 3.6.3)
@@ -712,6 +816,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    readxl               * 1.3.1      2019-03-13 [1] CRAN (R 3.6.3)
 ##    remotes                2.4.2      2021-11-30 [1] CRAN (R 3.6.3)
 ##    reprex                 2.0.1      2021-08-05 [1] CRAN (R 3.6.3)
+##    reshape                0.8.9      2022-04-12 [1] CRAN (R 3.6.3)
 ##    reshape2             * 1.4.4      2020-04-09 [2] CRAN (R 3.6.3)
 ##    Rgraphviz              2.30.0     2019-10-29 [1] Bioconductor
 ##    rhdf5                  2.30.1     2019-11-26 [1] Bioconductor
@@ -724,6 +829,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    rpart                  4.1-15     2019-04-12 [2] CRAN (R 3.6.3)
 ##    rprojroot              2.0.2      2020-11-15 [1] CRAN (R 3.6.3)
 ##    Rsamtools              2.2.3      2020-02-23 [1] Bioconductor
+##    rsconnect              0.8.25     2021-11-19 [1] CRAN (R 3.6.3)
 ##    RSQLite                2.2.7      2021-04-22 [1] CRAN (R 3.6.3)
 ##    rstatix                0.7.0      2021-02-13 [1] CRAN (R 3.6.3)
 ##    rstudioapi             0.13       2020-11-12 [2] CRAN (R 3.6.3)
@@ -739,6 +845,8 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    shiny                  1.7.1      2021-10-02 [1] CRAN (R 3.6.3)
 ##    ShortRead              1.44.3     2020-02-03 [1] Bioconductor
 ##    slam                   0.1-49     2021-11-17 [1] CRAN (R 3.6.3)
+##    sna                    2.6        2020-10-06 [1] CRAN (R 3.6.3)
+##    statnet.common         4.5.0      2021-06-05 [1] CRAN (R 3.6.3)
 ##    stringi                1.7.4      2021-08-25 [1] CRAN (R 3.6.3)
 ##    stringr              * 1.4.0      2019-02-10 [2] CRAN (R 3.6.3)
 ##    SummarizedExperiment * 1.16.1     2019-12-19 [2] Bioconductor
@@ -760,13 +868,14 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    VennDiagram            1.7.1      2021-12-02 [1] CRAN (R 3.6.3)
 ##    viridisLite            0.4.0      2021-04-13 [2] CRAN (R 3.6.3)
 ##    vroom                  1.5.7      2021-11-30 [1] CRAN (R 3.6.3)
+##    wesanderson          * 0.3.6.9000 2021-07-21 [1] Github (karthik/wesanderson@651c944)
 ##    withr                  2.4.3      2021-11-30 [1] CRAN (R 3.6.3)
 ##    Wrench                 1.4.0      2019-10-29 [1] Bioconductor
 ##    xfun                   0.23       2021-05-15 [1] CRAN (R 3.6.3)
 ##    xlsx                 * 0.6.5      2020-11-10 [1] CRAN (R 3.6.3)
 ##    xlsxjars               0.6.1      2014-08-22 [1] CRAN (R 3.6.3)
 ##    XMAS                 * 0.0.0.9000 2022-03-23 [1] local
-##    XMAS2                  2.1.7.7    2022-08-25 [2] local
+##    XMAS2                  2.1.7.9    2022-09-09 [2] local
 ##    XML                    3.99-0.3   2020-01-20 [1] CRAN (R 3.6.3)
 ##    xml2                   1.3.3      2021-11-30 [2] CRAN (R 3.6.3)
 ##    xtable                 1.8-4      2019-04-21 [1] CRAN (R 3.6.3)
@@ -781,7 +890,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ## 
 ##  R ── Package was removed from disk.
 ## 
-## ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>
@@ -790,8 +899,8 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
           </div>
         </div>
       </div>
-<a href="preprocess-of-functional-analysis-of-kegg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="preprocess-of-functional-analysis-of-target-database.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="functional-analysis-of-metacyc-database.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functional-analysis-of-targetdatabase.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -822,7 +931,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/03-Functional_Analysis_Kegg_Pathway_analysis.Rmd",
+"link": "https://github.com/XbiomeAnalysis/FunctionAnalysis/blob/main/02-Functional_Analysis_Kegg_Pathway_analysis.Rmd",
 "text": "Edit"
 },
 "history": {
