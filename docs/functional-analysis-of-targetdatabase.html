@@ -24,7 +24,7 @@
 <meta name="author" content="Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,9 +225,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>6</b> PICRUSt2</a><ul>
 <li class="chapter" data-level="6.1" data-path="picrust2.html"><a href="picrust2.html#environment-setup-4"><i class="fa fa-check"></i><b>6.1</b> Environment Setup</a></li>
 <li class="chapter" data-level="6.2" data-path="picrust2.html"><a href="picrust2.html#run-picrust2"><i class="fa fa-check"></i><b>6.2</b> Run PICRUSt2</a></li>
-<li class="chapter" data-level="6.3" data-path="picrust2.html"><a href="picrust2.html#use-da-to-interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>6.3</b> Use DA to interpret result table from PICRUSt2</a><ul>
+<li class="chapter" data-level="6.3" data-path="picrust2.html"><a href="picrust2.html#interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>6.3</b> Interpret result table from PICRUSt2</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="picrust2.html"><a href="picrust2.html#read-input"><i class="fa fa-check"></i><b>6.3.1</b> Read input</a></li>
-<li class="chapter" data-level="6.3.2" data-path="picrust2.html"><a href="picrust2.html#preprocess"><i class="fa fa-check"></i><b>6.3.2</b> Preprocess</a></li>
+<li class="chapter" data-level="6.3.2" data-path="picrust2.html"><a href="picrust2.html#data-preprocess-picrust2"><i class="fa fa-check"></i><b>6.3.2</b> Data Preprocess (Picrust2)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="picrust2.html"><a href="picrust2.html#session-info-3"><i class="fa fa-check"></i><b>6.4</b> Session info</a></li>
 </ul></li>
@@ -268,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="flowcharts/FlowChart_TargetDB.jpg" alt="" />
 <p class="caption">FlowChart_KEGG</p>
 </div>
-<p>** The analysis of the 7 types of target databases are pretty much the same, here we use CARD database as an example.**</p>
+<p><strong>The analysis of the 7 types of target databases are pretty much the same, here we use CARD database as an example.</strong></p>
 <hr />
 <div id="environment-setup-2" class="section level2">
 <h2><span class="header-section-number">4.1</span> Environment setup</h2>
@@ -346,7 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.4.3</span> Aggregate low abundance data</h3>
 <p>In this chunck, we aggregate low abundance features to one row.<br />
 <em><strong>1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper <a href="https://doi.org/10.1016/j.chom.2019.07.004">Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition</a>, pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.</strong></em></p>
-<p>Note: Run <a href="functional-analysis-of-targetdatabase.html#transforming-data-target-db">Transforming data</a> and <a href="remove-unppaed-pathways-target-db">Remove unmapped pathways</a> before running this chunk!</p>
+<p>Note: Run <a href="functional-analysis-of-targetdatabase.html#transforming-data-target-db">Transforming data</a> and <a href="functional-analysis-of-targetdatabase.html#remove-unppaed-pathways-target-db">Remove unmapped pathways</a> before running this chunk!</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="functional-analysis-of-targetdatabase.html#cb65-1"></a>Filtered_card_profile &lt;-<span class="st"> </span><span class="kw">aggregate_low_abundance</span>(<span class="dt">input_data =</span> card_profile,</span>
 <span id="cb65-2"><a href="functional-analysis-of-targetdatabase.html#cb65-2"></a>                                                           <span class="dt">threshold =</span> <span class="fl">1e-12</span>) <span class="co">## threshold should be modified based on your on study</span></span>
 <span id="cb65-3"><a href="functional-analysis-of-targetdatabase.html#cb65-3"></a></span>
@@ -427,7 +427,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 </div>
 <div id="da-with-lm" class="section level3">
 <h3><span class="header-section-number">4.6.2</span> DA with LM</h3>
-<p><strong>Note: Please <a href="filter-low-prevalence-pathway-da">Filter low prevalence pathway</a> before DA.</strong></p>
+<p><strong>Note: Please <a href="functional-analysis-of-targetdatabase.html#filter-low-prevalence-pathway-da">Filter low prevalence pathway</a> before DA.</strong></p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="functional-analysis-of-targetdatabase.html#cb77-1"></a><span class="co">## In this chunk, you would be using logistic regression model to find pathways that are significantly enriched in certain group.</span></span>
 <span id="cb77-2"><a href="functional-analysis-of-targetdatabase.html#cb77-2"></a></span>
 <span id="cb77-3"><a href="functional-analysis-of-targetdatabase.html#cb77-3"></a><span class="co">## Due to the nature of compositional data, we cannot apply linear models to compositional data directly. </span></span>
@@ -520,7 +520,7 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##  collate  en_IN.UTF-8
 ##  ctype    en_IN.UTF-8
 ##  tz       Asia/Hong_Kong
-##  date     2022-09-13
+##  date     2022-09-14
 ##  rstudio  1.1.419 (server)
 ##  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)
 ## 
@@ -725,7 +725,6 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    rpart                  4.1-15     2019-04-12 [2] CRAN (R 3.6.3)
 ##    rprojroot              2.0.2      2020-11-15 [1] CRAN (R 3.6.3)
 ##    Rsamtools              2.2.3      2020-02-23 [1] Bioconductor
-##    rsconnect              0.8.25     2021-11-19 [1] CRAN (R 3.6.3)
 ##    RSQLite                2.2.7      2021-04-22 [1] CRAN (R 3.6.3)
 ##    rstatix                0.7.0      2021-02-13 [1] CRAN (R 3.6.3)
 ##    rstudioapi             0.13       2020-11-12 [2] CRAN (R 3.6.3)
@@ -741,7 +740,6 @@ In this chunk, we would remove pathways apperaing in less than max(2 , 5% of sam
 ##    shiny                  1.7.1      2021-10-02 [1] CRAN (R 3.6.3)
 ##    ShortRead              1.44.3     2020-02-03 [1] Bioconductor
 ##    slam                   0.1-49     2021-11-17 [1] CRAN (R 3.6.3)
-##    sna                    2.6        2020-10-06 [1] CRAN (R 3.6.3)
 ##    statnet.common         4.5.0      2021-06-05 [1] CRAN (R 3.6.3)
 ##    stringi                1.7.4      2021-08-25 [1] CRAN (R 3.6.3)
 ##    stringr              * 1.4.0      2019-02-10 [2] CRAN (R 3.6.3)

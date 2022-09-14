@@ -27,7 +27,9 @@ docker pull harbor.xbiome.com/xbiome/environments/picrust2:v2.4.1-03d011a
 
 ## Run PICRUSt2  
 
-Check the required parameters of picrust2 docker image.  
+Run PICRUSt2 on 16S data.  If you have run PICRUSt2 and generated output files from PICRUSt2 already, please jump to [Interpret result table from PICRUSt2](#interpret-result-table-from-picrust2).
+
+Check the required parameters of PICRUSt2 docker image.  
 
 ```{bash}
 docker run -i --rm -u $(id -u):$(id -g) -v /home/tongbangzhuo/tongbangzhuo_Xbiome1/Project/PICRUSt2/:/in harbor.xbiome.com/xbiome/environments/picrust2:v2.4.1-03d011a bash -c "python picrust2_main.py --help"
@@ -35,11 +37,11 @@ docker run -i --rm -u $(id -u):$(id -g) -v /home/tongbangzhuo/tongbangzhuo_Xbiom
 
 **Three parameters are required:**  
 
-- INPUTDIR, specify your dada2 output folder as the input of picrust2 docker image.  
-- OUTPUTDIR, specify the output dirctory. Don't create the output folder your self, picrust2 docker image would take care of it.  
-- PARAM, config files of running picrust2 docker image. Usually use the default file in docker image: /opt/test/parameter_default.json  
+- **INPUTDIR**, specify your dada2 output folder as the input of picrust2 docker image.  
+- **OUTPUTDIR**, specify the output dirctory. Don't create the output folder your self, picrust2 docker image would take care of it.  
+- **PARAM**, config files of running picrust2 docker image. Usually use the default file in docker image: /opt/test/parameter_default.json  
 
-The whole process might take hours to finish. Demo data (3970 ASVs cost approximately 1 hour)  
+The whole process might take hours to finish. Demo data (3970 ASVs took approximately 1 hour)  
 
 ```markdown
 docker run -i --rm -u $(id -u):$(id -g) -v /home/tongbangzhuo/tongbangzhuo_Xbiome1/Project/PICRUSt2/:/in harbor.xbiome.com/xbiome/environments/picrust2:v2.4.1-03d011a bash -c "python picrust2_main.py -i /in/Demodata/ -o /in/output/ -p /opt/test/parameter_default.json"
@@ -47,17 +49,15 @@ docker run -i --rm -u $(id -u):$(id -g) -v /home/tongbangzhuo/tongbangzhuo_Xbiom
 
 ---
 
-## Use DA to interpret result table from PICRUSt2  
+## Interpret result table from PICRUSt2  
 
 There are many possible ways to analyze the PICRUSt2 output. STAMP is one tool that can be used that requires no background in scripting languages. This tool is very useful for visualizing microbiome data, but **note that there are better alternatives for conducting statistical tests with compositional data (such as the ALDEx2 R package)**. If you would like to try out STAMP for visualizing the PICRUSt2 output, see [here](https://github.com/picrust/picrust2/wiki/STAMP-example).
 
 No matter what analysis approach you take, you should be aware that **results based on differential abundance testing can vary substantially between shotgun metagenomics sequencing data and amplicon-based metagenome predictions based on the same samples. This is especially true for community-wide pathway predictions.** Please check out [this post](https://github.com/picrust/picrust2/wiki/Major-Bug-Reports-and-Announcements#updated-biorxiv-pre-print-and-major-caveats-highlighted) and [this response](https://github.com/picrust/picrust2/wiki/Frequently-Asked-Questions#how-should-i-analyze-the-picrust2-output) to a FAQ for more details.  
 
-_But here, we carry out DA on  KO profile table predicted from PICRUSt2 as demo._
+_**But here, we carry out DA on  KO profile table predicted from PICRUSt2 as demo.**_
 
 ### Read input  
-
-In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.
 
 Read profile table from PICRUSt2 result
 
@@ -81,11 +81,11 @@ phy <- phyloseq::phyloseq(otu_table(KO_profile %>% column_to_rownames('function'
          sample_data(metadata))
 ```
 
-### Preprocess
+### Data Preprocess (Picrust2)
 
-_**Data transformation**_  
+#### Data transformation (Picrust2)
 
-In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.  
+In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.  Alternatively, you can use rarefied 16s data as input for Picrust2 in [Run PICRUSt2](#run-picrust2) to eliminate the sequencing depth differences among samples. If rarefied 16s data is used, please jump to [Filter low prevalence pathway](#filter-low-prevalence-pathway) chunk directly.
 
 ```{r normalize KO profile, warning=FALSE}
 ## Normalize into relative abundance
@@ -95,9 +95,9 @@ phy_ra <- XMAS2::normalize(object = phy,
 head(otu_table(phy_ra))
 ```
 
-_**Aggregate low abundance data**_  
+#### Aggregate low abundance data (Picrust2)
 
-In this chunck, we aggregate low abundance features to one row. **Notably, you need to transform and remove unmapped entries in your data before running this chunk!!**  
+In this chunck, we aggregate low abundance features to one row. **Note: you need to [transform](#data-transformation-picrust2) your data before running this chunk!!**  
 
 _1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition](https://doi.org/10.1016/j.chom.2019.07.004)  
 pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default._  
@@ -115,9 +115,10 @@ filtered_phy_ra <- phyloseq::phyloseq(otu_table(filtered_KO_profile, taxa_are_ro
 
 ```
 
-_**Filter low prevalence pathway**_  
+#### Filter low prevalence pathway
 
-In this chunk, we would remove pathways apperaing in less than 5% of samples from data set before doing analysis. **Remember to run all three chunks in data preprocessing section before running this chunk!**  
+In this chunk, we remove pathways appearing in less than 5% of samples from data set before doing analysis.  
+**Note: Run [Data transformation](#data-transformation-picrust2) and [Aggregate low abundance data](#aggregate-low-abundance-data-picrust2) before running this chunk!**  
 
 ```{r filter low prevalence KO profile, warning=FALSE}
 
@@ -128,9 +129,10 @@ dim(otu_table(filtered_phy_ra))
 
 ```
 
-_**Run DA**_  
+#### Run DA  
 
-Run CLR transformed wilcoxon DA  
+Run CLR transformed wilcoxon DA.  
+**Remember to [Preprocess your data](#data-preprocess-picrust2) before running this chunk!**  
 
 ```{r run DA on KO profile, warning=FALSE}
 
@@ -145,7 +147,7 @@ head(DA_res)
 
 ```
 
-**Visualize DA result**  
+#### Visualize DA result  
 
 ```{r Visualize DA result, fig.width= 20, fig.height=9, warning=FALSE}
 ## Read in description for 

@@ -20,7 +20,7 @@ Target database inclues 7 types:
 
 ![FlowChart_KEGG](./flowcharts/FlowChart_TargetDB.jpg)
 
-** The analysis of the 7 types of target databases are pretty much the same, here we use CARD database as an example.**
+**The analysis of the 7 types of target databases are pretty much the same, here we use CARD database as an example.**
 
 ---
 
@@ -131,7 +131,7 @@ dim(card_profile)
 In this chunck, we aggregate low abundance features to one row.  
 _**1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper [Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition](https://doi.org/10.1016/j.chom.2019.07.004), pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.**_  
 
-Note: Run [Transforming data](#transforming-data-target-db) and [Remove unmapped pathways](remove-unppaed-pathways-target-db) before running this chunk!
+Note: Run [Transforming data](#transforming-data-target-db) and [Remove unmapped pathways](#remove-unppaed-pathways-target-db) before running this chunk!
 
 ```{r filter}
 
@@ -217,7 +217,7 @@ print(paste0(nrow(Filtered_card_profile), ' entries After filtering low prevalen
 
 ### DA with LM
 
-**Note: Please [Filter low prevalence pathway](filter-low-prevalence-pathway-da) before DA.**
+**Note: Please [Filter low prevalence pathway](#filter-low-prevalence-pathway-da) before DA.**
 
 ```{r DA}
 ## In this chunk, you would be using logistic regression model to find pathways that are significantly enriched in certain group.

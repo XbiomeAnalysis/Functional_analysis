@@ -24,7 +24,7 @@
 <meta name="author" content="Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,9 +225,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="picrust2.html"><a href="picrust2.html"><i class="fa fa-check"></i><b>6</b> PICRUSt2</a><ul>
 <li class="chapter" data-level="6.1" data-path="picrust2.html"><a href="picrust2.html#environment-setup-4"><i class="fa fa-check"></i><b>6.1</b> Environment Setup</a></li>
 <li class="chapter" data-level="6.2" data-path="picrust2.html"><a href="picrust2.html#run-picrust2"><i class="fa fa-check"></i><b>6.2</b> Run PICRUSt2</a></li>
-<li class="chapter" data-level="6.3" data-path="picrust2.html"><a href="picrust2.html#use-da-to-interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>6.3</b> Use DA to interpret result table from PICRUSt2</a><ul>
+<li class="chapter" data-level="6.3" data-path="picrust2.html"><a href="picrust2.html#interpret-result-table-from-picrust2"><i class="fa fa-check"></i><b>6.3</b> Interpret result table from PICRUSt2</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="picrust2.html"><a href="picrust2.html#read-input"><i class="fa fa-check"></i><b>6.3.1</b> Read input</a></li>
-<li class="chapter" data-level="6.3.2" data-path="picrust2.html"><a href="picrust2.html#preprocess"><i class="fa fa-check"></i><b>6.3.2</b> Preprocess</a></li>
+<li class="chapter" data-level="6.3.2" data-path="picrust2.html"><a href="picrust2.html#data-preprocess-picrust2"><i class="fa fa-check"></i><b>6.3.2</b> Data Preprocess (Picrust2)</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="picrust2.html"><a href="picrust2.html#session-info-3"><i class="fa fa-check"></i><b>6.4</b> Session info</a></li>
 </ul></li>
@@ -272,7 +272,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="run-picrust2" class="section level2">
 <h2><span class="header-section-number">6.2</span> Run PICRUSt2</h2>
-<p>Check the required parameters of picrust2 docker image.</p>
+<p>Run PICRUSt2 on 16S data. If you have run PICRUSt2 and generated output files from PICRUSt2 already, please jump to <a href="picrust2.html#interpret-result-table-from-picrust2">Interpret result table from PICRUSt2</a>.</p>
+<p>Check the required parameters of PICRUSt2 docker image.</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb100-1"><a href="picrust2.html#cb100-1"></a><span class="ex">docker</span> run -i --rm -u <span class="va">$(</span><span class="fu">id</span> -u<span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> -g<span class="va">)</span> -v /home/tongbangzhuo/tongbangzhuo_Xbiome1/Project/PICRUSt2/:/in harbor.xbiome.com/xbiome/environments/picrust2:v2.4.1-03d011a bash -c <span class="st">&quot;python picrust2_main.py --help&quot;</span></span></code></pre></div>
 <pre><code>## usage: picrust2_main.py [-h] -i INPUTDIR -o OUTPUTDIR [-b REFDB] [-r RESOURCE]
 ##                         -p PARAM
@@ -294,24 +295,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                         JSON format config file</code></pre>
 <p><strong>Three parameters are required:</strong></p>
 <ul>
-<li>INPUTDIR, specify your dada2 output folder as the input of picrust2 docker image.<br />
+<li><strong>INPUTDIR</strong>, specify your dada2 output folder as the input of picrust2 docker image.<br />
 </li>
-<li>OUTPUTDIR, specify the output dirctory. Don’t create the output folder your self, picrust2 docker image would take care of it.<br />
+<li><strong>OUTPUTDIR</strong>, specify the output dirctory. Don’t create the output folder your self, picrust2 docker image would take care of it.<br />
 </li>
-<li>PARAM, config files of running picrust2 docker image. Usually use the default file in docker image: /opt/test/parameter_default.json</li>
+<li><strong>PARAM</strong>, config files of running picrust2 docker image. Usually use the default file in docker image: /opt/test/parameter_default.json</li>
 </ul>
-<p>The whole process might take hours to finish. Demo data (3970 ASVs cost approximately 1 hour)</p>
+<p>The whole process might take hours to finish. Demo data (3970 ASVs took approximately 1 hour)</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb102-1"><a href="picrust2.html#cb102-1"></a>docker run -i --rm -u $(id -u):$(id -g) -v /home/tongbangzhuo/tongbangzhuo_Xbiome1/Project/PICRUSt2/:/in harbor.xbiome.com/xbiome/environments/picrust2:v2.4.1-03d011a bash -c &quot;python picrust2_main.py -i /in/Demodata/ -o /in/output/ -p /opt/test/parameter_default.json&quot;</span></code></pre></div>
 <hr />
 </div>
-<div id="use-da-to-interpret-result-table-from-picrust2" class="section level2">
-<h2><span class="header-section-number">6.3</span> Use DA to interpret result table from PICRUSt2</h2>
+<div id="interpret-result-table-from-picrust2" class="section level2">
+<h2><span class="header-section-number">6.3</span> Interpret result table from PICRUSt2</h2>
 <p>There are many possible ways to analyze the PICRUSt2 output. STAMP is one tool that can be used that requires no background in scripting languages. This tool is very useful for visualizing microbiome data, but <strong>note that there are better alternatives for conducting statistical tests with compositional data (such as the ALDEx2 R package)</strong>. If you would like to try out STAMP for visualizing the PICRUSt2 output, see <a href="https://github.com/picrust/picrust2/wiki/STAMP-example">here</a>.</p>
 <p>No matter what analysis approach you take, you should be aware that <strong>results based on differential abundance testing can vary substantially between shotgun metagenomics sequencing data and amplicon-based metagenome predictions based on the same samples. This is especially true for community-wide pathway predictions.</strong> Please check out <a href="https://github.com/picrust/picrust2/wiki/Major-Bug-Reports-and-Announcements#updated-biorxiv-pre-print-and-major-caveats-highlighted">this post</a> and <a href="https://github.com/picrust/picrust2/wiki/Frequently-Asked-Questions#how-should-i-analyze-the-picrust2-output">this response</a> to a FAQ for more details.</p>
-<p><em>But here, we carry out DA on KO profile table predicted from PICRUSt2 as demo.</em></p>
+<p><em><strong>But here, we carry out DA on KO profile table predicted from PICRUSt2 as demo.</strong></em></p>
 <div id="read-input" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Read input</h3>
-<p>In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.</p>
 <p>Read profile table from PICRUSt2 result</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="picrust2.html#cb103-1"></a><span class="co">## Load aldex</span></span>
 <span id="cb103-2"><a href="picrust2.html#cb103-2"></a><span class="kw">library</span>(ALDEx2)</span>
@@ -365,10 +365,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb107-4"><a href="picrust2.html#cb107-4"></a>phy &lt;-<span class="st"> </span>phyloseq<span class="op">::</span><span class="kw">phyloseq</span>(<span class="kw">otu_table</span>(KO_profile <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;function&#39;</span>), <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span>),</span>
 <span id="cb107-5"><a href="picrust2.html#cb107-5"></a>         <span class="kw">sample_data</span>(metadata))</span></code></pre></div>
 </div>
-<div id="preprocess" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> Preprocess</h3>
-<p><em><strong>Data transformation</strong></em></p>
-<p>In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.</p>
+<div id="data-preprocess-picrust2" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Data Preprocess (Picrust2)</h3>
+<div id="data-transformation-picrust2" class="section level4">
+<h4><span class="header-section-number">6.3.2.1</span> Data transformation (Picrust2)</h4>
+<p>In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples. Alternatively, you can use rarefied 16s data as input for Picrust2 in <a href="picrust2.html#run-picrust2">Run PICRUSt2</a> to eliminate the sequencing depth differences among samples. If rarefied 16s data is used, please jump to <a href="functional-analysis-of-metacyc-database.html#filter-low-prevalence-pathway">Filter low prevalence pathway</a> chunk directly.</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="picrust2.html#cb108-1"></a><span class="co">## Normalize into relative abundance</span></span>
 <span id="cb108-2"><a href="picrust2.html#cb108-2"></a>phy_ra &lt;-<span class="st"> </span>XMAS2<span class="op">::</span><span class="kw">normalize</span>(<span class="dt">object =</span> phy,</span>
 <span id="cb108-3"><a href="picrust2.html#cb108-3"></a>                 <span class="dt">method =</span> <span class="st">&quot;TSS&quot;</span>)</span>
@@ -425,8 +426,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## K00004 6.021716e-07 1.985848e-07 2.049126e-07 7.797750e-07 0.000000e+00 2.467459e-07 4.846931e-07 0.000000e+00
 ## K00005 5.545355e-05 1.542305e-04 1.772590e-04 1.166953e-04 3.857103e-05 4.328334e-05 3.921410e-05 1.153191e-04
 ## K00007 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 1.088959e-07</code></pre>
-<p><em><strong>Aggregate low abundance data</strong></em></p>
-<p>In this chunck, we aggregate low abundance features to one row. <strong>Notably, you need to transform and remove unmapped entries in your data before running this chunk!!</strong></p>
+</div>
+<div id="aggregate-low-abundance-data-picrust2" class="section level4">
+<h4><span class="header-section-number">6.3.2.2</span> Aggregate low abundance data (Picrust2)</h4>
+<p>In this chunck, we aggregate low abundance features to one row. <strong>Note: you need to <a href="picrust2.html#data-transformation-picrust2">transform</a> your data before running this chunk!!</strong></p>
 <p><em>1e-12 is an empirical threshold fot filtering low abundance feature. According to published paper <a href="https://doi.org/10.1016/j.chom.2019.07.004">Obese Individuals with and without Type 2 Diabetes Show Different Gut Microbial Functional Capacity and Composition</a><br />
 pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLin2，pathway with abundance less than 10-10 are filtered by default.</em></p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="picrust2.html#cb110-1"></a><span class="kw">source</span>(<span class="st">&quot;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Phase1/Kegg/Scripts/R/ultility.R&quot;</span>)</span>
@@ -438,15 +441,21 @@ pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLi
 <pre><code>## [1] 7287   80</code></pre>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="picrust2.html#cb112-1"></a>filtered_phy_ra &lt;-<span class="st"> </span>phyloseq<span class="op">::</span><span class="kw">phyloseq</span>(<span class="kw">otu_table</span>(filtered_KO_profile, <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span>),</span>
 <span id="cb112-2"><a href="picrust2.html#cb112-2"></a>                            <span class="kw">sample_data</span>(metadata))</span></code></pre></div>
-<p><em><strong>Filter low prevalence pathway</strong></em></p>
-<p>In this chunk, we would remove pathways apperaing in less than 5% of samples from data set before doing analysis. <strong>Remember to run all three chunks in data preprocessing section before running this chunk!</strong></p>
+</div>
+<div id="filter-low-prevalence-pathway-1" class="section level4">
+<h4><span class="header-section-number">6.3.2.3</span> Filter low prevalence pathway</h4>
+<p>In this chunk, we remove pathways appearing in less than 5% of samples from data set before doing analysis.<br />
+<strong>Note: Run <a href="picrust2.html#data-transformation-picrust2">Data transformation</a> and <a href="picrust2.html#aggregate-low-abundance-data-picrust2">Aggregate low abundance data</a> before running this chunk!</strong></p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="picrust2.html#cb113-1"></a><span class="co">## Filter features whose frequency are less than 0.05. </span></span>
 <span id="cb113-2"><a href="picrust2.html#cb113-2"></a>filtered_phy_ra &lt;-<span class="st"> </span>XMAS2<span class="op">::</span><span class="kw">run_trim</span>(<span class="dt">object =</span> filtered_phy_ra, <span class="dt">cutoff =</span> <span class="fl">0.05</span>, <span class="dt">trim =</span> <span class="st">&quot;feature&quot;</span>)</span>
 <span id="cb113-3"><a href="picrust2.html#cb113-3"></a></span>
 <span id="cb113-4"><a href="picrust2.html#cb113-4"></a><span class="kw">dim</span>(<span class="kw">otu_table</span>(filtered_phy_ra))</span></code></pre></div>
 <pre><code>## [1] 6542   80</code></pre>
-<p><em><strong>Run DA</strong></em></p>
-<p>Run CLR transformed wilcoxon DA</p>
+</div>
+<div id="run-da" class="section level4">
+<h4><span class="header-section-number">6.3.2.4</span> Run DA</h4>
+<p>Run CLR transformed wilcoxon DA.<br />
+<strong>Remember to <a href="picrust2.html#data-preprocess-picrust2">Preprocess your data</a> before running this chunk!</strong></p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="picrust2.html#cb115-1"></a><span class="co">## Run DA</span></span>
 <span id="cb115-2"><a href="picrust2.html#cb115-2"></a>DA_res &lt;-<span class="st"> </span>XMAS2<span class="op">::</span><span class="kw">run_wilcox</span>(</span>
 <span id="cb115-3"><a href="picrust2.html#cb115-3"></a>                    <span class="dt">ps =</span> filtered_phy_ra,</span>
@@ -476,7 +485,9 @@ pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLi
 ## 4                       92                         100                        86.67     0.23 (-2.7;3.1)
 ## 5                      100                         100                       100.00     0.23 (-2.6;3.1)
 ## 6                       60                         100                        33.33     0.18 (-3.2;3.6)</code></pre>
-<p><strong>Visualize DA result</strong></p>
+</div>
+<div id="visualize-da-result" class="section level4">
+<h4><span class="header-section-number">6.3.2.5</span> Visualize DA result</h4>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="picrust2.html#cb117-1"></a><span class="co">## Read in description for </span></span>
 <span id="cb117-2"><a href="picrust2.html#cb117-2"></a>ID_Description_Mapping &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;/share/projects/SOP/Functional_Analysis/Tongbangzhuo/Demodata/PICRUSt2/output/KO_metagenome_out/pred_metagenome_unstrat_descrip.tsv&#39;</span>,</span>
 <span id="cb117-3"><a href="picrust2.html#cb117-3"></a>                                     <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">comment.char =</span> <span class="st">&#39;&#39;</span>, <span class="dt">na.strings =</span> <span class="st">&#39;&#39;</span>, <span class="dt">quote =</span> <span class="st">&#39;&#39;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span>.[, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;function&#39;</span>)</span>
@@ -520,6 +531,7 @@ pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLi
 <hr />
 </div>
 </div>
+</div>
 <div id="session-info-3" class="section level2">
 <h2><span class="header-section-number">6.4</span> Session info</h2>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="picrust2.html#cb119-1"></a>devtools<span class="op">::</span><span class="kw">session_info</span>()</span></code></pre></div>
@@ -533,7 +545,7 @@ pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLi
 ##  collate  en_IN.UTF-8
 ##  ctype    en_IN.UTF-8
 ##  tz       Asia/Hong_Kong
-##  date     2022-09-13
+##  date     2022-09-14
 ##  rstudio  1.1.419 (server)
 ##  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)
 ## 
@@ -738,7 +750,6 @@ pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLi
 ##    rpart                  4.1-15     2019-04-12 [2] CRAN (R 3.6.3)
 ##    rprojroot              2.0.2      2020-11-15 [1] CRAN (R 3.6.3)
 ##    Rsamtools              2.2.3      2020-02-23 [1] Bioconductor
-##    rsconnect              0.8.25     2021-11-19 [1] CRAN (R 3.6.3)
 ##    RSQLite                2.2.7      2021-04-22 [1] CRAN (R 3.6.3)
 ##    rstatix                0.7.0      2021-02-13 [1] CRAN (R 3.6.3)
 ##    rstudioapi             0.13       2020-11-12 [2] CRAN (R 3.6.3)
