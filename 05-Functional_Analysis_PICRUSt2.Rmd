@@ -85,7 +85,7 @@ phy <- phyloseq::phyloseq(otu_table(KO_profile %>% column_to_rownames('function'
 
 #### Data transformation (Picrust2)
 
-In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.  Alternatively, you can use rarefied 16s data as input for Picrust2 in [Run PICRUSt2](#run-picrust2) to eliminate the sequencing depth differences among samples. If rarefied 16s data is used, please jump to [Filter low prevalence pathway](#filter-low-prevalence-pathway) chunk directly.
+In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples.  Alternatively, you can use rarefied 16s data as input for Picrust2 in [Run PICRUSt2](#run-picrust2) to eliminate the sequencing depth differences among samples. If rarefied 16s data is used, please jump to [Filter low prevalence pathway](#filter-low-prevalence-pathway-picrust2) chunk directly.
 
 ```{r normalize KO profile, warning=FALSE}
 ## Normalize into relative abundance
@@ -115,7 +115,7 @@ filtered_phy_ra <- phyloseq::phyloseq(otu_table(filtered_KO_profile, taxa_are_ro
 
 ```
 
-#### Filter low prevalence pathway
+#### Filter low prevalence pathway (Picrust2)
 
 In this chunk, we remove pathways appearing in less than 5% of samples from data set before doing analysis.  
 **Note: Run [Data transformation](#data-transformation-picrust2) and [Aggregate low abundance data](#aggregate-low-abundance-data-picrust2) before running this chunk!**  

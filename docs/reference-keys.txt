@@ -81,7 +81,7 @@ read-input
 data-preprocess-picrust2
 data-transformation-picrust2
 aggregate-low-abundance-data-picrust2
-filter-low-prevalence-pathway-1
+filter-low-prevalence-pathway-picrust2
 run-da
 visualize-da-result
 session-info-3

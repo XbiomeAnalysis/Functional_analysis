@@ -369,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.3.2</span> Data Preprocess (Picrust2)</h3>
 <div id="data-transformation-picrust2" class="section level4">
 <h4><span class="header-section-number">6.3.2.1</span> Data transformation (Picrust2)</h4>
-<p>In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples. Alternatively, you can use rarefied 16s data as input for Picrust2 in <a href="picrust2.html#run-picrust2">Run PICRUSt2</a> to eliminate the sequencing depth differences among samples. If rarefied 16s data is used, please jump to <a href="functional-analysis-of-metacyc-database.html#filter-low-prevalence-pathway">Filter low prevalence pathway</a> chunk directly.</p>
+<p>In this chunk, we use TSS (Total sum scaling) to eliminate the influence of sequencing depth on samples. Alternatively, you can use rarefied 16s data as input for Picrust2 in <a href="picrust2.html#run-picrust2">Run PICRUSt2</a> to eliminate the sequencing depth differences among samples. If rarefied 16s data is used, please jump to <a href="picrust2.html#filter-low-prevalence-pathway-picrust2">Filter low prevalence pathway</a> chunk directly.</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="picrust2.html#cb108-1"></a><span class="co">## Normalize into relative abundance</span></span>
 <span id="cb108-2"><a href="picrust2.html#cb108-2"></a>phy_ra &lt;-<span class="st"> </span>XMAS2<span class="op">::</span><span class="kw">normalize</span>(<span class="dt">object =</span> phy,</span>
 <span id="cb108-3"><a href="picrust2.html#cb108-3"></a>                 <span class="dt">method =</span> <span class="st">&quot;TSS&quot;</span>)</span>
@@ -442,8 +442,8 @@ pathway with top 50% mean abundance and top 50% variance are left. But in MaAsLi
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="picrust2.html#cb112-1"></a>filtered_phy_ra &lt;-<span class="st"> </span>phyloseq<span class="op">::</span><span class="kw">phyloseq</span>(<span class="kw">otu_table</span>(filtered_KO_profile, <span class="dt">taxa_are_rows =</span> <span class="ot">TRUE</span>),</span>
 <span id="cb112-2"><a href="picrust2.html#cb112-2"></a>                            <span class="kw">sample_data</span>(metadata))</span></code></pre></div>
 </div>
-<div id="filter-low-prevalence-pathway-1" class="section level4">
-<h4><span class="header-section-number">6.3.2.3</span> Filter low prevalence pathway</h4>
+<div id="filter-low-prevalence-pathway-picrust2" class="section level4">
+<h4><span class="header-section-number">6.3.2.3</span> Filter low prevalence pathway (Picrust2)</h4>
 <p>In this chunk, we remove pathways appearing in less than 5% of samples from data set before doing analysis.<br />
 <strong>Note: Run <a href="picrust2.html#data-transformation-picrust2">Data transformation</a> and <a href="picrust2.html#aggregate-low-abundance-data-picrust2">Aggregate low abundance data</a> before running this chunk!</strong></p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="picrust2.html#cb113-1"></a><span class="co">## Filter features whose frequency are less than 0.05. </span></span>
