@@ -24,7 +24,7 @@
 <meta name="author" content="Bangzhuo Tong" />
 
 
-<meta name="date" content="2022-09-14" />
+<meta name="date" content="2022-10-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -334,7 +334,7 @@ For more detail, see <em><a href="https://www.nature.com/articles/s41598-020-785
 <span id="cb86-17"><a href="msea.html#cb86-17"></a>    }</span>
 <span id="cb86-18"><a href="msea.html#cb86-18"></a>    lst[[i]] &lt;-<span class="st"> </span>count_vec</span>
 <span id="cb86-19"><a href="msea.html#cb86-19"></a>  }</span>
-<span id="cb86-20"><a href="msea.html#cb86-20"></a>  bipartite_tbl &lt;-<span class="st"> </span><span class="kw">cbind</span>(Top_MSEA_res, <span class="kw">as.data.frame</span>(lst)) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(term, <span class="kw">all_of</span>(All_Genus_in_res)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;term&#39;</span>)</span>
+<span id="cb86-20"><a href="msea.html#cb86-20"></a>  bipartite_tbl &lt;-<span class="st"> </span><span class="kw">cbind</span>(df, <span class="kw">as.data.frame</span>(lst)) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(term, <span class="kw">all_of</span>(All_Genus_in_res)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">column_to_rownames</span>(<span class="st">&#39;term&#39;</span>)</span>
 <span id="cb86-21"><a href="msea.html#cb86-21"></a>  <span class="kw">return</span>(bipartite_tbl)</span>
 <span id="cb86-22"><a href="msea.html#cb86-22"></a>}</span>
 <span id="cb86-23"><a href="msea.html#cb86-23"></a></span>
@@ -462,7 +462,7 @@ The next chunk shows you how to run enrichR on R studio, you can either run enri
 <div id="session-info-2" class="section level2">
 <h2><span class="header-section-number">5.7</span> Session info</h2>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="msea.html#cb97-1"></a>devtools<span class="op">::</span><span class="kw">session_info</span>()</span></code></pre></div>
-<pre><code>## ─ Session info ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 3.6.3 (2020-02-29)
 ##  os       Ubuntu 16.04.7 LTS
@@ -472,17 +472,17 @@ The next chunk shows you how to run enrichR on R studio, you can either run enri
 ##  collate  en_IN.UTF-8
 ##  ctype    en_IN.UTF-8
 ##  tz       Asia/Hong_Kong
-##  date     2022-09-14
+##  date     2022-10-20
 ##  rstudio  1.1.419 (server)
 ##  pandoc   2.7.3 @ /usr/bin/ (via rmarkdown)
 ## 
-## ─ Packages ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  ! package              * version    date (UTC) lib source
 ##    abind                  1.4-5      2016-07-21 [1] CRAN (R 3.6.3)
 ##    ade4                   1.7-17     2021-06-17 [1] CRAN (R 3.6.3)
-##    ALDEx2               * 1.18.0     2019-10-29 [1] Bioconductor
+##    ALDEx2                 1.18.0     2019-10-29 [1] Bioconductor
 ##    annotate               1.64.0     2019-10-29 [1] Bioconductor
-##    AnnotationDbi        * 1.48.0     2019-10-29 [1] Bioconductor
+##    AnnotationDbi        * 1.58.0     2022-04-26 [1] Bioconductor
 ##    ape                    5.5        2021-04-25 [1] CRAN (R 3.6.3)
 ##    assertthat             0.2.1      2019-03-21 [2] CRAN (R 3.6.3)
 ##    backports              1.4.1      2021-12-13 [1] CRAN (R 3.6.3)
@@ -722,7 +722,7 @@ The next chunk shows you how to run enrichR on R studio, you can either run enri
 ##    xlsx                 * 0.6.5      2020-11-10 [1] CRAN (R 3.6.3)
 ##    xlsxjars               0.6.1      2014-08-22 [1] CRAN (R 3.6.3)
 ##    XMAS                 * 0.0.0.9000 2022-03-23 [1] local
-##    XMAS2                  2.1.7.9    2022-09-09 [2] local
+##    XMAS2                  2.1.8.1    2022-10-17 [2] local
 ##    XML                    3.99-0.3   2020-01-20 [1] CRAN (R 3.6.3)
 ##    xml2                   1.3.3      2021-11-30 [2] CRAN (R 3.6.3)
 ##    xtable                 1.8-4      2019-04-21 [1] CRAN (R 3.6.3)
@@ -737,7 +737,7 @@ The next chunk shows you how to run enrichR on R studio, you can either run enri
 ## 
 ##  R ── Package was removed from disk.
 ## 
-## ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
+## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 
 </div>
 </div>

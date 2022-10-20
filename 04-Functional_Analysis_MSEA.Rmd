@@ -92,7 +92,7 @@ Transform_data <- function(df){
     }
     lst[[i]] <- count_vec
   }
-  bipartite_tbl <- cbind(Top_MSEA_res, as.data.frame(lst)) %>% dplyr::select(term, all_of(All_Genus_in_res)) %>% column_to_rownames('term')
+  bipartite_tbl <- cbind(df, as.data.frame(lst)) %>% dplyr::select(term, all_of(All_Genus_in_res)) %>% column_to_rownames('term')
   return(bipartite_tbl)
 }
 
