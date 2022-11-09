@@ -422,11 +422,11 @@ for (pathway in Diff_pathway){
     ## Calculate log2FC for each KO and save the value in list
     ## Please be clear which group is divided by the other, it decides the direction of your log2fc
     ## Positive log2fc value would be highlighted in red in pathview result while negative log2fc value would be highlighted in green
-    log2fc_list[[ko]] <- log2(GroupA_median - GroupB_median)
+    log2fc_list[[ko]] <- log2(GroupA_median/GroupB_median)
   }
   
     ## converst list to data frame and use it as input for pathview
-    input <- as.matrix(log2fc_list) %>% as.matrix()
+    input <- unlist(log2fc_list) %>% as.data.frame()
     
     ## Visualization
     pathview(input, pathway.id = pathway, species = "ko", out.suffix= 'PathView')

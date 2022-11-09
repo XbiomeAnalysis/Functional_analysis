@@ -5,6 +5,7 @@ from msea import SetLibrary
 import argparse
 import pandas as pd
 import sys
+import random
 
 ## Define arguments
 parser = argparse.ArgumentParser(description='Run Microbe-set Enrichment Analysis (MSEA)')
@@ -37,6 +38,7 @@ def Run_MSEA(GenusList, PerturbationTimes):
 
     print('\nReading database file\n')
     set_library = SetLibrary.load(gmt_filepath)     ## Read human-gene associated microbes library from url.
+    random.seed(1)
     set_library.get_empirical_ranks(n=PerturbationTimes)      ## Randomly sampled (n times), without replacement, a universe of microbes under consideration to remove the bias of Fisher's exact test. n is the number of perturbation.
 
     microbe_set_input = set(GenusList)
